@@ -1,0 +1,177 @@
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2012-12-27
+*/
+
+/* ----------------------------- */
+/* ==Kit */
+/* @note : Tous les éléments de personnalisation doivent être présents ici.
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
+/*
+ 1- Typographie
+ 2- Couleurs
+ 3- Liens
+ 4- Messages & boutons
+ 5- Contenus
+ 6- Formulaires
+ 7- Tableaux
+*/
+
+
+/* =Typographie 
+ * @see : http://www.codestyle.org/servlets/FontStack
+ * @see : http://ffffallback.com/
+*/
+body {
+	font-family: Lucida Sans Unicode, Lucida Sans, sans-serif;
+}
+blockquote {
+    font-style: italic;
+}
+code,
+pre,
+samp {
+	font-family: Lucida Sans Typewriter, monospace;
+}
+
+/* =Couleurs */
+body {
+    background-color: #f2f2e2;
+    color: #333;
+}
+
+/* =Liens */
+a {
+  
+}
+a:hover,
+a:active,
+a:focus {
+    /* Penser au focus */
+}
+a:visited {
+
+}
+a[target="_blank"] {
+    /* Signaler les liens externes */
+}
+.mail,
+a[href^="mailto:"] {
+    /* Contact, liens mailto */
+}
+a[href$=".pdf"] {
+    /* Liens vers un .pdf */
+}
+.skip {
+    color: #f2f2e2; /* Les liens d'évitement sont de la même couleur que le fond. */
+}
+.skip:focus {
+    color: #333; /* Au focus, ils apparaissent. */
+}
+mark {
+    font-weight: bold;
+}
+#logo {
+    /* .ir masque le texte, maintenant il faut afficher l'image. */
+    background: url(../img/ffeeeedd.png) no-repeat 0 0;
+    /* Doivent être les dimensions de l'image */
+    height: 178px;
+    width: 178px;
+}
+#site-title {
+    vertical-align: middle;
+}
+.menu a {
+    display: inline-block;
+    padding: 1em 2em;
+}
+
+/* =Messages & boutons */
+.warning {}
+.error {}
+.success {}
+
+/* =Contenus */
+.page-numbers, 
+form li {
+    list-style: none;
+}
+.page-numbers li {
+    display: inline-block;
+}
+
+/* =Formulaires */
+form {
+
+}
+form label {
+	display: inline-block;
+	min-width: 200px;
+}
+input {
+	padding: .2em 0 .2em .2em;
+	border: 1px solid #ccc;
+}
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea,
+button,
+input[type="button"],
+input[type="reset"] {
+	min-width: 100px;
+}
+
+/* =Tableaux */
+table,
+.table {
+	display: table;
+	table-layout: fixed;
+	border-collapse: collapse;
+	vertical-align: top;
+}
+table {
+	width: 100%;
+	caption-side: bottom;
+}
+caption {
+	padding: 10px;
+	color: #555;
+	font-style: italic;
+}
+tbody { border: 1px solid #ccc; }
+tbody tr:nth-child(odd) {
+	background: #eee;
+}
+tbody tr > * + * {
+	border-left: 1px solid rgba(0, 0, 0, .05);
+}
+tr > :last-child {
+	text-align: right;
+}
+table th,
+table td {
+	padding: 10px 20px;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+}
+table td {
+	color: #555;
+}

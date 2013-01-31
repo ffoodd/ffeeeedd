@@ -1,0 +1,12 @@
+@note À lire avant d'étendre le thème ffeeeedd
+@author Gaël Poupard 
+
+Chaque extension dispose d'un dossier contenant les fichiers utiles :
+* Fichier .css à ajouter aux styles ( via @import dans un premier temps )
+* Fichier .js à ajouter à script.js
+* Fichier .php commenté : son contenu est à insérer aux endroits indiqués.
+* Fichiers .php : templates éventuels ( search.php, searchform.php par exemple )
+
+Les styles devront hériter de la cascade - et donc profiter du kit.
+
+En cas de manipulation plus avancée, un fichier .txt spécifique sera inclus dans le répertoire de l'extension.

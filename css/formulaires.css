@@ -1,0 +1,80 @@
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2012-12-27
+* @subsection Références :
+  * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
+  * @see HTML5boilerplate
+  * @see github.com/nathansmith/formalize
+  * @see www.sitepen.com 
+*/
+
+/* ----------------------------- */
+/* ==Formulaires */
+/* @note : Aucun de ces éléments ne doit être modifié. 
+ * Pour les modifier, utiliser la partie "Kit" et s'appuyer autant que possible sur la cascade.
+/* ----------------------------- */
+
+form,
+fieldset {
+	border: 0;
+}
+input,
+button,
+select,
+label {
+	vertical-align: middle; /* @bugfix alignment */
+}
+
+/* Éléments de formulaires */
+label { cursor: pointer; }
+legend {
+	border: 0;
+	white-space: normal;
+}
+button,
+input,
+select {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+}
+textarea {
+	overflow: auto; /* Supprime la scrollbar par défaut sur IE6/7/8/9 */
+	min-height: 5em;
+	font-size: 1.75em;
+	vertical-align: top;
+	resize: vertical;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button; /* Types d'input cliquables sur iOS */
+}
+input[type="checkbox"],
+input[type="radio"] {
+	padding: 0; /* Corrige un espace excessif sur IE8/9 */
+}
+input[type="search"] { -webkit-appearance: textfield; }
+
+/* 'x' apparait à droite d'un champ de recherche lorsqu'un texte est entré. Ceci le retire */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+	display: none;
+}
+::-webkit-input-placeholder { color: #777; }
+input:-moz-placeholder,
+textarea:-moz-placeholder   { color: #777; }
+
+/* Retire les marges internes et les bordures sur FF3+ */
+button::-moz-focus-inner,
+input[type='button']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}

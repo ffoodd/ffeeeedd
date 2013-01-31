@@ -1,0 +1,64 @@
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2012-12-27
+* @subsection Références :
+  * @see https://github.com/redroot/holmes/blob/master/holmes.css
+  * @version v1.0.1
+  * @author : @luke_redroot
+  * @see "Intégration Web, les bonnes pratiques", pages 335/336.
+  * @author : Corinne Schillinger, Inseo.
+ * @note : on utilise outline plutôt que border afin de ne pas modifier les dimensions des éléments.
+*/
+
+/*
+ * @note : Sert à détecter les liens utilisés comme boutons d'action,
+ * certains liens temporaires dont l'url n'est pas renseignée,
+ * ainsi que les liens sans titre.
+*/
+a[href="#"],
+a[href^="javascript"],
+a[title=""] {
+    color: Crimson !important;
+}
+/* @note : Sert à détecter les liens sans cibles, ou dont la cible est vide. */
+a:not([href]),
+a[href=""] {
+	outline: 4px solid Gold !important;
+}
+
+
+/* Entoure d'un trait continu les images n'ayant pas d'alternatives textuelles. */
+img:not([alt]) {
+    outline: 4px solid Crimson !important;
+}
+
+/* Entoure d'un trait pointillé les images ayant une alternative textuelle vide. */
+img[alt=""] {
+    outline: 4px dashed Crimson !important;
+}
+
+/* Détecte les attributs manquants dans les formulaires. */
+label:not([for]),
+label[for=""],
+input:not([name]),
+input[name=""],
+select:not([name]),
+select[name=""],
+textarea:not([name]),
+textarea[name=""] {
+	outline: 4px solid Crimson !important;
+}
+
+/* 
+ * Affiche un arrière-plan sous les éléments vides.
+ * @note : Ces derniers sont à supprimer du code.
+*/
+div:empty,
+span:empty,
+li:empty,
+p:empty,
+td:empty,
+th:empty {
+    background: Gold !important;
+}

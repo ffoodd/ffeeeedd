@@ -1,0 +1,178 @@
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2012-12-27
+* @subsection Références :
+  * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
+  * @see http://soqr.fr/vertical-rhythm/ @author : @eQRoeil
+*/
+
+/* ----------------------------- */
+/* ==Reset */
+/* @note : Aucun de ces éléments ne doit être modifié. 
+ * Pour les modifier, utiliser la partie "Kit" et s'appuyer autant que possible sur la cascade.
+/* ----------------------------- */
+
+/* Le corps de base correspond à 10px pour faciliter le calcul des rem */
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.4em; /* = 14px */
+	line-height: 1.5; /* s'adapte à votre design */
+}
+
+/* Corps du texte pour le contenu */
+/* Préserve le rythme vertical */
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea {
+	font-size: 1em; /* = 14px */
+	line-height: 1.5em;
+	margin: 1.5em 0;
+}
+h1, .h1-like {
+    font-size: 5.1429em; /* = 72px */
+    line-height: .8751em;
+    margin: .5834em 0 .2917em 0;
+}
+h2, .h2-like {
+    font-size: 2.5714em; /* = 36px */
+    line-height: 1.1666em;
+    margin: 1.1666em 0 .5833em 0;
+}
+h3, .h3-like {
+    font-size: 1.7143em; /* = 24px */
+    line-height: 1.75em;
+    margin: 1.75em 0 .875em 0;
+}
+h4, .h4-like {
+    font-size: 1.2857em; /* = 18px */
+    line-height: 1.1667em;
+    margin: 2.3334em 0 1.1667em 0;
+}
+h5, .h5-like {
+    font-size: 1.1429em; /* = 16px */
+    line-height: 1.3125em;
+    margin: 2.625em 0 1.3125em 0;
+}
+h6, .h6-like {
+    font-size: 1em; /* = 14px */
+    line-height: 1.5em;
+    margin: 3em 0  1.5em 0;
+}
+
+/* Corps alternatif */
+.smaller {
+    font-size: .8571em; /* = 12px */
+    line-height: 1.75em;
+    margin: 1.75em 0;
+}
+.small {
+    font-size: .8571em; /* = 12px */
+    line-height: 1.75em;
+    margin: 1.75em 0;
+}
+.big {
+    font-size: 1.1429em; /* = 16px */
+    line-height: 1.3125em;
+    margin: 1.3125em 0;
+}
+.bigger {
+    font-size: 1.2857em; /* = 18px */
+    line-height: 1.1667em;
+    margin: 1.1667em 0;
+}
+.biggest {
+    font-size: 1.7143em; /* = 24px */
+    line-height: 1.75em;
+    margin: .875em 0;
+}
+
+/* Soft reset */
+html,
+body,
+label {
+	margin: 0;
+	padding: 0;
+}
+ul,
+ol,
+blockquote {
+	padding-left: 2em;
+}
+a {
+    text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: underline;
+}
+code,
+pre,
+samp {
+	white-space: pre-wrap;
+}
+code { line-height: 1em; }
+table { margin-bottom: 21px; }
+.m-reset { margin: 0 !important; }
+.p-reset { padding: 0 !important; }
+
+/* Élude la fusion des marges pour les titrailles */
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
+}
+
+/* Élude la fusion des marges pour les éléments imbriqués */
+li p,
+li ul,
+li ol {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Balises HTML5 */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+	display: block;
+}
+
+/* Valeurs maximum */
+img, table, td, blockquote, code, pre, textarea, input, video {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Vous ne passerez pas ! */
+textarea, table, td, th, code, pre, samp, div {
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
+}
+
+/* Images */
+img {
+	width: auto;
+	vertical-align: middle;
+}
+a img { border: 0; }
+a:hover img,
+a:active img,
+a:focus img {
+    outline: 4px solid inherit;
+}
