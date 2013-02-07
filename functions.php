@@ -63,7 +63,7 @@
 
     // Ajoute un lien "Lire la suite" après l'extrait
     function continue_reading() {
-        return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Lire la suite <span class="meta-nav">&rarr;</span>' ) . '</a>';
+        return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ). get_the_title() .( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
     }
     
     // Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite"
