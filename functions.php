@@ -282,6 +282,29 @@
         endswitch;
     }
     endif;
+    
+	// Ajout des types de champs HTML5 url et email sur les commentaires
+	add_filter('comment_form_defaults', 'fields_html5');
+	
+	if ( !function_exists('fields_html5')) {
+		function fields_html5( $fields ) {
+			// Type email
+			$fields['fields']['email'] = '
+				<p class="comment-form-email">
+					<label for="email">'. __( 'Email' ) .' <span class="required">*</span></label>
+					<input id="email" name="email" value="" aria-required="true" size="30" type="email" />
+				</p>
+			';
+			// Type url et placeholder http://
+			$fields['fields']['url'] = '
+				<p class="comment-form-url"> 
+					<label for="url">'. __( 'Website' ) .'</label>
+					<input id="url" name="url" value="" placeholder="http://" size="30" type="url" />
+				</p>
+			';
+		return $fields;
+		}
+	} 
 
     // Recherche améliorée
     function recherche($query) {
