@@ -58,4 +58,42 @@ if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
             break;
         endswitch;
     }
-    endif; ?>
+    endif;
+
+	// Ajout des types de champs HTML5 url et email sur les commentaires
+	// Ajout de l'attribut HTML5 required sur le nom et l'email
+	add_filter('comment_form_defaults', 'fields_html5');
+	
+	if ( !function_exists('fields_html5')) {
+		function fields_html5( $fields ) {
+			// Type author
+			$fields['fields']['author'] = '
+				<p class="comment-form-author">
+					<label for="author">'. __( 'Name' ) .' <span class="required">*</span></label>
+					<input id="author" name="author" value="" aria-required="true" required="required" size="30" type="text" />
+				</p>
+			';
+			// Type email
+			$fields['fields']['email'] = '
+				<p class="comment-form-email">
+					<label for="email">'. __( 'Email' ) .' <span class="required">*</span></label>
+					<input id="email" name="email" value="" aria-required="true" required="required" size="30" type="email" />
+				</p>
+			';
+			// Type url et placeholder http://
+			$fields['fields']['url'] = '
+				<p class="comment-form-url"> 
+					<label for="url">'. __( 'Website' ) .'</label>
+					<input id="url" name="url" value="" placeholder="http://" size="30" type="url" />
+				</p>
+			';
+		return $fields;
+		}
+	}  
+	
+	// Ajout de l'attribut HTML5 required sur le textarea
+	add_filter('comment_form_defaults','changing_comment_form_defaults');
+	function changing_comment_form_defaults($defaults){
+		$defaults['comment_field']='<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
+		return $defaults;
+	} ?>
