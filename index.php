@@ -20,7 +20,7 @@ get_header(); ?>
         <?php while ( have_posts() ) : the_post(); ?>
             <li class="mb2">
                <article itemscope itemtype="http://schema.org/Article">
-                    <h3 itemprop="name"><a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a></h3>
+                    <h3 itemprop="name"><a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a></h3>
                     <time datetime="<?php the_time( 'j-F-Y' ); ?>" pubdate itemprop="datePublished"><?php the_date(); ?></time>
                     <?php $excerpt = get_the_excerpt() ?>
                     <p itemprop="description"><?php echo $excerpt ?></p>
