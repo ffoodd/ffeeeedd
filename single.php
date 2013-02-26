@@ -28,7 +28,8 @@ get_header(); ?>
                     echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans ' . $categories_list . '.</p>';
                  } else { 
                     echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
-                 } ?>                
+                 } ?>
+                <p>Édité le <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
                 <p>
                     <a href="http://twitter.com/home?status=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Twitter">Partager sur Twitter</a>
                     <a href="http://www.facebook.com/share.php?u=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Facebook">Partager sur facebook</a>

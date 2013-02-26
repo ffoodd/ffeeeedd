@@ -22,7 +22,7 @@ if ( post_password_required() )
 		<h2 class="comments-title" itemprop="interactionCount">
 			<?php
 				printf( _n( 'Une réponse sur &ldquo;%2$s&rdquo;', '%1$s réponses surs &ldquo;%2$s&rdquo;', get_comments_number(), '' ),
-					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+					number_format_i18n( get_comments_number() ), '<span itemprop="discusses">' . get_the_title() . '</span>' );
 			?>
 		</h2>
 

@@ -33,7 +33,7 @@ if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 						get_comment_author_link(),
 						( $comment->user_id === $post->post_author ) ? '<small> ( Rédacteur ) </small>' : ''
 					);
-                        printf( '<time datetime="%2$s">%3$s</time>',
+                        printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
                             esc_url( get_comment_link( $comment->comment_ID ) ),
                             get_comment_time( 'c' ),
                             sprintf( '%1$s à %2$s', get_comment_date(), get_comment_time() )
@@ -50,7 +50,7 @@ if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
                     <?php edit_comment_link('Modifier', '<p>', '</p>' ); ?>
                 </section>
     
-                <div class="reply">
+                <div class="reply" itemprop="replyToUrl">
                     <?php comment_reply_link( array_merge( $args, array( 'reply_text' => 'Répondre', 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
                 </div>
             </article>
