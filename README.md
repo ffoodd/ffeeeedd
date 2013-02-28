@@ -1,6 +1,8 @@
 ffeeeedd
 ========
 
+Ce projet est sous [Licence CC BY-NC-SA] (http://creativecommons.org/licenses/by-nc-sa/3.0/fr/ "Explications de la licence").
+
 Un projet embryonnaire
 ----------------------
 
