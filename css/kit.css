@@ -26,19 +26,26 @@
 /* =Typographie 
  * @see : http://www.codestyle.org/servlets/FontStack
  * @see : http://ffffallback.com/
+ * @see http://soqr.fr/vertical-rhythm/ @author : @eQRoeil
 */
+/* Le corps de base correspond à 10px pour faciliter le calcul des rem, le cas échéant */
+html {
+	font-size: 62.5%;
+}
 body {
-	font-family: Lucida Sans Unicode, Lucida Sans, sans-serif;
-}
-blockquote {
-    font-style: italic;
-}
-code,
-pre,
-samp {
-	font-family: Lucida Sans Typewriter, monospace;
+	font: 1.4em/1.5 Lucida Sans Unicode, Lucida Sans, sans-serif;
+	/* = 14px & s'adapte à votre design */
 }
 
+/* Corps du texte pour le contenu */
+/* Préserve le rythme vertical */
+p, ul, ol, dl, blockquote, pre, td, th, label, textarea {
+	font-size: 1em; /* = 14px */
+	line-height: 1.5em;
+	margin: 1.5em 0;
+}
+
+/* Niveaux de titres */
 h1, .h1-like {
     font-size: 5.1429em; /* = 72px */
     line-height: .8751em;
@@ -68,6 +75,43 @@ h6, .h6-like {
     font-size: 1em; /* = 14px */
     line-height: 1.5em;
     margin: 3em 0  1.5em 0;
+}
+
+/* Corps alternatif */
+.smaller {
+    font-size: .8571em; /* = 12px */
+    line-height: 1.75em;
+    margin: 1.75em 0;
+}
+.small {
+    font-size: .8571em; /* = 12px */
+    line-height: 1.75em;
+    margin: 1.75em 0;
+}
+.big {
+    font-size: 1.1429em; /* = 16px */
+    line-height: 1.3125em;
+    margin: 1.3125em 0;
+}
+.bigger {
+    font-size: 1.2857em; /* = 18px */
+    line-height: 1.1667em;
+    margin: 1.1667em 0;
+}
+.biggest {
+    font-size: 1.7143em; /* = 24px */
+    line-height: 1.75em;
+    margin: .875em 0;
+}
+
+/* Styles particuliers */
+blockquote {
+    font-style: italic;
+}
+code,
+pre,
+samp {
+	font-family: Lucida Sans Typewriter, monospace;
 }
 
 /* =Couleurs */

@@ -13,59 +13,6 @@
  * Pour les modifier, utiliser la partie "Kit" et s'appuyer autant que possible sur la cascade.
 /* ----------------------------- */
 
-/* Le corps de base correspond à 10px pour faciliter le calcul des rem */
-html {
-	font-size: 62.5%;
-}
-body {
-	font-size: 1.4em; /* = 14px */
-	line-height: 1.5; /* s'adapte à votre design */
-}
-
-/* Corps du texte pour le contenu */
-/* Préserve le rythme vertical */
-p,
-ul,
-ol,
-dl,
-blockquote,
-pre,
-td,
-th,
-label,
-textarea {
-	font-size: 1em; /* = 14px */
-	line-height: 1.5em;
-	margin: 1.5em 0;
-}
-
-/* Corps alternatif */
-.smaller {
-    font-size: .8571em; /* = 12px */
-    line-height: 1.75em;
-    margin: 1.75em 0;
-}
-.small {
-    font-size: .8571em; /* = 12px */
-    line-height: 1.75em;
-    margin: 1.75em 0;
-}
-.big {
-    font-size: 1.1429em; /* = 16px */
-    line-height: 1.3125em;
-    margin: 1.3125em 0;
-}
-.bigger {
-    font-size: 1.2857em; /* = 18px */
-    line-height: 1.1667em;
-    margin: 1.1667em 0;
-}
-.biggest {
-    font-size: 1.7143em; /* = 24px */
-    line-height: 1.75em;
-    margin: .875em 0;
-}
-
 /* Soft reset */
 html,
 body,
