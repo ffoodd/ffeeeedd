@@ -101,7 +101,11 @@
     display: block;
 }
 
-.center, .aligncenter { margin: auto; }
+/* Autorise les marges verticales spécifiques */
+.center, .aligncenter { 
+    margin-right: auto;
+    margin-left: auto;
+}
 .txtleft   { text-align: left; }
 .txtright  { text-align: right; }
 .txtcenter { text-align: center; }
