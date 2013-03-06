@@ -166,11 +166,6 @@ mark {
     padding: 1em 2em;
 }
 
-/* =Messages & boutons */
-.warning {}
-.error {}
-.success {}
-
 /* =Contenus */
 .page-numbers, 
 form li {
