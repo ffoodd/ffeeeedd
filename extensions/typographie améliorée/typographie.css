@@ -1,0 +1,48 @@
+/* =Typographie 
+ * @see : http://www.codestyle.org/servlets/FontStack
+ * @see : http://ffffallback.com/
+ * @see http://soqr.fr/vertical-rhythm/ @author : @eQRoeil
+ * @see http://24ways.org/2011/creating-custom-font-stacks-with-unicode-range/
+ * @see http://www.awayback.com/revised-font-stack/
+*/
+html {
+    font-size: 62.5%;
+}
+@font-face {
+    font-family: 'Ampersand';
+    src: local('Baskerville'), local('Palatino'), local('Palatino Linotype'), local('Constantia'), local('Book Antiqua'), local('Garamond');
+    unicode-range: U+26;
+}
+@font-face {
+    /* On rattrape la font-family Ampersand pour les 
+       navigateurs ne comprenant pas unicode-range */
+    font-family: 'Ampersand';
+    src: local('Arial');
+    unicode-range: U+270C;
+}
+.amp {
+    font-weight: bold;
+    font-style: italic;
+}
+body {
+	font: 1.6em/1.2 'Ampersand', arial, sans-serif;
+}
+blockquote {
+    font-style: italic;
+    font-family: Baskerville, Palatino, Palatino Linotype, Constantia, Book Antiqua, Georgia, serif;
+    quotes: '\201C' '\201D';
+    position: relative;
+}
+blockquote:before,
+blockquote:after { 
+    font: bold 4em/.25em Georgia;
+    content: open-quote;
+    color: #eee;
+    position: absolute;
+    left: -.05em;
+}
+blockquote:after { 
+    content: close-quote;
+    top: auto; left: auto;
+    bottom: -.2em; right: -.05em;
+}
