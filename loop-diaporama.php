@@ -32,7 +32,7 @@
             $counter_slider = 0;
         ?>
 
-        <section class="mw960p featured-posts mod">
+        <section class="mw960p featured-posts mod print-hidden">
             <div class="item">
                 <?php 
                 // Et c'est parti !

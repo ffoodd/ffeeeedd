@@ -161,7 +161,7 @@
          return $chain;
     }
         function ariane() {
-         global $wp_query;$ped=get_query_var('paged');$rendu = '<ol>'; 
+         global $wp_query;$ped=get_query_var('paged');$rendu = '<ol class="print-hidden">'; 
          if ( is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li> &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl">Actualité</li>';}
          if ( !is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li>';}
          if ( is_category() ) {

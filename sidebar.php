@@ -16,6 +16,6 @@ if ( ! is_active_sidebar( 'pages' ))
     return;
 ?>
 
-<aside class="col w25" role="complementary">
+<aside class="col w25 print-hidden" role="complementary">
     <?php if ( is_active_sidebar( 'pages' )) { dynamic_sidebar( 'pages' ); } ?>	
 </aside>

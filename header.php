@@ -11,14 +11,14 @@
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon"/>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?> role="document"itemscope itemtype="http://schema.org/WebPage">
+	<body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
         
-        <ul class="w960p center p-reset">
+        <ul class="w960p center p-reset print-hidden">
             <li class="inbl smaller m-reset"><a href="#nav" class="skip">Aller au menu</a></li>
             <li class="inbl smaller m-reset"><a href="#content" class="skip">Aller au contenu</a></li>
         </ul>
         
-        <div role="search" class="w960p center txtright">
+        <div role="search" class="w960p center txtright print-hidden">
             <?php get_search_form(); ?>
         </div>
         
@@ -27,7 +27,7 @@
             <h1 class="col p-reset" itemprop="description"><?php bloginfo( 'description' ); ?></h1>            
         </header>
         
-        <nav role="navigation" id="nav" class="mw960p center">
+        <nav role="navigation" id="nav" class="mw960p center print-hidden">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) ); ?>
 		</nav>
         

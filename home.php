@@ -21,7 +21,7 @@ get_header(); ?>
             <li class="mb2">
                 <article itemscope itemtype="http://schema.org/Article">
                     <h3 itemprop="name"><a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a></h3>
-                    <p itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
+                    <p itemprop="UserComments" class="print-hidden"><?php comments_number( '0', '1', '% ' ); ?></p>
                     <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" itemprop="image"><?php the_post_thumbnail(); ?></a>
                     <time datetime="<?php the_time( 'j-F-Y' ); ?>" pubdate itemprop="datePublished"><?php the_date(); ?></time>
                     <?php $excerpt = get_the_excerpt() ?>
