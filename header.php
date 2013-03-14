@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<!--[if IE 8 ]><html class="ie8" lang="fr-FR" class="no-js"><![endif]--> 
-<!--[if gte IE 9]><!--><html lang="fr-FR" class="no-js"><!--<![endif]-->
+<!--[if IE 8 ]><html class="ie8" <?php language_attributes(); ?> class="no-js"><![endif]--> 
+<!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 	<head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8"/>
