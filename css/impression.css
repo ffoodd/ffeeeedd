@@ -90,7 +90,8 @@ a {
 a[href]:after {
     content: " (" attr(href) ")"; /* Affiche les URLs */
 }
-a[href^="#"]:after {
+a[href^="#"]:after,
+a[href^="javascript"]:after {
     content: ''; /* Masque l'url des ancres */
 }
 abbr[title]:after {
