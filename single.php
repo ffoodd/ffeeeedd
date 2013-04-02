@@ -9,6 +9,10 @@
  * @package 	WordPress
  * @subpackage 	ffeeeedd
  * @since 		ffeeeedd 1.0
+ * @see 		http://www.crea-fr.com/blog/15-liens-de-partage-pour-les-reseaux-sociaux/
+ * @note 		Pour permettre le partage sur d'autres réseaux
+ * @see 		http://schema.org/Article
+ * @see 		http://php.net/manual/fr/function.date.php
  */
 get_header(); ?>
 
@@ -32,7 +36,10 @@ get_header(); ?>
                 <p class="print-hidden">Édité le <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
                 <p class="print-hidden">
                     <a href="http://twitter.com/home?status=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Twitter">Partager sur Twitter</a>
-                    <a href="http://www.facebook.com/share.php?u=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Facebook">Partager sur facebook</a>
+                    <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink() ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Facebook">Partager sur facebook</a>
+                    <a href="https://plus.google.com/share?url=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Google+">Partager sur Google +</a>
+                    <a href="mailto:?subject=<?php the_title_attribute() ?>?body=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Envoyez cet article par Email">Envoyer par email</a>
+                    <a href="javascript:window.print()" target="_blank" rel="nofollow" title="Imprimez cet article">Imprimer</a>
                 </p>
             </footer>
         </article>
