@@ -9,6 +9,13 @@
         <meta name="description" content="<?php wp_title(''); ?> | <?php bloginfo( 'description' ); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon"/>
+        <!-- Métas Facebook -->
+        <meta property="og:title" content="<?php wp_title(); ?>" />
+        <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="<?php echo get_permalink(); ?>" />
+        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/logo.png" />
+        <!-- Fin des métas Facebook -->
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
@@ -23,8 +30,9 @@
         </div>
         
         <header role="banner" class="w960p center row">
-            <h2 class="col w25 p-reset" itemprop="name"><a href="<?php bloginfo( 'url' ); ?>" class="ir inbl" itemprop="url" id="logo"><?php bloginfo('name'); ?></a></h2>
-            <h1 class="col p-reset" itemprop="description"><?php bloginfo( 'description' ); ?></h1>            
+            <a href="<?php bloginfo( 'url' ); ?>" itemprop="url"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" id="logo" class="left" itemprop="image"/></a>
+            <h1 class="col w25 p-reset" itemprop="name"><?php bloginfo('name'); ?></h1>
+            <h2 class="col p-reset" itemprop="description"><?php bloginfo( 'description' ); ?></h2>            
         </header>
         
         <nav role="navigation" id="nav" class="mw960p center print-hidden">
