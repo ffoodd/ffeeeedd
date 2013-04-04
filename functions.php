@@ -64,8 +64,8 @@
     // Ajoute un lien "Lire la suite" après l'extrait
     function continue_reading() {
         return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ). get_the_title() .( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
-    }
-    
+    } 
+
     // Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite"
     function auto_excerpt( $more ) {
         return ' &hellip;' . continue_reading();
@@ -80,6 +80,12 @@
         return $output;
     }
     add_filter( 'get_the_excerpt', 'custom_excerpt' );
+
+    // Ajout d'Open Graph pour le Doctype
+    function add_opengraph_doctype( $output ) {
+        return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
+    }
+    add_filter('language_attributes', 'add_opengraph_doctype');
 
 
 	/* ========================================================================================================================
