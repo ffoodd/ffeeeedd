@@ -129,6 +129,12 @@
     }
     add_action('wp_head', 'add_ie_html5');
 
+    // Tester l'activation du js
+    function test_js () {
+        echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+'js';</script>";
+    }
+    add_action('wp_head', 'test_js');
+
     // Minification du html
     add_action('get_header', 'go_minif');
     function go_minif() {

@@ -27,9 +27,9 @@ get_header(); ?>
                  $tag_list = get_the_tag_list( '', __( ', ' ) );
                  
                  if ( '' != $tag_list ) {
-                    echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans ' . $categories_list . '.<br />Mots-clés : ' . $tag_list . '.</p>';
+                    echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans <span itemprop="keywords">' . $categories_list . '.</span><br />Mots-clés : <span itemprop="keywords">' . $tag_list . '.</span></p>';
                  } elseif ( '' != $categories_list ) {
-                    echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans ' . $categories_list . '.</p>';
+                    echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans <span itemprop="keywords">' . $categories_list . '.</span></p>';
                  } else { 
                     echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
                  } ?>

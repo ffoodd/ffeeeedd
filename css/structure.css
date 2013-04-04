@@ -211,10 +211,11 @@ a,t,r,b,l = all,top,right,bottom,left
 	left: -7000px;
 	overflow: hidden;
 }
-.js-hidden,
+.js .js-hidden,
 .no-js .js-visible {
     display: none;
 }
+.js .js-visible,
 .no-js .js-hidden {
     display: block;
 }
