@@ -39,7 +39,9 @@ get_header(); ?>
                     <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink() ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Facebook">Partager sur facebook</a>
                     <a href="https://plus.google.com/share?url=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Partagez cet article sur Google+">Partager sur Google +</a>
                     <a href="mailto:?subject=<?php the_title_attribute() ?>?body=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="Envoyez cet article par Email">Envoyer par email</a>
-                    <a href="javascript:window.print()" target="_blank" rel="nofollow" title="Imprimez cet article">Imprimer</a>
+                    <!-- Mise en place d'une mécanique simple pour l'impression, en fonction de l'activation du js -->
+                    <a href="javascript:window.print()" target="_blank" rel="nofollow" title="Imprimez cet article" class="js-visible">Imprimer</a>
+                    <strong class="js-hidden">Pour imprimer cette page, utilisez le raccourci <kbd>Ctrl + P</kbd></strong>
                 </p>
             </footer>
         </article>
