@@ -497,29 +497,17 @@
     }
     add_filter( 'wp_title', 'modify_title_from_metabox' );
 
-    // Ajouter un champ 'Twitter' dans les profils utilisateur
-    add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
-    add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
-    function my_show_extra_profile_fields( $user ) { ?>
-    <h3>Ajouter un compte Twitter</h3>
-    <table class="form-table">
-        <tr>
-            <th><label for="twitter">Twitter</label></th>
-            <td>
-                <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
-                <span class="description">Renseignez votre compte Twitter.</span>
-            </td>
-        </tr>
-    </table>
-    <?php } 
-    // Sauvegarder la valeur de ce champ
-    add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
-    add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );    
-    function my_save_extra_profile_fields( $user_id ) {
-        if ( !current_user_can( 'edit_user', $user_id ) )
-            return false;
-        update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
-    }
+    // Ajouter un champ 'Twitter' dans les profils utilisateur, et supprimer les champs inutiles
+    function gk_contact_methods() {    
+        /* Supprimer des champs */
+        unset($contact['aim']);
+        unset($contact['yim']);
+        unset($contact['jabber']);    
+        /* Ajouter un champ Twitter */
+        $contact['twitter'] = 'Twitter';    
+        return $contact;
+    }    
+    add_filter('user_contactmethods','gk_contact_methods',75,1);
 
     // Personnaliser le logo
     function custom_theme_features()  {
