@@ -131,12 +131,14 @@
 
     // Tester l'activation du js
     function test_js () {
+        echo "<!-- Test de l'activation du javascript -->";
         echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+'js';</script>";
+        echo "<!-- Fin du test de l'activation du javascript -->";
     }
     add_action('wp_head', 'test_js');
 
     // Minification du html
-    add_action('get_header', 'go_minif');
+    /*add_action('get_header', 'go_minif');
     function go_minif() {
         ob_start( 'end_minif' );
     }
@@ -149,7 +151,7 @@
         while ( stristr($html, '  ')) 
             $html = str_replace('  ', ' ', $html);    
         return $html;
-    }
+    }*/
 
     // Réponse aux commentaires
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
@@ -371,3 +373,157 @@
         ) );
     }
     add_action( 'widgets_init', 'ffeeeedd_widgets_init' );
+
+
+    /* ========================================================================================================================
+	
+	Référencement SEO / Social
+	
+	======================================================================================================================== */
+
+    /**
+     * @note Inspiré par le thème Noviseo2012
+     * @author Sylvain Fouillaud @noviseo
+     * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
+     */
+
+    // Création des blocs dans l'administration
+    function meta_box_title_description() {
+        add_meta_box( 'parametres_seo_metabox', 'R&eacute;f&eacute;rencement', 'parametres_seo_metabox_content', 'post', 'side', 'high' );
+        add_meta_box( 'parametres_seo_metabox', 'R&eacute;f&eacute;rencement', 'parametres_seo_metabox_content', 'page', 'side', 'high' );
+    }
+    add_action( 'add_meta_boxes', 'meta_box_title_description' );
+
+    // Ajout des champs utiles dans ces blocs
+    function parametres_seo_metabox_content($post) {
+        $val_title = get_post_meta($post->ID,'_parametres_seo_title',true);
+        $val_description = get_post_meta($post->ID,'_parametres_seo_description',true); ?>
+        <title>Ces champs sont utilisés dans les balises 'meta' utiles au référencement naturel et au partage social.</title>    
+        <p><strong>Titre</strong></p>
+        <input id="parametres_seo_title" name="parametres_seo_title" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
+        <p><strong>Description</strong></p>
+        <textarea id="parametres_seo_description" name="parametres_seo_description" style="width:100%; resize:none;"><?php echo $val_description; ?></textarea>
+    <?php }
+
+    // Sauvegarder la valeur de ces champs
+    function save_parametres_seo_metabox($post_ID){
+        if(isset($_POST['parametres_seo_title'])){
+            update_post_meta($post_ID,'_parametres_seo_title', esc_html($_POST['parametres_seo_title']));
+        }
+        if(isset($_POST['parametres_seo_description'])){
+            update_post_meta($post_ID,'_parametres_seo_description', esc_html($_POST['parametres_seo_description']));
+        }
+    }
+    add_action('save_post','save_parametres_seo_metabox');
+
+    // Ajoute les métas 'Description' dans le <head>
+    function modify_description_from_metabox() {
+    global $wp_query;
+        // Si le champ est rempli, on affiche sa valeur
+        if ( get_post_meta($wp_query->post->ID,'_parametres_seo_description',true) ) {
+            echo '<!-- Métas Description dynamiques -->';
+            echo '<meta name="description" content="';
+                echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+            echo '" />';
+            echo '<meta property="og:description" content="';
+                echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+            echo '" />';
+            echo '<meta name="twitter:description" content="';
+                echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+            echo '" />';
+            echo '<meta name="DC.description" lang="fr" content="';
+                echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+            echo '" />';
+            echo '<!-- Fin des métas Description dynamiques -->';
+        } // Sinon, dans le cas d'un article on affiche l'extrait
+        elseif ( is_single() ) {            
+            echo '<!-- Métas Description dynamiques -->';
+            echo '<meta name="description" content="' . strip_tags(get_the_excerpt()) . '" />';
+            echo '<meta property="og:description" content="' . strip_tags(get_the_excerpt()) . '" />';
+            echo '<meta name="twitter:description" content="' . strip_tags(get_the_excerpt()) . '" />';
+            echo '<meta name="DC.description" lang="fr" content="' . strip_tags(get_the_excerpt()) . '" />';
+            echo '<!-- Fin des métas Description dynamiques -->';
+        } // Sinon, on affiche la description générale du site
+        else {
+            echo '<!-- Métas Description dynamiques -->';
+            echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '" />';
+            echo '<meta property="og:description" content="' . get_bloginfo( 'description' ) . '" />';
+            echo '<meta name="twitter:description" content="' . get_bloginfo( 'description' ) . '" />';
+            echo '<meta name="DC.description" lang="fr" content="' . get_bloginfo( 'description' ) . '" />';
+            echo '<!-- Fin des métas Description dynamiques -->';
+        }
+    }
+    add_action( 'wp_head', 'modify_description_from_metabox' );
+
+    // Modifie la valeur des métas 'Title' dans le <head>
+    function modify_title_from_metabox($title) {
+    global $wp_query;
+        if ( get_post_meta($wp_query->post->ID,'_parametres_seo_title',true) ) {
+            return get_post_meta($wp_query->post->ID,'_parametres_seo_title',true);
+        } else {
+            return $title;
+        }
+    }
+    add_filter( 'wp_title', 'modify_title_from_metabox' );
+
+    // Ajouter un champ 'Twitter' dans les profils utilisateur
+    add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
+    add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+    function my_show_extra_profile_fields( $user ) { ?>
+    <h3>Ajouter un compte Twitter</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="twitter">Twitter</label></th>
+            <td>
+                <input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+                <span class="description">Renseignez votre compte Twitter.</span>
+            </td>
+        </tr>
+    </table>
+    <?php } 
+    // Sauvegarder la valeur de ce champ
+    add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+    add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );    
+    function my_save_extra_profile_fields( $user_id ) {
+        if ( !current_user_can( 'edit_user', $user_id ) )
+            return false;
+        update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
+    }
+
+    // Personnaliser le logo
+    function custom_theme_features()  {
+        // Add theme support for Custom Header
+        $header_args = array(
+            'default-image'          => get_template_directory_uri() . '/img/logo.png',
+            'width'                  => 180,
+            'height'                 => 180,
+            'flex-width'             => true,
+            'flex-height'            => true,
+            'random-default'         => false,
+            'header-text'            => false,
+            'default-text-color'     => '',
+            'uploads'                => true,    
+        );
+        add_theme_support( 'custom-header', $header_args );
+    }    
+    add_action( 'after_setup_theme', 'custom_theme_features' );
+
+    // Ajoute les métas 'Image' dans le <head>
+    function insert_image_meta_in_head() {         
+        global $post;
+            if ( is_single() ) {
+                $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+                echo '<!-- Métas Image dynamiques -->';
+                echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+                echo '<link rel="image_src" href="'. esc_attr( $thumbnail_src[0] ) . '" />';
+                echo '<meta property="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+                echo '<!-- Fin des métas Image dynamiques -->';
+            } else {
+                echo '<!-- Métas Image dynamiques -->';
+                echo '<meta property="og:image" content="' . get_header_image() . '"/>';
+                echo '<link rel="image_src" href="'. get_header_image() . '" />';
+                echo '<meta property="twitter:image" content="' . get_header_image() . '"/>';
+                echo '<!-- Fin des métas Image dynamiques -->';
+            }
+    }
+    add_action( 'wp_head', 'insert_image_meta_in_head' );

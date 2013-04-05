@@ -9,31 +9,28 @@
         <meta name="description" content="<?php wp_title(''); ?> | <?php bloginfo( 'description' ); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon"/>
-        <!-- Métas Facebook -->
+        <!-- Métas Facebook simples -->
             <meta property="og:title" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
             <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>" />
             <meta property="og:type" content="article" />
             <meta property="og:url" content="<?php echo get_permalink(); ?>" />
-            <meta property="og:description" content="<?php bloginfo( 'description' ); ?>" />
-            <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/img/logo.png" />
-        <!-- Fin des métas Facebook -->
-        <!-- Métas Twitter -->
+        <!-- Fin des métas Facebook simples -->
+        <!-- Métas Twitter simples -->
             <meta name="twitter:card" content="summary">
             <meta name="twitter:url" content="<?php echo get_permalink(); ?>">
             <meta name="twitter:title" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>">
-            <meta name="twitter:description" content="<?php bloginfo( 'description' ); ?>">
-            <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/img/logo.png">
-            <meta name="twitter:creator" content="@ffoodd_fr">
-        <!-- Fin des métas Twitter -->
-        <!-- Métas DublinCore -->
+            <?php if ( get_the_author_meta('twitter', 1) ) : ?>
+                <meta name="twitter:creator" content="<?php the_author_meta('twitter', 1); ?>">
+            <?php endif; ?>
+        <!-- Fin des métas Twitter simples -->
+        <!-- Métas DublinCore simples -->
             <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
             <meta name="DC.title" lang="fr" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
-            <meta name="DC.description" lang="fr" content="<?php bloginfo( 'description' ); ?>" />
             <meta name="DC.identifier" content="<?php echo get_permalink(); ?>" />
             <meta name="DC.type" content="text" />
             <meta name="DC.subject" lang="fr" content="HTML, document, Dublin Core" />
             <meta name="DC.language" scheme="DCTERMS.RFC4646" content="fr-FR" />
-        <!-- Fin des métas DublinCore -->
+        <!-- Fin des métas DublinCore simples -->
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
@@ -48,7 +45,7 @@
         </div>
         
         <header role="banner" class="w960p center row">
-            <a href="<?php bloginfo( 'url' ); ?>" itemprop="url" title="<?php bloginfo( 'name' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>" id="logo" class="left" itemprop="image"/></a>
+            <a href="<?php bloginfo( 'url' ); ?>" itemprop="url" title="<?php bloginfo( 'name' ); ?>"><img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" id="logo" class="left" itemprop="image"/></a>
             <h1 class="col w25 p-reset" itemprop="name"><?php bloginfo('name'); ?></h1>
             <h2 class="col p-reset" itemprop="description"><?php bloginfo( 'description' ); ?></h2>            
         </header>
