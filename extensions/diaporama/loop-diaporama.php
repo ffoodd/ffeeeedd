@@ -15,7 +15,7 @@
     // À mettre tel quel dans le thème; 
     // Ajouter l'appel à ce fichier dans le template qui doit l'accueillir : get_template_part( 'loop', 'diaporama' );
 
-    // Les articles mis en avant vont dans le diaporama
+     // Les articles mis en avant vont dans le diaporama
     $sticky = get_option( 'sticky_posts' );
     // On exécute que s'il y a un article mis en avant
     if ( ! empty( $sticky ) ) :
@@ -35,7 +35,7 @@
             $counter_slider = 0;
         ?>
 
-        <section class="mw960p featured-posts mod">
+        <section class="mw960p featured-posts mod print-hidden">
             <div class="item">
                 <?php 
                 // Et c'est parti !

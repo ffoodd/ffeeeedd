@@ -12,8 +12,6 @@
  * @since 		ffeeeedd 1.0
  */
 get_header(); ?>
-
-    <?php get_template_part( 'loop', 'diaporama' ); ?>
     
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
         <article itemscope itemtype="http://schema.org/Article" role="article" class="col">

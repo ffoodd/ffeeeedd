@@ -45,19 +45,7 @@ get_header(); ?>
         <?php endwhile; ?>
     </ol>
 
-    <?php
-        global $wp_query;        
-        $big = 999999999;        
-        echo paginate_links( array(
-            'base'         => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-            'format'       => '?paged=%#%',
-            'current'      => max( 1, get_query_var('paged') ),
-            'total'        => $wp_query->max_num_pages,
-            'prev_text'    => __('&larr; Précédent'),
-            'next_text'    => __('Suivant &rarr;'),
-            'type'         => 'list'
-        ) );
-    ?>
+    <?php theme_pagination(); ?>
 
 <?php else: ?>
     <h2>Il n'y a aucun article à afficher.</h2>

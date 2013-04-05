@@ -40,17 +40,13 @@
             <li class="inbl smaller m-reset"><a href="#content" class="skip">Aller au contenu</a></li>
         </ul>
         
-        <div role="search" class="w960p center txtright print-hidden">
-            <?php get_search_form(); ?>
-        </div>
-        
-        <header role="banner" class="w960p center row">
+        <header role="banner" class="w960p center">
             <a href="<?php bloginfo( 'url' ); ?>" itemprop="url" title="<?php bloginfo( 'name' ); ?>"><img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" id="logo" class="left" itemprop="image"/></a>
-            <h1 class="col w25 p-reset" itemprop="name"><?php bloginfo('name'); ?></h1>
-            <h2 class="col p-reset" itemprop="description"><?php bloginfo( 'description' ); ?></h2>            
+            <h1 itemprop="name"><?php bloginfo('name'); ?></h1>
+            <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>            
         </header>
         
-        <nav role="navigation" id="nav" class="mw960p center print-hidden">
+        <nav role="navigation" id="nav" class="mw960p center clear print-hidden">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) ); ?>
 		</nav>
         
