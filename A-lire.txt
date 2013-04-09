@@ -29,7 +29,7 @@ les ré-enregistrer en .lisible.
 
 *** Pour le js :    
             http://jscompress.com/ 
-*** Fin du js        
+*** Fin du js   
         
 Les fichiers .php sont légèrement optimisés : tous les doubles espaces ont été remplacés par des espaces simples, dans le but de minifier le code html généré.
 Cela a des conséquences sur la lisibilité du code, mais tous les commentaires ( php et html ) ont été conservés.
