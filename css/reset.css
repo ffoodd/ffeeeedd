@@ -17,26 +17,26 @@
 html,
 body,
 label {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 ul,
 ol,
 blockquote {
-	padding-left: 2em;
+  padding-left: 2em;
 }
 a {
-    text-decoration: none;
+   text-decoration: none;
 }
 a:hover,
 a:active,
 a:focus {
-    text-decoration: underline;
+   text-decoration: underline;
 }
 code,
 pre,
 samp {
-	white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 code { line-height: 1em; }
 table { margin-bottom: 21px; }
@@ -50,46 +50,46 @@ h3:first-child,
 h4:first-child,
 h5:first-child,
 h6:first-child {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 /* Élude la fusion des marges pour les éléments imbriqués */
 li p,
 li ul,
 li ol {
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Balises HTML5 */
 article, aside, details, figcaption, figure, footer, header, nav, section {
-	display: block;
+  display: block;
 }
 
 /* Valeurs maximum */
 img, table, td, blockquote, code, pre, textarea, input, video {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Vous ne passerez pas ! */
 textarea, table, td, th, code, pre, samp, div {
-	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	-ms-hyphens: auto;
-	-o-hyphens: auto;
-	hyphens: auto;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 
 /* Images */
 img {
-	width: auto;
-	vertical-align: middle;
+  width: auto;
+  vertical-align: middle;
 }
 a img { border: 0; }
 a:hover img,
 a:active img,
 a:focus img {
-    outline: 4px solid inherit;
+   outline: 4px solid inherit;
 }

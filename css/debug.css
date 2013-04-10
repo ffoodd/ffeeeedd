@@ -19,23 +19,23 @@
 a[href="#"],
 a[href^="javascript"],
 a[title=""] {
-    color: Crimson !important;
+   color: Crimson !important;
 }
 /* @note : Sert à détecter les liens sans cibles, ou dont la cible est vide. */
 a:not([href]),
 a[href=""] {
-	outline: 4px solid Gold !important;
+  outline: 4px solid Gold !important;
 }
 
 
 /* Entoure d'un trait continu les images n'ayant pas d'alternatives textuelles. */
 img:not([alt]) {
-    outline: 4px solid Crimson !important;
+   outline: 4px solid Crimson !important;
 }
 
 /* Entoure d'un trait pointillé les images ayant une alternative textuelle vide. */
 img[alt=""] {
-    outline: 4px dashed Crimson !important;
+   outline: 4px dashed Crimson !important;
 }
 
 /* Détecte les attributs manquants dans les formulaires. */
@@ -47,7 +47,7 @@ select:not([name]),
 select[name=""],
 textarea:not([name]),
 textarea[name=""] {
-	outline: 4px solid Crimson !important;
+  outline: 4px solid Crimson !important;
 }
 
 /* 
@@ -60,5 +60,5 @@ li:empty,
 p:empty,
 td:empty,
 th:empty {
-    background: Gold !important;
+   background: Gold !important;
 }
