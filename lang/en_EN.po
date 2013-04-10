@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ffeeeedd 1.0\n"
+"POT-Creation-Date: 2013-04-10 19:43+0100\n"
+"PO-Revision-Date: 2013-04-10 19:45+0100\n"
+"Last-Translator: \n"
+"Language-Team: Luc Poupard, Gaël Poupard\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n>2;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: G:\\02_sites\\00_github\\ffeeeedd\n"
+
+#: G:\02_sites\00_github\ffeeeedd/archive.php:41
+#: G:\02_sites\00_github\ffeeeedd/archive.php:42
+#: G:\02_sites\00_github\ffeeeedd/author.php:45
+#: G:\02_sites\00_github\ffeeeedd/author.php:46
+#: G:\02_sites\00_github\ffeeeedd/category.php:33
+#: G:\02_sites\00_github\ffeeeedd/category.php:34
+#: G:\02_sites\00_github\ffeeeedd/home.php:33
+#: G:\02_sites\00_github\ffeeeedd/home.php:34
+#: G:\02_sites\00_github\ffeeeedd/index.php:33
+#: G:\02_sites\00_github\ffeeeedd/index.php:34
+#: G:\02_sites\00_github\ffeeeedd/single.php:28
+#: G:\02_sites\00_github\ffeeeedd/single.php:29
+#: G:\02_sites\00_github\ffeeeedd/tag.php:33
+#: G:\02_sites\00_github\ffeeeedd/tag.php:34
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:36
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:37
+msgid ", "
+msgstr ""
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:74
+msgid "Lire l'article «&nbsp;"
+msgstr "Read the post «&nbsp;"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:182
+#: G:\02_sites\00_github\ffeeeedd/functions.php:197
+msgid "Voir tous les articles de"
+msgstr "See all posts for"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:189
+msgid "Actualité"
+msgstr "News"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:201
+msgid "Articles de l'auteur"
+msgstr "Author's articles"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:204
+msgid "Articles sur le thème"
+msgstr "Posts about"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:210
+#: G:\02_sites\00_github\ffeeeedd/functions.php:213
+#: G:\02_sites\00_github\ffeeeedd/functions.php:216
+msgid "Archives pour"
+msgstr "Archives for"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:230
+msgid "Résultats de votre recherche"
+msgstr "Results of your search"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:233
+msgid "Page non trouvée"
+msgstr "Page not found"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:317
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:34
+msgid "Pingback :"
+msgstr "Pingback :"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:317
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:34
+msgid "(Modifier)"
+msgstr "(Edit)"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:331
+msgid "Rédacteur"
+msgstr "Author"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:342
+msgid "Votre commentaire est en attente de modération"
+msgstr "Your comment is awaiting for moderation"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:347
+msgid "Modifier"
+msgstr "Edit"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:351
+msgid "Répondre"
+msgstr "Reply"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:369
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:86
+msgid "Name"
+msgstr "Name"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:376
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:93
+msgid "Email"
+msgstr "Email"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:383
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:100
+msgid "Website"
+msgstr "Website"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:461
+msgid ""
+"Ces champs sont utilisés dans les balises 'meta' utiles au référencement "
+"naturel et au partage social"
+msgstr ""
+"These field are used in 'meta' tag for search engine optimization and social "
+"sharing"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:462
+msgid "Titre"
+msgstr "Title"
+
+#: G:\02_sites\00_github\ffeeeedd/functions.php:464
+msgid "Description"
+msgstr "Description"
+
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:60
+msgid "&larr; Précédent"
+msgstr "&larr; Previous"
+
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:61
+msgid "Suivant &rarr;"
+msgstr "Next &rarr;"
+
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/searchform.php:14
+msgid "Rechercher"
+msgstr "Search"

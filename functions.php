@@ -1,82 +1,13 @@
 <?php
-	/**
-	 * ffeeeedd : fonctions du thème
-     * @author Gaël Poupard
-     * @link www.ffoodd.fr
-     *
-     * @package 	WordPress
-     * @subpackage 	ffeeeedd
-     * @since 		ffeeeedd 1.0
-     */
-
-
-	/* ========================================================================================================================
-
-	Paramètres spécifiques du thème
-
-	======================================================================================================================== */
-
-    add_theme_support('post-thumbnails');
-
-	register_nav_menus(array('primary' => 'Menu principal'));
-
-	/* ========================================================================================================================
-
-	Actions et Filtres
-
-	======================================================================================================================== */
-
-	// I18n : déclare le domaine et l'emplacement des fichiers de traduction
-	add_action( 'after_setup_theme', 'setup' );
-
-	function setup() {
-	    load_theme_textdomain('ffeeeedd', get_template_directory() . '/lang');
-	}
-
-	add_action( 'wp_enqueue_scripts', 'base_script_enqueuer' );
-
-    // Retire les classes générées - sauf la current - par Wordpress sur le menu principal
-    add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
-    add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
-    add_filter('page_css_class', 'my_css_attributes_filter', 100, 1);
-    function my_css_attributes_filter($var) {
-      return is_array($var) ? array_intersect($var, array('current_page_item', 'current-page-ancestor', 'inbl')) : '';
-    }
-
-    // Désactive les liens et scripts inutiles générés par Wordpress
-    automatic_feed_links(false);
-    remove_action('wp_head', 'wp_generator');
-    remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0 );
-    remove_action('wp_head', 'wp_dlmp_l10n_style' );
-    remove_action('wp_head', 'rsd_link');
-    remove_action('wp_head', 'wlwmanifest_link');
-
-    // Ajoute une classe aux parents dans la navigations
-    add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
-    function add_menu_parent_class( $items ) {
-        $parents = array();
-        foreach ( $items as $item ) {
-            if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
-                $parents[] = $item->menu_item_parent;
-            }
-        }
-        foreach ( $items as $item ) {
-            if ( in_array( $item->ID, $parents ) ) {
-                $item->classes[] = 'parent';
-            }
-        }
-        return $items;
-    }
-=======
-  /**
-   * ffeeeedd : fonctions du thème
-   * @author      Gaël Poupard
-   * @link        www.ffoodd.fr
-   *
-   * @package     WordPress
-   * @subpackage  ffeeeedd
-   * @since       ffeeeedd 1.0
-   */
+/**
+ * ffeeeedd : fonctions du thème
+ * @author      Gaël Poupard
+ * @link        www.ffoodd.fr
+ *
+ * @package     WordPress
+ * @subpackage  ffeeeedd
+ * @since       ffeeeedd 1.0
+ */
 
 
   /* ========================================================================================================================
@@ -91,7 +22,6 @@
 
 
   /* ========================================================================================================================
->>>>>>> Harmonisation indentation
 
   Actions et Filtres
 
@@ -101,7 +31,7 @@
   add_action( 'after_setup_theme', 'setup' );
 
   function setup() {
-    load_theme_textdomain('ffeeeedd', get_template_directory() . '/languages');
+    load_theme_textdomain('ffeeeedd', get_template_directory() . '/lang');
   }
 
   add_action( 'wp_enqueue_scripts', 'base_script_enqueuer' );
@@ -175,7 +105,6 @@
   /**
    * Ajouter les scripts et styles via wp_head()
    *
-   * @return void
    */
 
   function base_script_enqueuer() {
@@ -250,41 +179,41 @@
     if ($parent->parent && ($parent->parent != $parent->term_id ) && !in_array($parent->parent, $visited)) {
       $visited[] = $parent->parent;$chain .= myget_category_parents( $parent->parent, $link, $separator, $nicename, $visited );
     }
-    if ($link) $chain .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $parent->term_id ) . '" title="Voir tous les articles de '.$parent->cat_name.'" itemprop="url">'.$name.'</a></li>' . $separator;
+    if ($link) $chain .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $parent->term_id ) . '" title="'. __('Voir tous les articles de', 'ffeeeedd') .' '.$parent->cat_name.'" itemprop="url">'.$name.'</a></li>' . $separator;
     else $chain .= $name.$separator;
     return $chain;
   }
 
   function ariane() {
     global $wp_query;$ped=get_query_var('paged');$rendu = '<ol class="print-hidden">';
-    if ( is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li> &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl">Actualité</li>';}
+    if ( is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li> &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl">'. __('Actualité', 'ffeeeedd') .'</li>';}
     if ( !is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li>';}
     if ( is_category() ) {
       $cat_obj = $wp_query->get_queried_object();$thisCat = $cat_obj->term_id;$thisCat = get_category($thisCat);$parentCat = get_category($thisCat->parent);
-      if ($thisCat->parent != 0) $rendu .= " &rarr; ".myget_category_parents($parentCat, true, " &rarr; ", true);
-      if ($thisCat->parent == 0) {$rendu .= " &rarr; ";}
+      if ($thisCat->parent != 0) $rendu .= ' &rarr; '.myget_category_parents($parentCat, true, ' &rarr; ', true);
+      if ($thisCat->parent == 0) {$rendu .= ' &rarr; ';}
       if ( $ped <= 1 ) {$rendu .= single_cat_title("", false);}
       elseif ( $ped > 1 ) {
-        $rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $thisCat ) . '" title="Voir tous les articles de '.single_cat_title("", false).'" itemprop="url">'.single_cat_title("", false).'</a></li>';
+        $rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $thisCat ) . '" title="'. __('Voir tous les articles de', 'ffeeeedd') .' '.single_cat_title("", false).'" itemprop="url">'.single_cat_title("", false).'</a></li>';
       }
     }
     elseif ( is_author()){
-      global $author;$user_info = get_userdata($author);$rendu .= " &rarr; Articles de l'auteur ".$user_info->display_name."</li>";
+      global $author;$user_info = get_userdata($author);$rendu .= ' &rarr; '. __('Articles de l\'auteur', 'ffeeeedd') .' '.$user_info->display_name.'</li>';
     }
     elseif ( is_tag()){
-      $tag=single_tag_title("",FALSE);$rendu .= " &rarr; Articles sur le th&egrave;me <span>".$tag."</span>";
+      $tag=single_tag_title("",FALSE);$rendu .= ' &rarr; '. __('Articles sur le thème', 'ffeeeedd') .' <span>'.$tag.'</span>';
     }
     elseif ( is_date() ) {
       if ( is_day() ) {
         global $wp_locale;
         $rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="'.get_month_link( get_query_var('year'), get_query_var('monthnum') ).'" itemprop="url">'.$wp_locale->get_month( get_query_var('monthnum') ).' '.get_query_var('year').'</a></li> ';
-        $rendu .= " &rarr; Archives pour ".get_the_date();
+        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.get_the_date();
       }
       else if ( is_month() ) {
-        $rendu .= " &rarr; Archives pour ".single_month_title(' ',false);
+        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.single_month_title(' ',false);
       }
       else if ( is_year() ) {
-        $rendu .= " &rarr; Archives pour ".get_query_var('year');
+        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.get_query_var('year');
       }
     }
     elseif ( is_archive() && !is_category()){
@@ -298,16 +227,16 @@
       $rendu .= ' &rarr; '.$var.'';
     }
     elseif ( is_search()) {
-      $rendu .= " &rarr; R&eacute;sultats de votre recherche <span>&rarr; ".get_search_query()."</span>";
+      $rendu .= ' &rarr; '. __('Résultats de votre recherche', 'ffeeeedd') .' <span>&rarr; '.get_search_query().'</span>';
     }
     elseif ( is_404()){
-      $rendu .= " &rarr; 404 : Page non trouv&eacute;e";
+      $rendu .= ' &rarr; 404 : '. __('Page non trouvée', 'ffeeeedd') .'';
     }
     elseif ( is_single()){
       $category = get_the_category();
       $category_id = get_cat_ID( $category[0]->cat_name );
       if ($category_id != 0) {
-        $rendu .= " &rarr; ".myget_category_parents($category_id,TRUE,' &rarr; ')."<span>".the_title('','',FALSE)."</span>";
+        $rendu .= ' &rarr; '.myget_category_parents($category_id,TRUE,' &rarr; ').'<span>'.the_title('','',FALSE).'</span>';
       }
       elseif ($category_id == 0) {
         $post_type = get_post_type();
@@ -399,7 +328,7 @@
               echo get_avatar( $comment, 44 );
               printf( '<cite itemprop="creator">%1$s %2$s</cite>',
                 get_comment_author_link(),
-                ( $comment->user_id === $post->post_author ) ? '<small> ( Rédacteur ) </small>' : ''
+                ( $comment->user_id === $post->post_author ) ? '<small> ('. __('Rédacteur', 'ffeeeedd') .') </small>' : ''
               );
               printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
                 esc_url( get_comment_link( $comment->comment_ID ) ),
@@ -410,16 +339,16 @@
           </header>
 
           <?php if ( '0' == $comment->comment_approved ) : ?>
-          <p>Votre commentaire est en attente de modération.</p>
+          <p><?php echo __('Votre commentaire est en attente de modération', 'ffeeeedd'); ?>.</p>
           <?php endif; ?>
 
           <section itemprop="commentText">
             <?php comment_text(); ?>
-            <?php edit_comment_link('Modifier', '<p>', '</p>' ); ?>
+            <?php edit_comment_link( __( 'Modifier', ''), '<p>', '</p>' ); ?>
           </section>
 
           <div class="reply" itemprop="replyToUrl">
-            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => 'Répondre', 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', ''), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
           </div>
         </article>
       <?php
@@ -529,10 +458,10 @@
   function parametres_seo_metabox_content($post) {
     $val_title = get_post_meta($post->ID,'_parametres_seo_title',true);
     $val_description = get_post_meta($post->ID,'_parametres_seo_description',true); ?>
-    <title>Ces champs sont utilisés dans les balises 'meta' utiles au référencement naturel et au partage social.</title>
-    <p><strong>Titre</strong></p>
+    <title><?php echo __('Ces champs sont utilisés dans les balises \'meta\' utiles au référencement naturel et au partage social', 'ffeeeedd'); ?>.</title>
+    <p><strong><?php echo __('Titre', 'ffeeeedd'); ?></strong></p>
     <input id="parametres_seo_title" name="parametres_seo_title" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
-    <p><strong>Description</strong></p>
+    <p><strong><?php echo __('Description', 'ffeeeedd'); ?></strong></p>
     <textarea id="parametres_seo_description" name="parametres_seo_description" style="width:100%; resize:none;"><?php echo $val_description; ?></textarea>
   <?php }
 
@@ -646,9 +575,5 @@
       echo '<meta property="twitter:image" content="' . get_header_image() . '"/>';
       echo '<!-- Fin des métas Image dynamiques -->';
     }
-<<<<<<< HEAD
-    add_action( 'wp_head', 'insert_image_meta_in_head' );
-=======
   }
   add_action( 'wp_head', 'insert_image_meta_in_head' );
->>>>>>> Harmonisation indentation
