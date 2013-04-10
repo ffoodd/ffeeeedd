@@ -26,6 +26,13 @@
 	
 	======================================================================================================================== */
 
+	// I18n : déclare le domaine et l'emplacement des fichiers de traduction
+	add_action( 'after_setup_theme', 'setup' );
+	
+	function setup() {
+	    load_theme_textdomain('ffeeeedd', get_template_directory() . '/lang');
+	}
+	
 	add_action( 'wp_enqueue_scripts', 'base_script_enqueuer' );
 
     // Retire les classes générées - sauf la current - par Wordpress sur le menu principal
