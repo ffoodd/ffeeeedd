@@ -1,24 +1,25 @@
 <?php
 /**
  * Page standard
- * @author Gaël Poupard
- * @link www.ffoodd.fr
+ * @author        Gaël Poupard
+ * @link          www.ffoodd.fr
  *
  * En savoir plus : http://codex.wordpress.org/Template_Hierarchy
  *
- * @package 	WordPress
- * @subpackage 	ffeeeedd
- * @since 		ffeeeedd 1.0
+ * @package       WordPress
+ * @subpackage    ffeeeedd
+ * @since         ffeeeedd 1.0
  */
-get_header(); ?>    
-    
-    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-        <article itemscope itemtype="http://schema.org/Article" role="article" class="col">
-            <h2 itemprop="name"><?php the_title(); ?></h2>
-            <div itemprop="articleBody"><?php the_content(); ?></div>
-        </article>
-    <?php endwhile; ?>
+get_header(); ?>
 
-    <?php get_sidebar(); ?>
+<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+  <article itemscope itemtype="http://schema.org/Article" role="article" class="col">
+    <h2 itemprop="name"><?php the_title(); ?></h2>
+
+    <div itemprop="articleBody"><?php the_content(); ?></div>
+  </article>
+<?php endwhile; ?>
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

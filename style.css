@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /**
-* Theme Name: 	ffeeeedd
-* Theme URI: 	http://www.ffoodd.fr
-* Description: 	Un thème WordPress extensible :)
-* Version: 		1.0
-* Author: 		Gaël Poupard
-* Author URI: 	http://www.ffoodd.fr
+* Theme Name:   ffeeeedd
+* Theme URI:    http://www.ffoodd.fr
+* Description:  Un thème WordPress extensible :)
+* Version:      1.0
+* Author:       Gaël Poupard
+* Author URI:   http://www.ffoodd.fr
 
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -16,7 +16,7 @@
   * @see https://github.com/stubbornella/oocss/blob/master/core/spacing/space.css @author : stubornella
   * @see HTML5boilerplate
   * @see github.com/nathansmith/formalize
-  * @see www.sitepen.com 
+  * @see www.sitepen.com
   * @see https://github.com/redroot/holmes/blob/master/holmes.css @version v1.0.1 @author : @luke_redroot
   * @see "Intégration Web, les bonnes pratiques" @author : Corinne Schillinger, Inseo.
 * @note Licence CC-BY http://creativecommons.org/licenses/by/3.0/fr/
@@ -33,7 +33,7 @@
  5- Pansement pour IE
  6- Impression
  7- Debug
-*/
+ */
 
 @import url("css/reset.css") screen;
 
@@ -52,5 +52,5 @@
 /*
  * @note : À supprimer avant de compiler les css
  * Sert à vérifier les éléments vides, invalides ou dépéréciés.
-*/
+ */
 @import url("css/debug.css") screen;
