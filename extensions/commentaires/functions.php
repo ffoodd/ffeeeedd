@@ -45,7 +45,7 @@
               echo get_avatar( $comment, 44 );
               printf( '<cite itemprop="creator">%1$s %2$s</cite>',
                 get_comment_author_link(),
-                ( $comment->user_id === $post->post_author ) ? '<small> ( Rédacteur ) </small>' : ''
+                ( $comment->user_id === $post->post_author ) ? '<small> ('. __('Rédacteur', 'ffeeeedd') .') </small>' : ''
               );
               printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
                 esc_url( get_comment_link( $comment->comment_ID ) ),
@@ -56,16 +56,16 @@
           </header>
 
           <?php if ( '0' == $comment->comment_approved ) : ?>
-          <p>Votre commentaire est en attente de modération.</p>
+          <p><?php echo __('Votre commentaire est en attente de modération', 'ffeeeedd'); ?>.</p>
           <?php endif; ?>
 
           <section itemprop="commentText">
             <?php comment_text(); ?>
-            <?php edit_comment_link('Modifier', '<p>', '</p>' ); ?>
+            <?php edit_comment_link( __( 'Modifier', ''), '<p>', '</p>' ); ?>
           </section>
 
           <div class="reply" itemprop="replyToUrl">
-            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => 'Répondre', 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', ''), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
           </div>
         </article>
       <?php

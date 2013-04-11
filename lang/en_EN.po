@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd 1.0\n"
-"POT-Creation-Date: 2013-04-11 09:46+0100\n"
-"PO-Revision-Date: 2013-04-11 09:46+0100\n"
+"POT-Creation-Date: 2013-04-11 13:18+0100\n"
+"PO-Revision-Date: 2013-04-11 13:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: English\n"
@@ -49,6 +49,9 @@ msgstr "Archive"
 #: G:\02_sites\00_github\ffeeeedd/tag.php:36
 #: G:\02_sites\00_github\ffeeeedd/tag.php:38
 #: G:\02_sites\00_github\ffeeeedd/tag.php:40
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:39
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:41
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:43
 msgid "Article rédigé par"
 msgstr "Post by"
 
@@ -66,6 +69,8 @@ msgstr "Post by"
 #: G:\02_sites\00_github\ffeeeedd/single.php:33
 #: G:\02_sites\00_github\ffeeeedd/tag.php:36
 #: G:\02_sites\00_github\ffeeeedd/tag.php:38
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:39
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:41
 msgid "et publié dans"
 msgstr "and published in"
 
@@ -76,6 +81,7 @@ msgstr "and published in"
 #: G:\02_sites\00_github\ffeeeedd/index.php:36
 #: G:\02_sites\00_github\ffeeeedd/single.php:31
 #: G:\02_sites\00_github\ffeeeedd/tag.php:36
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:39
 msgid "Mots-clés"
 msgstr "Keywords"
 
@@ -86,6 +92,7 @@ msgstr "Keywords"
 #: G:\02_sites\00_github\ffeeeedd/index.php:42
 #: G:\02_sites\00_github\ffeeeedd/single.php:37
 #: G:\02_sites\00_github\ffeeeedd/tag.php:42
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:45
 msgid "Édité le"
 msgstr "Last edition on"
 
@@ -116,16 +123,19 @@ msgid "Il n'y a aucun article dans la catégorie"
 msgstr "There is no post in the category"
 
 #: G:\02_sites\00_github\ffeeeedd/comments.php:23
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/comments.php:23
 #, php-format
 msgid "Une réponse sur &ldquo;%2$s&rdquo;"
 msgstr "One answer on &ldquo;%2$s&rdquo;"
 
 #: G:\02_sites\00_github\ffeeeedd/comments.php:23
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/comments.php:23
 #, php-format
 msgid "%1$s réponses sur &ldquo;%2$s&rdquo;"
 msgstr "%1$s answers on &ldquo;%2$s&rdquo;"
 
 #: G:\02_sites\00_github\ffeeeedd/comments.php:34
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/comments.php:34
 msgid "Les commentaires sont clos"
 msgstr "Comments are closed"
 
@@ -175,18 +185,22 @@ msgid "(Modifier)"
 msgstr "(Edit)"
 
 #: G:\02_sites\00_github\ffeeeedd/functions.php:331
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:48
 msgid "Rédacteur"
 msgstr "Author"
 
 #: G:\02_sites\00_github\ffeeeedd/functions.php:342
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:59
 msgid "Votre commentaire est en attente de modération"
 msgstr "Your comment is awaiting for moderation"
 
 #: G:\02_sites\00_github\ffeeeedd/functions.php:347
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:64
 msgid "Modifier"
 msgstr "Edit"
 
 #: G:\02_sites\00_github\ffeeeedd/functions.php:351
+#: G:\02_sites\00_github\ffeeeedd/extensions/commentaires/functions.php:68
 msgid "Répondre"
 msgstr "Reply"
 
@@ -300,14 +314,25 @@ msgstr "Keyword"
 msgid "Il n'y a aucun article étiquetté avec le mot-clé"
 msgstr "There is no post tagged with the keyword"
 
-#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:60
-msgid "&larr; Précédent"
-msgstr "&larr; Previous"
+#: G:\02_sites\00_github\ffeeeedd/extensions/navigation
+#: mobile/mobile-navigation.php:3 mobile/mobile-navigation.php:4
+msgid "Menu"
+msgstr "Menu"
 
-#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:61
-msgid "Suivant &rarr;"
-msgstr "Next &rarr;"
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:55
+msgid "Aucun article ne répond à votre critère de recherche"
+msgstr "There is no post for your search"
+
+#: G:\02_sites\00_github\ffeeeedd/extensions/recherche/search.php:56
+msgid "Vous pouvez relancer une recherche"
+msgstr "You can make an other search"
 
 #: G:\02_sites\00_github\ffeeeedd/extensions/recherche/searchform.php:14
 msgid "Rechercher"
 msgstr "Search"
+
+#~ msgid "&larr; Précédent"
+#~ msgstr "&larr; Previous"
+
+#~ msgid "Suivant &rarr;"
+#~ msgstr "Next &rarr;"
