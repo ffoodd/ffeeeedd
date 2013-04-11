@@ -14,7 +14,7 @@ get_header(); ?>
 
 <?php if ( have_posts() ): the_post(); ?>
 
-  <h2>Auteur : <?php echo get_the_author() ; ?></h2>
+  <h2><?php echo __('Auteur', 'ffeeeedd'); ?> : <?php echo get_the_author() ; ?></h2>
 
   <?php if ( get_the_author_meta( 'description' ) ) : ?>
   <article itemscope itemtype="http://schema.org/Person">
@@ -23,7 +23,7 @@ get_header(); ?>
 
     <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
     <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
-    <a href="<?php echo get_the_author_meta( 'user_url' ); ?>" itemprop="url">Consulter son site</a>
+    <a href="<?php echo get_the_author_meta( 'user_url' ); ?>" itemprop="url"><?php echo __('Consulter son site', 'ffeeeedd'); ?></a>
     <?php endif; ?>
   </article>
   <?php endif; ?>
@@ -42,16 +42,16 @@ get_header(); ?>
 
         <footer>
           <?php // Liste des catégories & tags avec un séparateur.
-          $categories_list = get_the_category_list( __( ', ' ) );
-          $tag_list = get_the_tag_list( '', __( ', ' ) );
+          $categories_list = get_the_category_list( ( ', ' ) );
+          $tag_list = get_the_tag_list( '', ( ', ' ) );
           if ( '' != $tag_list ) {
-            echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans ' . $categories_list . '.<br />Mots-clés : ' . $tag_list . '.</p>';
+            echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' ' . $categories_list . '.<br />'. __('Mots-clés', 'ffeeeedd') .' : ' . $tag_list . '.</p>';
           } elseif ( '' != $categories_list ) {
-            echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> et publié dans ' . $categories_list . '.</p>';
+            echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' ' . $categories_list . '.</p>';
           } else {
-            echo '<p>Article rédigé par <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
+            echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
           } ?>
-          <p>Édité le <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
+          <p><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
         </footer>
       </article>
     </li>
@@ -61,7 +61,7 @@ get_header(); ?>
   <?php theme_pagination(); ?>
 
   <?php else: ?>
-  <h2><?php echo get_the_author() ; ?> n'a rédigé aucun article pour le moment.</h2>
+  <h2><?php echo get_the_author() ; ?> <?php echo __('n\'a rédigé aucun article pour le moment', 'ffeeeedd'); ?>.</h2>
   <?php endif; ?>
 
 <?php get_footer(); ?>

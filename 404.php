@@ -12,6 +12,6 @@
  */
 get_header(); ?>
 
-  <h2>Page non trouvée</h2>
+  <h2><?php echo __('Page non trouvée', 'ffeeeedd'); ?></h2>
 
 <?php get_footer(); ?>

@@ -25,19 +25,19 @@
     <!-- Fin des métas Twitter simples -->
     <!-- Métas DublinCore simples -->
     <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-    <meta name="DC.title" lang="fr" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
+    <meta name="DC.title" lang="<?php bloginfo( 'language' ); ?>" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
     <meta name="DC.identifier" content="<?php echo get_permalink(); ?>" />
     <meta name="DC.type" content="text" />
-    <meta name="DC.subject" lang="fr" content="HTML, document, Dublin Core" />
-    <meta name="DC.language" scheme="DCTERMS.RFC4646" content="fr-FR" />
+    <meta name="DC.subject" lang="<?php bloginfo( 'language' ); ?>" content="HTML, document, Dublin Core" />
+    <meta name="DC.language" scheme="DCTERMS.RFC4646" content="<?php bloginfo( 'language' ); ?>" />
     <!-- Fin des métas DublinCore simples -->
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
     <ul class="w960p center p-reset print-hidden">
-      <li class="inbl smaller m-reset"><a href="#nav" class="skip">Aller au menu</a></li>
-      <li class="inbl smaller m-reset"><a href="#content" class="skip">Aller au contenu</a></li>
+      <li class="inbl smaller m-reset"><a href="#nav" class="skip"><?php echo __('Aller au menu', 'ffeeeedd'); ?></a></li>
+      <li class="inbl smaller m-reset"><a href="#content" class="skip"><?php echo __('Aller au contenu', 'ffeeeedd'); ?></a></li>
     </ul>
 
     <header role="banner" class="w960p center">

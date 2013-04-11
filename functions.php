@@ -449,8 +449,8 @@
 
   // Création des blocs dans l'administration
   function meta_box_title_description() {
-    add_meta_box( 'parametres_seo_metabox', 'R&eacute;f&eacute;rencement', 'parametres_seo_metabox_content', 'post', 'side', 'high' );
-    add_meta_box( 'parametres_seo_metabox', 'R&eacute;f&eacute;rencement', 'parametres_seo_metabox_content', 'page', 'side', 'high' );
+    add_meta_box( 'parametres_seo_metabox', __( 'Référencement' ), 'parametres_seo_metabox_content', 'post', 'side', 'high' );
+    add_meta_box( 'parametres_seo_metabox', __( 'Référencement' ), 'parametres_seo_metabox_content', 'page', 'side', 'high' );
   }
   add_action( 'add_meta_boxes', 'meta_box_title_description' );
 
