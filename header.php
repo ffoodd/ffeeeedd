@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <!--[if IE 8 ]><html class="ie8" <?php language_attributes(); ?> class="no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-  <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">    
     <meta charset="utf-8"/>
+    <base href="<?php bloginfo( 'url' ); ?>/">
     <title><?php bloginfo( 'name' ); ?><?php wp_title( '|' ); ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="<?php wp_title(''); ?> | <?php bloginfo( 'description' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
