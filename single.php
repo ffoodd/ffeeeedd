@@ -20,7 +20,7 @@ get_header(); ?>
   <article itemscope itemtype="http://schema.org/Article" role="article">
     <h2 itemprop="name"><?php the_title(); ?></h2>
 
-    <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( 'j F Y' ); ?></time>
+    <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __('j F Y', 'ffeeeedd') ); ?></time>
     <div itemprop="articleBody"><?php the_content(); ?></div>
 
     <footer>
@@ -34,7 +34,7 @@ get_header(); ?>
       } else {
         echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
       } ?>
-      <p class="print-hidden"><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date( 'j F Y' ); ?></time>.</p>
+      <p class="print-hidden"><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date( 'j F Y' ); ?></time>.</p>
       <p class="print-hidden">
         <a href="http://twitter.com/home?status=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="<?php echo __('Partagez cet article sur Twitter', 'ffeeeedd'); ?>"><?php echo __('Partager sur Twitter', 'ffeeeedd'); ?></a>
         <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink() ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow" title="<?php echo __('Partagez cet article sur Facebook', 'ffeeeedd'); ?>"><?php echo __('Partager sur Facebook', 'ffeeeedd'); ?></a>

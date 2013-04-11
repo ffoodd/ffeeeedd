@@ -24,7 +24,7 @@ get_header(); ?>
 
         <p itemprop="UserComments" class="print-hidden"><?php comments_number( '0', '1', '% ' ); ?></p>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" itemprop="image"><?php the_post_thumbnail(); ?></a>
-        <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( 'j F Y' ); ?></time>
+        <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( __('j F Y', 'ffeeeedd') ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
 
@@ -39,7 +39,7 @@ get_header(); ?>
           } else {
             echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
           } ?>
-          <p><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d'); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
+          <p><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
         </footer>
       </article>
     </li>

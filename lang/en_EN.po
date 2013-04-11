@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd 1.0\n"
-"POT-Creation-Date: 2013-04-11 13:18+0100\n"
-"PO-Revision-Date: 2013-04-11 13:19+0100\n"
+"POT-Creation-Date: 2013-04-11 17:39+0100\n"
+"PO-Revision-Date: 2013-04-11 17:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: English\n"
@@ -27,6 +27,18 @@ msgstr "Page not found"
 #: G:\02_sites\00_github\ffeeeedd/archive.php:24
 msgid "Archive"
 msgstr "Archive"
+
+#: G:\02_sites\00_github\ffeeeedd/archive.php:18
+msgid "j F Y"
+msgstr "F j, Y"
+
+#: G:\02_sites\00_github\ffeeeedd/archive.php:20
+msgid "F Y"
+msgstr ""
+
+#: G:\02_sites\00_github\ffeeeedd/archive.php:22
+msgid "Y"
+msgstr ""
 
 #: G:\02_sites\00_github\ffeeeedd/archive.php:44
 #: G:\02_sites\00_github\ffeeeedd/archive.php:46
@@ -330,6 +342,9 @@ msgstr "You can make an other search"
 #: G:\02_sites\00_github\ffeeeedd/extensions/recherche/searchform.php:14
 msgid "Rechercher"
 msgstr "Search"
+
+#~ msgid "Y-m-d"
+#~ msgstr "F j, Y"
 
 #~ msgid "&larr; Précédent"
 #~ msgstr "&larr; Previous"
