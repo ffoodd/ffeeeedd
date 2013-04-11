@@ -491,7 +491,7 @@
       echo '<meta name="twitter:description" content="';
       echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
       echo '" />';
-      echo '<meta name="DC.description" lang="fr" content="';
+      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ); . '" content="';
       echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
       echo '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
@@ -502,7 +502,7 @@
       echo '<meta name="description" content="' . strip_tags(get_the_excerpt()) . '" />';
       echo '<meta property="og:description" content="' . strip_tags(get_the_excerpt()) . '" />';
       echo '<meta name="twitter:description" content="' . strip_tags(get_the_excerpt()) . '" />';
-      echo '<meta name="DC.description" lang="fr" content="' . strip_tags(get_the_excerpt()) . '" />';
+      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ); . '" content="' . strip_tags(get_the_excerpt()) . '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
     // Sinon, on affiche la description générale du site
@@ -511,7 +511,7 @@
       echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '" />';
       echo '<meta property="og:description" content="' . get_bloginfo( 'description' ) . '" />';
       echo '<meta name="twitter:description" content="' . get_bloginfo( 'description' ) . '" />';
-      echo '<meta name="DC.description" lang="fr" content="' . get_bloginfo( 'description' ) . '" />';
+      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ); . '" content="' . get_bloginfo( 'description' ) . '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
   }
