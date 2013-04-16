@@ -1,16 +1,44 @@
-Convention d'écriture
-=====================
+Charte d'intégration
+====================
 
 @note À lire avant intervention sur le thème ffeeeedd
 @author Gaël Poupard
+@note Inspiré par la charte du projet Normandie
+@see [Luc Poupard](http://www.kloh.fr) [@klohFR](https://twitter.com/klohFR)
 
-Convention CSS
---------------
+La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème.
 
-* *Indentation :* 2 espaces
-* *Sectionnement :* scinder en sections majeures les fichier
-* *Chapitrage :* scinder en chapitres les sections principales
-* *Commentaires :* commenter les valeurs arbitraires ou issues d'un calcul
+Généralités
+-----------
+
+* *Encodage :* Tous les fichiers doivent être encodés en UTF-8 sans BOM
+* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+
+
+Charte CSS
+----------
+
+* *Encodage :* Déclarer le charset ( @charset "UTF-8"; ).
+* *Information :* Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/).
+* *Sectionnement :* Scinder en sections majeures les fichier.
+* *Chapitrage :* Scinder en chapitres les sections principales.
+* *Sommaire :* Un sommaire doit récapituler et répertorier les sections et chapitres.
+* *Commentaires :* Toutes les règles concernant les commentaires :
+** *Commentaires :* Placer systématiquement le commentaire sur la ligne au dessus du sélecteur, lorsqu'il concerne l'ensemble du groupe de règles.
+** *Commentaires :* Commenter systématiquement les valeurs arbitraires ou issues d'un calcul, afin de permettre une bonne appréhension des styles.
+** *Commentaires :* Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
+** *Commentaires :* Le format des commentaires respectera également le format CSSDoc.
+* *Sélecteurs :* Toutes les règles concernant les sélecteurs :
+** *Sélecteurs :* Un seul sélecteur par ligne.
+** *Sélecteurs :* Une déclaration par ligne au sein du bloc de règles.
+** *Sélecteurs :* Un espace après les deux-points (:) d'une règle.
+** *Sélecteurs :* Un point-virgule (;) à la fin de chaque règle.
+** *Sélecteurs :* L'accolade de fermeture (}) est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
+** *Sélecteurs :* Une ligne est sautée entre chaque bloc de règles.
+** *Sélecteurs :* Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
+** *Sélecteurs composés :* Les sélecteurs seront composés suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
+* *Propriétés raccourcies :* Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
+
 
 
 Convention HTML
