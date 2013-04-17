@@ -43,6 +43,7 @@ Charte CSS
  * L'accolade de fermeture (}) est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
  * Dans le cas des préfixes vendeurs, ferrées à gauche les règles *et* les valeurs ( après les deux points ).
+ * Les sélecteurs d'attributs doivnet utiliser des guillemets ( ex : type="radio" ).
 * *Classes et identifiants :*
  * Limiter au maximum l'utilisation d'identifiant.
  * Proscrire l'emploi de "!important".
@@ -53,6 +54,7 @@ Charte CSS
 * *Propriétés raccourcies :* Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
 * *Valeurs :*
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( #fff pour le blanc )
+ * Utiliser des bas de casses pour les valeurs hexadécimales.
  * La valeur des couleurs complexes doit se faire autant que possible en *HSL* / *HSLA* avec un fallback en *rgb pour IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
  * Les corps de texte doivent être formulés en *rem* avec un fallback en *px pour IE8 et -*.
  * Les hauteurs doivent être formulées en *rem* afin de conserver le rythme vertical.
