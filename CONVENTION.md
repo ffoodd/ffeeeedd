@@ -72,13 +72,13 @@ Charte CSS
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après ( .mon--selecteur { propriété: valeur; } ).
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes pour en faciliter la lecture ( notamment les gradient ).
 * *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
- 1 Contenu ( "content" pour les pseudo-éléments )
- 2 Positionnnement ( display, float, position, top, bottom, left, right )
- 3 Modèle de boîte ( width, height, margin, padding, overflow, border )
- 4 Texte ( font, text-align, text-shadow, text-decoration, letter-spacing, word-spacing )
- 5 Décoration ( color, opacity, background, box-shadow, outline )
- 6 Transformation & transitions ( animation, transition, transformation )
- 7 Comportements ( cursor )
+ 1. Contenu ( "content" pour les pseudo-éléments )
+ 2. Positionnnement ( display, float, position, top, bottom, left, right )
+ 3. Modèle de boîte ( width, height, margin, padding, overflow, border )
+ 4. Texte ( font, text-align, text-shadow, text-decoration, letter-spacing, word-spacing )
+ 5. Décoration ( color, opacity, background, box-shadow, outline )
+ 6. Transformation & transitions ( animation, transition, transformation )
+ 7. Comportements ( cursor )
 
 
 
