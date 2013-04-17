@@ -46,7 +46,6 @@ Charte CSS
  * Les sélecteurs d'attributs doivnet utiliser des guillemets ( ex : type="radio" ).
 * *Classes et identifiants :*
  * Limiter au maximum l'utilisation d'identifiant.
- * Proscrire l'emploi de "!important".
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
@@ -64,6 +63,7 @@ Charte CSS
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
  * Ne pas préciser d'unité pour les valeurs nulles (0).
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 )
+ * Proscrire l'emploi de "!important".
 * *Typographies :*
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en em, pas en rem !
  * L'utilisation de polices exotiques doit se faire à l'aide de @font-face ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
