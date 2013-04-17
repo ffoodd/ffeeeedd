@@ -130,9 +130,13 @@
 
   // Créer les éléments html5 pour IE8 et -
   function add_ie_html5 () {
-    echo '<!--[if lt IE 9]>';
-    echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0hgroup0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
-    echo '<![endif]-->';
+    /* On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress */
+    global $is_winIE;
+    if($is_winIE) {
+      echo '<!--[if lt IE 9]>';
+      echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0hgroup0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
+      echo '<![endif]-->';
+    }
   }
   add_action('wp_head', 'add_ie_html5');
 
