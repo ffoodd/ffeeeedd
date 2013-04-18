@@ -69,5 +69,5 @@
       <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) ); ?>
     </nav>
 
-    <div role="main" id="content" class="mw960p center" itemprop="mainContentOfPage">
+    <main role="main" id="content" class="mw960p center" itemprop="mainContentOfPage">
       <?php if (function_exists('ariane') && !is_front_page()) { ariane(); } ?>
