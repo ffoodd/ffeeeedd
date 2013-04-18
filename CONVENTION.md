@@ -42,7 +42,8 @@ Charte CSS
  * Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
  * Le format des commentaires respectera également le format CSSDoc.
   
-
+  
+  
 * *Sélecteurs :*
  * Un seul sélecteur par ligne.
  * Une déclaration par ligne au sein du bloc de règles.
@@ -55,7 +56,8 @@ Charte CSS
  * Dans le cas des préfixes vendeurs, ferrées à gauche les règles *et* les valeurs ( après les deux points ).
  * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( ex : type="radio" ).
   
-
+  
+  
 * *Classes et identifiants :*
  * Limiter au maximum l'utilisation d'identifiant.
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
@@ -63,7 +65,8 @@ Charte CSS
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
  * Les sélecteurs utiles au javascript doivent être préfixés par "js--" et ne pas véhiculer de styles visuels.
   
-
+  
+  
 * *Valeurs :*
  * Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( #fff pour le blanc )
@@ -79,21 +82,21 @@ Charte CSS
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 )
  * Proscrire l'emploi de "!important".
   
-
-
+  
+  
 * *Typographies :*
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en em, pas en rem !
  * L'utilisation de polices exotiques doit se faire à l'aide de @font-face ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
   
-
-
+  
+  
 * *Exceptions :*
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après ( .mon--selecteur { propriété: valeur; } ).
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes pour en faciliter la lecture ( notamment les gradient ).
-
   
-
+  
+  
 * *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
  2. Positionnnement ( display, float, position, top, bottom, left, right )
