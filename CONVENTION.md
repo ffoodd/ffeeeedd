@@ -94,9 +94,9 @@ Charte CSS
 * *Exceptions :*
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après ( .mon--selecteur { propriété: valeur; } ).
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes pour en faciliter la lecture ( notamment les gradient ).
-  
-  
-  
+          
+          
+          
 * *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
  2. Positionnnement ( display, float, position, top, bottom, left, right )
