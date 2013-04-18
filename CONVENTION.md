@@ -41,9 +41,9 @@ Charte CSS
  * Commenter systématiquement les valeurs arbitraires ou issues d'un calcul, afin de permettre une bonne appréhension des styles.
  * Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
  * Le format des commentaires respectera également le format CSSDoc.
-  
-  
-  
+
+--  
+
 * *Sélecteurs :*
  * Un seul sélecteur par ligne.
  * Une déclaration par ligne au sein du bloc de règles.
@@ -81,7 +81,6 @@ Charte CSS
  * Ne pas préciser d'unité pour les valeurs nulles (0).
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 )
  * Proscrire l'emploi de "!important".
-  
   
   
 * *Typographies :*
