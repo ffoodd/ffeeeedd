@@ -5,11 +5,12 @@ Charte d'intégration
 
 @author Gaël Poupard
 
-@note Inspiré par la charte du projet Normandie
+@note Inspiré par la charte du projet Normandie et diverses chartes à citer également.
 
 @see [Luc Poupard](http://www.kloh.fr "kloh.fr") [@klohFR](https://twitter.com/klohFR "@klohFR")
 
-La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème.
+La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème. 
+
 
 Généralités
 -----------
@@ -50,8 +51,9 @@ Charte CSS
  * Un point-virgule (;) à la fin de chaque règle.
  * L'accolade de fermeture (}) est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
+ * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*..
  * Dans le cas des préfixes vendeurs, ferrées à gauche les règles *et* les valeurs ( après les deux points ).
- * Les sélecteurs d'attributs doivnet utiliser des guillemets ( ex : type="radio" ).
+ * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( ex : type="radio" ).
 
 
 * *Classes et identifiants :*
@@ -101,36 +103,49 @@ Charte CSS
 
 
 Convention HTML
---------------
+---------------
 
-* *Encodage :* Spécifier l'encodage via la balise <meta charset="utf-8">
+* *Encodage :* Spécifier l'encodage via la balise.
+
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
-* *Commentaires :* commenter la fermeture de chaque balise en HTML.
+
+* *Retours chariots :* Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
+
+* *Doctype :* Utiliser le doctype HTML5.
+
+* *Sémantique :* Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement.
+
+* *Validation :* Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
+
+* *Commentaires :* Commenter la fermeture de chaque balise en HTML.
+
+* *Multimédias :* Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
+
+* *Attributs :* 
+ * Ne pas fournir l'attribut type pour les styles et scripts.
+ * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
 
 
- * pas de single-line dans les fichiers .lisible
 
- * commenter autant que possible
- * se servir du sommaire dans les fichier css
- * pour les id et class : unquement des minuscules et tirets (-).
+Mise en Production
+------------------
 
-Tous les scripts et css sont minifiés, mais accessibles via un duplicata des fichiers avec l'extension .lisible.
+* *Optimisation CSS :*
+ * Les fichiers .css doivent être concaténés en un seul ( styles.css : notez bien le 's' final (!) attention aux *urls*).
+ * Les fichiers .css doivent être conservés tels quels.
+ * Le fichier final doit être minifié selon les règles suivantes :
+  * Supprimer les espaces avant et après les accolades ouvrantes ( { ),
+  * Supprimer les espaces avant et après les accolades fermantes ( } ),
+  * Supprimer les espaces avant et après les deux points ( : ),
+  * Supprimer les espaces avant et après les points-virgules ( ; ),
+  * Supprimer le dernier point-virgule d'une règle ( ; } ),
+  * Supprimer les retours à la ligne,
+  * Supprimer les doubles espaces,
+  * Supprimer les commentaires.
+  * L'outil [CssCompressor](http://www.cssdrive.com/index.php/main/csscompressor "cssdrive.com") peut être utilisé avec les options suivantes: Super Compact, Strip all comments.
 
-Modifiez les .lisible en commentant vos ajouts / modifications, puis re-minifiez les fichiers.
-Pour faire vos tests, vous pouvez remplacer temporairement les fichiers minifiés par les fichiers lisibles afin de gagner du temps, mais pensez bien à les re-minifier et
-les ré-enregistrer en .lisible.
+* *Minification :* Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
 
-*** Pour le css :
-            http://www.cssdrive.com/index.php/main/csscompressor
-            avec les options suivantes: Super Compact, Strip all comments
-          ! Attention, cet outil n'est pas parfait : il conserve les espaces après les ":", les ";" et les "{".
-                Il sera donc apprécié de faire un rechercher / remplacer global - et plusieurs fois, pour chacun de ces caractères :
-                ": " devient ":"
-                "; " devient ";"
-                "{ " devient "{"
-                "} " devient "}"
-                Et voila !
-*** Fin du css
 
 *** Pour le js :
             http://jscompress.com/
