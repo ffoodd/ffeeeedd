@@ -78,7 +78,7 @@ Charte CSS
  * Ne pas préciser d'unité pour les valeurs nulles (0).
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 )
  * Proscrire l'emploi de "!important".
-
+*
 
 * *Typographies :*
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en em, pas en rem !
@@ -89,7 +89,7 @@ Charte CSS
 * *Exceptions :*
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après ( .mon--selecteur { propriété: valeur; } ).
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes pour en faciliter la lecture ( notamment les gradient ).
-
+*
 
 * *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
@@ -105,7 +105,7 @@ Charte CSS
 Convention HTML
 ---------------
 
-* *Encodage :* Spécifier l'encodage via la balise.
+* *Encodage :* Spécifier l'encodage via la balise meta dédiée.
 
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
 
