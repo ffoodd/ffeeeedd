@@ -31,7 +31,7 @@ if ( post_password_required() )
 
   <?php // Si les commentaires ont été fermés :
   if ( ! comments_open() && get_comments_number() ) : ?>
-  <p class="nocomments"><?php echo __('Les commentaires sont clos', 'ffeeeedd'); ?>.</p>
+    <p class="nocomments"><?php echo __('Les commentaires sont clos', 'ffeeeedd'); ?>.</p>
   <?php endif; ?>
 
   <?php endif; ?>

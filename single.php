@@ -24,17 +24,7 @@ get_header(); ?>
     <div itemprop="articleBody"><?php the_content(); ?></div>
 
     <footer>
-      <?php // Liste des catégories & tags avec un séparateur.
-      $categories_list = get_the_category_list( ( ', ' ) );
-      $tag_list = get_the_tag_list( '', ( ', ' ) );
-      if ( '' != $tag_list ) {
-        echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span><br />'. __('Mots-clés', 'ffeeeedd') .' : <span itemprop="keywords">' . $tag_list . '.</span></p>';
-      } elseif ( '' != $categories_list ) {
-        echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span></p>';
-      } else {
-        echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
-      } ?>
-      <p class="print-hidden"><?php echo __('Édité le', 'ffeeeedd'); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.</p>
+      <?php ffeeeedd__meta(); ?>
       <p class="print-hidden">
         <a href="http://twitter.com/home?status=<?php the_permalink() ?>" target="_blank" rel="nofollow" title="<?php echo __('Partagez cet article sur Twitter', 'ffeeeedd'); ?>"><?php echo __('Partager sur Twitter', 'ffeeeedd'); ?></a>
         <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink() ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow" title="<?php echo __('Partagez cet article sur Facebook', 'ffeeeedd'); ?>"><?php echo __('Partager sur Facebook', 'ffeeeedd'); ?></a>

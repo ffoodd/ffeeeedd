@@ -95,6 +95,25 @@
   }
   add_filter('language_attributes', 'add_opengraph_doctype');
 
+  // Génère le contenu du <footer> pour les articles :
+  if ( ! function_exists( 'ffeeeedd__meta' ) ) :
+    function ffeeeedd__meta() {
+	  // Liste des catégories & tags avec un séparateur.
+      $categories_list = get_the_category_list( ( ', ' ) );
+      $tag_list = get_the_tag_list( '', ( ', ' ) );
+      // On génère le contenu en fonction des informations disponibles ( mots-clés, catégories, auteur ).
+	  if ( '' != $tag_list ) {
+          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span><br />'. __('Mots-clés', 'ffeeeedd') .' : <span itemprop="keywords">' . $tag_list . '.</span></p>';
+        } elseif ( '' != $categories_list ) {
+          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span></p>';
+        } else {
+          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
+      }
+      // On génère la ddate de dernière modification
+      echo '<p class="print-hidden">' . __('Édité le', 'ffeeeedd'); . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() .'</time>.</p>';
+  }
+  endif;
+
 
   /* ========================================================================================================================
 
@@ -398,22 +417,6 @@
     $defaults['comment_field']='<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
   }
-
-  // Recherche améliorée
-  function recherche($query) {
-    // On vérifie s'il s'agit dune page de recherche ou un d'un flux rss
-    if ($query->is_search or $query->is_feed) {
-      // La recherche parcoure otus les contenus
-      $query->set('post_type', 'any');
-      // On définit à 10 le nombre de résultats, comme sur les autres pages de boucles
-      $query->set('posts_per_page', 10);
-      // On définit l'ordre d'affichage
-      $query->set('orderby', 'date');
-    }
-    return $query;
-  }
-  // Ce filtre va intercepter la boucle et ré-ordonner les résultats avant qu'ils ne soient renvoyés et affichés
-  add_filter('pre_get_posts','recherche');
 
   // Colonnes latérales
   function ffeeeedd_widgets_init() {
