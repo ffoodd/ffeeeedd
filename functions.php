@@ -134,9 +134,9 @@
     wp_enqueue_script( 'site' );
 
     // À employer en dev, style.css utilise @import pour améliorer la compréhension de l'architecture css.
-    wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', 'null', 'all' );
+    wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
     // À utiliser en prod, fichier minifié. Ajouter la date ou la version pour la mise en cache.
-    //wp_register_style( 'all', get_stylesheet_directory_uri().'/style.20130103.min.css', '', 'null', 'all' );
+    //wp_register_style( 'all', get_stylesheet_directory_uri().'/style.20130103.min.css', '', null, 'all' );
     wp_enqueue_style( 'all' );
   }
 
