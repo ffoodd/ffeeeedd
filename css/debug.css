@@ -1,53 +1,143 @@
 /**
+* ==Debug *
+* 
 * @author Gaël Poupard
 * @site Thème ffeeeedd
 * @lastmodified 2012-12-27
+*
 * @subsection Références :
   * @see https://github.com/redroot/holmes/blob/master/holmes.css
-  * @version v1.0.1
+  * @version v1.0.45(06/08/2012)
   * @author : @luke_redroot
+  * @author_url :	http://www.red-root.com
+  * Copyright (C) 2012 Luke Williams & RedRoot All Rights Reserved.
+  * holmes.css HTML5 CSS Accessibility Validation
+  * Licenced under GPL license
+  * @see : http://www.gnu.org/licenses/gpl.html
+  *
+  * @see : http://www.w3.org/TR/html5/obsolete.html#obsolete
+  *
+  * @see : https://github.com/nternetinspired/debug-css
+  *
   * @see "Intégration Web, les bonnes pratiques", pages 335/336.
   * @author : Corinne Schillinger, Inseo.
+ * 
  * @note : on utilise outline plutôt que border afin de ne pas modifier les dimensions des éléments.
+ * @note : le rouge dénonce une erreur, un code invalide ou un attribut manquant.
+ * @note : le jaune est une alerte, relevant un balisage erroné ou une mauvaise pratique potentielle.
+ * @note : le gris signale les éléments obsolètes ou utilisant un attribut obsolète.
 */
 
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
 /*
+ 1- Détection des erreurs.
+ 2- Messages d'erreur.
+*/
+
+
+/* =Détection des erreurs 
+ *
  * @note : Sert à détecter les liens utilisés comme boutons d'action,
  * certains liens temporaires dont l'url n'est pas renseignée,
- * ainsi que les liens sans titre.
+ * les liens sans titre,
+ * les liens sans cible,
+ * et les liens dont la cible est vide.
+ * @note : Nuisent à l'accessibilité.
 */
 a[href="#"],
 a[href^="javascript"],
 a[title=""] {
-   color: Crimson !important;
+  outline: 4px dashed crimson !important;
 }
-/* @note : Sert à détecter les liens sans cibles, ou dont la cible est vide. */
 a:not([href]),
 a[href=""] {
-  outline: 4px solid Gold !important;
+  outline: 4px solid crimson !important;
 }
-
 
 /* Entoure d'un trait continu les images n'ayant pas d'alternatives textuelles. */
 img:not([alt]) {
-   outline: 4px solid Crimson !important;
+  outline: 4px solid crimson !important;
 }
 
 /* Entoure d'un trait pointillé les images ayant une alternative textuelle vide. */
 img[alt=""] {
-   outline: 4px dashed Crimson !important;
+  outline: 4px dashed crimson !important;
 }
 
-/* Détecte les attributs manquants dans les formulaires. */
+/* Détecte les attributs manquants ou vides. */
 label:not([for]),
 label[for=""],
+
 input:not([name]),
 input[name=""],
+input:not([type]),
+input[type=""],
+
 select:not([name]),
 select[name=""],
+
 textarea:not([name]),
-textarea[name=""] {
-  outline: 4px solid Crimson !important;
+textarea[name=""],
+
+abbr:not([title]),
+abbr[title=""],
+
+table:not([summary]),
+table[summary=""],
+
+[class=""],
+[id=""] {
+  outline: 4px solid crimson !important;
+}
+
+/* Repère les imbrications inadéquates d'éléments. */
+ul > *:not(li),
+ol > *:not(li),
+table > tr,
+tbody + tfoot {
+    outline: 4px solid gold !important;
+}
+
+/* Détecte les éléments supportant des styles en ligne. */
+[style] {
+  outline: 4px solid gold !important;
+}
+
+/* Marque les éléments & attributs obsolètes. */
+applet, 
+acronym, 
+center, 
+dir, 
+font,   
+strike, 
+big,
+tt,
+marquee,
+plaintext,  
+xmp,
+
+body[background], 
+body[bgproperties], 
+body[topmargin], 
+body[rightmargin], 
+body[bottommargin], 
+body[leftmargin],
+
+*[bordercolor], 
+*[bordercolordark], 
+*[bordercolorlight],
+table[frame],
+
+*[align], 
+*[valign], 
+*[bgcolor], 
+*[clear],
+
+ul[type],
+li[type] {
+  outline: 4px solid gray;
 }
 
 /* 
@@ -60,5 +150,277 @@ li:empty,
 p:empty,
 td:empty,
 th:empty {
-   background: Gold !important;
+  background: gold !important;
+}
+
+/* =Messages d'erreur 
+ * ==Styles d'alertes.
+ * ==Contenu des alertes.
+*/
+
+
+/* ==Styles d'alertes */
+/* Liens */
+a[href="#"]:hover::after,
+a[href^="javascript"]:hover::after,
+a[title=""]:hover::after,
+img[alt=""]:hover::after,
+
+/* Éléments vides */
+div:empty:hover::after, 
+span:empty:hover::after,
+li:empty:hover::after, 
+p:empty:hover::after,
+td:empty:hover::after, 
+th:empty:hover::after,
+
+/* Imbrication inadéquate d'éléments */
+ul > *:not(li):hover::after,
+ol > *:not(li):hover::after,
+table > tr:hover::after,
+tbody + tfoot:hover::after,
+
+/* Attributs [style] */
+[style]:hover::after {
+	border-radius: .5em;
+	display: block;
+	padding: 1em;
+	margin: 1em;
+	background: gold;
+	position: fixed;
+	color: #000;
+	left: 0;
+	top: 0;
+	z-index: 99;
+}
+
+/* Liens */
+a:not([href]):hover::after,
+a[href=""]:hover::after,
+
+/* Images */
+img:not([alt]):hover:after,
+
+/* Attributs */
+label:not([for]):hover::after,
+label[for=""]:hover::after,
+
+input:not([name]):hover::after,
+input[name=""]:hover::after,
+input:not([type]):hover::after,
+input[type=""]:hover::after,
+
+select:not([name]):hover::after,
+select[name=""]:hover::after,
+
+textarea:not([name]):hover::after,
+textarea[name=""]:hover::after,
+
+abbr:not([title]):hover::after,
+abbr[title=""]:hover::after,
+
+[class=""]:hover::after,
+[id=""]:hover::after,
+
+table:not([summary]):hover::after,
+table[summary=""]:hover::after {
+	border-radius: .5em;
+	display: block;
+	padding: 1em;
+	margin: 1em;
+	background: red;
+	position: fixed;
+	color: black;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	text-decoration: none;
+}
+
+/* Éléments & attributs obsolètes. */
+applet:hover::after, 
+acronym:hover::after, 
+center:hover::after, 
+dir:hover::after, 
+font:hover::after,   
+strike:hover::after,  
+big:hover::after,
+tt:hover::after,
+marquee:hover::after,
+plaintext:hover::after,  
+xmp:hover::after,
+*[bordercolor]:hover::after, 
+*[bordercolordark]:hover::after, 
+*[bordercolorlight]:hover::after,
+table[frame]:hover::after,
+*[align]:hover::after, 
+*[valign]:hover::after, 
+*[bgcolor]:hover::after, 
+*[clear]:hover::after, 
+ul[type]:hover::after,
+li[type]:hover::after {
+	border-radius: .5em;
+	display: block;
+	padding: 1em;
+	margin: 1em;
+	background: red;
+	position: fixed;
+	background: gray;
+	color: black;
+	left: 0;
+	top: 0;
+	z-index: 99;
+}
+
+/* Attributs obsolètes sur le <body> */
+body[background]:hover::after, 
+body[bgproperties]:hover::after, 
+body[topmargin]:hover::after, 
+body[rightmargin]:hover::after, 
+body[bottommargin]:hover::after, 
+body[leftmargin]:hover::after { 
+	border-radius: .5em;
+	display: block;
+	padding: 1em;
+	margin: 1em;
+	background: red;
+	position: fixed;
+	background: gray;
+	color: black;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+	/* On couvre tout le corps de la page. */
+}
+
+/* Corrige l'éventualité d'une double erreur à indiquer sur les cellules de tableaux */
+td:empty:hover::after, 
+th:empty:hover::after {
+	top: 4em;
+}
+
+
+/* ==Contenu des alertes */
+
+a:not([href]):hover::after,
+a[href=""]:hover::after {
+	content: "Attribut [href] manquant.";
+}
+
+a[href="#"]:hover:after{
+	content: "Attribut [href='#'].";
+}
+
+a[href^="javascript"]:hover:after{
+	content: "Attribut [href] débutant par javascript.";
+}
+
+a[title=""]:hover::after {
+	content: "Attribut [title] vide.";
+}
+
+img:not([alt]):hover::after {
+	content: "Attribut [alt] manquant.";
+}
+img[alt=""]:hover::after {
+	content: "Attribut [alt] vide.";
+}
+
+label:not([for]):hover::after,
+label[for=""]:hover::after{
+	content: "Attribut [for] manquant.";
+}
+
+input:not([name]):hover::after,
+input[name=""]:hover::after,
+input:not([type]):hover::after,
+input[type=""]:hover::after,
+select:not([name]):hover::after,
+select[name=""]:hover::after,
+textarea:not([name]):hover::after,
+textarea[name=""]:hover::after {
+	content: "Attribut [name] manquant ou vide.";
+}
+
+input:not([type]):hover::after,
+input[type=""]:hover::after {
+	content: "Attribut [type] manquant ou vide.";
+}
+
+abbr:not([title]):hover::after,
+abbr[title=""]:hover::after {
+	content: "Attribut [title] manquant ou vide.";
+}
+
+[class=""]:hover::after {
+	content: "Attribut [class] vide.";
+}
+
+[id=""]:hover::after {
+	content: "Attribut [id] vide.";
+}
+
+table:not([summary]):hover::after,
+table[summary=""]:hover::after {
+	content: "Attribut [summary] manquant ou vide.";
+}
+
+[style]:hover::after {
+	content: "Éléments supportant des styles en ligne.";
+}
+
+/* Imbrication inadéquate d'éléments */
+ul > *:not(li):hover::after,
+ol > *:not(li):hover::after,
+table > tr:hover::after,
+tbody + tfoot:hover::after {
+    content: "Imbrication inadéqute d'éléments.";
+}
+
+/* Éléments obsolètes
+ * @see : http://www.w3.org/TR/html5/obsolete.html#obsolete
+*/
+applet:hover::after, 
+acronym:hover::after, 
+center:hover::after, 
+dir:hover::after, 
+font:hover::after,   
+strike:hover::after, 
+big:hover::after,
+tt:hover::after,
+marquee:hover::after,
+plaintext:hover::after,  
+xmp:hover::after,
+
+body[background]:hover::after,
+body[bgproperties]:hover::after,
+body[topmargin]:hover::after,
+body[rightmargin]:hover::after, 
+body[bottommargin]:hover::after, 
+body[leftmargin]:hover::after,
+
+*[bordercolor]:hover::after, 
+*[bordercolordark]:hover::after, 
+*[bordercolorlight]:hover::after,
+
+table[frame]:hover::after,
+
+*[align]:hover::after,
+*[valign]:hover::after,
+*[bgcolor]:hover::after,
+*[clear]:hover::after,
+
+ul[type]:hover::after, 
+li[type]:hover::after {
+	content: "Attribut(s) obsolète(s).";
+}
+
+/* Éléments vides */
+div:empty:hover::after, 
+span:empty:hover::after,
+li:empty:hover::after, 
+p:empty:hover::after,
+td:empty:hover::after, 
+th:empty:hover::after {
+	content: "Élément vide.";
 }
