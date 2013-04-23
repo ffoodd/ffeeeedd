@@ -19,8 +19,11 @@
   *
   * @see : https://github.com/nternetinspired/debug-css
   *
+  * @see : Mémento "Sites web - Les bonnes pratiques" aux éditions Eyrolles
+  * @author : Elie Sloïm, Temesis, Opquast, Openweb - @ElieSl
+  *
   * @see "Intégration Web, les bonnes pratiques", pages 335/336.
-  * @author : Corinne Schillinger, Inseo.
+  * @author : Corinne Schillinger, Inseo - @schillinger
  * 
  * @note : on utilise outline plutôt que border afin de ne pas modifier les dimensions des éléments.
  * @note : le rouge dénonce une erreur, un code invalide ou un attribut manquant.
@@ -48,7 +51,8 @@
 */
 a[href="#"],
 a[href^="javascript"],
-a[title=""] {
+a[title=""],
+a:not([title]) {
   outline: 4px dashed crimson !important;
 }
 a:not([href]),
@@ -56,12 +60,8 @@ a[href=""] {
   outline: 4px solid crimson !important;
 }
 
-/* Entoure d'un trait continu les images n'ayant pas d'alternatives textuelles. */
-img:not([alt]) {
-  outline: 4px solid crimson !important;
-}
-
-/* Entoure d'un trait pointillé les images ayant une alternative textuelle vide. */
+/* Repère les images sans alternvative textuelle, ou avec une alternative vide. */
+img:not([alt]),
 img[alt=""] {
   outline: 4px dashed crimson !important;
 }
@@ -96,6 +96,7 @@ table[summary=""],
 ul > *:not(li),
 ol > *:not(li),
 table > tr,
+table table,
 tbody + tfoot {
     outline: 4px solid gold !important;
 }
@@ -109,9 +110,15 @@ tbody + tfoot {
 applet, 
 acronym, 
 center, 
-dir, 
+dir,
+basefont,
 font,   
-strike, 
+strike,
+frame,
+frameset,
+isindex,
+noframes,
+u,
 big,
 tt,
 marquee,
@@ -164,6 +171,7 @@ th:empty {
 a[href="#"]:hover::after,
 a[href^="javascript"]:hover::after,
 a[title=""]:hover::after,
+a:not([title]):hover::after,
 img[alt=""]:hover::after,
 
 /* Éléments vides */
@@ -188,7 +196,7 @@ tbody + tfoot:hover::after,
 	margin: 1em;
 	background: gold;
 	position: fixed;
-	color: #000;
+	color: black;
 	left: 0;
 	top: 0;
 	z-index: 99;
@@ -230,7 +238,7 @@ table[summary=""]:hover::after {
 	margin: 1em;
 	background: red;
 	position: fixed;
-	color: black;
+	color: white;
 	left: 0;
 	top: 0;
 	z-index: 99;
@@ -315,8 +323,9 @@ a[href^="javascript"]:hover:after{
 	content: "Attribut [href] débutant par javascript.";
 }
 
-a[title=""]:hover::after {
-	content: "Attribut [title] vide.";
+a[title=""]:hover::after,
+a:not([title]):hover::after {
+	content: "Attribut [title] vide ou manquant.";
 }
 
 img:not([alt]):hover::after {
