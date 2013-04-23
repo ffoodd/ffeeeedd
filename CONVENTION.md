@@ -132,6 +132,19 @@ Convention HTML
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
 
 
+Convention Javascript
+---------------------
+
+Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
+
+* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+
+* *Retours chariots :* Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+
+* *Commentaires :* Commenter la fermeture de chaque fonction.
+
+* *annotations :* Citer les sources & références, et annoter autant que possible le code.
+
 
 Mise en Production
 ------------------
@@ -154,10 +167,13 @@ Mise en Production
 
 * *Minification :* Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
 
+* *Optimisation js :*
+ * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
+ * Les scripts doivent être minifiés :
+  * Concaténer les fichiers ( à l'exception de la lib ).
+  * Supprimer les commentaires.
+ * L'outil [jsCompress](http://jscompress.com/ "jscompress.com") peut-être utilisé pour cette opération.
 
-*** Pour le js :
-            http://jscompress.com/
-*** Fin du js
 
 Les fichiers .php sont légèrement optimisés : tous les doubles espaces ont été remplacés par des espaces simples, dans le but de minifier le code html généré.
 Cela a des conséquences sur la lisibilité du code, mais tous les commentaires ( php et html ) ont été conservés.
