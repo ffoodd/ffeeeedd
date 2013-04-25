@@ -15,9 +15,9 @@ La présente charte détaille l'ensemble des règles et/ou recommandations à su
 Généralités
 -----------
 
-* *Encodage :* Tous les fichiers doivent être encodés en UTF-8 sans BOM
-* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
-* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+* __Encodage :__ Tous les fichiers doivent être encodés en UTF-8 sans BOM
+* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
+* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
 
 
 Charte CSS
@@ -25,21 +25,21 @@ Charte CSS
 
 @note : seul le fichier kit.css est voué à être modifié.
 
-* *Encodage :* Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
+* __Encodage :__ Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
-* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* *Information :* Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
+* __Information :__ Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
-* *Sectionnement :* Scinder en sections majeures le fichier.
+* __Sectionnement :__ Scinder en sections majeures le fichier.
 
-* *Chapitrage :* Scinder en chapitres les sections principales.
+* __Chapitrage :__ Scinder en chapitres les sections principales.
 
-* *Sommaire :* Un sommaire doit récapituler et répertorier les sections et chapitres.
+* __Sommaire :__ Un sommaire doit récapituler et répertorier les sections et chapitres.
 
-* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
 
-* *Commentaires :*
+* __Commentaires :__
  * Placer systématiquement le commentaire sur la ligne au dessus du sélecteur, lorsqu'il concerne l'ensemble du groupe de règles.
  * Commenter systématiquement les valeurs arbitraires ou issues d'un calcul, afin de permettre une bonne appréhension des styles.
  * Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
@@ -47,7 +47,7 @@ Charte CSS
 
 ==
 
-* *Sélecteurs :*
+* __Sélecteurs :__
  * Un seul sélecteur par ligne.
  * Une déclaration par ligne au sein du bloc de règles.
  * Les règles sont ferrées à gauche.
@@ -62,15 +62,15 @@ Charte CSS
 
 ==
   
-* *Classes et identifiants :*
+* __Classes et identifiants :__
  * Limiter au maximum l'utilisation d'identifiant.
- * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
+ * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :__ le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
 
 ==
 
-* *Valeurs :*
+* __Valeurs :__
  * Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
@@ -87,20 +87,20 @@ Charte CSS
 
 ==
 
-* *Typographies :*
+* __Typographies :__
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
 
 ==
 
-* *Exceptions :*
+* __Exceptions :__
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les gradient ).
 
 ==
 
-* *Compatibilité :*
+* __Compatibilité :__
  * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
  * Les styles spécifiques à IE8 et inférieur doivent être exclus dans un fichier css externe.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
@@ -108,7 +108,7 @@ Charte CSS
 
 ==
 
-* *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
+* __Ordres des déclarations :__ @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
  2. Positionnnement ( display, float, position, top, bottom, left, right )
  3. Modèle de boîte ( width, height, margin, padding, overflow, border )
@@ -148,9 +148,9 @@ Charte CSS
 Convention HTML
 ---------------
 
-* *Encodage :* Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
+* __Encodage :__ Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
 
-* *Organisation du `<head>` :* 
+* __Organisation du `<head>` :__ 
  * La `<meta charset="utf-8">` doit être le premier enfant du `<head>`.
  * La balise `<title>` doit venir en deuxième position.
  * Ajouter la balise `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` en vue d'améliorer le rendu sur IE.
@@ -158,25 +158,25 @@ Convention HTML
 
 ==
 
-* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* *Écriture :* Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
+* __Écriture :__ Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
 
-* *Retours chariots :* Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
+* __Retours chariots :__ Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
 
-* *Doctype :* Utiliser le doctype HTML5 `<!DOCTYPE html>`.
+* __Doctype :__ Utiliser le doctype HTML5 `<!DOCTYPE html>`.
 
-* *Sémantique :* Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement.
+* __Sémantique :__ Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement.
 
-* *Validation :* Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
+* __Validation :__ Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
 
-* *Commentaires :* Commenter la fermeture de chaque balise en HTML, puis sauter une ligne.
+* __Commentaires :__ Commenter la fermeture de chaque balise en HTML, puis sauter une ligne.
 
-* *Multimédias :* Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
+* __Multimédias :__ Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
 
-* *Fermeture de balise :* Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
+* __Fermeture de balise :__ Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
-* *Attributs :* 
+* __Attributs :__ 
  * Ne pas fournir l'attribut `type` pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
  * Appliquer les *rôles ARIA* dès que possible.
@@ -185,16 +185,16 @@ Convention HTML
  
 == 
 
-* *Métadonnées :*
+* __Métadonnées :__
  * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
  * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
  * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
  
 == 
 
-* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
 
-* *Compatibilité :* 
+* __Compatibilité :__ 
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
@@ -218,21 +218,21 @@ Convention Javascript
 
 Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
 
-* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* *Retours chariots :* Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+* __Retours chariots :__ Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
-* *Ligne seule :* Rester sur une seule ligne si une seule action est exercée dans un `if`, `for` ou `while`.
+* __Ligne seule :__ Rester sur une seule ligne si une seule action est exercée dans un `if`, `for` ou `while`.
 
-* *Commentaires :* Commenter la fermeture de chaque fonction.
+* __Commentaires :__ Commenter la fermeture de chaque fonction.
 
-* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
 
-* *Organisation :* Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant CSSDoc. 
+* __Organisation :__ Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant CSSDoc. 
 
-* *Sommaire :* Si plusieurs scripts sont accumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
+* __Sommaire :__ Si plusieurs scripts sont accumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
 
-* *Guillemets :* Toujours utiliser des guillemets doubles.
+* __Guillemets :__ Toujours utiliser des guillemets doubles.
 
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
 
@@ -241,13 +241,13 @@ Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce t
 Convention PHP
 --------------
 
-* *Respect de WordPress :* Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
+* __Respect de WordPress :__ Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
 
-* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* *Retours chariots :* Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+* __Retours chariots :__ Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
-* *Commentaires :* 
+* __Commentaires :__ 
  * Commenter la fermeture de chaque fonction.
  * Un commentaire d'introduction pour chaque fonction fonction est bienvenu.
  * Un commentaire sur une seule ligne commence par `//`.
@@ -256,13 +256,13 @@ Convention PHP
 
 ==
 
-* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
 
-* *Guillemets :* Toujours utiliser des guillemets doubles.
+* __Guillemets :__ Toujours utiliser des guillemets doubles.
 
-* *Nommage :* Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français.
+* __Nommage :__ Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français.
 
-* *Écriture :*
+* __Écriture :__
  * Les fonctions sont ferrées à gauche.
  * Un espace doit être placé avant l'accolade ouvrante.
  * Un retour chariot est nécessaire après l'accolade ouvrante.
@@ -274,9 +274,9 @@ Convention PHP
 Mise en Production
 ------------------
 
-*Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
+*Attention :__ chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
-* *Optimisation CSS :*
+* __Optimisation CSS :__
  * Les fichiers .css doivent être concaténés en un seul ( styles.css : notez bien le 's' final (!) attention aux *urls*).
  * Les fichiers .css doivent être conservés tels quels.
  * Le fichier final doit être minifié selon les règles suivantes :
@@ -292,9 +292,9 @@ Mise en Production
 
 ==
 
-* *Minification :* Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
+* __Minification :__ Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
 
-* *Optimisation js :*
+* __Optimisation js :__
  * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
  * Les scripts doivent être minifiés :
   * Concaténer les fichiers ( à l'exception de la lib ).
