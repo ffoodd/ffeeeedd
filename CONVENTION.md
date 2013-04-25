@@ -17,6 +17,7 @@ Généralités
 
 * *Encodage :* Tous les fichiers doivent être encodés en UTF-8 sans BOM
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
 
 
 Charte CSS
@@ -24,7 +25,7 @@ Charte CSS
 
 @note : seul le fichier kit.css est voué à être modifié.
 
-* *Encodage :* Déclarer le charset ( @charset "UTF-8"; ).
+* *Encodage :* Déclarer le charset `@charset "UTF-8";`.
 
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -35,6 +36,8 @@ Charte CSS
 * *Chapitrage :* Scinder en chapitres les sections principales.
 
 * *Sommaire :* Un sommaire doit récapituler et répertorier les sections et chapitres.
+
+* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
 
 * *Commentaires :*
  * Placer systématiquement le commentaire sur la ligne au dessus du sélecteur, lorsqu'il concerne l'ensemble du groupe de règles.
@@ -53,8 +56,8 @@ Charte CSS
  * L'accolade de fermeture (}) est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
  * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*..
- * Dans le cas des préfixes vendeurs, ferrées à gauche les règles *et* les valeurs ( après les deux points ).
- * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( ex : type="radio" ).
+ * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
+ * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( ex : type="radio" ). 
 
 ==
   
@@ -63,7 +66,6 @@ Charte CSS
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
- * Les sélecteurs utiles au javascript doivent être préfixés par "js--" et ne pas véhiculer de styles visuels.
 
 ==
 
@@ -79,7 +81,7 @@ Charte CSS
  * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en *%* également.
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
  * Ne pas préciser d'unité pour les valeurs nulles (0).
- * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 )
+ * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
  * Proscrire l'emploi de "!important".
 
 ==
@@ -92,11 +94,19 @@ Charte CSS
 ==
 
 * *Exceptions :*
- * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après ( .mon--selecteur { propriété: valeur; } ).
- * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes pour en faciliter la lecture ( notamment les gradient ).
+ * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
+ * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les gradient ).
 
 ==
-       
+
+* *Compatibilité :*
+ * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
+ * Les styles spécifiques à IE8 et inférieur doivent être exclus dans un fichier css externe.
+ * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
+ * Une classe js / no-js permet d'appliquer des styles en focntion de l'activation du javascript.
+
+==
+
 * *Ordres des déclarations :* @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
  2. Positionnnement ( display, float, position, top, bottom, left, right )
@@ -105,31 +115,101 @@ Charte CSS
  5. Décoration ( color, opacity, background, box-shadow, outline )
  6. Transformation & transitions ( animation, transition, transformation )
  7. Comportements ( cursor )
+ 
+==
 
+```css
 
+/* =Exemple */
+
+/* Un commentaire sur le bloc */
+.exemple,
+.exemple--2 {
+  display: block;
+  background: #fff; /* Un commentaire sur la règle */
+}
+
+.exemple--2::after {
+  content: "Mon contenu";
+  display: block;
+  position: relative;
+  box-shadow: 
+    1px 1px 0 #333,
+    2px 2px 0 #444,
+    3px 3px 0 #555;
+  -webkit-transition: all 1s linear; /* Chrome 26-, Safari, Ios Safari, Androïd, Blackberry */
+  transition:         all 1s linear;
+}
+
+.exemple--3 { display: none; }
+```
 
 Convention HTML
 ---------------
 
-* *Encodage :* Spécifier l'encodage via la balise meta dédiée.
+* *Respect des standards :* Le code doit respecter les standards établis par le W3C mais aussi les conventions d'écriture
+
+* *Encodage :* Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
+
+* *Organisation du `<head>` :* 
+ * La `<meta charset="utf-8">` doit être le premier enfant du `<head>`.
+ * La balise `<title>` doit venir en deuxième position.
+ * Ajouter la balise `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` en vue d'améliorer le rendu sur IE.
+ * La balise `<base>` est également primordiale et doit être spécifiée.
 
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
 
+* *Écriture :* Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
+
 * *Retours chariots :* Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
 
-* *Doctype :* Utiliser le doctype HTML5.
+* *Doctype :* Utiliser le doctype HTML5 `<!DOCTYPE html>`.
 
 * *Sémantique :* Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement.
 
 * *Validation :* Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
 
-* *Commentaires :* Commenter la fermeture de chaque balise en HTML.
+* *Commentaires :* Commenter la fermeture de chaque balise en HTML, puis sauter une ligne.
 
 * *Multimédias :* Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
+
+* *Fermeture de balise :* Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
 * *Attributs :* 
  * Ne pas fournir l'attribut type pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
+ * Appliquer les *rôles ARIA* dès que possible.
+ * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées").
+ * L'attribut style ne doit pas être utilisé.
+ 
+== 
+
+* *Métadonnées :*
+ * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
+ * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
+ * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
+ 
+== 
+
+* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+
+* *Compatibilité :* 
+ * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
+ * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
+ 
+==
+
+```html
+<header role="banner">
+  <h1 itemprop="name">Exemple</h1>
+</header>
+<!-- /header -->
+
+<hr />
+<main role="main">
+</main>
+<!-- /main -->
+```
 
 
 Convention Javascript
@@ -141,13 +221,57 @@ Convention Javascript
 
 * *Retours chariots :* Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
+* *Ligne seule :* Rester sur une seule ligne si une seule action est exercée dans un `if`, `for` ou `while`.
+
 * *Commentaires :* Commenter la fermeture de chaque fonction.
 
-* *annotations :* Citer les sources & références, et annoter autant que possible le code.
+* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+
+* *Organisation :* Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant CSSDoc. 
+
+* *Sommaire :* Si plusieurs scripts sont accumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
+
+* *Guillemets :* Toujours utiliser des guillemets doubles.
+
+Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
+
+
+
+Convention PHP
+--------------
+
+* *Respect de WordPress :* Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
+
+* *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
+
+* *Retours chariots :* Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+
+* *Commentaires :* 
+ * Commenter la fermeture de chaque fonction.
+ * Un commentaire d'introduction pour chaque fonction fonction est bienvenu.
+ * Un commentaire sur une seule ligne commence par `//`.
+ * Un commentaire sur plusieurs lignes débute par `/*` et se termine par `*/`.
+ * Les commentaires servent également à baliser les fichiers et créer un sommaire, à l'instar des fichiers css.
+
+* *Annotations :* Citer les sources & références, et annoter autant que possible le code.
+
+* *Guillemets :* Toujours utiliser des guillemets doubles.
+
+* *Nommage :* Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français.
+
+* *Écriture :*
+ * Les fonctions sont ferrées à gauche.
+ * Un espace doit être placé avant l'accolade ouvrante.
+ * Un retour chariot est nécessaire après l'accolade ouvrante.
+ * Les fonctions / éléments imbriqués doivent être indentés en conséquence.
+ 
+
 
 
 Mise en Production
 ------------------
+
+*Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
 * *Optimisation CSS :*
  * Les fichiers .css doivent être concaténés en un seul ( styles.css : notez bien le 's' final (!) attention aux *urls*).
