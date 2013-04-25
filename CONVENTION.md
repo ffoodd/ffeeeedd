@@ -25,13 +25,13 @@ Charte CSS
 
 @note : seul le fichier kit.css est voué à être modifié.
 
-* *Encodage :* Déclarer le charset `@charset "UTF-8";`.
+* *Encodage :* Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
 
 * *Information :* Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
-* *Sectionnement :* Scinder en sections majeures les fichier.
+* *Sectionnement :* Scinder en sections majeures le fichier.
 
 * *Chapitrage :* Scinder en chapitres les sections principales.
 
@@ -51,13 +51,14 @@ Charte CSS
  * Un seul sélecteur par ligne.
  * Une déclaration par ligne au sein du bloc de règles.
  * Les règles sont ferrées à gauche.
- * Un espace après les deux-points (:) d'une règle.
- * Un point-virgule (;) à la fin de chaque règle.
- * L'accolade de fermeture (}) est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
+ * Un espace avant l'accolade ouvrante ` {`.
+ * Un espace après les deux-points `: ` d'une règle.
+ * Un point-virgule `;` à la fin de chaque règle.
+ * L'accolade de fermeture `}` est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
- * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*..
+ * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*.
  * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
- * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( ex : type="radio" ). 
+ * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ). 
 
 ==
   
@@ -71,24 +72,24 @@ Charte CSS
 
 * *Valeurs :*
  * Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
- * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( #fff pour le blanc )
+ * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
- * La valeur des couleurs complexes doit se faire autant que possible en *HSL* / *HSLA* avec un fallback en *rgb pour IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
- * Les corps de texte doivent être formulés en *rem* avec un fallback en *px pour IE8 et -*.
- * Les hauteurs doivent être formulées en *rem* afin de conserver le rythme vertical.
- * Les marges *verticales* ( margin et padding ) doivent également être formulées en *rem*.
- * Les largeurs doivent être formulées en *%* afin de simplifier les calculs de largeurs cumulées.
- * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en *%* également.
+ * La valeur des couleurs complexes doit se faire autant que possible en `hsl` / `hsla` avec un fallback en `rgb` pour *IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
+ * Les corps de texte doivent être formulés en `rem` avec un fallback en `px` pour *IE8 et -*.
+ * Les hauteurs doivent être formulées en `rem` afin de conserver le rythme vertical.
+ * Les marges *verticales* ( margin et padding ) doivent également être formulées en `rem`.
+ * Les largeurs doivent être formulées en `%` afin de simplifier les calculs de largeurs cumulées.
+ * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en `%` également.
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
  * Ne pas préciser d'unité pour les valeurs nulles (0).
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
- * Proscrire l'emploi de "!important".
+ * Proscrire l'emploi de `!important`.
 
 ==
 
 * *Typographies :*
- * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en em, pas en rem !
- * L'utilisation de polices exotiques doit se faire à l'aide de @font-face ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
+ * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
+ * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
 
 ==
@@ -147,8 +148,6 @@ Charte CSS
 Convention HTML
 ---------------
 
-* *Respect des standards :* Le code doit respecter les standards établis par le W3C mais aussi les conventions d'écriture
-
 * *Encodage :* Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
 
 * *Organisation du `<head>` :* 
@@ -156,6 +155,8 @@ Convention HTML
  * La balise `<title>` doit venir en deuxième position.
  * Ajouter la balise `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` en vue d'améliorer le rendu sur IE.
  * La balise `<base>` est également primordiale et doit être spécifiée.
+
+==
 
 * *Indentation :* Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -176,7 +177,7 @@ Convention HTML
 * *Fermeture de balise :* Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
 * *Attributs :* 
- * Ne pas fournir l'attribut type pour les styles et scripts.
+ * Ne pas fournir l'attribut `type` pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
  * Appliquer les *rôles ARIA* dès que possible.
  * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées").
@@ -252,6 +253,8 @@ Convention PHP
  * Un commentaire sur une seule ligne commence par `//`.
  * Un commentaire sur plusieurs lignes débute par `/*` et se termine par `*/`.
  * Les commentaires servent également à baliser les fichiers et créer un sommaire, à l'instar des fichiers css.
+
+==
 
 * *Annotations :* Citer les sources & références, et annoter autant que possible le code.
 
