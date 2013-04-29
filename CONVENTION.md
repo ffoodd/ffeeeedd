@@ -27,22 +27,22 @@ Charte CSS
 
 * Encodage : Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
-* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation. *Les tabluations sont proscrites.*
 
 * Information : Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
-* Sectionnement : Scinder en sections majeures le fichier.
+* Sectionnement : Scinder en sections majeures le fichier, dont l'intitulé sera précédé d'un `==`.
 
-* Chapitrage : Scinder en chapitres les sections principales.
+* Chapitrage : Scinder en chapitres les sections principales, dont l'intitulé sera précédé d'un `=`.
 
-* Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres.
+* Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres, respectivement précédé d'un `==` ou d'un `=`.
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
 * Commentaires :
  * Placer systématiquement le commentaire sur la ligne au dessus du sélecteur, lorsqu'il concerne l'ensemble du groupe de règles.
  * Commenter systématiquement les valeurs arbitraires ou issues d'un calcul, afin de permettre une bonne appréhension des styles.
- * Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
+ * Exception lorsque le commentaire concerne une règle particulière : il est placé à l'intérieur du bloc de règles, mais à la ligne précédant la règle concernée.
  * Le format des commentaires respectera également le format CSSDoc.
 
 ==
@@ -58,7 +58,8 @@ Charte CSS
  * Une ligne est sautée entre chaque bloc de règles.
  * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*.
  * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
- * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ). 
+ * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ).
+ * Dans tous les cas utilisant des guillemets, préférer les guillemets doubles.
 
 ==
   
@@ -75,15 +76,33 @@ Charte CSS
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
  * La valeur des couleurs complexes doit se faire autant que possible en `hsl` / `hsla` avec un fallback en `rgb` pour *IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
- * Les corps de texte doivent être formulés en `rem` avec un fallback en `px` pour *IE8 et -*.
- * Les hauteurs doivent être formulées en `rem` afin de conserver le rythme vertical.
- * Les marges *verticales* ( margin et padding ) doivent également être formulées en `rem`.
+ * Les corps de texte doivent être formulés en `em` avec un fallback en `px` pour *IE7 et -*.
+ * Les hauteurs doivent être formulées en `em` afin de conserver le rythme vertical.
+ * Les marges *verticales* ( margin et padding ) doivent également être formulées en `em`.
  * Les largeurs doivent être formulées en `%` afin de simplifier les calculs de largeurs cumulées.
  * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en `%` également.
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
- * Ne pas préciser d'unité pour les valeurs nulles (0).
+ * Ne pas préciser d'unité pour les valeurs nulles (0) lorsque c'est autorisé.
  * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
  * Proscrire l'emploi de `!important`.
+
+==
+
+* Liens :
+ * Les liens doivent être stylés en suivant [la méthode LVHA](http://meyerweb.com/eric/css/link-specificity.html "Article d'Eric Meyer") comme suit :
+ * `a:link { }` : pour les liens non visités.
+ * `a:visited { }` : pour les liens visités.
+ * `a:hover { }` : pour les liens survolés.
+ * `a:active { }` : pour les liens actifs.
+ * `a { }`.
+
+==
+
+* Media Queries :
+ * Les requêtes médias doivent être situées à la fin du fichier afin d'éviter les conflits dans la cascade.
+ * En phase de développement, il est envisageable d'ajouter un fichier `medias.css` appellé après le kit.
+ * Les requêtes médias doivent être indentées logiquement, afin que leur imbrication soit visuellement parlante ( les déclarations au sein d'une requête auront un niveau d'indentation suplémentaire par rapport aux déclarations hors requêtes ).
+ * Les requêtes médias sont ordonnées de la contrainte la plus basse à la contrainte la plus haute, de façon cumulative ( penser "Mobile First" ).
 
 ==
 
@@ -91,6 +110,7 @@ Charte CSS
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
+ * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` )
 
 ==
 
@@ -102,7 +122,10 @@ Charte CSS
 
 * Compatibilité :
  * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
+ * Dégradés : un outil tel que [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé") doit être utilisé pour les dégradés, afin de maximiser la compatibilité.
+ * Les préfixes vendeurs doivent précéder la version non-préfixée.
  * Les styles spécifiques à IE8 et inférieur doivent être exclus dans un fichier css externe.
+ * Une couleur de fond doit être appliquée au `body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
  * Une classe js / no-js permet d'appliquer des styles en focntion de l'activation du javascript.
 
@@ -122,8 +145,9 @@ Charte CSS
 * Exemple :
 
 ```css
-
-
+/* =Une section
+/* @note : Notes à propos de la section
+ */
 
 /* Un commentaire sur le bloc */
 .exemple,
@@ -146,6 +170,17 @@ Charte CSS
 
 .exemple--3 { display: none; }
 ```
+
+==
+
+* Références & Inspirations :
+ * [WordPress CSS Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/css/ "Le guide de contribution à WordPress")
+ * [Google Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml "Recommandations Google")
+ * [Interactive Guide to Blog Typography](http://www.kaikkonendesign.fi/typography/section/1 "Guide interactif de l'usage des typographies sur le web")
+ * [Charte CSS par Rémy Barthez](http://css.thenew.fr/ "Charte CSS par Rémy Barthez, intégrateur")
+ * [Idiomatic CSS](https://github.com/DirtyF/idiomatic-css/tree/master/translations/fr-FR "Principes d'écriture pour des CSS cohérents et idiomatiques")
+ * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/css.shtml "V1.3")
+ * [CSS Guidelines by CSSWizardry](https://github.com/csswizardry/CSS-Guidelines)
 
 Convention HTML
 ---------------
@@ -286,6 +321,7 @@ Mise en Production
 
 * Optimisation CSS :
  * Les fichiers .css doivent être concaténés en un seul ( `style.css` conseillé, conformément aux [conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex") ).
+ * *Exception :* Le fichier `debug.css` ne doit pas être concaténé.
  * Les fichiers .css doivent être conservés tels quels dans le répertoire `/css` .
  * Le fichier final doit être minifié selon les règles suivantes :
   * Supprimer les espaces avant et après les accolades ouvrantes ( `{` ),
@@ -311,3 +347,8 @@ Mise en Production
 
 
 Les fichiers .php ne doivent en aucun cas être minifiés.
+
+* Vérification :
+ * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") devraient être utilisés pour garantir la qualité du projet.
+ * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
+ * Selon les contraintes du projet, des tests de désacativation du css et / ou du js devront être effectués.
