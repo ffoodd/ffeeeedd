@@ -188,6 +188,19 @@ Charte CSS
  * [Idiomatic CSS](https://github.com/DirtyF/idiomatic-css/tree/master/translations/fr-FR "Principes d'écriture pour des CSS cohérents et idiomatiques") par Nicolas Gallagher
  * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/css.shtml "V1.3")
  * [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par CSSWizardry
+ * [CSSdoc](http://cssdoc.net/ "CSSDoc")
+ * [knacss](http://knacss.com/) 
+ * [OOCSS](http://oocss.org/ "oocss.org")
+ * [BEM](http://bem.info/method/)
+ * [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+ * [Vincent De Oliveira sur hsla](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb)
+ * [LVHA par Eric Meyer](http://meyerweb.com/eric/css/link-specificity.html "Article d'Eric Meyer")
+ * [Générateur de rythme vertical](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical")
+ * [Typekit](https://typekit.com/ "Typekit").
+ * [Font-stack Builder](http://www.codestyle.org/servlets/FontStack)
+ * [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK")
+ * [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé")
+ * [CSSLisible](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible")
 
 Charte HTML
 -----------
