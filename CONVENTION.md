@@ -15,9 +15,9 @@ La présente charte détaille l'ensemble des règles et/ou recommandations à su
 Généralités
 -----------
 
-* __Encodage :__ Tous les fichiers doivent être encodés en UTF-8 sans BOM
-* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
-* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
+* Encodage : Tous les fichiers doivent être encodés en UTF-8 sans BOM
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
+* Annotations : Citer les sources & références, et annoter autant que possible le code.
 
 
 Charte CSS
@@ -25,21 +25,21 @@ Charte CSS
 
 @note : seul le fichier kit.css est voué à être modifié.
 
-* __Encodage :__ Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
+* Encodage : Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
-* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* __Information :__ Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
+* Information : Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
-* __Sectionnement :__ Scinder en sections majeures le fichier.
+* Sectionnement : Scinder en sections majeures le fichier.
 
-* __Chapitrage :__ Scinder en chapitres les sections principales.
+* Chapitrage : Scinder en chapitres les sections principales.
 
-* __Sommaire :__ Un sommaire doit récapituler et répertorier les sections et chapitres.
+* Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres.
 
-* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
+* Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* __Commentaires :__
+* Commentaires :
  * Placer systématiquement le commentaire sur la ligne au dessus du sélecteur, lorsqu'il concerne l'ensemble du groupe de règles.
  * Commenter systématiquement les valeurs arbitraires ou issues d'un calcul, afin de permettre une bonne appréhension des styles.
  * Exception lorsque le commentaire concerne une règle particulière : il est placé à la suite de la règle, en fin de ligne.
@@ -47,7 +47,7 @@ Charte CSS
 
 ==
 
-* __Sélecteurs :__
+* Sélecteurs :
  * Un seul sélecteur par ligne.
  * Une déclaration par ligne au sein du bloc de règles.
  * Les règles sont ferrées à gauche.
@@ -62,15 +62,15 @@ Charte CSS
 
 ==
   
-* __Classes et identifiants :__
+* Classes et identifiants :
  * Limiter au maximum l'utilisation d'identifiant.
- * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :__ le CamelCase est interdit.
+ * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
 
 ==
 
-* __Valeurs :__
+* Valeurs :
  * Toutes les propriétés doivent utiliser leur syntaxe raccourcie quand c'est possible.
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
@@ -87,20 +87,20 @@ Charte CSS
 
 ==
 
-* __Typographies :__
+* Typographies :
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
- * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de servces tels que [Typekit](https://typekit.com/ "Typekit").
+ * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
 
 ==
 
-* __Exceptions :__
+* Exceptions :
  * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
  * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les gradient ).
 
 ==
 
-* __Compatibilité :__
+* Compatibilité :
  * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
  * Les styles spécifiques à IE8 et inférieur doivent être exclus dans un fichier css externe.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
@@ -108,7 +108,7 @@ Charte CSS
 
 ==
 
-* __Ordres des déclarations :__ @see [CSSLisibile](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
+* Ordre des déclarations : @see [CSSLisible](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
  1. Contenu ( "content" pour les pseudo-éléments )
  2. Positionnnement ( display, float, position, top, bottom, left, right )
  3. Modèle de boîte ( width, height, margin, padding, overflow, border )
@@ -150,9 +150,11 @@ Charte CSS
 Convention HTML
 ---------------
 
-* __Encodage :__ Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
+* Doctype : Utiliser le doctype HTML5 `<!DOCTYPE html>`.
 
-* __Organisation du `<head>` :__ 
+* Encodage : Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
+
+* Organisation du `<head>` : 
  * La `<meta charset="utf-8">` doit être le premier enfant du `<head>`.
  * La balise `<title>` doit venir en deuxième position.
  * Ajouter la balise `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` en vue d'améliorer le rendu sur IE.
@@ -160,43 +162,41 @@ Convention HTML
 
 ==
 
-* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* __Écriture :__ Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
+* Écriture : Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
 
-* __Retours chariots :__ Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
+* Retours chariots : Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
 
-* __Doctype :__ Utiliser le doctype HTML5 `<!DOCTYPE html>`.
+* Sémantique : Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement. Un détail de chaque balise et de son sens est disponible sur [HTML5 Doctor](http://html5doctor.com/ "Index des éléments HTML5")
 
-* __Sémantique :__ Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement.
+* Validation : Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
 
-* __Validation :__ Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
+* Commentaires : Commenter la fermeture de chaque balise importante en HTML, puis sauter une ligne. L'importance dépend du seul jugement de l'auteur, mais certains cas sont indispensables : par exemple `<main>` s'ouvre dans `header.php` et se ferme dans `footer.php`. *L'intérêt est de faciliter l'orientation dans le code source.*
 
-* __Commentaires :__ Commenter la fermeture de chaque balise en HTML, puis sauter une ligne.
+* Multimédias : Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
 
-* __Multimédias :__ Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
+* Fermeture de balise : Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
-* __Fermeture de balise :__ Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
-
-* __Attributs :__ 
+* Attributs : 
  * Ne pas fournir l'attribut `type` pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
- * Appliquer les *rôles ARIA* dès que possible.
- * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées").
+ * Appliquer les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
+ * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées") ).
  * L'attribut style ne doit pas être utilisé.
  
 == 
 
-* __Métadonnées :__
+* Métadonnées :
  * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
  * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
  * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
  
 == 
 
-* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
+* Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* __Compatibilité :__ 
+* Compatibilité : 
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
@@ -222,36 +222,40 @@ Convention Javascript
 
 Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
 
-* _Indentation :_ Utiliser 2 espaces pour chaque niveau d'indentation.
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* __Retours chariots :__ Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+* Retours chariots : Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
-* __Ligne seule :__ Rester sur une seule ligne si une seule action est executée dans un `if`, `for` ou `while`.
+* Ligne seule : Rester sur une seule ligne si une seule action est executée dans un `if`, `for` ou `while`.
 
-* __Commentaires :__ Commenter la fermeture de chaque fonction.
+* Commentaires : 
+ * Commenter la fermeture de chaque fonction.
+ * Annoter les fonctions et plugins particuliers ( cf point suivant "Annontations" ).
+ * Expliquer les fonctions dont la lecture n'est pas naturelle.
+ 
+== 
 
-* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
+* Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* __Organisation :__ Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant CSSDoc. 
+* Organisation : Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant [JSDoc](http://usejsdoc.org/ "Documentation JSDoc"). 
 
-* __Sommaire :__ Si plusieurs scripts sont accumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
+* Sommaire : Si plusieurs scripts sont cumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
 
-* __Guillemets :__ Toujours utiliser des guillemets doubles.
+* Guillemets : Toujours utiliser des guillemets doubles.
 
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
-
 
 
 Convention PHP
 --------------
 
-* __Respect de WordPress :__ Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
+* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
 
-* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
-* __Retours chariots :__ Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+* Retours chariots : Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
-* __Commentaires :__ 
+* Commentaires : 
  * Commenter la fermeture de chaque fonction.
  * Un commentaire d'introduction pour chaque fonction fonction est bienvenu.
  * Un commentaire sur une seule ligne commence par `//`.
@@ -260,13 +264,13 @@ Convention PHP
 
 ==
 
-* __Annotations :__ Citer les sources & références, et annoter autant que possible le code.
+* Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* __Guillemets :__ Toujours utiliser des guillemets doubles.
+* Guillemets : Toujours utiliser des guillemets doubles.
 
-* __Nommage :__ Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français.
+* Nommage : Les fonctions du thème doivent être préfixées par `ffeeeedd` et disposer d'un intitulé clair, en français ( le cas échéant, dans la langue de l'auteur ).
 
-* __Écriture :__
+* Écriture :
  * Les fonctions sont ferrées à gauche.
  * Un espace doit être placé avant l'accolade ouvrante.
  * Un retour chariot est nécessaire après l'accolade ouvrante.
@@ -278,17 +282,17 @@ Convention PHP
 Mise en Production
 ------------------
 
-*Attention :__ chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
+*Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
-* __Optimisation CSS :__
- * Les fichiers .css doivent être concaténés en un seul ( styles.css : notez bien le 's' final (!) attention aux *urls*).
- * Les fichiers .css doivent être conservés tels quels.
+* Optimisation CSS :
+ * Les fichiers .css doivent être concaténés en un seul ( `style.css` conseillé, conformément aux [conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex") ).
+ * Les fichiers .css doivent être conservés tels quels dans le répertoire `/css` .
  * Le fichier final doit être minifié selon les règles suivantes :
-  * Supprimer les espaces avant et après les accolades ouvrantes ( { ),
-  * Supprimer les espaces avant et après les accolades fermantes ( } ),
-  * Supprimer les espaces avant et après les deux points ( : ),
-  * Supprimer les espaces avant et après les points-virgules ( ; ),
-  * Supprimer le dernier point-virgule d'une règle ( ; } ),
+  * Supprimer les espaces avant et après les accolades ouvrantes ( `{` ),
+  * Supprimer les espaces avant et après les accolades fermantes ( `}` ),
+  * Supprimer les espaces avant et après les deux points ( `:` ),
+  * Supprimer les espaces avant et après les points-virgules ( `;` ),
+  * Supprimer le dernier point-virgule d'une règle ( `; }` ),
   * Supprimer les retours à la ligne,
   * Supprimer les doubles espaces,
   * Supprimer les commentaires.
@@ -296,9 +300,9 @@ Mise en Production
 
 ==
 
-* __Minification :__ Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
+* Minification : Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
 
-* __Optimisation js :__
+* Optimisation js :
  * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
  * Les scripts doivent être minifiés :
   * Concaténer les fichiers ( à l'exception de la lib ).
@@ -306,5 +310,4 @@ Mise en Production
  * L'outil [jsCompress](http://jscompress.com/ "jscompress.com") peut-être utilisé pour cette opération.
 
 
-Les fichiers .php sont légèrement optimisés : tous les doubles espaces ont été remplacés par des espaces simples, dans le but de minifier le code html généré.
-Cela a des conséquences sur la lisibilité du code, mais tous les commentaires ( php et html ) ont été conservés.
+Les fichiers .php ne doivent en aucun cas être minifiés.
