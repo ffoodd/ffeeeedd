@@ -41,7 +41,19 @@
 
 @import url("css/formulaires.css") screen;
 
+/*
+ * @note : Utile pour prototyper le site
+ *
+ @import url("css/wireframe.css") screen;
+*/
+
 @import url("css/kit.css") screen;
+
+/*
+ * @note : Utile dans le cas d'un site responsive
+ *
+ @import url("css/media.css") screen;
+*/
 
 @import url("css/ie.css") screen;
 
