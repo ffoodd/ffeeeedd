@@ -222,11 +222,11 @@ Convention Javascript
 
 Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
 
-* __Indentation :__ Utiliser 2 espaces pour chaque niveau d'indentation.
+* _Indentation :_ Utiliser 2 espaces pour chaque niveau d'indentation.
 
 * __Retours chariots :__ Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
-* __Ligne seule :__ Rester sur une seule ligne si une seule action est exercée dans un `if`, `for` ou `while`.
+* __Ligne seule :__ Rester sur une seule ligne si une seule action est executée dans un `if`, `for` ou `while`.
 
 * __Commentaires :__ Commenter la fermeture de chaque fonction.
 
