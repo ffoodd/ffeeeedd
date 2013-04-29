@@ -374,7 +374,7 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 * Vérifications :
  * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
  * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
- * Selon les contraintes du projet, des tests de désacativation du css et / ou du js devront être effectués.
+ * Selon les contraintes du projet, des tests de désactivation du css et / ou du js devront être effectués.
 
 *Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
@@ -400,7 +400,7 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 * Optimisation js :
  * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
  * Les scripts doivent être minifiés :
-  * Concaténer les fichiers ( à l'exception de la lib ).
+  * Concaténer les fichiers ( à l'exception de la lib' ).
   * Supprimer les commentaires.
  * L'outil [jsCompress](http://jscompress.com/ "jscompress.com") peut-être utilisé pour cette opération.
 
