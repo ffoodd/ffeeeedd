@@ -119,9 +119,11 @@ Charte CSS
  
 ==
 
+* Exemple :
+
 ```css
 
-/* =Exemple */
+
 
 /* Un commentaire sur le bloc */
 .exemple,
@@ -199,6 +201,8 @@ Convention HTML
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
 ==
+
+* Exemple :
 
 ```html
 <header role="banner">
