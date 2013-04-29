@@ -18,6 +18,7 @@ Généralités
 * Encodage : Tous les fichiers doivent être encodés en UTF-8 sans BOM
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
+* Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 
 Charte CSS
@@ -28,6 +29,8 @@ Charte CSS
 * Encodage : Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation. *Les tabluations sont proscrites.*
+
+* Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 * Information : Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
@@ -177,10 +180,10 @@ Charte CSS
  * [WordPress CSS Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/css/ "Le guide de contribution à WordPress")
  * [Google Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml "Recommandations Google")
  * [Interactive Guide to Blog Typography](http://www.kaikkonendesign.fi/typography/section/1 "Guide interactif de l'usage des typographies sur le web")
- * [Charte CSS par Rémy Barthez](http://css.thenew.fr/ "Charte CSS par Rémy Barthez, intégrateur")
- * [Idiomatic CSS](https://github.com/DirtyF/idiomatic-css/tree/master/translations/fr-FR "Principes d'écriture pour des CSS cohérents et idiomatiques")
+ * [Charte CSS](http://css.thenew.fr/ "Charte CSS par Rémy Barthez, intégrateur")  par Rémy Barthez
+ * [Idiomatic CSS](https://github.com/DirtyF/idiomatic-css/tree/master/translations/fr-FR "Principes d'écriture pour des CSS cohérents et idiomatiques") par Nicolas Gallagher
  * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/css.shtml "V1.3")
- * [CSS Guidelines by CSSWizardry](https://github.com/csswizardry/CSS-Guidelines)
+ * [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par CSSWizardry
 
 Convention HTML
 ---------------
@@ -188,6 +191,8 @@ Convention HTML
 * Doctype : Utiliser le doctype HTML5 `<!DOCTYPE html>`.
 
 * Encodage : Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
+
+* Langue : Ma langue doit être spécifiée sur la balise `<html>` ( ex: `lang="fr-FR"` ).
 
 * Organisation du `<head>` : 
  * La `<meta charset="utf-8">` doit être le premier enfant du `<head>`.
@@ -198,6 +203,8 @@ Convention HTML
 ==
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
+
+* Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 * Écriture : Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
 
@@ -235,6 +242,7 @@ Convention HTML
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
+ 
 ==
 
 * Exemple :
@@ -251,6 +259,13 @@ Convention HTML
 <!-- /main -->
 ```
 
+==
+
+* Références & Inspirations :
+ * [WordPress HTML Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/html/ "Le guide de contribution à WordPress")
+ * [Google Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml "Recommandations Google")
+ * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/xhtml_integrity.shtml)
+
 
 Convention Javascript
 ---------------------
@@ -260,6 +275,12 @@ Convention Javascript
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
 * Retours chariots : Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+
+* Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
+
+* Parenthèses : Toujours cerner les parenthèses d'espace `if ( this ) ` y compris dans les opérations. Ex: `i = ( 20 + 30 ) - 17`;
+
+* Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 * Ligne seule : Rester sur une seule ligne si une seule action est executée dans un `if`, `for` ou `while`.
 
@@ -278,6 +299,10 @@ Convention Javascript
 
 * Guillemets : Toujours utiliser des guillemets doubles.
 
+* Références & inspirations :
+ * [WordPress JS Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/javascript/)
+ * [JSLint](http://www.jslint.com/)
+
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
 
 
@@ -289,6 +314,8 @@ Convention PHP
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
 * Retours chariots : Revenir à la ligne entre chaque fonction, et indenter en conséquence.
+
+* Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 * Commentaires : 
  * Commenter la fermeture de chaque fonction.
@@ -349,6 +376,6 @@ Mise en Production
 Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * Vérification :
- * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") devraient être utilisés pour garantir la qualité du projet.
+ * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
  * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
  * Selon les contraintes du projet, des tests de désacativation du css et / ou du js devront être effectués.
