@@ -71,6 +71,9 @@ Charte CSS
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
+  * Ex: `.block`
+  * Ex: `.block--element`
+  * Ex: `.block--element__modifier`
 
 ==
 
@@ -86,7 +89,8 @@ Charte CSS
  * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en `%` également.
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
  * Ne pas préciser d'unité pour les valeurs nulles (0) lorsque c'est autorisé.
- * Ne pas précier le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
+ * Ne pas préciser le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
+ * Toujours ajouter une espace après une virgule dans les valeurs complexes ( comme `hsla`, Ex: `hsla( 0, 0, 0, .5)`.
  * Proscrire l'emploi de `!important`.
 
 ==
@@ -185,8 +189,8 @@ Charte CSS
  * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/css.shtml "V1.3")
  * [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par CSSWizardry
 
-Convention HTML
----------------
+Charte HTML
+-----------
 
 * Doctype : Utiliser le doctype HTML5 `<!DOCTYPE html>`.
 
@@ -267,8 +271,8 @@ Convention HTML
  * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/xhtml_integrity.shtml)
 
 
-Convention Javascript
----------------------
+Charte Javascript
+-----------------
 
 Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
 
@@ -278,7 +282,7 @@ Convention Javascript
 
 * Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
 
-* Parenthèses : Toujours cerner les parenthèses d'espace `if ( this ) ` y compris dans les opérations. Ex: `i = ( 20 + 30 ) - 17`;
+* Parenthèses : Toujours cerner les parenthèses d'espace `if ( this ) ` y compris dans les opérations. Ex: `i = ( 20 + 30 ) - 17`;.
 
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
 
@@ -306,8 +310,8 @@ Convention Javascript
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
 
 
-Convention PHP
---------------
+Charte PHP
+----------
 
 * Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
 
@@ -315,7 +319,15 @@ Convention PHP
 
 * Retours chariots : Revenir à la ligne entre chaque fonction, et indenter en conséquence.
 
+* Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
+
+* Parenthèses : Toujours cerner les parenthèses d'espace `if ( this ) `.
+
+* Ouverture de php : Toujours utiliser la version complète pour ouvrir php. Ex: `<?php .. ?>` au lieu de `<? ... ?>`.
+
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
+
+* Virgules : Toujours ajouter une espace après une virgule.
 
 * Commentaires : 
  * Commenter la fermeture de chaque fonction.
@@ -332,13 +344,19 @@ Convention PHP
 
 * Nommage : Les fonctions du thème doivent être préfixées par `ffeeeedd` et disposer d'un intitulé clair, en français ( le cas échéant, dans la langue de l'auteur ).
 
-* Écriture :
- * Les fonctions sont ferrées à gauche.
- * Un espace doit être placé avant l'accolade ouvrante.
- * Un retour chariot est nécessaire après l'accolade ouvrante.
- * Les fonctions / éléments imbriqués doivent être indentés en conséquence.
+* Ne jamais utiliser de CamelCase.
  
+==
 
+* Références & inspirations :
+ * [WordPress PHP Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/php/)
+ * [PEAR Coding Standards](http://pear.php.net/manual/en/standards.php)
+ 
+ 
+Images
+------
+
+*
 
 
 Mise en Production
