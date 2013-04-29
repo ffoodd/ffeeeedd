@@ -225,7 +225,7 @@ Charte HTML
 
 * Écriture : Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
 
-* Retours chariots : Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence.
+* Retours chariots : Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence. Reformulé : une seule balise par ligne.
 
 * Sémantique : Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement. Un détail de chaque balise et de son sens est disponible sur [HTML5 Doctor](http://html5doctor.com/ "Index des éléments HTML5")
 
@@ -243,6 +243,15 @@ Charte HTML
  * Appliquer les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
  * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées") ).
  * L'attribut style ne doit pas être utilisé.
+ * Dans le cas de nombreux attributs, on envisagera de revenir à la ligne entre chaque attribut afin d'améliorer la lisibilité.
+ 
+==
+
+* Ordre des attributs :
+ 1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS comme pour les JS.
+ 2. `id`
+ 3. `data-*`
+ 4. autre.
  
 == 
 
@@ -282,6 +291,11 @@ Charte HTML
  * [WordPress HTML Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/html/ "Le guide de contribution à WordPress")
  * [Google Style Guide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml "Recommandations Google")
  * [BBC's Standards & Guidelines](http://www.bbc.co.uk/guidelines/futuremedia/technical/xhtml_integrity.shtml)
+ * [W3C Validator](http://validator.w3.org/ "Validator")
+ * [schema.org](http://schema.org/docs/full.html "Liste des microdonnées")
+ * [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C")
+ * [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore")
+ * [Idiomatic HTML](https://github.com/necolas/idiomatic-html/)
 
 
 Charte Javascript
@@ -319,6 +333,9 @@ Charte Javascript
 * Références & inspirations :
  * [WordPress JS Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/javascript/)
  * [JSLint](http://www.jslint.com/)
+ * [JSDoc](http://usejsdoc.org/ "Documentation JSDoc")
+ * [jQuery](http://www.jquery.com "jquery.com")
+ * [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto")
 
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
 
