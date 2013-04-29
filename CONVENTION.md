@@ -356,6 +356,13 @@ Charte PHP
 Mise en Production
 ------------------
 
+Lorsque le développement et l'intégration sont terminées, une recette est nécessaire. Il s'agit de parcourir toutes les pages, vérifier toutes les fonctionnalités ainsi que la compatibilité navigateurs. Selon les contraintes du projet, des tests sur différents terminaux et un audit d'accessibilité peuvent être nécessaires. Différents outils peuvent nous y aider. On passera ensuite à l'optimisation technique en vue d'améliorer les performances du site, toujours bénéfique tant aux internautes qu'aux robots.
+
+* Vérifications :
+ * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
+ * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
+ * Selon les contraintes du projet, des tests de désacativation du css et / ou du js devront être effectués.
+
 *Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
 * Optimisation CSS :
@@ -386,8 +393,3 @@ Mise en Production
 
 
 Les fichiers .php ne doivent en aucun cas être minifiés.
-
-* Vérification :
- * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
- * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
- * Selon les contraintes du projet, des tests de désacativation du css et / ou du js devront être effectués.
