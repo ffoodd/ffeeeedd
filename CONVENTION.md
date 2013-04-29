@@ -351,12 +351,6 @@ Charte PHP
 * Références & inspirations :
  * [WordPress PHP Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/php/)
  * [PEAR Coding Standards](http://pear.php.net/manual/en/standards.php)
- 
- 
-Images
-------
-
-*
 
 
 Mise en Production
