@@ -60,7 +60,8 @@ Charte CSS
  * L'accolade de fermeture `}` est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
  * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*.
- * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
+ * Les sélecteurs d'adjacence, d'enfant ou d'attributs doivent être évité autant que possible, car ils nuisent à la performance globale.
+ * De même les sélecteurs doivent être courts, une seule cible par sélecteur est l'idéal.
  * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ).
  * Dans tous les cas utilisant des guillemets, préférer les guillemets doubles.
 
@@ -92,11 +93,12 @@ Charte CSS
  * Ne pas préciser le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
  * Toujours ajouter une espace après une virgule dans les valeurs complexes ( comme `hsla`, Ex: `hsla( 0, 0, 0, .5)`.
  * Proscrire l'emploi de `!important`.
+ * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
 
 ==
 
 * Liens :
- * Les liens doivent être stylés en suivant [la méthode LVHA](http://meyerweb.com/eric/css/link-specificity.html "Article d'Eric Meyer") comme suit :
+ * Les liens doivent être stylés en suivant [la méthode LoVeHAte](http://meyerweb.com/eric/css/link-specificity.html "Article d'Eric Meyer") comme suit :
  * `a:link { }` : pour les liens non visités.
  * `a:visited { }` : pour les liens visités.
  * `a:hover { }` : pour les liens survolés.
@@ -113,11 +115,21 @@ Charte CSS
 
 ==
 
+* Images :
+ * Les images ajoutées via CSS doivent être purement décoratives.
+ * Les images présentes sur l'ensemble des pages - ou presque - doivent être regroupées en sprite, au format .png de préférence.
+ * Les png doivent être optimisés : en png-8 quand c'est possible, et avec des outils tels que [PngOptimizer](http://psydk.org/PngOptimizer.php "Optimisateur de png").
+ * Les petites images spécifiques à certaines pages ne doivent pas être ajoutées au sprite, mais peuvent être converties en DataURI ( encodage en base64 ). Des sites comme [Duri.me](http://duri.me/ "Encoder une image en base64") permettent une conversion très simple.
+
+==
+
 * Typographies :
  * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
- * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` )
+ * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
+ * Les formats .xwoff et .eot suffisent dans la plupart des cas.
+ * Éviter l'mploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ). 
 
 ==
 
@@ -135,6 +147,7 @@ Charte CSS
  * Une couleur de fond doit être appliquée au `body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
  * Une classe js / no-js permet d'appliquer des styles en focntion de l'activation du javascript.
+ * Éviter les filtres propriétaires de Microsoft : la transparence ou les dégradés sont souvent de simples onrements.
 
 ==
 
@@ -201,6 +214,8 @@ Charte CSS
  * [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK")
  * [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé")
  * [CSSLisible](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible")
+ * [PngOptimizer](http://psydk.org/PngOptimizer.php "Optimisateur de png")
+ * [Duri.me](http://duri.me/ "Encoder une image en base64")
 
 Charte HTML
 -----------
@@ -268,6 +283,9 @@ Charte HTML
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
+==
+
+* Limiter au maximum la profondeur du DOM, ainsi que le nombre d'éléments.
  
 ==
 
@@ -416,6 +434,8 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 
 * Optimisation js :
  * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
+ * Charger les scripts en fin de documents dès que possible ( WordPress intègre un paramètre booléen sur la fonction [wp_enqueue_script](http://codex.wordpress.org/Function_Reference/wp_enqueue_script "Un tour sur le codex, ça vous dit ?") ).
+ * Charger les scripts en asynchrone dès que possible ( les attributs `async` et `defer` sont voués à ça )
  * Les scripts doivent être minifiés :
   * Concaténer les fichiers ( à l'exception de la lib' ).
   * Supprimer les commentaires.
@@ -423,3 +443,26 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 
 
 Les fichiers .php ne doivent en aucun cas être minifiés.
+
+* Paramètres serveurs ( dans le cas d'un serveur Apache, en passant par le fichier .htaccess )
+ * Activer la compression ( Gzip ou Deflate ),
+ * Définir un type MIME correct pour chaque type de fichier utilisé,
+ * Optimiser la mise en cache navigateur
+ * Configurer les Etags
+ 
+* Sécurité :
+ * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas ( 
+ * Dans le .htaccess, protéger les index de répertoire
+
+==
+
+* Références & outils :
+ * [Conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex")
+ * [PageSpeed](http://developers.google.com/speed/pagespeed/insights) ( existe également en extention pour Chrome et Firefox, ainsi qu'en module pour Apache et Nginx ).
+ * [WebPageTest](http://www.webpagetest.org)
+ * [GTMetrix](http://gtmetrix.com/)
+ * [Pingdom Tools]](http://tools.pingdom.com/fpt/)
+ * [jsCompress](http://jscompress.com/ "jscompress.com")
+ * [CssCompressor](http://www.cssdrive.com/index.php/main/csscompressor "cssdrive.com")
+ * [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard")
+ * [WebDev Checklist](http://webdevchecklist.com/)
