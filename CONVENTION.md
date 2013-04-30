@@ -23,6 +23,22 @@ Généralités
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 
+Règle de nommage
+----------------
+
+Les règles suivantes sont valables pour tous les fichiers, à l'exception des fichiers php qui devront suivre les règles inhérentes à [la hiérarchie des templates WordPress](http://codex.wordpress.org/fr:Hi%C3%A9rarchie_de_modeles).
+
+* Les noms de fichiers, classes, identifiants et fonctions doivent être :
+ * En Français. Une future version anglaise fera l'objet d'un fork.
+ * Explicites et pertinents ( proscrire les `.bloc` par exemple ).
+ * Au singulier.
+ * Aussi concis que possible.
+ 
+==
+
+* Les images apellées via CSS doivent être intitulées suivant l'élément qu'elles ornent ( par exemple: body.jpg ).
+
+
 Charte CSS
 ----------
 
@@ -144,11 +160,13 @@ Charte CSS
  * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
  * Dégradés : un outil tel que [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé") doit être utilisé pour les dégradés, afin de maximiser la compatibilité.
  * Les préfixes vendeurs doivent précéder la version non-préfixée.
- * Les styles spécifiques à IE8 et inférieur doivent être exclus dans un fichier css externe.
- * Une couleur de fond doit être appliquée au `body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
+ * Les styles spécifiques à IE8 et inférieur doivent être inclus dans le fichier final styles.css, afin d'en faciliter la maintenance.
+ * Les styles spécifiques à IE8 et inférieur s'appuient sur des classes conditonnelles appliquées à `<html>`.
+ * Une couleur de fond doit être appliquée au `<body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
  * Une classe js / no-js permet d'appliquer des styles en focntion de l'activation du javascript.
  * Éviter les filtres propriétaires de Microsoft : la transparence ou les dégradés sont souvent de simples onrements.
+ * Si besoin de distinguer le premier élément plutôt que le dernier.
 
 ==
 
@@ -258,7 +276,7 @@ Charte HTML
 * Attributs : 
  * Ne pas fournir l'attribut `type` pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
- * Appliquer les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
+ * Spécifier les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
  * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées") ).
  * L'attribut style ne doit pas être utilisé.
  * Dans le cas de nombreux attributs, on envisagera de revenir à la ligne entre chaque attribut afin d'améliorer la lisibilité.
@@ -305,6 +323,7 @@ Charte HTML
  * Le soulignement est réservé aux liens, afin de les distinguer visuellement.
  * Les liens visités ont un style particulier, différenciant.
  * Les liens externes sont distingués visuellement.
+ * Éviter l'emploi de `<a href="#">` comme bouton d'action; préferer `<button type="button">`.
 
 == 
 
@@ -445,6 +464,8 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
  * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
  * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
  * Selon les contraintes du projet, des tests de désactivation du css et / ou du js devront être effectués.
+ * Procéder à des tests complets sur tous les navigateurs cibles, et le cas échéant les technologies d'assistance visées.
+ * Vérifier l'agrandissement en mode Texte jusqu'à 200%.
 
 *Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
@@ -483,11 +504,14 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * Activer la compression ( Gzip ou Deflate ),
  * Définir un type MIME correct pour chaque type de fichier utilisé,
  * Optimiser la mise en cache navigateur
- * Configurer les Etags
+ * Supprimer les Etags
  
 * Sécurité :
- * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas ( 
- * Dans le .htaccess, protéger les index de répertoire
+ * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas. 
+ * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
+ 
+* Divers :
+ * Personnaliser les pages d'erreurs les plus courantes ( 404, 403, 500 ).
 
 ==
 
@@ -501,3 +525,4 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [CssCompressor](http://www.cssdrive.com/index.php/main/csscompressor "cssdrive.com")
  * [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard")
  * [WebDev Checklist](http://webdevchecklist.com/)
+ * [.htaccess sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/)
