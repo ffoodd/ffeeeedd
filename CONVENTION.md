@@ -314,12 +314,14 @@ Charte HTML
 
 * Tableaux :
  * Chaque tableau de données doit disposer d'un titre.
+ * Les en-têtes sont correctement balisées (`<th>`).
  * Les cellules doivent être reliées à leur en-tête.
  
 == 
 
 * Liens :
  * Chaque lien est doté d'un intitulé utile, décrivant sa fonction ou sa cible.
+ * Éviter les intitulés passe-partout (en savoir plus, cliquez ici).
  * Le soulignement est réservé aux liens, afin de les distinguer visuellement.
  * Les liens visités ont un style particulier, différenciant.
  * Les liens externes sont distingués visuellement.
@@ -330,6 +332,10 @@ Charte HTML
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
 * La première occurrence d'un `<abbr>` doit permettre d'accéder à sa signification.
+
+* La capitalisation à des fins décoratives doit être faite via CSS.
+
+* Les mots ne comportent ni espaces ni balisage interne (`<span>`L`</span>`ettrine).
 
 * Compatibilité : 
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
@@ -525,4 +531,5 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [CssCompressor](http://www.cssdrive.com/index.php/main/csscompressor "cssdrive.com")
  * [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard")
  * [WebDev Checklist](http://webdevchecklist.com/)
+ * [bpi-checklist](https://github.com/inseo/bpi-checklist/blob/master/checklist.md "La checklist des 'Bonnes Pratiques de l'intégration Web'")
  * [.htaccess sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/)
