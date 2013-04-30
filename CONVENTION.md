@@ -9,6 +9,8 @@ Charte d'intégration
 
 @see [Luc Poupard](http://www.kloh.fr "kloh.fr") [@klohFR](https://twitter.com/klohFR "@klohFR")
 
+@see [WordPress Theme Review](http://codex.wordpress.org/Theme_Review "Critères de conformité WordPress")
+
 La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème. 
 
 
@@ -244,6 +246,10 @@ Charte HTML
 
 * Sémantique : Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement. Un détail de chaque balise et de son sens est disponible sur [HTML5 Doctor](http://html5doctor.com/ "Index des éléments HTML5")
 
+* Organisation : La hiérarchie des titres doit être cohérente et claire.
+
+* Navigation : La navigation au clavier doit être facile et claire.
+
 * Validation : Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
 
 * Commentaires : Commenter la fermeture de chaque balise importante en HTML, puis sauter une ligne. L'importance dépend du seul jugement de l'auteur, mais certains cas sont indispensables : par exemple `<main>` s'ouvre dans `header.php` et se ferme dans `footer.php`. *L'intérêt est de faciliter l'orientation dans le code source.*
@@ -347,6 +353,8 @@ Charte Javascript
 * Sommaire : Si plusieurs scripts sont cumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
 
 * Guillemets : Toujours utiliser des guillemets doubles.
+
+* Erreurs : Simple bon sens, le thème ne doit générer aucune erreur Javascript.
 
 * Références & inspirations :
  * [WordPress JS Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/javascript/)
