@@ -66,6 +66,7 @@ Charte CSS
  * De même les sélecteurs doivent être courts, une seule cible par sélecteur est l'idéal.
  * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ).
  * Dans tous les cas utilisant des guillemets, préférer les guillemets doubles.
+ * Exception : Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
 
 ==
   
@@ -96,6 +97,7 @@ Charte CSS
  * Toujours ajouter une espace après une virgule dans les valeurs complexes ( comme `hsla`, Ex: `hsla( 0, 0, 0, .5)`.
  * Proscrire l'emploi de `!important`.
  * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
+ * Exception : Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les dégradés ).
 
 ==
 
@@ -106,8 +108,10 @@ Charte CSS
  * `a:hover { }` : pour les liens survolés.
  * `a:active { }` : pour les liens actifs.
  * `a { }`.
-
+ 
 ==
+
+* Navigation : La navigation au clavier doit être facile et claire, la prise de `:focus` doit être visuellement indiquée.
 
 * Media Queries :
  * Les requêtes médias doivent être situées à la fin du fichier afin d'éviter les conflits dans la cascade.
@@ -131,13 +135,8 @@ Charte CSS
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
  * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
  * Les formats .xwoff et .eot suffisent dans la plupart des cas.
- * Éviter l'mploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ). 
-
-==
-
-* Exceptions :
- * Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
- * Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les gradient ).
+ * Éviter l'emploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ). 
+ * Il est fortement déconseillé d'utiliser plus de trois typographies ( leur déclinaison en graisse(s) est recommandée ).
 
 ==
 
@@ -248,8 +247,6 @@ Charte HTML
 
 * Organisation : La hiérarchie des titres doit être cohérente et claire.
 
-* Navigation : La navigation au clavier doit être facile et claire.
-
 * Validation : Créer du code validé par le [W3C Validator](http://validator.w3.org/ "Validator") dans la mesure du possible.
 
 * Commentaires : Commenter la fermeture de chaque balise importante en HTML, puis sauter une ligne. L'importance dépend du seul jugement de l'auteur, mais certains cas sont indispensables : par exemple `<main>` s'ouvre dans `header.php` et se ferme dans `footer.php`. *L'intérêt est de faciliter l'orientation dans le code source.*
@@ -271,8 +268,10 @@ Charte HTML
 * Ordre des attributs :
  1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS comme pour les JS.
  2. `id`
- 3. `data-*`
- 4. autre.
+ 3. `role`
+ 4. `data-*`
+ 5. `aria-*`
+ 6. autre.
  
 == 
 
@@ -280,10 +279,38 @@ Charte HTML
  * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
  * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
  * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
+
+== 
+
+* Formulaires :
+ * Chaque champ est associé à un label, avec les attributs `for` et `aria-labelled-by`.
+ * Le format attendu est indiqué sous forme de légende à côté du champ.
+ * Les placeholders ne doivent pas être la seule indication du format attendu.
+ * L'attribut `type` doit être utilisé efficacement.
+ * Les champs obligatoires sont indiqués par une indication textuelle à côté du label, mais aussi via les attributs `required` et `aria-required`.
+ * Les erreurs sont retournées champ par champ, avec un intitulé explicitant l'erreur.
+ * Le succès d'une soumission est également explicitée textuellement.
+ * Les contraintes de chaque champ sont indiquées à côté de celui-ci ( masque de saisie, sensibilité à la casse, nombre de caractères... ).
  
 == 
 
+* Tableaux :
+ * Chaque tableau de données doit disposer d'un titre.
+ * Les cellules doivent être reliées à leur en-tête.
+ 
+== 
+
+* Liens :
+ * Chaque lien est doté d'un intitulé utile, décrivant sa fonction ou sa cible.
+ * Le soulignement est réservé aux liens, afin de les distinguer visuellement.
+ * Les liens visités ont un style particulier, différenciant.
+ * Les liens externes sont distingués visuellement.
+
+== 
+
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
+
+* La première occurrence d'un `<abbr>` doit permettre d'accéder à sa signification.
 
 * Compatibilité : 
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
