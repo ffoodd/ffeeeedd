@@ -11,13 +11,13 @@ Charte d'intégration
 
 @see [WordPress Theme Review](http://codex.wordpress.org/Theme_Review "Critères de conformité WordPress")
 
-La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème. 
+La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème.
 
 
 Généralités
 -----------
 
-* Encodage : Tous les fichiers doivent être encodés en UTF-8 sans BOM
+* Encodage : Tous les fichiers doivent être encodés en UTF-8 sans BOM.
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
@@ -46,7 +46,7 @@ Charte CSS
 
 * Encodage : Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
-* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation. *Les tabluations sont proscrites.*
+* Indentation : Utiliser 2 espaces pour chaque niveau d'indentation. *Les tabulations sont proscrites.*
 
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
 
@@ -56,7 +56,7 @@ Charte CSS
 
 * Chapitrage : Scinder en chapitres les sections principales, dont l'intitulé sera composé de la même façon que celui des sections. Cependant le tag sera `@subsection` et le signe `=` est remplacé par le signe `-`.
 
-* Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres, respectivement précédé d'un `==` ou d'un `=`.
+* Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres, respectivement précédé d'un `==` ou d'un `--`.
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
@@ -77,12 +77,12 @@ Charte CSS
  * Un point-virgule `;` à la fin de chaque règle.
  * L'accolade de fermeture `}` est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
- * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur*.
+ * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur qui contient une classe ou un ID*.
  * Les sélecteurs d'adjacence, d'enfant ou d'attributs doivent être évité autant que possible, car ils nuisent à la performance globale.
  * De même les sélecteurs doivent être courts, une seule cible par sélecteur est l'idéal.
  * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ).
  * Dans tous les cas utilisant des guillemets, préférer les guillemets doubles.
- * Exception : Dans le cas d'une déclaration contenant une seule règle, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
+ * Exception : Dans le cas d'une déclaration contenant une seule règle *et* un seul sélecteur, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
 
 ==
   

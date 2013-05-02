@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -16,24 +17,26 @@
 /* Modification du modèle de boîte */
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
 }
 
 /* Structure flottante */
 /* ----------- */
 
 /* Bloc capable de contenir plusieurs .mod, peut contenir des flottants */
-.line {}
+.line {
+}
 
 /* Module autonome - flottant, doit avoir une largeur */
-.mod { 
+.mod {
   padding: 1em;
   overflow: hidden;
 }
 
 /* Généralement dans un .mod, peut contenir des .item */
-.items {}
+.items {
+}
 
 /* Fluide, contient des flottants, peut être placé à côté d'un flottant */
 .item { overflow: hidden; }
@@ -102,27 +105,27 @@
 }
 
 /* Autorise les marges verticales spécifiques */
-.center, .aligncenter { 
+.center, .aligncenter {
   margin-right: auto;
   margin-left: auto;
 }
-.txtleft  { text-align: left; }
-.txtright  { text-align: right; }
+.txtleft { text-align: left; }
+.txtright { text-align: right; }
 .txtcenter { text-align: center; }
 
 /* Une gouttière d'1em si le parent est un .gut */
 .row.gut > * + * {
   border-left: 1em solid transparent;
 }
-.line.gut > .left  { margin-right: 1em; }
+.line.gut > .left { margin-right: 1em; }
 .line.gut > .right { margin-left: 1em; }
 
 /* "Multicollones" avec des gouttières en % */
-.line.gut2 > *  { width: 49%; }
+.line.gut2 > * { width: 49%; }
 .line.gut2 > * + * { margin-left: 2%; }
-.line.gut3 > *  { width: 32.333%; }
+.line.gut3 > * { width: 32.333%; }
 .line.gut3 > * + * { margin-left: 1.5%; }
-.line.gut4 > *  { width: 24%; }
+.line.gut4 > * { width: 24%; }
 .line.gut4 > * + * { margin-left: 1.333%; }
 
 /* Simplement inline-block */
@@ -132,32 +135,32 @@
 }
 
 /* Largeurs des blocs - % et px */
-.w10  { width: 10%; }
-.w20  { width: 20%; }
-.w25  { width: 25%; }
-.w30  { width: 30%; }
-.w33  { width: 33.333%; }
-.w40  { width: 40%; }
-.w50  { width: 50%; }
-.w60  { width: 60%; }
-.w66  { width: 66.666%; }
-.w70  { width: 70%; }
-.w75  { width: 75%; }
-.w80  { width: 80%; }
-.w90  { width: 90%; }
-.w100  { width: 100%; }
+.w10 { width: 10%; }
+.w20 { width: 20%; }
+.w25 { width: 25%; }
+.w30 { width: 30%; }
+.w33 { width: 33.333%; }
+.w40 { width: 40%; }
+.w50 { width: 50%; }
+.w60 { width: 60%; }
+.w66 { width: 66.666%; }
+.w70 { width: 70%; }
+.w75 { width: 75%; }
+.w80 { width: 80%; }
+.w90 { width: 90%; }
+.w100 { width: 100%; }
 
-.w50p  { width: 50px; }
-.w100p  { width: 100px; }
-.w150p  { width: 150px; }
-.w200p  { width: 200px; }
-.w300p  { width: 300px; }
-.w400p  { width: 400px; }
-.w500p  { width: 500px; }
-.w600p  { width: 600px; }
-.w700p  { width: 700px; }
-.w800p  { width: 800px; }
-.w960p  { width: 960px; }
+.w50p { width: 50px; }
+.w100p { width: 100px; }
+.w150p { width: 150px; }
+.w200p { width: 200px; }
+.w300p { width: 300px; }
+.w400p { width: 400px; }
+.w500p { width: 500px; }
+.w600p { width: 600px; }
+.w700p { width: 700px; }
+.w800p { width: 800px; }
+.w960p { width: 960px; }
 .mw960p { max-width: 960px; }
 
 /* Aide aux espacements

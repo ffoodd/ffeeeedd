@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -26,12 +27,12 @@ blockquote {
   padding-left: 2em;
 }
 a {
-   text-decoration: none;
+  text-decoration: none;
 }
 a:hover,
 a:active,
 a:focus {
-   text-decoration: underline;
+  text-decoration: underline;
 }
 code,
 pre,
@@ -76,10 +77,10 @@ img, table, td, blockquote, code, pre, textarea, input, video {
 textarea, table, td, th, code, pre, samp, div {
   word-wrap: break-word;
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
+  -moz-hyphens:    auto;
+  -ms-hyphens:     auto;
+  -o-hyphens:      auto;
+  hyphens:         auto;
 }
 
 /* Images */
@@ -91,5 +92,5 @@ a img { border: 0; }
 a:hover img,
 a:active img,
 a:focus img {
-   outline: 4px solid inherit;
+  outline: 4px solid inherit;
 }

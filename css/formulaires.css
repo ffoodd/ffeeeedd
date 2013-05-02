@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -6,12 +7,12 @@
   * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
   * @see HTML5boilerplate
   * @see github.com/nathansmith/formalize
-  * @see www.sitepen.com 
+  * @see www.sitepen.com
 */
 
 /* ----------------------------- */
 /* ==Formulaires */
-/* @note : Aucun de ces éléments ne doit être modifié. 
+/* @note : Aucun de ces éléments ne doit être modifié.
  * Pour les modifier, utiliser la partie "Kit" et s'appuyer autant que possible sur la cascade.
 /* ----------------------------- */
 
@@ -23,7 +24,7 @@ input,
 button,
 select,
 label {
-  vertical-align: middle; /* @bugfix alignment */
+  vertical-align: middle; /* @bugfix alignement */
 }
 
 /* Éléments de formulaires */
@@ -40,7 +41,8 @@ select {
   vertical-align: baseline;
 }
 textarea {
-  overflow: auto; /* Supprime la scrollbar par défaut sur IE6/7/8/9 */
+  overflow: auto; /* @bugfix
+  @affected Supprime la scrollbar par défaut sur IE6/7/8/9 */
   min-height: 5em;
   font-size: 1.75em;
   vertical-align: top;
@@ -51,30 +53,32 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
-  -webkit-appearance: button; /* Types d'input cliquables sur iOS */
+  -webkit-appearance: button; /* @ bugfix
+  @affected Types d'input cliquables sur iOS */
 }
 input[type="checkbox"],
 input[type="radio"] {
-  padding: 0; /* Corrige un espace excessif sur IE8/9 */
+  padding: 0; /* @bugfix
+  @affected Corrige un espace excessif sur IE8/9 */
 }
 input[type="search"] { -webkit-appearance: textfield; }
 
-/* 'x' apparait à droite d'un champ de recherche lorsqu'un texte est entré. Ceci le retire */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none;
+  display: none; /* @bugfix
+  @affected 'x' apparait à droite d'un champ de recherche lorsqu'un texte est entré. Ceci le retire */
 }
 ::-webkit-input-placeholder { color: #777; }
 input:-moz-placeholder,
 textarea:-moz-placeholder  { color: #777; }
 
-/* Retire les marges internes et les bordures sur FF3+ */
 button::-moz-focus-inner,
 input[type='button']::-moz-focus-inner,
 input[type='reset']::-moz-focus-inner,
 input[type='submit']::-moz-focus-inner {
   border: 0;
-  padding: 0;
+  padding: 0; /* @bugfix
+  @affected Retire les marges internes et les bordures sur FF3+ */
 }

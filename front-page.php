@@ -21,6 +21,6 @@ get_header(); ?>
   </article>
 <?php endwhile; ?>
 
-<?php get_sidebar( 'home' ); ?>
+<?php get_sidebar( 'accueil' ); ?>
 
 <?php get_footer(); ?>
