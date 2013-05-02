@@ -52,9 +52,9 @@ Charte CSS
 
 * Information : Les fichiers doivent débuter par une introduction rédigée en suivant le format [CSSdoc](http://cssdoc.net/ "CSSDoc").
 
-* Sectionnement : Scinder en sections majeures le fichier, dont l'intitulé sera précédé d'un `==`.
+* Sectionnement : Scinder en sections majeures le fichier, dont l'intitulé sera composé comme suit : `/* == @section ==================== */` ( 2 signes `=`, le tag `@section`, et 20 signes `=` )..
 
-* Chapitrage : Scinder en chapitres les sections principales, dont l'intitulé sera précédé d'un `=`.
+* Chapitrage : Scinder en chapitres les sections principales, dont l'intitulé sera composé de la même façon que celui des sections. Cependant le tag sera `@subsection` et le signe `=` est remplacé par le signe `-`.
 
 * Sommaire : Un sommaire doit récapituler et répertorier les sections et chapitres, respectivement précédé d'un `==` ou d'un `=`.
 
@@ -184,9 +184,8 @@ Charte CSS
 * Exemple :
 
 ```css
-/* =Une section
-/* @note : Notes à propos de la section
- */
+/* == @section Une section ==================== */
+/* @note : Notes à propos de la section  */
 
 /* Un commentaire sur le bloc */
 .exemple,
