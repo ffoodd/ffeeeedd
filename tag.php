@@ -34,7 +34,7 @@ get_header(); ?>
     <?php endwhile; ?>
   </ol>
 
-  <?php theme_pagination(); ?>
+  <?php ffeeeedd__pagination(); ?>
 
   <?php else: ?>
   <h2><?php echo __('Il n\'y a aucun article étiquetté avec le mot-clé', 'ffeeeedd'); ?> <?php echo single_tag_title( '', false ); ?></h2>

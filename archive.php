@@ -42,7 +42,7 @@ get_header(); ?>
     <?php endwhile; ?>
   </ol>
 
-  <?php theme_pagination(); ?>
+  <?php ffeeeedd__pagination(); ?>
 
   <?php else: ?>
   <h2><?php echo __('Il n\'y a aucun article à afficher', 'ffeeeedd'); ?>.</h2>

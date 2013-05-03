@@ -141,7 +141,7 @@
   }
 
   // Utiliser la dernière version de jQuery sur le CDN Google, si besoin !
-  /*if( !is_admin()){
+  /*if( !is_admin()) {
     wp_deregister_script('jquery');
     wp_register_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, false);
     wp_enqueue_script('jquery');
@@ -188,117 +188,254 @@
   wp_enqueue_script( 'comment-reply' );
 
 
-  /* ========================================================================================================================
+  /* == @section Fil d'Ariane ==================== */
+  /*
+    @author : Daniel Roch
+    @see : https://twitter.com/rochdaniel
+    @see : http://www.seomix.fr/fil-dariane-chemin-navigation/
+    @see : http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=185417
+  */
 
-  Fil d'Ariane
-
-  ======================================================================================================================== */
-
-  function myget_category_parents($id, $link = false,$separator = '/',$nicename = false,$visited = array()) {
-    $chain = '';$parent = &get_category($id);
-    if (is_wp_error($parent))return $parent;
-    if ($nicename)$name = $parent->name;
-    else $name = $parent->cat_name;
-    if ($parent->parent && ($parent->parent != $parent->term_id ) && !in_array($parent->parent, $visited)) {
-      $visited[] = $parent->parent;$chain .= myget_category_parents( $parent->parent, $link, $separator, $nicename, $visited );
+  // Récupère les catégories parentes et y ajoute les microdonnées
+  function ffeeeedd__categories( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
+    $final = '';
+    $parent = &get_category( $id );
+    if (is_wp_error( $parent ) )
+      return $parent;
+    if ( $nicename )
+      $name = $parent->name;
+    else
+      $name = $parent->cat_name;
+    if ( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
+      $visited[] = $parent->parent;
+      $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
-    if ($link) $chain .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $parent->term_id ) . '" title="'. __('Voir tous les articles de', 'ffeeeedd') .' '.$parent->cat_name.'" itemprop="url">'.$name.'</a></li>' . $separator;
-    else $chain .= $name.$separator;
-    return $chain;
+    if ( $link )
+      $final .= '<a href="' . get_category_link( $parent->term_id ) . '" title="Voir tous les articles de ' . $parent->cat_name . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator;
+    else
+      $final .= $name . $separator;
+    return $final;
   }
 
-  function ariane() {
-    global $wp_query;$ped=get_query_var('paged');$rendu = '<ol class="print-hidden">';
-    if ( is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li> &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl">'. __('Actualité', 'ffeeeedd') .'</li>';}
-    if ( !is_home() ) {$rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a title="'. get_bloginfo('name') .'" href="'.home_url().'" itemprop="url">'. get_bloginfo('name') .'</a></li>';}
-    if ( is_category() ) {
-      $cat_obj = $wp_query->get_queried_object();$thisCat = $cat_obj->term_id;$thisCat = get_category($thisCat);$parentCat = get_category($thisCat->parent);
-      if ($thisCat->parent != 0) $rendu .= ' &rarr; '.myget_category_parents($parentCat, true, ' &rarr; ', true);
-      if ($thisCat->parent == 0) {$rendu .= ' &rarr; ';}
-      if ( $ped <= 1 ) {$rendu .= single_cat_title("", false);}
-      elseif ( $ped > 1 ) {
-        $rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="' . get_category_link( $thisCat ) . '" title="'. __('Voir tous les articles de', 'ffeeeedd') .' '.single_cat_title("", false).'" itemprop="url">'.single_cat_title("", false).'</a></li>';
-      }
+  // On génère le fil d'Ariane
+  function ffeeeedd__ariane() {
+      
+    // Variables globales
+    global $wp_query;
+    $paged = get_query_var( 'paged' );
+    $sep = ' &rarr; ';
+    $final = '<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="print-hidden">';
+    $startdefault = '<a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>';
+    $starthome = get_bloginfo( 'name' );
+
+    // Début du fil d'Ariane
+    if ( is_front_page() && is_home() ) {
+      // Accueil par défaut
+      if ( $paged >= 1 )
+        $final .= $startdefault;
+      else
+        $final .= $starthome;
+    } elseif ( is_front_page() ) {
+      // Accueil statique ( page statique définie )
+      $final .= $starthome;
+    } elseif ( is_home() ) {
+      // Page de blog ( liste des articles )
+      if ( $paged >= 1 ) {
+        $url = get_page_link( get_option( 'page_for_posts' ) );
+        $final .= $startdefault . $sep . '<a href="' . $url . '" itemprop="url" title="Les articles"><span itemprop="title">Les articles</span></a>';
+      } else $final .= $startdefault . $sep . 'Les articles';
+    } else {
+      // Pour tout le reste
+      $final .= $startdefault . $sep;
     }
-    elseif ( is_author()){
-      global $author;$user_info = get_userdata($author);$rendu .= ' &rarr; '. __('Articles de l\'auteur', 'ffeeeedd') .' '.$user_info->display_name.'</li>';
+
+    // Empêche d'autre(s) code(s) d'interférer avec l'accueil statique ou blog
+    if ( is_front_page() && is_home() ) { } elseif ( is_front_page() ) { } elseif ( is_home() ) { }
+
+    //  Fichiers attachés
+    elseif ( is_attachment() ) {
+      global $post;
+      $parent = get_post( $post->post_parent );
+      $id = $parent->ID;
+      $category = get_the_category( $id );
+      $category_id = get_cat_ID( $category[0]->cat_name );
+      $permalink = get_permalink( $id );
+      $title = $parent->post_title;
+      $final .= ffeeeedd__categories( $category_id, true, $sep ) . "<a href='$permalink' itemprop'url' title='$title'><span itemprop='title'>$title</span></a>" . $sep . the_title('', '', false );
     }
-    elseif ( is_tag()){
-      $tag=single_tag_title("",FALSE);$rendu .= ' &rarr; '. __('Articles sur le thème', 'ffeeeedd') .' <span>'.$tag.'</span>';
+
+    // Type(s) d'articles
+    elseif ( is_single() && !is_singular( 'post' ) ) {
+      global $post;
+      $nom = get_post_type( $post );
+      $archive = get_post_type_archive_link( $nom );
+      $mypost = $post->post_title;
+      $label = get_post_type_object( $nom )->labels->name;
+      $final .= '<a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a>' . $sep . $mypost;
     }
-    elseif ( is_date() ) {
-      if ( is_day() ) {
-        global $wp_locale;
-        $rendu .= '<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="'.get_month_link( get_query_var('year'), get_query_var('monthnum') ).'" itemprop="url">'.$wp_locale->get_month( get_query_var('monthnum') ).' '.get_query_var('year').'</a></li> ';
-        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.get_the_date();
-      }
-      else if ( is_month() ) {
-        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.single_month_title(' ',false);
-      }
-      else if ( is_year() ) {
-        $rendu .= ' &rarr; '. __('Archives pour', 'ffeeeedd') .' '.get_query_var('year');
-      }
+
+    // Articles avec un format
+    elseif ( is_single() && has_term('', 'post_format') ) {
+      global $post;
+      $format = get_post_format( $post->ID );
+      $pretty_format = get_post_format_string( $format );
+      $format_link = get_post_format_link( $format );
+      $mypost = $post->post_title;
+      $final .= '<a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a>' . $sep . $mypost;
     }
-    elseif ( is_archive() && !is_category()){
-      $posttype = get_post_type();
-      $tata = get_post_type_object( $posttype );
-      $var = '';
-      $the_tax = get_taxonomy( get_query_var( 'taxonomy' ) );
-      $titrearchive = $tata->labels->menu_name;
-      if (!empty($the_tax)){$var = $the_tax->labels->name.' ';}
-      if (empty($the_tax)){$var = $titrearchive;}
-      $rendu .= ' &rarr; '.$var.'';
-    }
-    elseif ( is_search()) {
-      $rendu .= ' &rarr; '. __('Résultats de votre recherche', 'ffeeeedd') .' <span>&rarr; '.get_search_query().'</span>';
-    }
-    elseif ( is_404()){
-      $rendu .= ' &rarr; 404 : '. __('Page non trouvée', 'ffeeeedd') .'';
-    }
-    elseif ( is_single()){
+
+    // Articles sans format
+    elseif ( is_single() && !has_term('', 'post_format') ) {
+      // Catégories d'articles
       $category = get_the_category();
       $category_id = get_cat_ID( $category[0]->cat_name );
-      if ($category_id != 0) {
-        $rendu .= ' &rarr; '.myget_category_parents($category_id,TRUE,' &rarr; ').'<span>'.the_title('','',FALSE).'</span>';
-      }
+      if ( $category_id != 0 )
+        $final .= ffeeeedd__categories( $category_id, true, $sep );
       elseif ($category_id == 0) {
         $post_type = get_post_type();
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
         $urlarchive = get_post_type_archive_link( $post_type );
-        $rendu .= ' &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="'.$urlarchive.'" title="'.$titrearchive.'" itemprop="url">'.$titrearchive.'</a></span> &rarr; <span>'.the_title('','',FALSE).'</li>';
+        $final .= '<a href="' . $urlarchive . '" title="' . $titrearchive . '" itemprop="url"><span itemprop="title">' . $titrearchive . '</span></a>';
       }
+      // Avec des pages de commentaires
+      $cpage = get_query_var( 'cpage' );
+      if ( is_single() && $cpage > 0 ) {
+        global $post;
+        $permalink = get_permalink( $post->ID );
+        $title = $post->post_title;
+        $final .= '<a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>';
+        $final .= $sep . 'Commentaires page ' . $cpage;
+      }
+      // Sans pages de commentaires
+      else
+        $final .= the_title( '', '', false );
     }
-    elseif ( is_page()) {
+
+    // Catégories
+    elseif ( is_category() ) {
+      // Variables
+      $categoryid = $GLOBALS['cat'];
+      $category = get_category( $categoryid );
+      $categoryparent = get_category( $category->parent );
+      // Résulat
+      if ( $category->parent != 0 )
+        $final .= ffeeeedd__categories( $categoryparent, true, $sep, true );
+      if ( $paged <= 1 )
+        $final .= single_cat_title( '', false );
+      else
+        $final .= '<a href="' . get_category_link( $category ) . '" title="Voir tous les articles de ' . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a>';
+    }
+
+    // Pages
+    elseif ( is_page() && !is_home() ) {
       $post = $wp_query->get_queried_object();
-      if ( $post->post_parent == 0 ){$rendu .= " &rarr; ".the_title('','',FALSE)."";}
+      // Page simple
+      if ( $post->post_parent == 0 )
+        $final .= the_title( '', '', false );
+      // Page avec ancêtre(s)
       elseif ( $post->post_parent != 0 ) {
-        $title = the_title('','',FALSE);$ancestors = array_reverse(get_post_ancestors($post->ID));array_push($ancestors, $post->ID);
-        foreach ( $ancestors as $ancestor ){
-          if( $ancestor != end($ancestors) ){$rendu .= ' &rarr; <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="inbl"><a href="'. get_permalink($ancestor) .'" itemprop="url">'. strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) .'</a></li>';}
-          else {$rendu .= ' &rarr; '.strip_tags(apply_filters('single_post_title',get_the_title($ancestor))).'';}
+        $title = the_title( '', '', false );
+        $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
+        array_push( $ancestors, $post->ID );
+        $count = count ( $ancestors ); $i=0;
+        foreach ( $ancestors as $ancestor ) {
+          if( $ancestor != end( $ancestors ) ) {
+            $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
+            $final .= '<a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
+            $i++;
+            if ( $i < $ancestors )
+              $final .= $sep;
+          }
+          else
+            $final .= strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
         }
       }
     }
-    if ( $ped >= 1 ) {$rendu .= ' (Page '.$ped.')';}
-    $rendu .= '</ol>';
-    echo $rendu;
+
+    // Auteurs
+    elseif ( is_author() ) {
+      if( get_query_var( 'author_name' ) )
+        $curauth = get_user_by( 'slug', get_query_var( 'author_name' ) );
+      else
+        $curauth = get_userdata( get_query_var( 'author' ) );
+      $final .= 'Articles de l\'auteur ' . $curauth->nickname;
+    }
+
+    // Tags
+    elseif ( is_tag() ) {
+      $final .= 'Articles sur le th&egrave;me ' . single_tag_title( '', false );
+    }
+
+    // Formats
+    elseif ( is_tax( 'post_format' ) ) {
+      $format = get_post_format( $post->ID );
+      $pretty_format = get_post_format_string( $format );
+      $final .= $pretty_format;
+    }
+
+    // Recherche
+    elseif ( is_search() ) {
+      $final .= 'R&eacute;sultats de votre recherche sur "' . get_search_query() . '"';
+    }
+
+    // Dates
+    elseif ( is_date() ) {
+      if ( is_day() ) {
+        $year = get_year_link( '' );
+        $final .= '<a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a>';
+        $month = get_month_link( get_query_var( 'year' ), get_query_var( 'monthnum' ) );
+        $final .= $sep . '<a title="' . single_month_title( ' ', false ) . '" href="' . $month . '" itemprop="url"><span itemprop="title">' . single_month_title( ' ', false ) . '</span></a>';
+        $final .= $sep . 'Archives pour ' . get_the_date();
+      }
+      elseif ( is_month() ) {
+        $year = get_year_link( '' );
+        $final .= '<a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a>';
+        $final .= $sep . 'Archives pour ' . single_month_title( ' ', false );
+      }
+      elseif ( is_year() )
+        $final .= 'Archives pour ' . get_query_var( 'year' );
+    }
+
+    // Page 404
+    elseif ( is_404() )
+      $final .= '404 - Page non trouv&eacute;e';
+
+    // Archives - autres
+    elseif ( is_archive() ) {
+      $posttype = get_post_type();
+      $posttypeobject = get_post_type_object( $posttype );
+      $taxonomie = get_taxonomy( get_query_var( 'taxonomy' ) );
+      $titrearchive = $posttypeobject->labels->menu_name;
+      if ( !empty( $taxonomie ) )
+        $final .= $taxonomie->labels->name;
+      else
+        $final .= $titrearchive;
+    }
+
+    // Pagination
+    if ( $paged >= 1 )
+      $final .= $sep . 'Page ' . $paged;
+
+    // The End
+    $final .= '</div>';
+    echo $final;
   }
 
 
-  /* ========================================================================================================================
+  /* == @section Pagination ==================== */
+  /*
+    @author : Jonathan Buttigieg
+    @see : https://twitter.com/GeekPressFR
+    @see : http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
+  */
 
-  Pagination
-
-  ======================================================================================================================== */
-
-  // @see http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
-  if( !function_exists( 'theme_pagination' ) ) {
-    function theme_pagination() {
+  if( !function_exists( 'ffeeeedd__pagination' ) ) {
+    function ffeeeedd__pagination() {
       global $wp_query, $wp_rewrite;
       $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
       $pagination = array(
-        'base'      => @add_query_arg('page','%#%'),
+        'base'      => @add_query_arg( 'page', '%#%' ),
         'format'    => '',
         'total'     => $wp_query->max_num_pages,
         'current'   => $current,
@@ -306,14 +443,14 @@
         'end_size'  => 1,
         'mid_size'  => 2,
         'type'      => 'list',
-        'next_text' => '»',
-        'prev_text' => '«'
+        'next_text' => '&rarr;',
+        'prev_text' => '&larr;'
       );
       if( $wp_rewrite->using_permalinks() )
         $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
-      if( !empty($wp_query->query_vars['s']) )
+      if( !empty( $wp_query->query_vars['s'] ) )
         $pagination['add_args'] = array( 's' => str_replace( ' ' , '+', get_query_var( 's' ) ) );
-      echo str_replace('page/1/','', paginate_links( $pagination ) );
+      echo str_replace( 'page/1/', '', paginate_links( $pagination ) );
     }
   }
 
@@ -413,7 +550,7 @@
 
   // Ajout de l'attribut HTML5 required sur le textarea
   add_filter('comment_form_defaults','changing_comment_form_defaults');
-  function changing_comment_form_defaults($defaults){
+  function changing_comment_form_defaults($defaults) {
     $defaults['comment_field']='<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
   }
@@ -473,11 +610,11 @@
   <?php }
 
   // Sauvegarder la valeur de ces champs
-  function save_parametres_seo_metabox($post_ID){
-    if(isset($_POST['parametres_seo_title'])){
+  function save_parametres_seo_metabox($post_ID) {
+    if(isset($_POST['parametres_seo_title'])) {
       update_post_meta($post_ID,'_parametres_seo_title', esc_html($_POST['parametres_seo_title']));
     }
-    if(isset($_POST['parametres_seo_description'])){
+    if(isset($_POST['parametres_seo_description'])) {
       update_post_meta($post_ID,'_parametres_seo_description', esc_html($_POST['parametres_seo_description']));
     }
   }

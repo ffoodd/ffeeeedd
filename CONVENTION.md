@@ -290,14 +290,14 @@ Charte HTML
  5. `aria-*`
  6. autre.
  
-== 
+==
 
 * Métadonnées :
  * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
  * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
  * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
 
-== 
+==
 
 * Formulaires :
  * Chaque champ est associé à un label, avec les attributs `for` et `aria-labelled-by`.
@@ -309,14 +309,14 @@ Charte HTML
  * Le succès d'une soumission est également explicitée textuellement.
  * Les contraintes de chaque champ sont indiquées à côté de celui-ci ( masque de saisie, sensibilité à la casse, nombre de caractères... ).
  
-== 
+==
 
 * Tableaux :
  * Chaque tableau de données doit disposer d'un titre.
  * Les en-têtes sont correctement balisées (`<th>`).
  * Les cellules doivent être reliées à leur en-tête.
  
-== 
+==
 
 * Liens :
  * Chaque lien est doté d'un intitulé utile, décrivant sa fonction ou sa cible.
@@ -326,7 +326,7 @@ Charte HTML
  * Les liens externes sont distingués visuellement.
  * Éviter l'emploi de `<a href="#">` comme bouton d'action; préferer `<button type="button">`.
 
-== 
+==
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
@@ -336,7 +336,7 @@ Charte HTML
 
 * Les mots ne comportent ni espaces ni balisage interne (`<span>`L`</span>`ettrine).
 
-* Compatibilité : 
+* Compatibilité :
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
  
@@ -420,7 +420,7 @@ Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce t
 Charte PHP
 ----------
 
-* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress..
+* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress.
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -428,7 +428,9 @@ Charte PHP
 
 * Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
 
-* Parenthèses : Toujours cerner les parenthèses d'espace `if ( this ) `.
+* Parenthèses : Toujours cerner les parenthèses d'espaces `if ( this ) `.
+
+* Concaténation : Dans des chaînes concaténées, toujours cerner les points par des espaces : `echo '<a href="' . $lien . '">';`.
 
 * Ouverture de php : Toujours utiliser la version complète pour ouvrir php. Ex: `<?php .. ?>` au lieu de `<? ... ?>`.
 
@@ -447,9 +449,9 @@ Charte PHP
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* Guillemets : Toujours utiliser des guillemets doubles.
+* Guillemets : Préférer les guillemets simples.
 
-* Nommage : Les fonctions du thème doivent être préfixées par `ffeeeedd` et disposer d'un intitulé clair, en français ( le cas échéant, dans la langue de l'auteur ).
+* Nommage : Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français ( le cas échéant, dans la langue de l'auteur ).
 
 * Ne jamais utiliser de CamelCase.
  

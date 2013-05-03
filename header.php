@@ -70,4 +70,4 @@
     </nav>
 
     <main role="main" id="content" class="mw960p center" itemprop="mainContentOfPage">
-      <?php if (function_exists('ariane') && !is_front_page()) { ariane(); } ?>
+      <?php if (function_exists('ffeeeedd__ariane') && !is_front_page()) { ffeeeedd__ariane(); } ?>

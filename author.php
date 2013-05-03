@@ -46,7 +46,7 @@ get_header(); ?>
     <?php endwhile; ?>
   </ol>
 
-  <?php theme_pagination(); ?>
+  <?php ffeeeedd__pagination(); ?>
 
   <?php else: ?>
   <h2><?php echo get_the_author() ; ?> <?php echo __('n\'a rédigé aucun article pour le moment', 'ffeeeedd'); ?>.</h2>
