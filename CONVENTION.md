@@ -428,7 +428,7 @@ Charte PHP
 
 * Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
 
-* Parenthèses : Toujours cerner les parenthèses d'espaces `if ( this ) `.
+* Parenthèses : Une espace doit être insérée après la parenthèse ouvrante, et avant la parenthèse fermante : `if( this );`.
 
 * Concaténation : Dans des chaînes concaténées, toujours cerner les points par des espaces : `echo '<a href="' . $lien . '">';`.
 

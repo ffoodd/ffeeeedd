@@ -189,14 +189,18 @@
 
 
   /* == @section Fil d'Ariane ==================== */
-  /*
-    @author : Daniel Roch
-    @see : https://twitter.com/rochdaniel
-    @see : http://www.seomix.fr/fil-dariane-chemin-navigation/
-    @see : http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=185417
+  /**
+   * @author Daniel Roch
+   * @see https://twitter.com/rochdaniel
+   * @see http://www.seomix.fr/fil-dariane-chemin-navigation/
+   * @see http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=185417
+   * @note Modifications :
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, et mise en place des microdonnées au lieu des microformats.
   */
 
-  // Récupère les catégories parentes et y ajoute les microdonnées
+  /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
   function ffeeeedd__categories( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
     $final = '';
     $parent = &get_category( $id );
@@ -217,7 +221,7 @@
     return $final;
   }
 
-  // On génère le fil d'Ariane
+  /* -- @subsection On génère le fil d'Ariane -------------------- */
   function ffeeeedd__ariane() {
       
     // Variables globales
@@ -424,10 +428,10 @@
 
 
   /* == @section Pagination ==================== */
-  /*
-    @author : Jonathan Buttigieg
-    @see : https://twitter.com/GeekPressFR
-    @see : http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
+  /**
+   * @author Jonathan Buttigieg
+   * @see https://twitter.com/GeekPressFR
+   * @see http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
   */
 
   if( !function_exists( 'ffeeeedd__pagination' ) ) {
@@ -455,114 +459,108 @@
   }
 
 
-  /* ========================================================================================================================
-
-  Extensions
-
-  ======================================================================================================================== */
-
-  // Commentaires
-  if ( ! function_exists( 'ffeeeedd_comment' ) ) :
+  /* == @section Commentaires ==================== */
   /**
-   * Template pour les commentaires & pingbacks.
-   */
-  function ffeeeedd_comment( $comment, $args, $depth ) {
-    $GLOBALS['comment'] = $comment;
-    switch ( $comment->comment_type ) :
-    case 'pingback' :
-    case 'trackback' :
-    // On affiche différemment les trackbacks.
-    ?>
-    <li <?php comment_class(); ?>>
-      <p><?php _e( 'Pingback :', '' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Modifier)', '' ), '<span class="edit-link">', '</span>' ); ?></p>
-      <?php
-        break;
-        default :
-        // On passe aux commentaires standards.
-        global $post;
-      ?>
+   * @author Luc Poupard
+   * @see https://twitter.com/klohFR
+   * @note Personnalise l'affichage des commentaires, ajout des microdonnées, et amélioration de l'accessibilité du formulaire avec les attributs et rôles ARIA.
+  */
+
+  /* -- @subsection Gère l'affichage des commentaires -------------------- */
+  if ( !function_exists( 'ffeeeedd_comment' ) ) :
+    // Template pour les commentaires & pingbacks.
+    function ffeeeedd_comment( $comment, $args, $depth ) {
+      $GLOBALS['comment'] = $comment;
+      switch ( $comment->comment_type ) :
+        case 'pingback' :
+        case 'trackback' :
+        // On affiche différemment les trackbacks. ?>
+          <li <?php comment_class(); ?>>
+            <p><?php _e( 'Pingback :', '' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Modifier)', '' ), '<span class="edit-link">', '</span>' ); ?></p>
+        <?php break;
+      default :
+      // On passe aux commentaires standards.
+      global $post; ?>
       <li itemscope itemtype="http://schema.org/UserComments">
         <article role="article">
           <header>
-            <?php
-              echo get_avatar( $comment, 44 );
-              printf( '<cite itemprop="creator">%1$s %2$s</cite>',
-                get_comment_author_link(),
-                ( $comment->user_id === $post->post_author ) ? '<small> ('. __('Rédacteur', 'ffeeeedd') .') </small>' : ''
-              );
-              printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
-                esc_url( get_comment_link( $comment->comment_ID ) ),
-                get_comment_time( 'c' ),
-                sprintf( '%1$s à %2$s', get_comment_date(), get_comment_time() )
-              );
-            ?>
+            <?php echo get_avatar( $comment, 44 );
+            printf( '<cite itemprop="creator">%1$s %2$s</cite>',
+              get_comment_author_link(),
+              ( $comment->user_id === $post->post_author ) ? '<small> (' .  __( 'Rédacteur', 'ffeeeedd' ) . ' ) </small>' : ''
+            );
+            printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
+              esc_url( get_comment_link( $comment->comment_ID ) ),
+              get_comment_time( 'c' ),
+              sprintf( '%1$s à %2$s', get_comment_date(), get_comment_time() )
+            ); ?>
           </header>
 
           <?php if ( '0' == $comment->comment_approved ) : ?>
-          <p><?php echo __('Votre commentaire est en attente de modération', 'ffeeeedd'); ?>.</p>
+          <p><?php echo __( 'Votre commentaire est en attente de modération', 'ffeeeedd' ); ?>.</p>
           <?php endif; ?>
 
           <section itemprop="commentText">
             <?php comment_text(); ?>
-            <?php edit_comment_link( __( 'Modifier', ''), '<p>', '</p>' ); ?>
+            <?php edit_comment_link( __( 'Modifier', '' ), '<p>', '</p>' ); ?>
           </section>
 
           <div class="reply" itemprop="replyToUrl">
-            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', ''), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', '' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
           </div>
         </article>
-      <?php
-        break;
-        endswitch;
-  }
+      <?php break;
+      endswitch;
+    }
   endif;
 
-  // Ajout des types de champs HTML5 url et email sur les commentaires
-  // Ajout de l'attribut HTML5 required sur le nom et l'email
-  add_filter('comment_form_defaults', 'fields_html5');
-
-  if ( !function_exists('fields_html5')) {
+  /* -- @subsection Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email -------------------- */
+  add_filter( 'comment_form_defaults', 'fields_html5' );
+  if ( !function_exists( 'fields_html5' )) {
     function fields_html5( $fields ) {
       // Type author
       $fields['fields']['author'] = '
       <p class="comment-form-author">
-        <label for="author">'. __( 'Name' ) .' <span class="required">*</span></label>
+        <label for="author">' . __( 'Name' ) . ' <span class="required">*</span></label>
         <input id="author" name="author" value="" aria-required="true" required="required" size="30" type="text" />
-      </p>
-      ';
+      </p>';
       // Type email
       $fields['fields']['email'] = '
       <p class="comment-form-email">
-        <label for="email">'. __( 'Email' ) .' <span class="required">*</span></label>
+        <label for="email">' . __( 'Email' ) . ' <span class="required">*</span></label>
         <input id="email" name="email" value="" aria-required="true" required="required" size="30" type="email" />
-      </p>
-      ';
+      </p>';
       // Type url et placeholder http://
       $fields['fields']['url'] = '
       <p class="comment-form-url">
-        <label for="url">'. __( 'Website' ) .'</label>
+        <label for="url">' . __( 'Website' ) . '</label>
         <input id="url" name="url" value="" placeholder="http://" size="30" type="url" />
-      </p>
-      ';
+      </p>';
       return $fields;
     }
   }
 
-  // Ajout de l'attribut HTML5 required sur le textarea
-  add_filter('comment_form_defaults','changing_comment_form_defaults');
-  function changing_comment_form_defaults($defaults) {
-    $defaults['comment_field']='<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
+  /* -- @subsection Ajout de l'attribut HTML5 required sur le textarea -------------------- */
+  add_filter( 'comment_form_defaults', 'changing_comment_form_defaults' );
+  function changing_comment_form_defaults( $defaults ) {
+    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
   }
 
-  // Colonnes latérales
+
+  /* == @section Colonnes latérales ==================== */
+  /**
+    @author Gaël Poupard
+    @see https://twitter.com/ffoodd_fr
+  */
+
   function ffeeeedd_widgets_init() {
     // Une colonne latérale spécifique pour la page d'accueil
     register_sidebar( array(
       'name' => 'Accueil',
       'id' => 'accueil',
       'before_widget' => '<div>',
-      'after_widget' => "</div>",
+      'after_widget' => '</div>',
       'before_title' => '<h3>',
       'after_title' => '</h3>',
     ) );
@@ -571,7 +569,7 @@
       'name' => 'Pages',
       'id' => 'pages',
       'before_widget' => '<div>',
-      'after_widget' => "</div>",
+      'after_widget' => '</div>',
       'before_title' => '<h3>',
       'after_title' => '</h3>',
     ) );
@@ -579,74 +577,80 @@
   add_action( 'widgets_init', 'ffeeeedd_widgets_init' );
 
 
-  /* ========================================================================================================================
-
-  Référencement SEO / Social
-
-  ======================================================================================================================== */
-
+  /* == @section Référencement Social / SEO ==================== */
   /**
-   * @note Inspiré par le thème Noviseo2012
-   * @author Sylvain Fouillaud @noviseo
+   * @note Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
+   * @author Sylvain Fouillaud
+   * @see https://twitter.com/noviseo
    * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note Modifications :
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
-  // Création des blocs dans l'administration
-  function meta_box_title_description() {
-    add_meta_box( 'parametres_seo_metabox', __( 'Référencement' ), 'parametres_seo_metabox_content', 'post', 'side', 'high' );
-    add_meta_box( 'parametres_seo_metabox', __( 'Référencement' ), 'parametres_seo_metabox_content', 'page', 'side', 'high' );
+  /* -- @subsection Création des blocs dans l'administration -------------------- */
+  function ffeeeedd__metabox() {
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
   }
-  add_action( 'add_meta_boxes', 'meta_box_title_description' );
+  add_action( 'add_meta_boxes', 'ffeeeedd__metabox' );
 
-  // Ajout des champs utiles dans ces blocs
-  function parametres_seo_metabox_content($post) {
-    $val_title = get_post_meta($post->ID,'_parametres_seo_title',true);
-    $val_description = get_post_meta($post->ID,'_parametres_seo_description',true); ?>
-    <title><?php echo __('Ces champs sont utilisés dans les balises \'meta\' utiles au référencement naturel et au partage social', 'ffeeeedd'); ?>.</title>
-    <p><strong><?php echo __('Titre', 'ffeeeedd'); ?></strong></p>
-    <input id="parametres_seo_title" name="parametres_seo_title" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
-    <p><strong><?php echo __('Description', 'ffeeeedd'); ?></strong></p>
-    <textarea id="parametres_seo_description" name="parametres_seo_description" style="width:100%; resize:none;"><?php echo $val_description; ?></textarea>
+  /* -- @subsection Ajout des champs utiles dans ces blocs -------------------- */
+  function ffeeeedd__metabox__contenu( $post ) {
+    $val_title = get_post_meta( $post->ID, '_ffeeeedd__metabox__titre', true );
+    $val_description = get_post_meta( $post->ID, '_ffeeeedd__metabox__description', true ); ?>
+    <p><?php echo __( 'Ces champs sont utilisés dans les balises \'meta\' utiles au référencement naturel et au partage social.', 'ffeeeedd' ); ?>.</p>
+    <p><strong><?php echo __( 'Titre', 'ffeeeedd' ); ?></strong></p>
+    <p>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__titre"><?php echo __( 'Titre', 'ffeeeedd' ); ?></label>
+      <input id="ffeeeedd__metabox__titre" name="ffeeeedd__metabox__titre" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
+    </p>
+    <p><strong><?php echo __( 'Description', 'ffeeeedd' ); ?></strong></p>
+    <p>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php echo __( 'Description', 'ffeeeedd' ); ?></label>
+      <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:none;"><?php echo $val_description; ?></textarea>
+    </p>
   <?php }
 
-  // Sauvegarder la valeur de ces champs
-  function save_parametres_seo_metabox($post_ID) {
-    if(isset($_POST['parametres_seo_title'])) {
-      update_post_meta($post_ID,'_parametres_seo_title', esc_html($_POST['parametres_seo_title']));
+  /* -- @subsection Sauvegarder la valeur de ces champs -------------------- */
+  function ffeeeedd__metabox__save( $post_ID ) {
+    if( isset( $_POST['ffeeeedd__metabox__titre'] ) ) {
+      update_post_meta( $post_ID, '_ffeeeedd__metabox__titre', esc_html( $_POST['ffeeeedd__metabox__titre'] ) );
     }
-    if(isset($_POST['parametres_seo_description'])) {
-      update_post_meta($post_ID,'_parametres_seo_description', esc_html($_POST['parametres_seo_description']));
+    if( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
+      update_post_meta( $post_ID,'_ffeeeedd__metabox__description', esc_html( $_POST['ffeeeedd__metabox__description'] ) );
     }
   }
-  add_action('save_post','save_parametres_seo_metabox');
+  add_action( 'save_post', 'ffeeeedd__metabox__save' );
 
-  // Ajoute les métas 'Description' dans le <head>
-  function modify_description_from_metabox() {
+  /* -- @subsection Ajoute les métas 'Description' dans le <head> -------------------- */
+  function ffeeeedd__injection__description() {
     global $wp_query;
     // Si le champ est rempli, on affiche sa valeur
-    if ( get_post_meta($wp_query->post->ID,'_parametres_seo_description',true) ) {
+    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) ) {
       echo '<!-- Métas Description dynamiques -->';
       echo '<meta name="description" content="';
-      echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
       echo '" />';
       echo '<meta property="og:description" content="';
-      echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
       echo '" />';
       echo '<meta name="twitter:description" content="';
-      echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
       echo '" />';
       echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="';
-      echo get_post_meta($wp_query->post->ID,'_parametres_seo_description',true);
+      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
       echo '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
     // Sinon, dans le cas d'un article on affiche l'extrait
     elseif ( is_single() ) {
       echo '<!-- Métas Description dynamiques -->';
-      echo '<meta name="description" content="' . strip_tags(get_the_excerpt()) . '" />';
-      echo '<meta property="og:description" content="' . strip_tags(get_the_excerpt()) . '" />';
-      echo '<meta name="twitter:description" content="' . strip_tags(get_the_excerpt()) . '" />';
-      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="' . strip_tags(get_the_excerpt()) . '" />';
+      echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+      echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+      echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
     // Sinon, on affiche la description générale du site
@@ -659,34 +663,48 @@
       echo '<!-- Fin des métas Description dynamiques -->';
     }
   }
-  add_action( 'wp_head', 'modify_description_from_metabox' );
+  add_action( 'wp_head', 'ffeeeedd__injection__description' );
 
-  // Modifie la valeur des métas 'Title' dans le <head>
-  function modify_title_from_metabox($title) {
+  /* -- @subsection Modifie la valeur des métas 'Title' dans le <head> -------------------- */
+  function ffeeeedd__injection__titre( $title ) {
     global $wp_query;
-    if ( get_post_meta($wp_query->post->ID,'_parametres_seo_title',true) ) {
-      return get_post_meta($wp_query->post->ID,'_parametres_seo_title',true);
+    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {
+      return get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true );
     } else {
       return $title;
     }
   }
-  add_filter( 'wp_title', 'modify_title_from_metabox' );
+  add_filter( 'wp_title', 'ffeeeedd__injection__titre' );
 
-  // Ajouter un champ 'Twitter' dans les profils utilisateur, et supprimer les champs inutiles
-  function gk_contact_methods() {
+
+  /* == @section Profil utilisateur ==================== */
+  /**
+   * @note Ajoute un champ 'Twitter' dans les profils utilisateur
+   * @note Supprime les champs inutiles
+   * @author Valentin Brandt
+   * @see https://twitter.com/geekeriesfr
+   * @see http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
+   */
+  function ffeeeedd__user() {
     /* Supprimer des champs */
-    unset($contact['aim']);
-    unset($contact['yim']);
-    unset($contact['jabber']);
+    unset( $contact['aim'] );
+    unset( $contact['yim'] );
+    unset( $contact['jabber'] );
     /* Ajouter un champ Twitter */
     $contact['twitter'] = 'Twitter';
     return $contact;
   }
-  add_filter('user_contactmethods','gk_contact_methods',75,1);
+  add_filter( 'user_contactmethods', 'ffeeeedd__user', 75, 1 );
 
-  // Personnaliser le logo
-  function custom_theme_features()  {
-    // Add theme support for Custom Header
+
+  /* == @section Personnaliser le logo ==================== */
+  /**
+   * @note Ajoute le support de la personnlisation de l'entête,
+   * @note On le détourne pour personnaliser le logo.
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   */
+  function ffeeeedd__logo() {
     $header_args = array(
       'default-image'       => get_template_directory_uri() . '/img/logo.png',
       'width'               => 180,
@@ -700,10 +718,19 @@
     );
     add_theme_support( 'custom-header', $header_args );
   }
-  add_action( 'after_setup_theme', 'custom_theme_features' );
+  add_action( 'after_setup_theme', 'ffeeeedd__logo' );
 
-  // Ajoute les métas 'Image' dans le <head>
-  function insert_image_meta_in_head() {
+  /* == @section Ajout des métas Image dans le <head> ==================== */
+  /**
+   * @note Inspiré par le thème Noviseo2012, avec une gestion des images améliorée
+   * @author Sylvain Fouillaud
+   * @see https://twitter.com/noviseo
+   * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note : La fonction est modifiée pour prendre en compte le logo personnalisé.
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   */
+  function ffeeeedd__injection__image() {
     global $post;
     if ( is_single() ) {
       $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
@@ -720,4 +747,4 @@
       echo '<!-- Fin des métas Image dynamiques -->';
     }
   }
-  add_action( 'wp_head', 'insert_image_meta_in_head' );
+  add_action( 'wp_head', 'ffeeeedd__injection__image' );
