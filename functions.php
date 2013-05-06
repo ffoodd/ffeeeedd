@@ -10,46 +10,46 @@
  */
 
 
-  /* ========================================================================================================================
+  /* == @section Options du thème ==================== */
+  /**
+   * @see Twentytwelve - Thème WordPress par défaut.
+   * @see http://wordpress.org/extend/themes/twentytwelve
+  */
 
-  Paramètres spécifiques du thème
-
-  ======================================================================================================================== */
-
-  add_theme_support('post-thumbnails');
-
-  register_nav_menus(array('primary' => 'Menu principal'));
+  add_theme_support( 'post-thumbnails' );
+  register_nav_menus( array( 'primary' => 'Menu principal' ) );
 
 
-  /* ========================================================================================================================
-
-  Actions et Filtres
-
-  ======================================================================================================================== */
-
-  // I18n : déclare le domaine et l'emplacement des fichiers de traduction
+  /* == @section Traduction ==================== */
+  /**
+   * @author Luc Poupard
+   * @see https://twitter.com/klohFR
+   * @note I18n : déclare le domaine et l'emplacement des fichiers de traduction
+   * @see Twentytwelve - Thème WordPress par défaut.
+   * @see http://wordpress.org/extend/themes/twentytwelve
+  */
   add_action( 'after_setup_theme', 'ffeeeedd__setup' );
   function ffeeeedd__setup() {
-    load_theme_textdomain('ffeeeedd', get_template_directory() . '/lang');
+    load_theme_textdomain( 'ffeeeedd', get_template_directory() . '/lang' );
   }
 
-  // Retire les classes générées - sauf la current - par Wordpress sur le menu principal
-  add_filter('nav_menu_css_class', 'ffeeeedd__css_attributes_filter', 100, 1);
-  add_filter('nav_menu_item_id', 'ffeeeedd__css_attributes_filter', 100, 1);
-  add_filter('page_css_class', 'ffeeeedd__css_attributes_filter', 100, 1);
-  function ffeeeedd__css_attributes_filter($var) {
-    return is_array($var) ? array_intersect($var, array('current_page_item', 'current-page-ancestor', 'inbl')) : '';
+
+  /* == @section Classes sur la navigation ==================== */
+ /**
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Retire la mutltitude de classes générées par WordPress et inutiles; ajoute les classes permettant d'identifier les parents directs ou indirects, et autorise l'ajout de la classe "inbl" de Knacss depuis l'administration.
+  */
+
+  /* -- @subsection Retire les classes générées - sauf les 'current_page' - par Wordpress sur le menu principal -------------------- */
+  add_filter( 'nav_menu_css_class', 'ffeeeedd__css_attributes_filter', 100, 1 );
+  add_filter( 'nav_menu_item_id', 'ffeeeedd__css_attributes_filter', 100, 1 );
+  add_filter( 'page_css_class', 'ffeeeedd__css_attributes_filter', 100, 1 );
+  function ffeeeedd__css_attributes_filter( $var ) {
+    return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'inbl' ) ) : '';
   }
 
-  // Désactive les liens et scripts inutiles générés par Wordpress
-  automatic_feed_links(false);
-  remove_action('wp_head', 'wp_generator');
-  remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0 );
-  remove_action('wp_head', 'wp_dlmp_l10n_style' );
-  remove_action('wp_head', 'rsd_link');
-  remove_action('wp_head', 'wlwmanifest_link');
-
-  // Ajoute une classe aux parents dans la navigations
+  /* -- @subsection Ajoute une classe aux parents dans la navigation -------------------- */
   add_filter( 'wp_nav_menu_objects', 'ffeeeedd__parents__classe' );
   function ffeeeedd__parents__classe( $items ) {
     $parents = array();
@@ -66,69 +66,98 @@
     return $items;
   }
 
-  // Ajoute un lien "Lire la suite" après l'extrait
-  function ffeeeedd__lire_la_suite() {
-    return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ). get_the_title() .( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
+
+  /* == @section Liens générés ==================== */
+  /* @note Désactive les liens et scripts inutiles générés par Wordpress */
+  automatic_feed_links( false );
+  remove_action( 'wp_head', 'wp_generator' );
+  remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+  remove_action( 'wp_head', 'wp_dlmp_l10n_style' );
+  remove_action( 'wp_head', 'rsd_link' );
+  remove_action( 'wp_head', 'wlwmanifest_link' );
+
+
+  /* == @section Gestion des extraits ==================== */
+  /**
+   * @note Tiré de Twentyeleven - Ancien thème WordPress par défaut
+   * @see http://theme.wordpress.com/themes/twentyeleven/
+   */
+
+  /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
+  function ffeeeedd__extrait__lien() {
+    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ) . get_the_title() . ( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
   }
 
-  // Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite"
+  /* -- @subsection Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite" -------------------- */
   function ffeeeedd__extrait_auto( $more ) {
-    return ' &hellip;' . ffeeeedd__lire_la_suite();
+    return ' &hellip;' . ffeeeedd__extrait__lien();
   }
   add_filter( 'excerpt_more', 'ffeeeedd__extrait_auto' );
 
-  // Ajoute le lien "Lire la suite" si l'extrait n'est pas généré mais renseigné
+  /* -- @subsection Ajoute le lien "Lire la suite" si l'extrait n'est pas généré mais renseigné -------------------- */
   function ffeeeedd__extrait_custom( $output ) {
     if ( has_excerpt() && ! is_attachment() ) {
-      $output .= ffeeeedd__lire_la_suite();
+      $output .= ffeeeedd__extrait__lien();
     }
     return $output;
   }
   add_filter( 'get_the_excerpt', 'ffeeeedd__extrait_custom' );
 
-  // Ajout d'Open Graph pour le Doctype
+
+  /* == @section Ajout d'Open Graph pour le Doctype ==================== */
+  /**
+   * @author Jonathan Buttigieg
+   * @see https://twitter.com/GeekPressFR
+   * @see http://www.geekpress.fr/wordpress/tutoriel/ajouter-meta-open-graph-facebook-theme-wordpress-593/
+   */
   function ffeeeedd__opengraph( $output ) {
     return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
   }
-  add_filter('language_attributes', 'ffeeeedd__opengraph');
+  add_filter( 'language_attributes', 'ffeeeedd__opengraph' );
 
-  // Génère le contenu du <footer> pour les articles :
+
+  /* == @section <footer> pour les articles ==================== */
+  /**
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note inspiré de la fonction "twentytwelve_entry_meta" du thème Twentytwelve, enrichie par mes soins de microdonnées, de la date de dernière modification et avec un format de date Français.
+   * @see http://wordpress.org/extend/themes/twentytwelve
+   */
   if ( ! function_exists( 'ffeeeedd__meta' ) ) :
     function ffeeeedd__meta() {
-	  // Liste des catégories & tags avec un séparateur.
+      // Liste des catégories & tags avec un séparateur.
       $categories_list = get_the_category_list( ( ', ' ) );
       $tag_list = get_the_tag_list( '', ( ', ' ) );
       // On génère le contenu en fonction des informations disponibles ( mots-clés, catégories, auteur ).
-	  if ( '' != $tag_list ) {
-          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span><br />'. __('Mots-clés', 'ffeeeedd') .' : <span itemprop="keywords">' . $tag_list . '.</span></p>';
-        } elseif ( '' != $categories_list ) {
-          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a> '. __('et publié dans', 'ffeeeedd') .' <span itemprop="keywords">' . $categories_list . '.</span></p>';
-        } else {
-          echo '<p>'. __('Article rédigé par', 'ffeeeedd') .' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">'. get_the_author() . '</a>.</p>';
+      if ( '' != $tag_list ) {
+        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'et publié dans', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span><br />' . __( 'Mots-clés', 'ffeeeedd' ) .' : <span itemprop="keywords">' . $tag_list . '.</span></p>';
+      } elseif ( '' != $categories_list ) {
+        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'et publié dans', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span></p>';
+      } else {
+        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
       }
-      // On génère la ddate de dernière modification
-      echo '<p class="print-hidden">' . __('Édité le', 'ffeeeedd'); . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() .'</time>.</p>';
+      // On génère la date de dernière modification
+      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ); . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() .'</time>.</p>';
   }
   endif;
 
 
-  /* ========================================================================================================================
-
-  Scripts & Styles
-
-  ======================================================================================================================== */
-
+  /* == @section Injection des scripts et styles ==================== */
   /**
-   * Ajouter les scripts et styles via wp_head()
-   *
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note inspiré du thème Twentytwelve.
+   * @see http://wordpress.org/extend/themes/twentytwelve
    */
+
+  /* -- @subsection Ajouter les scripts et styles via wp_head() -------------------- */
   add_action( 'wp_enqueue_scripts', 'ffeeeedd__script' );
   function ffeeeedd__script() {
     // À employer en dev, script.js est indenté, lisible et les fonctions/variables ont des intitulés compréhensibles.
     //wp_register_script( 'site', get_template_directory_uri().'/script.js', false, null, false );
     // À utiliser en prod, fichier minifié et obscurci. Ajouter la date ou la version pour la mise en cache.
     //wp_register_script( 'site', get_template_directory_uri().'/script.20130103.min.js', false, null, false );
-    wp_enqueue_script( 'site' );
+    //wp_enqueue_script( 'site' );
 
     // À employer en dev, style.css utilise @import pour améliorer la compréhension de l'architecture css.
     wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
@@ -137,34 +166,64 @@
     wp_enqueue_style( 'all' );
   }
 
-  // Utiliser la dernière version de jQuery sur le CDN Google, si besoin !
-  /*if( !is_admin()) {
-    wp_deregister_script('jquery');
-    wp_register_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, false);
-    wp_enqueue_script('jquery');
+  /* -- @subsection Utiliser la dernière version de jQuery sur le CDN Google, si besoin ! -------------------- */
+  /*if( !is_admin() ) {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, false );
+    wp_enqueue_script( 'jquery' );
   }*/
 
-  // Créer les éléments html5 pour IE8 et -
+  /* -- @subsection Créer les éléments html5 pour IE8 et - -------------------- */
+  /**
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Inspiré par deux astuces croisées sur le web :
+   * @see http://tweetpress.fr/codewp/detection-navigateur-wordpress/
+   * @author Julien Maury
+   * @see https://twitter.com/TweetPressFr
+   * @see https://github.com/mlbli/HTML5forIE
+   * @author Matthias Le Brun
+   * @see https://twitter.com/_mlb
+   */
   function ffeeeedd__ie_html5 () {
-    /* On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress */
+    // On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress
     global $is_winIE;
-    if($is_winIE) {
+    if( $is_winIE ) {
+      // Puis on ajoute, dans un commentaire conditionnel, le script magique
       echo '<!--[if lt IE 9]>';
       echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0hgroup0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
       echo '<![endif]-->';
     }
   }
-  add_action('wp_head', 'ffeeeedd__ie_html5');
+  add_action( 'wp_head', 'ffeeeedd__ie_html5' );
 
-  // Tester l'activation du js
+  /* -- @subsection Tester l'activation du js -------------------- */
+  /**
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Inspiré par Modernizr
+   * @author http://modernizr.com/
+   * @see http://modernizr.github.io/Modernizr/annotatedsource.html#section-103
+  */
   function ffeeeedd__test_js () {
     echo "<!-- Test de l'activation du javascript -->";
     echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+'js';</script>";
     echo "<!-- Fin du test de l'activation du javascript -->";
   }
-  add_action('wp_head', 'ffeeeedd__test_js');
+  add_action( 'wp_head', 'ffeeeedd__test_js' );
 
-  // Minification du html
+  /* -- @subsection Réponse aux commentaires -------------------- */
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+  wp_enqueue_script( 'comment-reply' );
+
+
+  /* == @section Minification du HTML ==================== */
+  /**
+   * @author Jonathan Buttigieg
+   * @see https://twitter.com/GeekPressFR
+   * @see http://www.geekpress.fr/wordpress/astuce/minifier-html-sans-plugin-1566/
+   */
+
   /*add_action('get_header', 'ffeeeedd__minif');
   function ffeeeedd__minif() {
     ob_start( 'end_minif' );
@@ -174,15 +233,11 @@
     // À n'utiliser qu'en prod
     $html = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/s', '', $html);
     // Suppression des espaces vides
-    $html = str_replace(array("\r\n", "\r", "\n", "\t"), '', $html);
-    while ( stristr($html, '  '))
-    $html = str_replace('  ', ' ', $html);
+    $html = str_replace( array( "\r\n", "\r", "\n", "\t" ), '', $html );
+    while ( stristr( $html, '  ' ) )
+    $html = str_replace( '  ', ' ', $html );
     return $html;
   }*/
-
-  // Réponse aux commentaires
-  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-  wp_enqueue_script( 'comment-reply' );
 
 
   /* == @section Fil d'Ariane ==================== */
@@ -220,7 +275,7 @@
 
   /* -- @subsection On génère le fil d'Ariane -------------------- */
   function ffeeeedd__ariane() {
-      
+
     // Variables globales
     global $wp_query;
     $paged = get_query_var( 'paged' );
