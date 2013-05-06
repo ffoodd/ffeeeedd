@@ -9,6 +9,48 @@
  * @since       ffeeeedd 1.0
  */
 
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
+/*
+  == Options du thème
+  == Traduction
+  == Classes sur la navigation
+    -- Retire les classes générées
+    -- Ajoute une classe aux parents
+  == Liens générés
+  == Gestion des extraits
+    -- Ajoute un lien "Lire la suite"
+    -- Remplace le "[...]" par une ellipse et le lien "Lire la suite"
+    -- Ajoute le lien "Lire la suite" si l'extrait n'est pas généré mais renseigné
+  == Ajout d'Open Graph pour le Doctype
+  == <footer> pour les articles
+  == Injection des scripts et styles
+    -- Ajouter les scripts et styles via wp_head()
+    -- Utiliser la dernière version de jQuery sur le CDN Google
+    -- Créer les éléments html5 pour IE8 et -
+    -- Tester l'activation du js
+    -- Réponse aux commentaires
+  == Minification du HTML
+  == Fil d'Ariane
+    -- Récupère les catégories parentes et y ajoute les microdonnées
+    -- On génère le fil d'Ariane
+  == Pagination
+  == Commentaires
+    -- Gère l'affichage des commentaires
+    --  Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email
+    -- Ajout de l'attribut HTML5 required sur le textarea
+  == Colonnes latérales
+  == Référencement Social / SEO
+    -- Création des blocs dans l'administration
+    -- Ajout des champs utiles dans ces blocs
+    -- Sauvegarder la valeur de ces champs
+    -- Ajoute les métas 'Description' dans le <head>
+    -- Modifie la valeur des métas 'Title' dans le <head>
+  == Profil utilisateur
+  == Personnaliser le logo
+  == Ajout des métas Image dans le <head>
+*/
 
   /* == @section Options du thème ==================== */
   /**
@@ -26,7 +68,7 @@
    * @see https://twitter.com/klohFR
    * @note I18n : déclare le domaine et l'emplacement des fichiers de traduction
    * @see Twentytwelve - Thème WordPress par défaut.
-   * @see http://wordpress.org/extend/themes/twentytwelve
+   * @link http://wordpress.org/extend/themes/twentytwelve
   */
   add_action( 'after_setup_theme', 'ffeeeedd__setup' );
   function ffeeeedd__setup() {
