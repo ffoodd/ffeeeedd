@@ -28,19 +28,16 @@
   ======================================================================================================================== */
 
   // I18n : déclare le domaine et l'emplacement des fichiers de traduction
-  add_action( 'after_setup_theme', 'setup' );
-
-  function setup() {
+  add_action( 'after_setup_theme', 'ffeeeedd__setup' );
+  function ffeeeedd__setup() {
     load_theme_textdomain('ffeeeedd', get_template_directory() . '/lang');
   }
 
-  add_action( 'wp_enqueue_scripts', 'base_script_enqueuer' );
-
   // Retire les classes générées - sauf la current - par Wordpress sur le menu principal
-  add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
-  add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
-  add_filter('page_css_class', 'my_css_attributes_filter', 100, 1);
-  function my_css_attributes_filter($var) {
+  add_filter('nav_menu_css_class', 'ffeeeedd__css_attributes_filter', 100, 1);
+  add_filter('nav_menu_item_id', 'ffeeeedd__css_attributes_filter', 100, 1);
+  add_filter('page_css_class', 'ffeeeedd__css_attributes_filter', 100, 1);
+  function ffeeeedd__css_attributes_filter($var) {
     return is_array($var) ? array_intersect($var, array('current_page_item', 'current-page-ancestor', 'inbl')) : '';
   }
 
@@ -53,8 +50,8 @@
   remove_action('wp_head', 'wlwmanifest_link');
 
   // Ajoute une classe aux parents dans la navigations
-  add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
-  function add_menu_parent_class( $items ) {
+  add_filter( 'wp_nav_menu_objects', 'ffeeeedd__parents__classe' );
+  function ffeeeedd__parents__classe( $items ) {
     $parents = array();
     foreach ( $items as $item ) {
       if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
@@ -70,30 +67,30 @@
   }
 
   // Ajoute un lien "Lire la suite" après l'extrait
-  function continue_reading() {
+  function ffeeeedd__lire_la_suite() {
     return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ). get_the_title() .( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
   }
 
   // Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite"
-  function auto_excerpt( $more ) {
-    return ' &hellip;' . continue_reading();
+  function ffeeeedd__extrait_auto( $more ) {
+    return ' &hellip;' . ffeeeedd__lire_la_suite();
   }
-  add_filter( 'excerpt_more', 'auto_excerpt' );
+  add_filter( 'excerpt_more', 'ffeeeedd__extrait_auto' );
 
   // Ajoute le lien "Lire la suite" si l'extrait n'est pas généré mais renseigné
-  function custom_excerpt( $output ) {
+  function ffeeeedd__extrait_custom( $output ) {
     if ( has_excerpt() && ! is_attachment() ) {
-      $output .= continue_reading();
+      $output .= ffeeeedd__lire_la_suite();
     }
     return $output;
   }
-  add_filter( 'get_the_excerpt', 'custom_excerpt' );
+  add_filter( 'get_the_excerpt', 'ffeeeedd__extrait_custom' );
 
   // Ajout d'Open Graph pour le Doctype
-  function add_opengraph_doctype( $output ) {
+  function ffeeeedd__opengraph( $output ) {
     return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
   }
-  add_filter('language_attributes', 'add_opengraph_doctype');
+  add_filter('language_attributes', 'ffeeeedd__opengraph');
 
   // Génère le contenu du <footer> pour les articles :
   if ( ! function_exists( 'ffeeeedd__meta' ) ) :
@@ -125,8 +122,8 @@
    * Ajouter les scripts et styles via wp_head()
    *
    */
-
-  function base_script_enqueuer() {
+  add_action( 'wp_enqueue_scripts', 'ffeeeedd__script' );
+  function ffeeeedd__script() {
     // À employer en dev, script.js est indenté, lisible et les fonctions/variables ont des intitulés compréhensibles.
     //wp_register_script( 'site', get_template_directory_uri().'/script.js', false, null, false );
     // À utiliser en prod, fichier minifié et obscurci. Ajouter la date ou la version pour la mise en cache.
@@ -148,7 +145,7 @@
   }*/
 
   // Créer les éléments html5 pour IE8 et -
-  function add_ie_html5 () {
+  function ffeeeedd__ie_html5 () {
     /* On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress */
     global $is_winIE;
     if($is_winIE) {
@@ -157,19 +154,19 @@
       echo '<![endif]-->';
     }
   }
-  add_action('wp_head', 'add_ie_html5');
+  add_action('wp_head', 'ffeeeedd__ie_html5');
 
   // Tester l'activation du js
-  function test_js () {
+  function ffeeeedd__test_js () {
     echo "<!-- Test de l'activation du javascript -->";
     echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+'js';</script>";
     echo "<!-- Fin du test de l'activation du javascript -->";
   }
-  add_action('wp_head', 'test_js');
+  add_action('wp_head', 'ffeeeedd__test_js');
 
   // Minification du html
-  /*add_action('get_header', 'go_minif');
-  function go_minif() {
+  /*add_action('get_header', 'ffeeeedd__minif');
+  function ffeeeedd__minif() {
     ob_start( 'end_minif' );
   }
   function end_minif( $html ) {
