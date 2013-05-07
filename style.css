@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /**
 * Theme Name:   ffeeeedd
-* Theme URI:    http://www.ffoodd.fr
+* Theme URI:    https://github.com/ffoodd/ffeeeedd/
 * Description:  Un thème WordPress extensible :)
 * Version:      1.0
 * Author:       Gaël Poupard
@@ -21,19 +21,6 @@
   * @see "Intégration Web, les bonnes pratiques" @author : Corinne Schillinger, Inseo.
 * @note Licence CC-BY http://creativecommons.org/licenses/by/3.0/fr/
 */
-
-/* ----------------------------- */
-/* Sommaire */
-/* ----------------------------- */
-/*
- 1- Reset
- 2- Structure et modules
- 3- Formulaires
- 4- Kit
- 5- Pansement pour IE
- 6- Impression
- 7- Debug
- */
 
 @import url("css/reset.css") screen;
 

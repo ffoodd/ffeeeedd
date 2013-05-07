@@ -21,8 +21,7 @@ get_header(); ?>
     <p class="h4-like"><?php echo __( 'Vous êtes ici :', 'ffeeeedd' ); ?> <span>&#10799;</span></p>
     <p><?php echo __( 'Si vous êtes perdu, voilà ce que nous vous proposons :', 'ffeeeedd' ); ?></p>
     <ul>
-      <li><a href="<?php bloginfo( 'url' ); ?>"><?php echo __( 'Retourner à l\'accueil', 'ffeeeedd' ); ?></a></li>
-      <li><?php echo __( 'Consulter le plan du site', 'ffeeeedd' ); ?></li>
+      <?php wp_nav_menu( array( 'theme_location' => '404', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
       <li><a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php echo __( 'Contacter l\'administrateur du site', 'ffeeeedd' ); ?></a></li>
     </ul>
   </article>

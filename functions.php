@@ -59,7 +59,7 @@
   */
 
   add_theme_support( 'post-thumbnails' );
-  register_nav_menus( array( 'primary' => 'Menu principal' ) );
+  register_nav_menus( array( 'primary' => 'Menu principal', '404' => 'Menu 404' ) );
 
 
   /* == @section Traduction ==================== */
