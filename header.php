@@ -1,4 +1,16 @@
-<!DOCTYPE HTML>
+<?php
+/**
+ * Thème ffeeeedd
+ * @author        Gaël Poupard
+ * @link          www.ffoodd.fr
+ *
+ * En savoir plus : http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package       WordPress
+ * @subpackage    ffeeeedd
+ * @since         ffeeeedd 1.0
+ *
+ */ ?><!DOCTYPE HTML>
 <!--[if IE 8 ]><html class="ie8" <?php language_attributes(); ?> class="no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
   <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">    
@@ -29,7 +41,7 @@
         <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/img/ico/apple-touch-icon-144x144.png">
     <!-- /Favicons, icons et Tuile Windows 8 -->
     <!-- Métas Facebook simples -->
-      <meta property="og:title" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
+      <meta property="og:title" content="<?php is_front_page() ? bloginfo( 'name' ) : wp_title( '', true ); ?>" />
       <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="<?php echo get_permalink(); ?>" />
@@ -37,14 +49,14 @@
     <!-- Métas Twitter simples -->
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content="<?php echo get_permalink(); ?>">
-      <meta name="twitter:title" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
-      <?php if ( get_the_author_meta('twitter', 1) ) : ?>
-      <meta name="twitter:creator" content="<?php the_author_meta('twitter', 1); ?>" />
+      <meta name="twitter:title" content="<?php is_front_page() ? bloginfo( 'name' ) : wp_title( '', true ); ?>" />
+      <?php if ( get_the_author_meta( 'twitter', 1 ) ) : ?>
+      <meta name="twitter:creator" content="<?php the_author_meta( 'twitter', 1 ); ?>" />
       <?php endif; ?>
     <!-- /Fin des métas Twitter simples -->
     <!-- Métas DublinCore simples -->
       <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-      <meta name="DC.title" lang="<?php bloginfo( 'language' ); ?>" content="<?php is_front_page() ? bloginfo('name') : wp_title('', true); ?>" />
+      <meta name="DC.title" lang="<?php bloginfo( 'language' ); ?>" content="<?php is_front_page() ? bloginfo( 'name' ) : wp_title( '', true ); ?>" />
       <meta name="DC.identifier" content="<?php echo get_permalink(); ?>" />
       <meta name="DC.type" content="text" />
       <meta name="DC.subject" lang="<?php bloginfo( 'language' ); ?>" content="HTML, document, Dublin Core" />
@@ -55,13 +67,13 @@
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
     <ul class="w960p center p-reset print-hidden">
-      <li class="inbl smaller m-reset"><a href="#nav" class="skip"><?php echo __('Aller au menu', 'ffeeeedd'); ?></a></li>
-      <li class="inbl smaller m-reset"><a href="#content" class="skip"><?php echo __('Aller au contenu', 'ffeeeedd'); ?></a></li>
+      <li class="inbl smaller m-reset"><a href="#nav" class="skip"><?php echo __( 'Aller au menu', 'ffeeeedd' ); ?></a></li>
+      <li class="inbl smaller m-reset"><a href="#content" class="skip"><?php echo __( 'Aller au contenu', 'ffeeeedd' ); ?></a></li>
     </ul>
 
     <header role="banner" class="w960p center">
       <a href="<?php bloginfo( 'url' ); ?>" itemprop="url" title="<?php bloginfo( 'name' ); ?>"><img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" id="logo" class="left" itemprop="image"/></a>
-      <h1 itemprop="name"><?php bloginfo('name'); ?></h1>
+      <h1 itemprop="name"><?php bloginfo( 'name' ); ?></h1>
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>
     </header>
 
@@ -70,4 +82,4 @@
     </nav>
 
     <main role="main" id="content" class="mw960p center" itemprop="mainContentOfPage">
-      <?php if (function_exists('ffeeeedd__ariane') && !is_front_page()) { ffeeeedd__ariane(); } ?>
+      <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) { ffeeeedd__ariane(); } ?>
