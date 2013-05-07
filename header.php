@@ -55,8 +55,8 @@
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
     <ul class="w960p center p-reset print-hidden">
-      <li class="inbl smaller m-reset"><a href="#nav" class="skip" title="<?php echo __('Accéder au menu principal', 'ffeeeedd'); ?>"><?php echo __('Aller au menu', 'ffeeeedd'); ?></a></li>
-      <li class="inbl smaller m-reset"><a href="#content" class="skip" title="<?php echo __('Accéder au contenu', 'ffeeeedd'); ?>"><?php echo __('Aller au contenu', 'ffeeeedd'); ?></a></li>
+      <li class="inbl smaller m-reset"><a href="#nav" class="skip"><?php echo __('Aller au menu', 'ffeeeedd'); ?></a></li>
+      <li class="inbl smaller m-reset"><a href="#content" class="skip"><?php echo __('Aller au contenu', 'ffeeeedd'); ?></a></li>
     </ul>
 
     <header role="banner" class="w960p center">
