@@ -432,15 +432,14 @@ Charte PHP
 
 * Concaténation : Dans des chaînes concaténées, toujours cerner les points par des espaces : `echo '<a href="' . $lien . '">';`.
 
-* Ouverture de php : Toujours utiliser la version complète pour ouvrir php. Ex: `<?php .. ?>` au lieu de `<? ... ?>`.
+* Ouverture de PHP : Toujours utiliser la version complète pour ouvrir php. Ex: `<?php .. ?>` au lieu de `<? ... ?>`.
 
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
 
 * Virgules : Toujours ajouter une espace après une virgule.
 
-* Commentaires : 
- * Commenter la fermeture de chaque fonction.
- * Un commentaire d'introduction pour chaque fonction fonction est bienvenu.
+* Commentaires :
+ * Un commentaire d'introduction pour chaque fonction est bienvenu.
  * Un commentaire sur une seule ligne commence par `//`.
  * Un commentaire sur plusieurs lignes débute par `/*` et se termine par `*/`.
  * Les commentaires servent également à baliser les fichiers et créer un sommaire, à l'instar des fichiers css.
