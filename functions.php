@@ -179,7 +179,7 @@
         echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
       }
       // On génère la date de dernière modification
-      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ); . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() .'</time>.</p>';
+      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ) . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() . '</time>.</p>';
   }
   endif;
 

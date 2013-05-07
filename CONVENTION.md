@@ -504,6 +504,7 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
   * Supprimer les commentaires.
  * L'outil [jsCompress](http://jscompress.com/ "jscompress.com") peut-être utilisé pour cette opération.
 
+==
 
 Les fichiers .php ne doivent en aucun cas être minifiés.
 
@@ -512,11 +513,15 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * Définir un type MIME correct pour chaque type de fichier utilisé,
  * Optimiser la mise en cache navigateur
  * Supprimer les Etags
- 
+
+==
+
 * Sécurité :
  * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas. 
  * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
- 
+
+==
+
 * Divers :
  * Personnaliser les pages d'erreurs les plus courantes ( 404, 403, 500 ).
 
