@@ -12,7 +12,7 @@
  */
 get_header(); ?>
 
-  <article itemscope itemtype="http://schema.org/Article" role="article">
+  <article role="article" itemscope itemtype="http://schema.org/Article">
     <header>
       <h1 itemprop="name"><?php echo __( 'Erreur 404', 'ffeeeedd' ); ?></h1>
       <h2 itemprop="description"><?php echo __( 'Page non trouvée', 'ffeeeedd' ); ?></h2>
@@ -22,7 +22,9 @@ get_header(); ?>
     <p><?php echo __( 'Si vous êtes perdu, voilà ce que nous vous proposons :', 'ffeeeedd' ); ?></p>
     <ul>
       <?php wp_nav_menu( array( 'theme_location' => '404', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
-      <li><a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php echo __( 'Contacter l\'administrateur du site', 'ffeeeedd' ); ?></a></li>
+      <li>
+        <a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php echo __( 'Contacter l\'administrateur du site', 'ffeeeedd' ); ?></a>
+      </li>
     </ul>
   </article>
 

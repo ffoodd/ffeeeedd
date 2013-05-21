@@ -322,7 +322,7 @@
     global $wp_query;
     $paged = get_query_var( 'paged' );
     $sep = ' &rarr; ';
-    $final = '<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="print-hidden">';
+    $final = '<div class="print-hidden" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
     $startdefault = '<a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>';
     $starthome = get_bloginfo( 'name' );
 

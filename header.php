@@ -67,19 +67,22 @@
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
     <ul class="w960p center p-reset print-hidden">
-      <li class="inbl smaller m-reset"><a href="#nav" class="skip"><?php echo __( 'Aller au menu', 'ffeeeedd' ); ?></a></li>
-      <li class="inbl smaller m-reset"><a href="#content" class="skip"><?php echo __( 'Aller au contenu', 'ffeeeedd' ); ?></a></li>
+      <li class="inbl smaller m-reset">
+        <a class="skip" href="#nav"><?php echo __( 'Aller au menu', 'ffeeeedd' ); ?></a></li>
+      <li class="inbl smaller m-reset">
+        <a class="skip" href="#content"><?php echo __( 'Aller au contenu', 'ffeeeedd' ); ?></a></li>
     </ul>
 
-    <header role="banner" class="w960p center">
-      <a href="<?php bloginfo( 'url' ); ?>" itemprop="url" title="<?php bloginfo( 'name' ); ?>"><img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" id="logo" class="left" itemprop="image"/></a>
+    <header class="w960p center" role="banner">
+      <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>" itemprop="url">
+        <img src="<?php header_image(); ?>" class="left" id="logo" alt="<?php bloginfo( 'name' ); ?>" itemprop="image"/></a>
       <h1 itemprop="name"><?php bloginfo( 'name' ); ?></h1>
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>
-    </header>
+    </header><!-- / banner -->
 
-    <nav role="navigation" id="nav" class="mw960p center clear print-hidden">
+    <nav class="mw960p center clear print-hidden" id="nav" role="navigation">
       <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) ); ?>
-    </nav>
+    </nav><!-- / #nav -->
 
-    <main role="main" id="content" class="mw960p center" itemprop="mainContentOfPage">
+    <main class="mw960p center" id="content" role="main" itemprop="mainContentOfPage">
       <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) { ffeeeedd__ariane(); } ?>

@@ -23,7 +23,7 @@ get_header(); ?>
         <h3 itemprop="name">
           <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a>
         </h3>
-        <p itemprop="UserComments" class="print-hidden"><?php comments_number( '0', '1', '% ' ); ?></p>
+        <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" itemprop="image"><?php the_post_thumbnail(); ?></a>
         <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
