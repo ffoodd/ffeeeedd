@@ -286,9 +286,9 @@ Charte HTML
  1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS comme pour les JS.
  2. `id`
  3. `role`
- 4. `data-*`
- 5. `aria-*`
- 6. autre.
+ 4. `data-*` : pour servir de crochat au javascript.
+ 5. `aria-*` : pour l'accessibilité et la sémantique.
+ 6. autre(s) : href, title, alt, microdonnées, etc...
  
 ==
 
@@ -390,16 +390,18 @@ Charte Javascript
 
 * Ligne seule : Rester sur une seule ligne si une seule action est executée dans un `if`, `for` ou `while`.
 
-* Commentaires : 
+* Commentaires :
  * Commenter la fermeture de chaque fonction.
  * Annoter les fonctions et plugins particuliers ( cf point suivant "Annontations" ).
  * Expliquer les fonctions dont la lecture n'est pas naturelle.
  
-== 
+==
+
+* Manipulation du DOM : préférer s'appuyer sur des attributs `data-` que sur des classes ou des id.
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* Organisation : Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant [JSDoc](http://usejsdoc.org/ "Documentation JSDoc"). 
+* Organisation : Chaque script doit être isolé à l'aide d'un bloc de commentaires respectant [JSDoc](http://usejsdoc.org/ "Documentation JSDoc").
 
 * Sommaire : Si plusieurs scripts sont cumulés, on créera un sommaire détaillant leur ordre d'apparition dans le fichier.
 
@@ -413,6 +415,7 @@ Charte Javascript
  * [JSDoc](http://usejsdoc.org/ "Documentation JSDoc")
  * [jQuery](http://www.jquery.com "jquery.com")
  * [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto")
+ * [data-js selectors](http://toddmotto.com/data-js-selectors-enhancing-html5-development-by-separating-css-from-javascript/ "data-js selectors, enhancing HTML5 development by separating CSS from JavaScript")
 
 Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce thème sur [Zepto](http://zeptojs.com/ "En savoir plus sur Zepto") plutôt que jQuery.
 
