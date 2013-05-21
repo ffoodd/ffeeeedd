@@ -505,6 +505,12 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 
 ==
 
+* Robots.txt :
+ * Éditer le fichier robots.txt ( notamment le lien vers le sitemap )
+ * Déplacer ce fichier à la racine du site
+
+==
+
 Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * Paramètres serveurs ( dans le cas d'un serveur Apache, en passant par le fichier .htaccess )
@@ -538,3 +544,4 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [WebDev Checklist](http://webdevchecklist.com/)
  * [bpi-checklist](https://github.com/inseo/bpi-checklist/blob/master/checklist.md "La checklist des 'Bonnes Pratiques de l'intégration Web'")
  * [.htaccess sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/)
+ * [robots.txt sur GeekPress](http://www.geekpress.fr/wordpress/astuce/fichier-robots-txt-optimise-wordpress-503/ "Fichier robots.txt optimisé pour WordPress")
