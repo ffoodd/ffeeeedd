@@ -29,7 +29,7 @@
 @import url("css/formulaires.css") screen;
 
 /*
- * @note : Utile pour prototyper le site
+ * @note : Utile pour prototyper le site : personnaliser le rythme vertical, les espacements, ajouter les classes issues de Knacss pour le positionnement etc... Le kit.css doit être commenté lors de cette opération, et qund les prototypes sont terminés les valeurs personnalisées doivent être transférées vers le kit.
  *
  @import url("css/wireframe.css") screen;
 */
