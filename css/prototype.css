@@ -1,0 +1,157 @@
+@charset "UTF-8";
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2013-05-21
+*/
+
+/* ----------------------------- */
+/* == Wireframe */
+/* @note : Cette feuille de style peut être employée au moment de la conception des prototypes, afin de générer des prototypes dans une structure réelle. Elle inclut une typographie spécifique, en masse, ainsi qu'un outil pour ajouter des images générées.
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
+/*
+  == Typographie
+    -- Corps principaux
+    -- Niveaux de titres
+    -- Corps alternatifs
+  == Images
+  == Fonds
+*/
+
+/* == @section Typographie ====================
+ * @see : http://blokkfont.com/
+ * @see http://soqr.fr/vertical-rhythm/ @author : @eQRoeil
+*/
+html { font-size: 62.5%; }
+
+@font-face {
+  font-family: 'BLOKKNeue-Regular';
+  src: url('../typo/wireframe/BLOKKNeue-Regular.eot');
+  src: url('../typo/wireframe/BLOKKNeue-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../typo/wireframe/BLOKKNeue-Regular.woff') format('woff'),
+       url('../typo/wireframe/BLOKKNeue-Regular.svg#BLOKKNeue-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: 'BLOKKNeue-Regular';
+}
+
+/* -- @subsection Corps principaux -------------------- */
+/* = 14px & s'adapte à votre design */
+body {
+  font-size: 1.4em;
+  line-height: 1.5;
+}
+
+/*
+  Corps du texte pour le contenu,
+  Préserve le rythme vertical.
+*/
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea {
+  font-size: 1em; /* = 14px */
+  line-height: 1.5em;
+  margin: 1.5em 0;
+}
+
+/* -- @subsection Niveaux de titres -------------------- */
+h1,
+.h1-like {
+  font-size: 5.1429em; /* = 72px */
+  line-height: .8751em;
+  margin: .5834em 0 .2917em;
+}
+
+h2,
+.h2-like {
+  font-size: 2.5714em; /* = 36px */
+  line-height: 1.1666em;
+  margin: 1.1666em 0 .5833em;
+}
+
+h3,
+.h3-like {
+  font-size: 1.7143em; /* = 24px */
+  line-height: 1.75em;
+  margin: 1.75em 0 .875em;
+}
+
+h4,
+.h4-like {
+  font-size: 1.2857em; /* = 18px */
+  line-height: 1.1667em;
+  margin: 2.3334em 0 1.1667em;
+}
+
+h5,
+.h5-like {
+  font-size: 1.1429em; /* = 16px */
+  line-height: 1.3125em;
+  margin: 2.625em 0 1.3125em;
+}
+
+h6,
+.h6-like {
+  font-size: 1em; /* = 14px */
+  line-height: 1.5em;
+  margin: 3em 0 1.5em;
+}
+
+/* -- @subsection Corps alternatifs -------------------- */
+.smaller {
+  font-size: .8571em; /* = 12px */
+  line-height: 1.75em;
+  margin: 1.75em 0;
+}
+
+.small {
+  font-size: .8571em; /* = 12px */
+  line-height: 1.75em;
+  margin: 1.75em 0;
+}
+
+.big {
+  font-size: 1.1429em; /* = 16px */
+  line-height: 1.3125em;
+  margin: 1.3125em 0;
+}
+
+.bigger {
+  font-size: 1.2857em; /* = 18px */
+  line-height: 1.1667em;
+  margin: 1.1667em 0;
+}
+
+.biggest {
+  font-size: 1.7143em; /* = 24px */
+  line-height: 1.75em;
+  margin: .875em 0;
+}
+blockquote { font-style: italic; }
+
+
+/* == @section Images ====================
+ * @see : http://dummyimages.com/
+*/
+
+
+/* == @section Fonds ====================
+ * @note L'idée est d'augmenter l'opacité en fonction du niveau d'imbrication des éléments, les valeurs du canal alpha se superposant à celles des parents respectifs.
+*/
+* {
+  background: rgba(0,0,0,.05);
+  color: rgba(0,0,0,.25);
+}

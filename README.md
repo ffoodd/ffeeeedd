@@ -44,8 +44,4 @@ Le `kit.css` - et par extension `ie.css` - sont la partie personnelle, propre à
 Évolutions
 ----------
 
-Parmi les projets attachés à ffeeeedd, une version de base ( avant l'intégration du kit, e.g. ) pouvant servir à créer des wireframes fait son chemin dans mon petit crâne.
-
 À suivre...
-
-
