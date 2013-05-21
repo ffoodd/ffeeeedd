@@ -283,7 +283,7 @@ Charte HTML
 ==
 
 * Ordre des attributs :
- 1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS comme pour les JS.
+ 1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS.
  2. `id`
  3. `role`
  4. `data-*` : pour servir de crochat au javascript.
