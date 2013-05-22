@@ -88,6 +88,9 @@ abbr[title=""],
 table:not([summary]),
 table[summary=""],
 
+iframe:not([title]),
+iframe[title=""],
+
 [class=""],
 [id=""] {
   outline: 4px solid crimson !important;
@@ -148,7 +151,7 @@ li[type] {
   outline: 4px solid gray;
 }
 
-/* 
+/*
  * Affiche un arrière-plan sous les éléments vides.
  * @note : Ces derniers sont à supprimer du code.
 */
@@ -161,7 +164,7 @@ th:empty {
   background: gold !important;
 }
 
-/* =Messages d'erreur 
+/* =Messages d'erreur
  * ==Styles d'alertes.
  * ==Contenu des alertes.
 */
@@ -227,6 +230,9 @@ textarea[name=""]:hover::after,
 
 abbr:not([title]):hover::after,
 abbr[title=""]:hover::after,
+
+iframe:not([title]):hover::after,
+iframe[title=""]:hover::after,
 
 [class=""]:hover::after,
 [id=""]:hover::after,
