@@ -322,8 +322,8 @@
     global $wp_query;
     $paged = get_query_var( 'paged' );
     $sep = ' &rarr; ';
-    $final = '<div class="print-hidden" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">';
-    $startdefault = '<a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>';
+    $final = '<ol class="print-hidden">';
+    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a></li>';
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d'Ariane
@@ -340,7 +340,7 @@
       // Page de blog ( liste des articles )
       if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
-        $final .= $startdefault . $sep . '<a href="' . $url . '" itemprop="url" title="Les articles"><span itemprop="title">Les articles</span></a>';
+        $final .= $startdefault . $sep . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $url . '" itemprop="url" title="Les articles"><span itemprop="title">Les articles</span></a></li>';
       } else $final .= $startdefault . $sep . 'Les articles';
     } else {
       // Pour tout le reste
@@ -359,7 +359,7 @@
       $category_id = get_cat_ID( $category[0]->cat_name );
       $permalink = get_permalink( $id );
       $title = $parent->post_title;
-      $final .= ffeeeedd__categories( $category_id, true, $sep ) . "<a href='$permalink' itemprop'url' title='$title'><span itemprop='title'>$title</span></a>" . $sep . the_title('', '', false );
+      $final .= ffeeeedd__categories( $category_id, true, $sep ) . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a></li>' . $sep . the_title('', '', false );
     }
 
     // Type(s) d'articles
@@ -369,7 +369,7 @@
       $archive = get_post_type_archive_link( $nom );
       $mypost = $post->post_title;
       $label = get_post_type_object( $nom )->labels->name;
-      $final .= '<a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a>' . $sep . $mypost;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a></li>' . $sep . $mypost;
     }
 
     // Articles avec un format
@@ -379,7 +379,7 @@
       $pretty_format = get_post_format_string( $format );
       $format_link = get_post_format_link( $format );
       $mypost = $post->post_title;
-      $final .= '<a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a>' . $sep . $mypost;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a></li>' . $sep . $mypost;
     }
 
     // Articles sans format
@@ -394,7 +394,7 @@
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
         $urlarchive = get_post_type_archive_link( $post_type );
-        $final .= '<a href="' . $urlarchive . '" title="' . $titrearchive . '" itemprop="url"><span itemprop="title">' . $titrearchive . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $urlarchive . '" title="' . $titrearchive . '" itemprop="url"><span itemprop="title">' . $titrearchive . '</span></a></li>';
       }
       // Avec des pages de commentaires
       $cpage = get_query_var( 'cpage' );
@@ -402,7 +402,7 @@
         global $post;
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
-        $final .= '<a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a></li>';
         $final .= $sep . 'Commentaires page ' . $cpage;
       }
       // Sans pages de commentaires
@@ -422,7 +422,7 @@
       if ( $paged <= 1 )
         $final .= single_cat_title( '', false );
       else
-        $final .= '<a href="' . get_category_link( $category ) . '" title="Voir tous les articles de ' . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $category ) . '" title="Voir tous les articles de ' . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
     }
 
     // Pages
@@ -440,7 +440,7 @@
         foreach ( $ancestors as $ancestor ) {
           if( $ancestor != end( $ancestors ) ) {
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
-            $final .= '<a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a></li>';
             $i++;
             if ( $i < $ancestors )
               $final .= $sep;
@@ -481,14 +481,14 @@
     elseif ( is_date() ) {
       if ( is_day() ) {
         $year = get_year_link( '' );
-        $final .= '<a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a></li>';
         $month = get_month_link( get_query_var( 'year' ), get_query_var( 'monthnum' ) );
-        $final .= $sep . '<a title="' . single_month_title( ' ', false ) . '" href="' . $month . '" itemprop="url"><span itemprop="title">' . single_month_title( ' ', false ) . '</span></a>';
+        $final .= $sep . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . single_month_title( ' ', false ) . '" href="' . $month . '" itemprop="url"><span itemprop="title">' . single_month_title( ' ', false ) . '</span></a></li>';
         $final .= $sep . 'Archives pour ' . get_the_date();
       }
       elseif ( is_month() ) {
         $year = get_year_link( '' );
-        $final .= '<a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a></li>';
         $final .= $sep . 'Archives pour ' . single_month_title( ' ', false );
       }
       elseif ( is_year() )
@@ -516,7 +516,7 @@
       $final .= $sep . 'Page ' . $paged;
 
     // The End
-    $final .= '</div>';
+    $final .= '</ol>';
     echo $final;
   }
 
