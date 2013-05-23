@@ -27,7 +27,6 @@
   == <footer> pour les articles
   == Injection des scripts et styles
     -- Ajouter les scripts et styles via wp_head()
-    -- Utiliser la dernière version de jQuery sur le CDN Google
     -- Créer les éléments html5 pour IE8 et -
     -- Tester l'activation du js
     -- Réponse aux commentaires
@@ -50,6 +49,7 @@
   == Profil utilisateur
   == Personnaliser le logo
   == Ajout des métas Image dans le <head>
+  == Compteur de caractères sur le champ extrait dans l'administration
 */
 
   /* == @section Options du thème ==================== */
@@ -207,13 +207,6 @@
     //wp_register_style( 'all', get_stylesheet_directory_uri().'/style.20130103.min.css', '', null, 'all' );
     wp_enqueue_style( 'all' );
   }
-
-  /* -- @subsection Utiliser la dernière version de jQuery sur le CDN Google, si besoin ! -------------------- */
-  /*if( !is_admin() ) {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', false, null, false );
-    wp_enqueue_script( 'jquery' );
-  }*/
 
   /* -- @subsection Créer les éléments html5 pour IE8 et - -------------------- */
   /**
@@ -842,3 +835,19 @@
     }
   }
   add_action( 'wp_head', 'ffeeeedd__injection__image' );
+
+  /* == @section Compteur de caractères sur le champ extrait dans l'administration ==================== */
+  /**
+   * @author Elio Rivero
+   * @see https://twitter.com/eliorivero
+   * @see http://www.ilovecolors.com.ar/character-counter-excerpt-wordpress/
+   */
+  define( 'THEME_URI', get_template_directory_uri() );
+  add_action( 'admin_enqueue_scripts', 'ffeeeedd__compteur', 10, 1 );
+  function ffeeeedd__compteur( $page ) {
+    $post = get_post( $_GET['post'] );
+    $typenow = $post->post_type;
+    if( $typenow != 'page' )
+      if ( $page == 'post.php' || $page == 'post-new.php' )
+        wp_enqueue_script( 'ffeeeedd__compteur', THEME_URI .'/js/ffeeeedd__compteur.js', array('jquery'), null, false );
+  }

@@ -508,12 +508,6 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 
 ==
 
-* Robots.txt :
- * Éditer le fichier robots.txt ( notamment le lien vers le sitemap )
- * Déplacer ce fichier à la racine du site
-
-==
-
 Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * Paramètres serveurs ( dans le cas d'un serveur Apache, en passant par le fichier .htaccess )
@@ -525,8 +519,25 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 ==
 
 * Sécurité :
- * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas. 
+ * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas.
  * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
+
+==
+
+* Robots.txt :
+ * Éditer le fichier robots.txt ( notamment le lien vers le sitemap )
+ * Déplacer ce fichier à la racine du site
+ 
+==
+
+* Réseaux sociaux :
+ * Pour les Twitter Cards, il faut déclarer le site sur Twitter ( cf [la FAQ du plugin par jmlapam](http://wordpress.org/plugins/jm-twitter-cards/faq/) a.k.a TweetPress ) ainsi que [la documentation Twitter](https://dev.twitter.com/docs/cards).
+ * Pour Google author également, lier un compte Google+ au site : [les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez").
+
+==
+
+* wp-config.php : WordPress peut être optimisé de manière simple dans le wp-config.
+ * Suivez les conseils  de [cet article](http://www.seomix.fr/wp-config-vitesse/ "Daniel Roch / seo-mix vous conseille sur la modification du wp-config") en l'adaptant au contexte de votre projet.
 
 ==
 
@@ -548,3 +559,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [bpi-checklist](https://github.com/inseo/bpi-checklist/blob/master/checklist.md "La checklist des 'Bonnes Pratiques de l'intégration Web'")
  * [.htaccess sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/)
  * [robots.txt sur GeekPress](http://www.geekpress.fr/wordpress/astuce/fichier-robots-txt-optimise-wordpress-503/ "Fichier robots.txt optimisé pour WordPress")
+ * [wp-config sur seo-mix](http://www.seomix.fr/wp-config-vitesse/ "Daniel Roch / seo-mix vous conseille sur la modification du wp-config")
+ * [Validation Twitter par TweetPress](http://wordpress.org/plugins/jm-twitter-cards/faq/)
+ * [La documentation Twitter](https://dev.twitter.com/docs/cards)
+ * [Les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
