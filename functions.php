@@ -35,10 +35,11 @@
     -- Récupère les catégories parentes et y ajoute les microdonnées
     -- On génère le fil d'Ariane
   == Pagination
-  == Commentaires
+  == Gestion des commentaires
     -- Gère l'affichage des commentaires
     --  Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email
     -- Ajout de l'attribut HTML5 required sur le textarea
+    -- Suppression de l'attribut rel="nofollow" sur les commentaires
   == Colonnes latérales
   == Référencement Social / SEO
     -- Création des blocs dans l'administration
@@ -632,6 +633,21 @@
   function changing_comment_form_defaults( $defaults ) {
     $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
+  }
+
+  /* -- @subsection Suppression de l'attribut rel="nofollow" sur les commentaires --------
+  ------------ */
+  /**
+    @author Jonathan Buttigieg
+    @see https://twitter.com/GeekPressFR
+    @see http://www.geekpress.fr/wordpress/astuce/supprimer-nofollow-commentaires-1500/
+  */
+  add_filter( 'get_comment_author_link', 'ffeeeedd__dofollow' );
+  add_filter( 'comment_text', 'ffeeeedd__dofollow' );
+  function ffeeeedd__dofollow( $text ) {
+    $text = str_replace( 'rel="external nofollow"', 'rel="external"', $text );
+    $text = str_replace( 'rel="nofollow"', '', $text);
+    return $text;
   }
 
 
