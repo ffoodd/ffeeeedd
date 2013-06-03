@@ -171,16 +171,7 @@ Charte CSS
 
 ==
 
-* Ordre des déclarations : @see [CSSLisible](https://github.com/Darklg/CSSLisible/blob/master/inc/valeurs.php "Le rangement des valeurs selon CSSLisible").
- 1. Contenu ( "content" pour les pseudo-éléments )
- 2. Positionnnement ( display, float, position, top, bottom, left, right )
- 3. Modèle de boîte ( width, height, margin, padding, overflow, border )
- 4. Texte ( font, text-align, text-shadow, text-decoration, letter-spacing, word-spacing )
- 5. Décoration ( color, opacity, background, box-shadow, outline )
- 6. Transformation & transitions ( animation, transition, transformation )
- 7. Comportements ( cursor )
- 
-==
+* Ordre des déclarations : par ordre alphabétique, car c'est une méthode plus simple à appréhender.
 
 * Exemple :
 
