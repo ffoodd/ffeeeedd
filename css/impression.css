@@ -15,21 +15,21 @@
   /* Réinitialise la couleur du texte pour accélerer l'impression
   * Supprime les ombres portées et les couleurs d'arrière-plan. */
   * {
-    color: #333 !important;
     background-color: #fff !important;
     box-shadow: none !important;
-    text-shadow: none !important;
-    -ms-filter: none !important;
+    color: #333 !important;
+     -ms-filter: none !important;
     filter: none !important;
+    text-shadow: none !important;
   }
   /* supprime les éventuelles marges et largeur de <body>.
   * Fixe la taille de la police en point */
   body {
-    width: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
     font-family: "Century Gothic", "Gill Sans", "Avant Garde", Avenir, sans-serif;
     font-size: 12pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
   }
   .print-hidden {
     display: none; /* Masque les éléments indésirables pour l'impression */
@@ -43,16 +43,14 @@
   h6,
   blockquote,
   ul,
-  ol {
-    margin: auto !important;
-  }
+  ol { margin: auto !important; }
   .print {
     display: block; /* Affiche les éléments .print */
   }
   .left,
   .right {
-    float: none; /* Linéarise les contenus */
     display: block;
+    float: none; /* Linéarise les contenus */
   }
   [class*="mw"],
   [class*="w9"],

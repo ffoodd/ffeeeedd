@@ -30,8 +30,8 @@
 
 /* Module autonome - flottant, doit avoir une largeur */
 .mod {
-  padding: 1em;
   overflow: hidden;
+  padding: 1em;
 }
 
 /* Généralement dans un .mod, peut contenir des .item */
@@ -51,16 +51,17 @@
 .row > *,
 .col {
   display: table-cell;
-  vertical-align: top;
   padding: 1em;
+  vertical-align: top;
 }
 
 /* Blocs qui peuvent suivre des flottants ( i.e. pour déclarer une nouvelle ligne ) */
 .clear,
 .line,
-.row {
-  clear: both;
-}
+.row,
+.clearfix:after,
+.line:after,
+.mod:after { clear: both; }
 
 /* Blocs qui peuvent contenir des flottants */
 .clearfix:before, .clearfix:after,
@@ -68,11 +69,6 @@
 .mod:before, .mod:after {
   content: "";
   display: table;
-}
-.clearfix:after,
-.line:after,
-.mod:after {
-  clear: both;
 }
 
 /* Alignements ( blocs et en ligne) */
@@ -84,9 +80,7 @@
   margin-right: 1em;
 }
 .mod.left,
-.col.left {
-  margin-right: 0;
-}
+.col.left { margin-right: 0; }
 
 /* À droite */
 .right, .alignright {
@@ -94,9 +88,7 @@
   margin-left: 1em;
 }
 .mod.right,
-.col.right {
-  margin-left: 0;
-}
+.col.right { margin-left: 0; }
 
 /* Centré */
 .aligncenter {
@@ -106,17 +98,15 @@
 
 /* Autorise les marges verticales spécifiques */
 .center, .aligncenter {
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
 }
 .txtleft { text-align: left; }
 .txtright { text-align: right; }
 .txtcenter { text-align: center; }
 
 /* Une gouttière d'1em si le parent est un .gut */
-.row.gut > * + * {
-  border-left: 1em solid transparent;
-}
+.row.gut > * + * { border-left: 1em solid transparent; }
 .line.gut > .left { margin-right: 1em; }
 .line.gut > .right { margin-left: 1em; }
 
@@ -210,18 +200,14 @@ a,t,r,b,l = all,top,right,bottom,left
 /* Éléments masqués */
 .visually-hidden,
 [aria-hidden="true"] {
-  position: absolute;
   left: -7000px;
   overflow: hidden;
+  position: absolute;
 }
 .js .js-hidden,
-.no-js .js-visible {
-  display: none;
-}
+.no-js .js-visible { display: none; }
 .js .js-visible,
-.no-js .js-hidden {
-  display: block;
-}
+.no-js .js-hidden { display: block; }
 
 /* Remplacement d'image */
 .ir {
@@ -232,6 +218,6 @@ a,t,r,b,l = all,top,right,bottom,left
 .ir:before {
   content: "";
   display: block;
-  width: 0;
   height: 100%;
+  width: 0;
 }

@@ -43,6 +43,7 @@ code { line-height: 1em; }
 table { margin-bottom: 21px; }
 .m-reset { margin: 0 !important; }
 .p-reset { padding: 0 !important; }
+.b-reset { border: 0 !important; }
 
 /* Élude la fusion des marges pour les titrailles */
 h1:first-child,
@@ -58,8 +59,8 @@ h6:first-child {
 li p,
 li ul,
 li ol {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 /* Balises HTML5 */
@@ -69,28 +70,26 @@ article, aside, details, figcaption, figure, footer, header, nav, section {
 
 /* Valeurs maximum */
 img, table, td, blockquote, code, pre, textarea, input, video {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 /* Vous ne passerez pas ! */
 textarea, table, td, th, code, pre, samp, div {
-  word-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens:    auto;
   -ms-hyphens:     auto;
   -o-hyphens:      auto;
   hyphens:         auto;
+  word-wrap: break-word;
 }
 
 /* Images */
 img {
-  width: auto;
   vertical-align: middle;
+  width: auto;
 }
 a img { border: 0; }
 a:hover img,
 a:active img,
-a:focus img {
-  outline: 4px solid inherit;
-}
+a:focus img { outline: 4px solid inherit; }

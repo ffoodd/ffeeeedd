@@ -194,14 +194,14 @@ tbody + tfoot:hover::after,
 
 /* Attributs [style] */
 [style]:hover::after {
-  border-radius: .5em;
-  display: block;
-  padding: 1em;
-  margin: 1em;
   background: gold;
-  position: fixed;
+  border-radius: .5em;
   color: black;
+  display: block;
   left: 0;
+  margin: 1em;
+  padding: 1em;
+  position: fixed;
   top: 0;
   z-index: 99;
 }
@@ -239,17 +239,17 @@ iframe[title=""]:hover::after,
 
 table:not([summary]):hover::after,
 table[summary=""]:hover::after {
-  border-radius: .5em;
-  display: block;
-  padding: 1em;
-  margin: 1em;
   background: red;
-  position: fixed;
+  border-radius: .5em;
   color: white;
+  display: block;
   left: 0;
+  margin: 1em;
+  padding: 1em;
+  position: fixed;
+  text-decoration: none;
   top: 0;
   z-index: 99;
-  text-decoration: none;
 }
 
 /* Éléments & attributs obsolètes. */
@@ -274,15 +274,14 @@ table[frame]:hover::after,
 *[clear]:hover::after,
 ul[type]:hover::after,
 li[type]:hover::after {
-  border-radius: .5em;
-  display: block;
-  padding: 1em;
-  margin: 1em;
-  background: red;
-  position: fixed;
   background: gray;
+  border-radius: .5em;
   color: black;
+  display: block;
   left: 0;
+  margin: 1em;
+  padding: 1em;
+  position: fixed;
   top: 0;
   z-index: 99;
 }
@@ -294,15 +293,14 @@ body[topmargin]:hover::after,
 body[rightmargin]:hover::after,
 body[bottommargin]:hover::after,
 body[leftmargin]:hover::after {
-  border-radius: .5em;
-  display: block;
-  padding: 1em;
-  margin: 1em;
-  background: red;
-  position: fixed;
   background: gray;
-  color: black;
+  border-radius: .5em;
   bottom: 0;
+  color: black;
+  display: block;
+  margin: 1em;
+  padding: 1em;
+  position: fixed;
   right: 0;
   z-index: 99;
   /* On couvre tout le corps de la page. */

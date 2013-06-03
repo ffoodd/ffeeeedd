@@ -179,14 +179,6 @@ a[href$=".pdf"] { }
 
 mark { font-weight: bold; }
 
-#logo {
-  /* .ir masque le texte, maintenant il faut afficher l'image. */
-  background: url("../img/ffeeeedd.png") no-repeat 0 0;
-  /* Doivent être les dimensions de l'image */
-  height: 178px;
-  width: 178px;
-}
-
 #site-title { vertical-align: middle; }
 
 .menu a {
@@ -196,24 +188,19 @@ mark { font-weight: bold; }
 
 /* == @section Contenus ==================== */
 .page-numbers,
-form li {
-  list-style: none;
-}
+form li { list-style: none; }
 
 .page-numbers li { display: inline-block; }
 
 /* == @section Formulaires ==================== */
-form {
-}
-
 form label {
   display: inline-block;
   min-width: 200px;
 }
 
 input {
-  padding: .2em 0 .2em .2em;
   border: 1px solid #ccc;
+  padding: .2em 0 .2em .2em;
 }
 
 input[type="color"],
@@ -234,47 +221,41 @@ select,
 textarea,
 button,
 input[type="button"],
-input[type="reset"] {
-  min-width: 100px;
-}
+input[type="reset"] { min-width: 100px; }
 
 /* == @section Tableaux ==================== */
 table,
 .table {
+  border-collapse: collapse;
   display: table;
   table-layout: fixed;
-  border-collapse: collapse;
   vertical-align: top;
 }
 
 table {
-  width: 100%;
   caption-side: bottom;
+  width: 100%;
 }
 
 caption {
-  padding: 10px;
   color: #555;
   font-style: italic;
+  padding: 1em;
 }
 
 tbody { border: 1px solid #ccc; }
 
-tbody tr:nth-child(odd) {
-  background: #eee;
-}
+tbody tr:nth-child(odd) { background: #eee; }
 
-tbody tr > * + * {
-  border-left: 1px solid rgba(0, 0, 0, .05);
-}
+tbody tr > * + * { border-left: 1px solid rgba(0, 0, 0, .05); }
 
 tr > :last-child { text-align: right; }
 
 table th,
 table td {
+  border-bottom: 1px solid #ccc;
   padding: 10px 20px;
   text-align: left;
-  border-bottom: 1px solid #ccc;
 }
 
 table td { color: #555; }

@@ -34,8 +34,8 @@ html { font-size: 62.5%; }
   src: url('../typo/wireframe/BLOKKNeue-Regular.eot?#iefix') format('embedded-opentype'),
        url('../typo/wireframe/BLOKKNeue-Regular.woff') format('woff'),
        url('../typo/wireframe/BLOKKNeue-Regular.svg#BLOKKNeue-Regular') format('svg');
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
 }
 * {
   font-family: 'BLOKKNeue-Regular';

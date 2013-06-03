@@ -41,12 +41,12 @@ select {
   vertical-align: baseline;
 }
 textarea {
+  font-size: 1.75em;
+  min-height: 5em;
   overflow: auto; /* @bugfix
   @affected Supprime la scrollbar par défaut sur IE6/7/8/9 */
-  min-height: 5em;
-  font-size: 1.75em;
-  vertical-align: top;
   resize: vertical;
+  vertical-align: top;
 }
 button,
 input[type="button"],
