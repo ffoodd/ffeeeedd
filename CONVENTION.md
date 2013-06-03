@@ -5,6 +5,8 @@ Charte d'intégration
 
 @author Gaël Poupard
 
+@last-modified 2013-06-03
+
 @note Inspiré par la charte du projet Normandie et diverses chartes à citer également.
 
 @see [Luc Poupard](http://www.kloh.fr "kloh.fr") [@klohFR](https://twitter.com/klohFR "@klohFR")
