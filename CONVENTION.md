@@ -87,7 +87,7 @@ Charte CSS
 ==
   
 * Classes et identifiants :
- * Limiter au maximum l'utilisation d'identifiant.
+ * Limiter au maximum l'utilisation d'identifiants.
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
@@ -150,23 +150,24 @@ Charte CSS
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
  * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
- * Les formats .xwoff et .eot suffisent dans la plupart des cas.
- * Éviter l'emploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ). 
+ * Les formats .woff et .eot suffisent dans la plupart des cas.
+ * Éviter l'emploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ).
  * Il est fortement déconseillé d'utiliser plus de trois typographies ( leur déclinaison en graisse(s) est recommandée ).
 
 ==
 
 * Compatibilité :
- * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit @bugfix ).
+ * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit le duo @bugfix et @affected ).
  * Dégradés : un outil tel que [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé") doit être utilisé pour les dégradés, afin de maximiser la compatibilité.
+ * Dégradés : les dégradés sont des valeurs de `background-image` : il faut définir un fallback à l'aide de `background-color`, et ne surtout pas les appliquer directement en tant que `background` !
  * Les préfixes vendeurs doivent précéder la version non-préfixée.
  * Les styles spécifiques à IE8 et inférieur doivent être inclus dans le fichier final styles.css, afin d'en faciliter la maintenance.
  * Les styles spécifiques à IE8 et inférieur s'appuient sur des classes conditonnelles appliquées à `<html>`.
  * Une couleur de fond doit être appliquée au `<body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
- * Une classe js / no-js permet d'appliquer des styles en focntion de l'activation du javascript.
- * Éviter les filtres propriétaires de Microsoft : la transparence ou les dégradés sont souvent de simples onrements.
- * Si besoin de distinguer le premier élément plutôt que le dernier.
+ * Une classe js / no-js permet d'appliquer des styles en fonction de l'activation du javascript, lorsque les data-attributs ne suffisent pas.
+ * Éviter les filtres propriétaires de Microsoft : la transparence ou les dégradés sont souvent de simples ornements, dispensables dans le cadre d'une dégradation gracieuse comme d'une amélioration progressive.
+ * Si besoin de distinguer un élément au sein d'un groupes d'éléments identiques ( Ex : un `<li>` dans un `<ul>` ), préférer distinguer le premier élément plutôt que le dernier. `:first-child` dispose d'une meilleure compatibilité que son jumeau maléfique, et le nombre total peut varier ce qui rend le dernier élément volatile, tandis qu'on est sûr de toujours avoir un premier élément.
 
 ==
 
@@ -198,11 +199,11 @@ Charte CSS
   content: "Mon contenu";
   display: block;
   position: relative;
-  box-shadow: 
+  box-shadow:
     1px 1px 0 #333,
     2px 2px 0 #444,
     3px 3px 0 #555;
-  -webkit-transition: all 1s linear; /* Chrome 26-, Safari, Ios Safari, Androïd, Blackberry */
+  -webkit-transition: all 1s linear; /* @affected Chrome 26-, Safari, Ios Safari, Androïd, Blackberry */
   transition:         all 1s linear;
 }
 
@@ -551,7 +552,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [PageSpeed](http://developers.google.com/speed/pagespeed/insights) ( existe également en extention pour Chrome et Firefox, ainsi qu'en module pour Apache et Nginx ).
  * [WebPageTest](http://www.webpagetest.org)
  * [GTMetrix](http://gtmetrix.com/)
- * [Pingdom Tools]](http://tools.pingdom.com/fpt/)
+ * [Pingdom Tools](http://tools.pingdom.com/fpt/)
  * [jsCompress](http://jscompress.com/ "jscompress.com")
  * [CssCompressor](http://www.cssdrive.com/index.php/main/csscompressor "cssdrive.com")
  * [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard")

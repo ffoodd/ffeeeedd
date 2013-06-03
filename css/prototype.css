@@ -152,6 +152,6 @@ blockquote { font-style: italic; }
  * @note L'idée est d'augmenter l'opacité en fonction du niveau d'imbrication des éléments, les valeurs du canal alpha se superposant à celles des parents respectifs.
 */
 * {
-  background: rgba(0,0,0,.05);
-  color: rgba(0,0,0,.25);
+  background: rgba(0, 0, 0, .05);
+  color: rgba(0, 0, 0, .25);
 }
