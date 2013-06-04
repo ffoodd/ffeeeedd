@@ -104,11 +104,10 @@ Charte CSS
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
  * La valeur des couleurs complexes doit se faire autant que possible en `hsl` / `hsla` avec un fallback en `rgb` pour *IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
- * Les corps de texte doivent être formulés en `em` avec un fallback en `px` pour *IE7 et -*.
+ * Les corps de texte doivent être formulés en `em` (avec un fallback en `px` pour *IE7 et -*).
  * Les hauteurs doivent être formulées en `em` afin de conserver le rythme vertical.
- * Les marges *verticales* ( margin et padding ) doivent également être formulées en `em`.
+ * Les *marges* ( margin et padding ) doivent également être formulées en `em`.
  * Les largeurs doivent être formulées en `%` afin de simplifier les calculs de largeurs cumulées.
- * Les marges *horizontales* ( margin et padding ) doivent donc être formulées en `%` également.
  * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
  * Ne pas préciser d'unité pour les valeurs nulles (0) lorsque c'est autorisé.
  * Ne pas préciser le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
@@ -148,7 +147,7 @@ Charte CSS
 ==
 
 * Typographies :
- * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical"). *Attention* : cet outil génère des valeurs en `em`, pas en `rem` !
+ * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical").
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
  * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
