@@ -266,7 +266,7 @@ Charte HTML
 
 * Fermeture de balise : Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
-* Attributs : 
+* Attributs :
  * Ne pas fournir l'attribut `type` pour les styles et scripts.
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
  * Spécifier les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
@@ -300,7 +300,7 @@ Charte HTML
  * L'attribut `type` doit être utilisé efficacement.
  * Les champs obligatoires sont indiqués par une indication textuelle à côté du label, mais aussi via les attributs `required` et `aria-required`.
  * Les erreurs sont retournées champ par champ, avec un intitulé explicitant l'erreur.
- * Le succès d'une soumission est également explicitée textuellement.
+ * Le succès d'une soumission est également explicité textuellement.
  * Les contraintes de chaque champ sont indiquées à côté de celui-ci ( masque de saisie, sensibilité à la casse, nombre de caractères... ).
  
 ==
