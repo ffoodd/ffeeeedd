@@ -6,6 +6,7 @@
 * @subsection Références :
   * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
   * @see HTML5boilerplate
+  * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
 */
 
 /* ----------------------------- */
@@ -96,6 +97,10 @@
   display: block;
 }
 
+/* Alignement vertical */
+.aligntop { vertical-align: top; }
+.alignbottom { vertical-align: bottom; }
+
 /* Autorise les marges verticales spécifiques */
 .center, .aligncenter {
   margin-left: auto;
@@ -140,16 +145,7 @@
 .w90 { width: 90%; }
 .w100 { width: 100%; }
 
-.w50p { width: 50px; }
-.w100p { width: 100px; }
-.w150p { width: 150px; }
-.w200p { width: 200px; }
-.w300p { width: 300px; }
-.w400p { width: 400px; }
-.w500p { width: 500px; }
-.w600p { width: 600px; }
-.w700p { width: 700px; }
-.w800p { width: 800px; }
+/* Ajouter les dimensions en px ici */
 .w960p { width: 960px; }
 .mw960p { max-width: 960px; }
 

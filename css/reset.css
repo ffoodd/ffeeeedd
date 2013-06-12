@@ -6,6 +6,7 @@
 * @subsection Références :
   * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
   * @see http://soqr.fr/vertical-rhythm/ @author : @eQRoeil
+  * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
 */
 
 /* ----------------------------- */
@@ -82,6 +83,25 @@ textarea, table, td, th, code, pre, samp, div {
   -o-hyphens:      auto;
   hyphens:         auto;
   word-wrap: break-word;
+}
+
+/* Éviter interlignage disgracieux */
+sup,
+sub {
+  vertical-align: 0;
+  position: relative;
+}
+sup {
+  bottom: 1ex;
+}
+sub {
+  top: .5ex;
+}
+
+/* Parce que "les abbr c'est bon pour la planète" (dixit Nicolas Hoffmann dans RÖCSSTI), ceux ayant un title sont signalés */
+abbr[title] {
+  border-bottom: dotted 1px; /* La couleur est héritée du texte */
+  cursor: help;
 }
 
 /* Images */
