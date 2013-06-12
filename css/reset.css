@@ -45,6 +45,7 @@ table { margin-bottom: 21px; }
 .m-reset { margin: 0 !important; }
 .p-reset { padding: 0 !important; }
 .b-reset { border: 0 !important; }
+.ul-reset { list-style: none !important; }
 
 /* Élude la fusion des marges pour les titrailles */
 h1:first-child,
@@ -65,18 +66,43 @@ li ol {
 }
 
 /* Balises HTML5 */
-article, aside, details, figcaption, figure, footer, header, nav, section {
-  display: block;
-}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section { display: block; }
 
 /* Valeurs maximum */
-img, table, td, blockquote, code, pre, textarea, input, video {
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video {
   height: auto;
   max-width: 100%;
 }
 
+/* Corrige un bug de max-width sur les images de Gmap3 */
+#map_canvas img,
+.gmnoprint img { max-width: none ; }
+
 /* Vous ne passerez pas ! */
-textarea, table, td, th, code, pre, samp, div {
+textarea,
+table,
+td,
+th,
+code,
+pre,
+samp,
+div {
   -webkit-hyphens: auto;
   -moz-hyphens:    auto;
   -ms-hyphens:     auto;

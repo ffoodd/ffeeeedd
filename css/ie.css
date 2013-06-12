@@ -4,5 +4,5 @@
 /* ----------------------------- */
 
 .ie8 img {
-  width: auto; /* @bugfix for IE8 */
+  width: auto; /* @bugfix @affected IE8 */
 }

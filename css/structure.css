@@ -65,9 +65,12 @@
 .mod:after { clear: both; }
 
 /* Blocs qui peuvent contenir des flottants */
-.clearfix:before, .clearfix:after,
-.line:before, .line:after,
-.mod:before, .mod:after {
+.clearfix:before,
+.clearfix:after,
+.line:before,
+.line:after,
+.mod:before,
+.mod:after {
   content: "";
   display: table;
 }
@@ -76,20 +79,18 @@
 /* ------------------------------ */
 
 /* À gauche */
-.left, .alignleft {
-  float: left;
-  margin-right: 1em;
-}
-.mod.left,
-.col.left { margin-right: 0; }
+.left,
+.alignleft { float: left; }
+
+img.left,
+img.alignleft { margin-right: 1em; }
 
 /* À droite */
-.right, .alignright {
-  float: right;
-  margin-left: 1em;
-}
-.mod.right,
-.col.right { margin-left: 0; }
+.right
+.alignright { float: right; }
+
+img.right,
+img.alignright { margin-left: 1em; }
 
 /* Centré */
 .aligncenter {
@@ -102,7 +103,8 @@
 .alignbottom { vertical-align: bottom; }
 
 /* Autorise les marges verticales spécifiques */
-.center, .aligncenter {
+.center,
+.aligncenter {
   margin-left: auto;
   margin-right: auto;
 }
@@ -124,7 +126,8 @@
 .line.gut4 > * + * { margin-left: 1.333%; }
 
 /* Simplement inline-block */
-.inbl, .btn {
+.inbl,
+.btn {
   display: inline-block;
   vertical-align: top;
 }
@@ -216,4 +219,12 @@ a,t,r,b,l = all,top,right,bottom,left
   display: block;
   height: 100%;
   width: 0;
+}
+
+/* Corrige un bug sur les font-size lors du changement d'orientation sur iOS */
+@media (orientation: landscape) and (max-device-width: 768px) {
+  html,
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
 }
