@@ -17,6 +17,8 @@
     -- Retire les classes générées
     -- Ajoute une classe aux parents
   == Liens générés
+    -- Désactive les liens et scripts inutiles générés par WordPress
+    -- Retire les attributs title inutiles sur les liens générés par WordPress
   == Gestion des extraits
     -- Ajoute un lien "Lire la suite"
     -- Remplace le "[...]" par une ellipse et le lien "Lire la suite"
@@ -53,10 +55,10 @@
   */
 
   /* -- @subsection Retire les classes générées - sauf les 'current_page' - par Wordpress sur le menu principal -------------------- */
-  add_filter( 'nav_menu_css_class', 'ffeeeedd__css_attributes_filter', 100, 1 );
-  add_filter( 'nav_menu_item_id', 'ffeeeedd__css_attributes_filter', 100, 1 );
-  add_filter( 'page_css_class', 'ffeeeedd__css_attributes_filter', 100, 1 );
-  function ffeeeedd__css_attributes_filter( $var ) {
+  add_filter( 'nav_menu_css_class', 'ffeeeedd__css__attributs', 100, 1 );
+  add_filter( 'nav_menu_item_id', 'ffeeeedd__css__attributs', 100, 1 );
+  add_filter( 'page_css_class', 'ffeeeedd__css__attributs', 100, 1 );
+  function ffeeeedd__css__attributs( $var ) {
     return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'inbl' ) ) : '';
   }
 
@@ -79,13 +81,34 @@
 
 
   /* == @section Liens générés ==================== */
-  /* @note Désactive les liens et scripts inutiles générés par Wordpress */
+  /**
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note La deuxième sous-section provient d'un bout de code trouvé dans un dossier "wordcamp-code" dont je en suis pas parvenu à retrouver l'origine.
+  */
+
+  /* -- @subsection Désactive les liens et scripts inutiles générés par WordPress */
   automatic_feed_links( false );
   remove_action( 'wp_head', 'wp_generator' );
   remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
   remove_action( 'wp_head', 'wp_dlmp_l10n_style' );
   remove_action( 'wp_head', 'rsd_link' );
   remove_action( 'wp_head', 'wlwmanifest_link' );
+
+  /*-- @subsection Retire les attributs title inutiles sur les liens générés par WordPress */
+  add_filter( 'wp_nav_menu', 'ffeeeedd__attributs__title' );
+  add_filter( 'wp_list_pages', 'ffeeeedd__attributs__title' );
+  add_filter( 'wp_list_categories', 'ffeeeedd__attributs__title' );
+  add_filter( 'get_archives_link', 'ffeeeedd__attributs__title' );
+  add_filter( 'wp_tag_cloud', 'ffeeeedd__attributs__title' );
+  add_filter( 'the_category', 'ffeeeedd__attributs__title' );
+  add_filter( 'edit_post_link', 'ffeeeedd__attributs__title' );
+  add_filter( 'edit_comment_link', 'ffeeeedd__attributs__title' );
+
+  function ffeeeedd__attributs__title( $output ) {
+    $output = preg_replace( '/\s*title\s*=\s*(["\']).*?\1/', '', $output );
+    return $output;
+  }
 
 
   /* == @section Gestion des extraits ==================== */
@@ -96,7 +119,7 @@
 
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
   function ffeeeedd__extrait__lien() {
-    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire l\'article «&nbsp;' ) . get_the_title() . ( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
+    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire la suite de «&nbsp;' ) . get_the_title() . ( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
   }
 
   /* -- @subsection Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite" -------------------- */
@@ -148,7 +171,7 @@
         echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
       }
       // On génère la date de dernière modification
-      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ) . ' <time class="updated" datetime="' . the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . the_modified_date() . '</time>.</p>';
+      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ) . ' <time class="updated" datetime="' . get_the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . get_the_modified_date() . '</time>.</p>';
   }
   endif;
 
@@ -696,7 +719,7 @@
    */
   function ffeeeedd__injection__image() {
     global $post;
-    if ( is_single() ) {
+    if ( is_single() && has_post_thumbnail() ) {
       $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
       echo '<!-- Métas Image dynamiques -->';
       echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';

@@ -24,7 +24,11 @@ get_header(); ?>
           <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a>
         </h3>
         <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
-        <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" itemprop="image"><?php the_post_thumbnail(); ?></a>
+        <?php if ( has_post_thumbnail() ) { ?>
+        <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ); ?>
+        </a>
+        <?php }?>
         <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>

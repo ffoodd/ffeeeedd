@@ -62,6 +62,11 @@
       <meta name="DC.subject" lang="<?php bloginfo( 'language' ); ?>" content="HTML, document, Dublin Core" />
       <meta name="DC.language" scheme="DCTERMS.RFC4646" content="<?php bloginfo( 'language' ); ?>" />
     <!-- /Fin des métas DublinCore simples -->
+    <!-- Authentification de l'auteur sur Google+ -->
+    <?php if ( get_the_author_meta( 'google', 1 ) ) : ?>
+    <link rel="author" href="<?php the_author_meta('google', 1 ); ?>">
+    <?php endif; ?>
+    <!-- / Fin de l'authentification de l'auteur sur Google+ -->
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">

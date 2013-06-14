@@ -86,6 +86,7 @@
     unset( $contact['jabber'] );
     /* Ajouter un champ Twitter */
     $contact['twitter'] = 'Twitter';
+    $contact['google'] = 'Google+';
     return $contact;
   }
   add_filter( 'user_contactmethods', 'ffeeeedd__user', 75, 1 );

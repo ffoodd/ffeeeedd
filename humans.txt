@@ -1,0 +1,30 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Gaël Poupard -- Initiateur du projet : développement, intégration, conception -- @ffoodd_fr
+    Luc Poupard -- Conseiller technique en accessibilité et premier utilisateur -- @klohFR
+
+# THANKS
+
+    @eQRoeil -- le calculateur de ruthme vertical
+	@goetter -- le micro-framework knacss et service rendu à la nation :D
+	@Nico3333fr -- Quelques astuces trouvées dans Röcssti
+	@ElieSl -- son mémento sur les bonnes pratiques web, et toutes les ressources et projets ( OpQuats notamment !)
+	@schillinger -- les bonnes pratiques de l'intégration web
+	@luke_redroot -- Holmes.css
+	@ScreenFeedFr,
+	@GeekPressFR,
+	@TweetPressFr,
+	@_mlb,
+	@rochdaniel,
+	@noviseo,
+	@geekeriesfr,
+	@eliorivero -- Toutes les ressources utilisées ( PHP, JS, WP...).
+
+# TECHNOLOGY COLOPHON
+
+    WordPress
+    PHP, HTML5, CSS3, JS
+    knacss.css, holmes.css
