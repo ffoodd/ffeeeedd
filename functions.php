@@ -29,6 +29,7 @@
 
   add_theme_support( 'post-thumbnails' );
   register_nav_menus( array( 'primary' => 'Menu principal', '404' => 'Menu 404' ) );
+  if ( ! isset( $content_width ) ) $content_width = 900;
 
 
   /* == @section Traduction ==================== */

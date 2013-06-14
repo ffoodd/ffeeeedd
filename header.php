@@ -16,9 +16,9 @@
   <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
     <meta charset="utf-8"/>
     <title><?php bloginfo( 'name' ); ?><?php wp_title( '|' ); ?></title>
-    <base href="<?php bloginfo( 'url' ); ?>">
+    <base href="<?php echo home_url(); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1.0" />
     <meta name="description" content="<?php wp_title(''); ?> | <?php bloginfo( 'description' ); ?>" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <!-- Favicons, icons et Tuile Windows 8 // @see : http://iconifier.net/ -->
@@ -34,7 +34,7 @@
         <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.png">
         <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon-128.png" sizes="128x128">
       <!-- Pour IE a.k.a. "Old School" -->
-      <!--[if IE]><link rel="shortcut icon" href="<?php bloginfo( 'url' ); ?>/favicon.ico"><![endif]-->
+      <!--[if IE]><link rel="shortcut icon" href="<?php echo home_url(); ?>/favicon.ico"><![endif]-->
       <!-- Pour Windows 8 -->
         <meta name="application-name" content="<?php bloginfo( 'name' ); ?>">
         <meta name="msapplication-TileColor" content="#f2f2e2">
@@ -79,7 +79,7 @@
     </ul>
 
     <header class="w960p center" role="banner">
-      <a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>" itemprop="url">
+      <a href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>" itemprop="url">
         <img src="<?php header_image(); ?>" class="left" id="logo" alt="<?php bloginfo( 'name' ); ?>" itemprop="image"/></a>
       <h1 itemprop="name"><?php bloginfo( 'name' ); ?></h1>
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>

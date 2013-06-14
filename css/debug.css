@@ -388,7 +388,7 @@ ul > *:not(li):hover::after,
 ol > *:not(li):hover::after,
 table > tr:hover::after,
 tbody + tfoot:hover::after {
-  content: "Imbrication inadéqute d'éléments.";
+  content: "Imbrication inadéquate d'éléments.";
 }
 
 /* Éléments obsolètes

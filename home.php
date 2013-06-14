@@ -18,7 +18,7 @@ get_header(); ?>
 
   <ol>
     <?php while ( have_posts() ) : the_post(); ?>
-    <li class="mb2">
+    <li <?php post_class( 'mb2' ); ?>>
       <article itemscope itemtype="http://schema.org/Article">
         <h3 itemprop="name">
           <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a>
@@ -26,7 +26,7 @@ get_header(); ?>
         <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
         <?php if ( has_post_thumbnail() ) { ?>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ); ?>
+          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ) ); ?>
         </a>
         <?php }?>
         <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>

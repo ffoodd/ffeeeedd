@@ -88,7 +88,7 @@
   */
 
   /* -- @subsection Désactive les liens et scripts inutiles générés par WordPress */
-  automatic_feed_links( false );
+  add_theme_support( 'automatic-feed-links' );
   remove_action( 'wp_head', 'wp_generator' );
   remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
   remove_action( 'wp_head', 'wp_dlmp_l10n_style' );
@@ -119,7 +119,7 @@
 
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
   function ffeeeedd__extrait__lien() {
-    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire la suite de «&nbsp;' ) . get_the_title() . ( '&nbsp;» <span class="meta-nav">&rarr;</span>' ) . '</a>';
+    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire la suite de «&nbsp;', 'ffeeeedd' ) . get_the_title() . __( '&nbsp;» <span class="meta-nav">&rarr;</span>', 'ffeeeedd' ) . '</a>';
   }
 
   /* -- @subsection Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite" -------------------- */
@@ -294,7 +294,7 @@
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
     if ( $link )
-      $final .= '<a href="' . get_category_link( $parent->term_id ) . '" title="Voir tous les articles de ' . $parent->cat_name . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $parent->term_id ) . '" title="' . __( 'Voir tous les articles de', 'ffeeeedd' ) . $parent->cat_name . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     else
       $final .= $name . $separator;
     return $final;
@@ -306,9 +306,9 @@
     // Variables globales
     global $wp_query;
     $paged = get_query_var( 'paged' );
-    $sep = ' &rarr; ';
+    $sep = ' &rarr;&nbsp;';
     $final = '<ol class="print-hidden">';
-    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a></li>';
+    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d'Ariane
@@ -325,11 +325,11 @@
       // Page de blog ( liste des articles )
       if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
-        $final .= $startdefault . $sep . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $url . '" itemprop="url" title="Les articles"><span itemprop="title">Les articles</span></a></li>';
-      } else $final .= $startdefault . $sep . 'Les articles';
+        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $url . '" itemprop="url" title="' . __( 'Les articles', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></a></li>';
+      } else $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></li>';
     } else {
       // Pour tout le reste
-      $final .= $startdefault . $sep;
+      $final .= $startdefault;
     }
 
     // Empêche d'autre(s) code(s) d'interférer avec l'accueil statique ou blog
@@ -344,7 +344,7 @@
       $category_id = get_cat_ID( $category[0]->cat_name );
       $permalink = get_permalink( $id );
       $title = $parent->post_title;
-      $final .= ffeeeedd__categories( $category_id, true, $sep ) . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a></li>' . $sep . the_title('', '', false );
+      $final .= ffeeeedd__categories( $category_id, true, $sep ) . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title('', '', false ) . '</span></li>';
     }
 
     // Type(s) d'articles
@@ -354,7 +354,7 @@
       $archive = get_post_type_archive_link( $nom );
       $mypost = $post->post_title;
       $label = get_post_type_object( $nom )->labels->name;
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a></li>' . $sep . $mypost;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
     }
 
     // Articles avec un format
@@ -364,7 +364,7 @@
       $pretty_format = get_post_format_string( $format );
       $format_link = get_post_format_link( $format );
       $mypost = $post->post_title;
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a></li>' . $sep . $mypost;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
     }
 
     // Articles sans format
@@ -387,12 +387,12 @@
         global $post;
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a></li>';
-        $final .= $sep . 'Commentaires page ' . $cpage;
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>';
+        $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Commentaires page ', 'ffeeeedd' ) . $cpage . '</span></li>';
       }
       // Sans pages de commentaires
       else
-        $final .= the_title( '', '', false );
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
     }
 
     // Catégories
@@ -403,11 +403,11 @@
       $categoryparent = get_category( $category->parent );
       // Résulat
       if ( $category->parent != 0 )
-        $final .= ffeeeedd__categories( $categoryparent, true, $sep, true );
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . ffeeeedd__categories( $categoryparent, true, $sep, true ) . '</span></li>';
       if ( $paged <= 1 )
-        $final .= single_cat_title( '', false );
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       else
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $category ) . '" title="Voir tous les articles de ' . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $category ) . '" title="' . __( 'Voir tous les articles de', 'ffeeeedd' ) . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
     }
 
     // Pages
@@ -415,7 +415,7 @@
       $post = $wp_query->get_queried_object();
       // Page simple
       if ( $post->post_parent == 0 )
-        $final .= the_title( '', '', false );
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
       // Page avec ancêtre(s)
       elseif ( $post->post_parent != 0 ) {
         $title = the_title( '', '', false );
@@ -425,13 +425,13 @@
         foreach ( $ancestors as $ancestor ) {
           if( $ancestor != end( $ancestors ) ) {
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
-            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a></li>';
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
             $i++;
             if ( $i < $ancestors )
-              $final .= $sep;
+              $final .= $sep . '</li>';
           }
           else
-            $final .= strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
+            $final .= '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></li>';
         }
       }
     }
@@ -442,47 +442,29 @@
         $curauth = get_user_by( 'slug', get_query_var( 'author_name' ) );
       else
         $curauth = get_userdata( get_query_var( 'author' ) );
-      $final .= 'Articles de l\'auteur ' . $curauth->nickname;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles de ', 'ffeeeedd' ) . $curauth->nickname . '</span></li>';
     }
 
     // Tags
     elseif ( is_tag() ) {
-      $final .= 'Articles sur le th&egrave;me ' . single_tag_title( '', false );
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles sur le thème ', 'ffeeeedd' ) . single_tag_title( '', false ) . '</span></li>';
     }
 
     // Formats
     elseif ( is_tax( 'post_format' ) ) {
       $format = get_post_format( $post->ID );
       $pretty_format = get_post_format_string( $format );
-      $final .= $pretty_format;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles sur le thème ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
     }
 
     // Recherche
     elseif ( is_search() ) {
-      $final .= 'R&eacute;sultats de votre recherche sur "' . get_search_query() . '"';
-    }
-
-    // Dates
-    elseif ( is_date() ) {
-      if ( is_day() ) {
-        $year = get_year_link( '' );
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a></li>';
-        $month = get_month_link( get_query_var( 'year' ), get_query_var( 'monthnum' ) );
-        $final .= $sep . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . single_month_title( ' ', false ) . '" href="' . $month . '" itemprop="url"><span itemprop="title">' . single_month_title( ' ', false ) . '</span></a></li>';
-        $final .= $sep . 'Archives pour ' . get_the_date();
-      }
-      elseif ( is_month() ) {
-        $year = get_year_link( '' );
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_query_var( 'year' ) . '" href="' . $year . '" itemprop="url"><span itemprop="title">' . get_query_var( 'year' ) . '</span></a></li>';
-        $final .= $sep . 'Archives pour ' . single_month_title( ' ', false );
-      }
-      elseif ( is_year() )
-        $final .= 'Archives pour ' . get_query_var( 'year' );
+      $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Résultats de votre recherche sur "', 'ffeeeedd' ) . get_search_query() . '"</span></li>';
     }
 
     // Page 404
     elseif ( is_404() )
-      $final .= '404 - Page non trouv&eacute;e';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page non trouvée ', 'ffeeeedd' ) . '</span></li>';
 
     // Archives - autres
     elseif ( is_archive() ) {
@@ -491,14 +473,14 @@
       $taxonomie = get_taxonomy( get_query_var( 'taxonomy' ) );
       $titrearchive = $posttypeobject->labels->menu_name;
       if ( !empty( $taxonomie ) )
-        $final .= $taxonomie->labels->name;
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $taxonomie->labels->name . '</span></li>';
       else
-        $final .= $titrearchive;
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $titrearchive . '</span></li>';
     }
 
     // Pagination
     if ( $paged >= 1 )
-      $final .= $sep . 'Page ' . $paged;
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Page ' . $paged . '</span></li>';
 
     // The End
     $final .= '</ol>';
@@ -600,19 +582,19 @@
       // Type author
       $fields['fields']['author'] = '
       <p class="comment-form-author">
-        <label for="author">' . __( 'Name' ) . ' <span class="required">*</span></label>
+        <label for="author">' . __( 'Nom', 'ffeeeedd' ) . ' <span class="required">*</span></label>
         <input id="author" name="author" value="" aria-required="true" required="required" size="30" type="text" />
       </p>';
       // Type email
       $fields['fields']['email'] = '
       <p class="comment-form-email">
-        <label for="email">' . __( 'Email' ) . ' <span class="required">*</span></label>
+        <label for="email">' . __( 'Email', 'ffeeeedd' ) . ' <span class="required">*</span></label>
         <input id="email" name="email" value="" aria-required="true" required="required" size="30" type="email" />
       </p>';
       // Type url et placeholder http://
       $fields['fields']['url'] = '
       <p class="comment-form-url">
-        <label for="url">' . __( 'Website' ) . '</label>
+        <label for="url">' . __( 'Site web', 'ffeeeedd' ) . '</label>
         <input id="url" name="url" value="" placeholder="http://" size="30" type="url" />
       </p>';
       return $fields;
@@ -622,7 +604,7 @@
   /* -- @subsection Ajout de l'attribut HTML5 required sur le textarea -------------------- */
   add_filter( 'comment_form_defaults', 'changing_comment_form_defaults' );
   function changing_comment_form_defaults( $defaults ) {
-    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
+    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __( 'Commentaire', 'ffeeeedd' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
   }
 

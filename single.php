@@ -17,7 +17,7 @@
 get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <article role="article" itemscope itemtype="http://schema.org/Article">
+  <article role="article" itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>
     <h2 itemprop="name"><?php the_title(); ?></h2>
 
     <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>

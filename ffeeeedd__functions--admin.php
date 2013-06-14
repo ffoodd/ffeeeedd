@@ -13,6 +13,7 @@
 /* Sommaire */
 /* ----------------------------- */
 /*
+  == Styles dans l'éditeur
   == Référencement Social / SEO
     -- Création des blocs dans l'administration
     -- Ajout des champs utiles dans ces blocs
@@ -22,6 +23,12 @@
   == Compteur de caractères sur le champ extrait dans l'administration
 */
 
+
+  /* == @section Styles dans l'éditeur ==================== */
+  function ffeeeedd__styles__editeur() {
+    add_editor_style( 'css/editeur.css' );
+  }
+  add_action( 'init', 'ffeeeedd__styles__editeur' );
 
   /* == @section Référencement Social / SEO ==================== */
   /**
@@ -37,8 +44,8 @@
 
   /* -- @subsection Création des blocs dans l'administration -------------------- */
   function ffeeeedd__metabox() {
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
   }
   add_action( 'add_meta_boxes', 'ffeeeedd__metabox' );
 
@@ -125,9 +132,11 @@
   define( 'THEME_URI', get_template_directory_uri() );
   add_action( 'admin_enqueue_scripts', 'ffeeeedd__compteur', 10, 1 );
   function ffeeeedd__compteur( $page ) {
-    $post = get_post( $_GET['post'] );
-    $typenow = $post->post_type;
-    if( $typenow != 'page' )
-      if ( $page == 'post.php' || $page == 'post-new.php' )
-        wp_enqueue_script( 'ffeeeedd__compteur', THEME_URI .'/js/ffeeeedd__compteur.js', array('jquery'), null, false );
+    if ( isset ( $_GET['post'] ) ) {
+      $post = get_post( $_GET['post'] );
+      $typenow = $post->post_type;
+      if( $typenow != 'page' )
+        if ( $page == 'post.php' || $page == 'post-new.php' )
+          wp_enqueue_script( 'ffeeeedd__compteur', THEME_URI .'/js/ffeeeedd__compteur.js', array('jquery'), null, false );
+    }
   }

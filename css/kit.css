@@ -247,7 +247,7 @@ tbody { border: 1px solid #ccc; }
 
 tbody tr:nth-child(odd) { background: #eee; }
 
-tbody tr > * + * { border-left: 1px solid rgba(0, 0, 0, .05); }
+tbody tr > * + * { border-left: 1px solid #ccc; }
 
 tr > :last-child { text-align: right; }
 
@@ -259,3 +259,13 @@ table td {
 }
 
 table td { color: #555; }
+
+/* == @section WordPress */
+/*
+ * @note Classes utilisées par WordPress pour afficher les images avec leurs légendes, les galeries d'images, ainsi que pour distinguer les articles mis en avant et les commentaires ajoutés par l'auteur d'un article himself.
+ */
+.wp-caption {}
+.wp-caption-text {}
+.gallery-caption {}
+.sticky {}
+.bypostauthor {}

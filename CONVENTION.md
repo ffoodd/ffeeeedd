@@ -464,6 +464,7 @@ Mise en Production
 Lorsque le développement et l'intégration sont terminées, une recette est nécessaire. Il s'agit de parcourir toutes les pages, vérifier toutes les fonctionnalités ainsi que la compatibilité navigateurs. Selon les contraintes du projet, des tests sur différents terminaux et un audit d'accessibilité peuvent être nécessaires. Différents outils peuvent nous y aider. On passera ensuite à l'optimisation technique en vue d'améliorer les performances du site, toujours bénéfique tant aux internautes qu'aux robots.
 
 * Vérifications :
+ * Une vérficiation avancée du thème (si vous en avez modifié les fonctions, ou si vous l'avez personnalisé) st indispensable. Je vous recommande l'utilisation de [Theme-Check](http://wordpress.org/plugins/theme-check/ 'Theme-Check sur le repostory des plugins'), et n'oubliez pas d'activer WP_DEBUG !
  * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
  * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
  * Selon les contraintes du projet, des tests de désactivation du css et / ou du js devront être effectués.
@@ -541,6 +542,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 ==
 
 * Références & outils :
+ * [Theme-Check](http://wordpress.org/plugins/theme-check/ 'Theme-Check sur le repostory des plugins')
  * [Conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex")
  * [PageSpeed](http://developers.google.com/speed/pagespeed/insights) ( existe également en extention pour Chrome et Firefox, ainsi qu'en module pour Apache et Nginx ).
  * [WebPageTest](http://www.webpagetest.org)
