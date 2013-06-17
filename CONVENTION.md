@@ -292,7 +292,7 @@ Charte HTML
 
 ==
 
-* Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés :
+* Les favicon, Apple icon et tuiles Windows doivent être fournies aux formats demandés :
  * apple-touch-icon-144x144.png
  * apple-touch-icon-114x114.png
  * apple-touch-icon-72x72.png
@@ -302,7 +302,7 @@ Charte HTML
  * favicon-128.png
  * favicon.ico (16x16)
 * Pour ce faire, utiliser le fichier `ffeeeedd__favicons.psd` inclus dans le dossier `img` :
- * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregisrtez l'objet puis le psd.
+ * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregistrez l'objet puis le psd.
  * Choisissez "Enregistrer pour le web", au format png-24. Toutes les images nécessaires seront exportées, déjà nommées correctement.
  * Convertissez les fichiers dont le nom se termine par "-ico.png" au format .ico via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en favicon.ico.
  * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd/img/ico`.
