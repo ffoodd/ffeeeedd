@@ -273,7 +273,7 @@ Charte HTML
  * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées") ).
  * L'attribut style ne doit pas être utilisé.
  * Dans le cas de nombreux attributs, on envisagera de revenir à la ligne entre chaque attribut afin d'améliorer la lisibilité.
- 
+
 ==
 
 * Ordre des attributs :
@@ -283,13 +283,31 @@ Charte HTML
  4. `data-*` : pour servir de crochat au javascript.
  5. `aria-*` : pour l'accessibilité et la sémantique.
  6. autre(s) : href, title, alt, microdonnées, etc...
- 
+
 ==
 
 * Métadonnées :
  * Ajouter le profil [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore") sur `<html>`.
  * Les métas DublinCore, OpenGraph et TwitterCard doivent être renseignées.
- * Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés.
+
+==
+
+* Les favicon, Apple icon et tuiles Windows doivent être fournis aux formats demandés :
+ * apple-touch-icon-144x144.png
+ * apple-touch-icon-114x114.png
+ * apple-touch-icon-72x72.png
+ * apple-touch-icon.png
+ * favicon.ico (48x48)
+ * favicon.png (32x32)
+ * favicon-128.png
+ * favicon.ico (16x16)
+* Pour ce faire, utiliser le fichier `ffeeeedd__favicons.psd` inclus dans le dossier `img` :
+ * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregisrtez l'objet puis le psd.
+ * Choisissez "Enregistrer pour le web", au format png-24. Toutes les images nécessaires seront exportées, déjà nommées correctement.
+ * Convertissez les fichiers dont le nom se termine par "-ico.png" au format .ico via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en favicon.ico.
+ * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd/img/ico`.
+ * *Exception* : le `favion.ico` de 16x16 pixel doit être placé à la racine du site.
+ * Optimisez vos .png à l'aide de [PNG Optimizer](http://psydk.org/PngOptimizer.php) par exemple, et le tour est joué !
 
 ==
 
@@ -309,7 +327,7 @@ Charte HTML
  * Chaque tableau de données doit disposer d'un titre.
  * Les en-têtes sont correctement balisées (`<th>`).
  * Les cellules doivent être reliées à leur en-tête.
- 
+
 ==
 
 * Liens :
@@ -333,11 +351,11 @@ Charte HTML
 * Compatibilité :
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
  * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
- 
+
 ==
 
 * Limiter au maximum la profondeur du DOM, ainsi que le nombre d'éléments.
- 
+
 ==
 
 * Exemple :
@@ -365,6 +383,9 @@ Charte HTML
  * [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C")
  * [DublinCore](http://dublincore.org/documents/2008/08/04/dc-html/ "Profil DublinCore")
  * [Idiomatic HTML](https://github.com/necolas/idiomatic-html/)
+ * [HTML5 Boilerplate Favicon PSD Template](http://drublic.de/blog/html5-boilerplate-favicons-psd-template/)
+ * [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico')
+ * [PNG Optimizer](http://psydk.org/PngOptimizer.php)
 
 
 Charte Javascript
@@ -388,7 +409,7 @@ Charte Javascript
  * Commenter la fermeture de chaque fonction.
  * Annoter les fonctions et plugins particuliers ( cf point suivant "Annontations" ).
  * Expliquer les fonctions dont la lecture n'est pas naturelle.
- 
+
 ==
 
 * Manipulation du DOM : préférer s'appuyer sur des attributs `data-` que sur des classes ou des id.
@@ -514,7 +535,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 ==
 
 * Sécurité :
- * chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas.
+ * Chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas.
  * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
 
 ==
@@ -522,12 +543,18 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 * Robots.txt :
  * Éditer le fichier robots.txt ( notamment le lien vers le sitemap )
  * Déplacer ce fichier à la racine du site
- 
+
+==
+
+* Human.txt :
+ * Éditer le fichier human.txt afin de créditer tous les participants, les sources et les informations sur le projet.
+
 ==
 
 * Réseaux sociaux :
  * Pour les Twitter Cards, il faut déclarer le site sur Twitter ( cf [la FAQ du plugin par jmlapam](http://wordpress.org/plugins/jm-twitter-cards/faq/) a.k.a TweetPress ) ainsi que [la documentation Twitter](https://dev.twitter.com/docs/cards).
  * Pour Google author également, lier un compte Google+ au site : [les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez").
+ * Normalement vos profils Twitter et Google+ font partie des informations fournies dans votre compte Administrateur WordPress.
 
 ==
 
@@ -538,6 +565,11 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * Divers :
  * Personnaliser les pages d'erreurs les plus courantes ( 404, 403, 500 ).
+
+==
+
+* Liens brisés :
+ * Utilisez un outil comme [Xenu](http://home.snafu.de/tilman/xenulink.html) pour vérifier qu'aucun lien ne manque (fichiers, images, liens sortants, liens internes, etc).
 
 ==
 
@@ -559,3 +591,4 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [Validation Twitter par TweetPress](http://wordpress.org/plugins/jm-twitter-cards/faq/)
  * [La documentation Twitter](https://dev.twitter.com/docs/cards)
  * [Les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
+ * [Xenu](http://home.snafu.de/tilman/xenulink.html)

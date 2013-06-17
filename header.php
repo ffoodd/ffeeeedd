@@ -28,7 +28,7 @@
         <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/apple-touch-icon-72x72.png" sizes="72x72">
         <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/apple-touch-icon.png">
       <!-- Pour le "Speed Dial" d'Opéra -->
-        <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/apple-touch-icon-144x144" type="image/png">
+        <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/apple-touch-icon-144x144.png" type="image/png">
       <!-- Pour les navigateurs ( onglets, favoris, barres d'adresse ) : FF et Safari utiliseront la dernière mentionnée, Chrome et Opéra font n'importe quoi -->
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/ico/favicon.png">
