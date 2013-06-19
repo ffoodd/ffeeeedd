@@ -306,7 +306,7 @@ Charte HTML
  * Choisissez "Enregistrer pour le web", au format png-24. Toutes les images nécessaires seront exportées, déjà nommées correctement.
  * Convertissez les fichiers dont le nom se termine par "-ico.png" au format .ico via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en favicon.ico.
  * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd/img/ico`.
- * *Exception* : le `favion.ico` de 16x16 pixel doit être placé à la racine du site.
+ * *Exception* : le `favicon.ico` de 16x16 pixel doit être placé à la racine du site.
  * Optimisez vos .png à l'aide de [PNG Optimizer](http://psydk.org/PngOptimizer.php) par exemple, et le tour est joué !
 
 ==
@@ -485,11 +485,11 @@ Mise en Production
 Lorsque le développement et l'intégration sont terminées, une recette est nécessaire. Il s'agit de parcourir toutes les pages, vérifier toutes les fonctionnalités ainsi que la compatibilité navigateurs. Selon les contraintes du projet, des tests sur différents terminaux et un audit d'accessibilité peuvent être nécessaires. Différents outils peuvent nous y aider. On passera ensuite à l'optimisation technique en vue d'améliorer les performances du site, toujours bénéfique tant aux internautes qu'aux robots.
 
 * Vérifications :
- * Une vérficiation avancée du thème (si vous en avez modifié les fonctions, ou si vous l'avez personnalisé) st indispensable. Je vous recommande l'utilisation de [Theme-Check](http://wordpress.org/plugins/theme-check/ 'Theme-Check sur le repostory des plugins'), et n'oubliez pas d'activer WP_DEBUG !
+ * Une vérification avancée du thème (si vous en avez modifié les fonctions, ou si vous l'avez personnalisé) est indispensable. Je vous recommande l'utilisation de [Theme-Check](http://wordpress.org/plugins/theme-check/ 'Theme-Check sur le repostory des plugins'), et n'oubliez pas d'activer WP_DEBUG !
  * Des outils commes [les checklists d'Opquast](http://checklists.opquast.com/fr/ "Open Quality Standard") ou [WebDev Checklist](http://webdevchecklist.com/) devraient être utilisés pour garantir la qualité du projet.
- * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" )
+ * Les pages doivent être validées à l'aide du Validator ( cf "Convention HTML" ).
  * Selon les contraintes du projet, des tests de désactivation du css et / ou du js devront être effectués.
- * Procéder à des tests complets sur tous les navigateurs cibles, et le cas échéant les technologies d'assistance visées.
+ * Procéder à des tests complets sur tous les navigateurs ciblés, et le cas échéant les technologies d'assistance visées.
  * Vérifier l'agrandissement en mode Texte jusqu'à 200%.
 
 *Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
@@ -516,7 +516,7 @@ Lorsque le développement et l'intégration sont terminées, une recette est né
 * Optimisation js :
  * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
  * Charger les scripts en fin de documents dès que possible ( WordPress intègre un paramètre booléen sur la fonction [wp_enqueue_script](http://codex.wordpress.org/Function_Reference/wp_enqueue_script "Un tour sur le codex, ça vous dit ?") ).
- * Charger les scripts en asynchrone dès que possible ( les attributs `async` et `defer` sont voués à ça )
+ * Charger les scripts en asynchrone dès que possible ( les attributs `async` et `defer` sont voués à ça ).
  * Les scripts doivent être minifiés :
   * Concaténer les fichiers ( à l'exception de la lib' ).
   * Supprimer les commentaires.
@@ -529,8 +529,8 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 * Paramètres serveurs ( dans le cas d'un serveur Apache, en passant par le fichier .htaccess )
  * Activer la compression ( Gzip ou Deflate ),
  * Définir un type MIME correct pour chaque type de fichier utilisé,
- * Optimiser la mise en cache navigateur
- * Supprimer les Etags
+ * Optimiser la mise en cache navigateur,
+ * Supprimer les Etags.
 
 ==
 
@@ -541,8 +541,8 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 ==
 
 * Robots.txt :
- * Éditer le fichier robots.txt ( notamment le lien vers le sitemap )
- * Déplacer ce fichier à la racine du site
+ * Éditer le fichier robots.txt ( notamment le lien vers le sitemap ).
+ * Déplacer ce fichier à la racine du site.
 
 ==
 
@@ -553,7 +553,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * Réseaux sociaux :
  * Pour les Twitter Cards, il faut déclarer le site sur Twitter ( cf [la FAQ du plugin par jmlapam](http://wordpress.org/plugins/jm-twitter-cards/faq/) a.k.a TweetPress ) ainsi que [la documentation Twitter](https://dev.twitter.com/docs/cards).
- * Pour Google author également, lier un compte Google+ au site : [les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez").
+ * Pour Google author également, lier un compte Google+ au site : [les instructions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez").
  * Normalement vos profils Twitter et Google+ font partie des informations fournies dans votre compte Administrateur WordPress.
 
 ==

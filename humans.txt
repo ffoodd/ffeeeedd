@@ -8,7 +8,7 @@
 
 # THANKS
 
-    @eQRoeil -- le calculateur de ruthme vertical
+    @eQRoeil -- le calculateur de rythme vertical
 	@goetter -- le micro-framework knacss et service rendu à la nation :D
 	@Nico3333fr -- Quelques astuces trouvées dans Röcssti
 	@ElieSl -- son mémento sur les bonnes pratiques web, et toutes les ressources et projets ( OpQuats notamment !)
