@@ -22,7 +22,7 @@ get_header(); ?>
     <h3 itemprop="name"><?php echo get_the_author() ; ?></h3>
     <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
     <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
-    <a href="<?php echo get_the_author_meta( 'user_url' ); ?>" itemprop="url"><?php echo __( 'Consulter son site', 'ffeeeedd' ); ?></a>
+    <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php echo __( 'Consulter son site', 'ffeeeedd' ); ?></a>
     <?php endif; ?>
   </article>
   <?php endif; ?>

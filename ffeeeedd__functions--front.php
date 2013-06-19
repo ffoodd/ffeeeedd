@@ -294,7 +294,7 @@
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
     if ( $link )
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $parent->term_id ) . '" title="' . __( 'Voir tous les articles de', 'ffeeeedd' ) . $parent->cat_name . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     else
       $final .= $name . $separator;
     return $final;
@@ -308,7 +308,7 @@
     $paged = get_query_var( 'paged' );
     $sep = ' &rarr;&nbsp;';
     $final = '<ol class="print-hidden">';
-    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . get_bloginfo( 'name' ) . '" href="' . home_url() . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
+    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( get_bloginfo( 'name' ) ) . '" href="' . esc_url( home_url() ) . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d'Ariane
@@ -325,7 +325,7 @@
       // Page de blog ( liste des articles )
       if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
-        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $url . '" itemprop="url" title="' . __( 'Les articles', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></a></li>';
+        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Les articles', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></a></li>';
       } else $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></li>';
     } else {
       // Pour tout le reste
@@ -344,7 +344,7 @@
       $category_id = get_cat_ID( $category[0]->cat_name );
       $permalink = get_permalink( $id );
       $title = $parent->post_title;
-      $final .= ffeeeedd__categories( $category_id, true, $sep ) . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title('', '', false ) . '</span></li>';
+      $final .= ffeeeedd__categories( $category_id, true, $sep ) . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $permalink ) . '" itemprop="url" title="' . esc_attr( $title ) . '"><span itemprop="title">' . $title . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title('', '', false ) . '</span></li>';
     }
 
     // Type(s) d'articles
@@ -354,7 +354,7 @@
       $archive = get_post_type_archive_link( $nom );
       $mypost = $post->post_title;
       $label = get_post_type_object( $nom )->labels->name;
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $archive . '" itemprop="url" title="' . $label . '"><span itemprop="title">' . $label . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $archive ) . '" itemprop="url" title="' . esc_attr( $label ) . '"><span itemprop="title">' . $label . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
     }
 
     // Articles avec un format
@@ -364,7 +364,7 @@
       $pretty_format = get_post_format_string( $format );
       $format_link = get_post_format_link( $format );
       $mypost = $post->post_title;
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $format_link . '" itemprop="url" title="' . $pretty_format . '"><span itemprop="title">' . $pretty_format . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $format_link ) . '" itemprop="url" title="' . esc_attr( $pretty_format ) . '"><span itemprop="title">' . $pretty_format . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $mypost . '</span></li>';
     }
 
     // Articles sans format
@@ -379,7 +379,7 @@
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
         $urlarchive = get_post_type_archive_link( $post_type );
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $urlarchive . '" title="' . $titrearchive . '" itemprop="url"><span itemprop="title">' . $titrearchive . '</span></a></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $urlarchive ) . '" title="' . esc_attr( $titrearchive ) . '" itemprop="url"><span itemprop="title">' . $titrearchive . '</span></a></li>';
       }
       // Avec des pages de commentaires
       $cpage = get_query_var( 'cpage' );
@@ -387,7 +387,7 @@
         global $post;
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . $permalink . '" itemprop="url" title="' . $title . '"><span itemprop="title">' . $title . '</span></a>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $permalink ) . '" itemprop="url" title="' . esc_attr( $title ) . '"><span itemprop="title">' . $title . '</span></a>';
         $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Commentaires page ', 'ffeeeedd' ) . $cpage . '</span></li>';
       }
       // Sans pages de commentaires
@@ -407,7 +407,7 @@
       if ( $paged <= 1 )
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       else
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . get_category_link( $category ) . '" title="' . __( 'Voir tous les articles de', 'ffeeeedd' ) . single_cat_title( '', false ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
     }
 
     // Pages
@@ -425,7 +425,7 @@
         foreach ( $ancestors as $ancestor ) {
           if( $ancestor != end( $ancestors ) ) {
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
-            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . $name . '" href="' . get_permalink( $ancestor ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $name ) . '" href="' . esc_url( get_permalink( $ancestor ) ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
             $i++;
             if ( $i < $ancestors )
               $final .= $sep . '</li>';
@@ -537,7 +537,7 @@
         case 'trackback' :
         // On affiche différemment les trackbacks. ?>
           <li <?php comment_class(); ?>>
-            <p><?php _e( 'Pingback :', '' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Modifier)', '' ), '<span class="edit-link">', '</span>' ); ?></p>
+            <p><?php _e( 'Pingback :', 'ffeeeedd' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Modifier)', 'ffeeeedd' ), '<span class="edit-link">', '</span>' ); ?></p>
         <?php break;
       default :
       // On passe aux commentaires standards.
@@ -563,11 +563,11 @@
 
           <section itemprop="commentText">
             <?php comment_text(); ?>
-            <?php edit_comment_link( __( 'Modifier', '' ), '<p>', '</p>' ); ?>
+            <?php edit_comment_link( __( 'Modifier', 'ffeeeedd' ), '<p>', '</p>' ); ?>
           </section>
 
           <div class="reply" itemprop="replyToUrl">
-            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', '' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+            <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', 'ffeeeedd' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
           </div>
         </article>
       <?php break;
@@ -643,16 +643,16 @@
     if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) ) {
       echo '<!-- Métas Description dynamiques -->';
       echo '<meta name="description" content="';
-      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
+      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
       echo '" />';
       echo '<meta property="og:description" content="';
-      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
+      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
       echo '" />';
       echo '<meta name="twitter:description" content="';
-      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
+      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
       echo '" />';
-      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="';
-      echo get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true );
+      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
+      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
       echo '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
@@ -662,16 +662,16 @@
       echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
       echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
       echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
+      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
     // Sinon, on affiche la description générale du site
     else {
       echo '<!-- Métas Description dynamiques -->';
-      echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '" />';
-      echo '<meta property="og:description" content="' . get_bloginfo( 'description' ) . '" />';
-      echo '<meta name="twitter:description" content="' . get_bloginfo( 'description' ) . '" />';
-      echo '<meta name="DC.description" lang="' . get_bloginfo( 'language' ) . '" content="' . get_bloginfo( 'description' ) . '" />';
+      echo '<meta name="description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+      echo '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+      echo '<meta name="twitter:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
       echo '<!-- Fin des métas Description dynamiques -->';
     }
   }
@@ -704,15 +704,15 @@
     if ( is_single() && has_post_thumbnail() ) {
       $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
       echo '<!-- Métas Image dynamiques -->';
-      echo '<meta property="og:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
-      echo '<link rel="image_src" href="'. esc_attr( $thumbnail_src[0] ) . '" />';
-      echo '<meta property="twitter:image" content="' . esc_attr( $thumbnail_src[0] ) . '"/>';
+      echo '<meta property="og:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
+      echo '<link rel="image_src" href="'. esc_url( $thumbnail_src[0] ) . '" />';
+      echo '<meta property="twitter:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
       echo '<!-- Fin des métas Image dynamiques -->';
-    } else {
+    } elseif ( get_header_image() ) {
       echo '<!-- Métas Image dynamiques -->';
-      echo '<meta property="og:image" content="' . get_header_image() . '"/>';
-      echo '<link rel="image_src" href="'. get_header_image() . '" />';
-      echo '<meta property="twitter:image" content="' . get_header_image() . '"/>';
+      echo '<meta property="og:image" content="' . esc_url( get_header_image() ) . '"/>';
+      echo '<link rel="image_src" href="'. esc_url( get_header_image() ) . '" />';
+      echo '<meta property="twitter:image" content="' . esc_url( get_header_image() ) . '"/>';
       echo '<!-- Fin des métas Image dynamiques -->';
     }
   }

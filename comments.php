@@ -18,7 +18,7 @@ if ( post_password_required() )
 
 <div class="comments-area" id="comments">
   <?php if ( have_comments() ) : ?>
-    <h2 class="comments-title" itemprop="interactionCount" content="UserComments:<?php echo get_comments_number(); ?>">
+    <h2 class="comments-title" itemprop="interactionCount" content="UserComments:<?php echo esc_attr( get_comments_number() ); ?>">
     <?php
       printf( _n( __( 'Une réponse sur &ldquo;%2$s&rdquo;', 'ffeeeedd' ), __( '%1$s réponses sur &ldquo;%2$s&rdquo;', 'ffeeeedd' ), get_comments_number(), '' ),
       number_format_i18n( get_comments_number() ), '<span itemprop="discusses">' . get_the_title() . '</span>' );
