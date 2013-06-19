@@ -537,6 +537,10 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 * Sécurité :
  * Chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas.
  * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
+ * Utiliser des mots de passe sécurisant : au moins 8 caractères dont des chiffres, symboles spéciaux, majuscules et minuscules.
+ * Changer le préfixe des tables de la base de données `wp_` par défaut.
+ * Ne pas conserver l'identifiant `admin` pour le compte super administrateur : personnaliser l'identifiant.
+ * Supprimer le fichier `readme.html` à la racine de WordPress.
 
 ==
 

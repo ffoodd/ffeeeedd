@@ -31,7 +31,7 @@ get_header(); ?>
         <a href="https://plus.google.com/share?url=<?php esc_url( the_permalink() ) ?>" target="_blank" rel="nofollow"><?php echo __( 'Partager sur Google+', 'ffeeeedd' ); ?></a>
         <a href="mailto:?subject=<?php the_title_attribute() ?>?body=<?php esc_url( the_permalink() ) ?>" target="_blank" rel="nofollow"><?php echo __( 'Envoyer par email', 'ffeeeedd' ); ?></a>
         <!-- Mise en place d'une mécanique simple pour l'impression, en fonction de l'activation du js -->
-        <a class="js-visible" href="javascript:window.print()" target="_blank" rel="nofollow" title="<?php echo __( 'Imprimez cet article', 'ffeeeedd' ); ?>"><?php echo __( 'Imprimer', 'ffeeeedd' ); ?></a>
+        <a class="js-visible" href="javascript:window.print()" target="_blank" rel="nofollow" title="<?php echo esc_attr__( 'Imprimez cet article', 'ffeeeedd' ); ?>"><?php echo __( 'Imprimer', 'ffeeeedd' ); ?></a>
         <strong class="js-hidden"><?php echo __( 'Pour imprimer cette page, utilisez le raccourci <kbd>Ctrl + P</kbd>', 'ffeeeedd' ); ?></strong>
       </p>
     </footer>
