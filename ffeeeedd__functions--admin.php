@@ -52,6 +52,7 @@
   /* -- @subsection Ajout des champs utiles dans ces blocs -------------------- */
   function ffeeeedd__metabox__contenu( $post ) {
     $val_title = get_post_meta( $post->ID, '_ffeeeedd__metabox__titre', true );
+    $val_canonical = get_post_meta( $post->ID, '_ffeeeedd__metabox__canonical', true );
     $val_description = get_post_meta( $post->ID, '_ffeeeedd__metabox__description', true ); ?>
     <p><?php echo __( 'Ces champs sont utilisés dans les balises \'meta\' utiles au référencement naturel et au partage social.', 'ffeeeedd' ); ?>.</p>
     <p><strong><?php echo __( 'Titre', 'ffeeeedd' ); ?></strong></p>
@@ -62,7 +63,12 @@
     <p><strong><?php echo __( 'Description', 'ffeeeedd' ); ?></strong></p>
     <p>
       <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php echo __( 'Description', 'ffeeeedd' ); ?></label>
-      <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:none;"><?php echo $val_description; ?></textarea>
+      <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:vertical;"><?php echo $val_description; ?></textarea>
+    </p>
+    <p><strong><?php echo __( 'URL(s) canonique(s)', 'ffeeeedd' ); ?></strong></p>
+    <p>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__canonical"><?php echo __( 'URL canonique', 'ffeeeedd' ); ?></label>
+      <input id="ffeeeedd__metabox__canonical" name="ffeeeedd__metabox__canonical" placeholder="http://" type="url" style="width:100%;" value="<?php echo $val_canonical; ?>" />
     </p>
   <?php }
 
@@ -72,7 +78,10 @@
       update_post_meta( $post_ID, '_ffeeeedd__metabox__titre', esc_html( $_POST['ffeeeedd__metabox__titre'] ) );
     }
     if( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
-      update_post_meta( $post_ID,'_ffeeeedd__metabox__description', esc_html( $_POST['ffeeeedd__metabox__description'] ) );
+      update_post_meta( $post_ID, '_ffeeeedd__metabox__description', esc_html( $_POST['ffeeeedd__metabox__description'] ) );
+    }
+    if( isset( $_POST['ffeeeedd__metabox__canonical'] ) ) {
+      update_post_meta( $post_ID, '_ffeeeedd__metabox__canonical', esc_html( $_POST['ffeeeedd__metabox__canonical'] ) );
     }
   }
   add_action( 'save_post', 'ffeeeedd__metabox__save' );

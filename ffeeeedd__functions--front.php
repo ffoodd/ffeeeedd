@@ -42,7 +42,8 @@
     -- Suppression de l'attribut rel="nofollow" sur les commentaires
   == Référencement Social / SEO
     -- Ajoute les métas 'Description' dans le <head>
-    -- Modifie la valeur des métas 'Title' dans le <head>
+    -- Génère le titre utilisé dans les métas 'Title'
+    -- Ajoute un <link rel="canonical" /> si le champ est rempli
   == Ajout des métas Image dans le <head>
 */
 
@@ -677,16 +678,39 @@
   }
   add_action( 'wp_head', 'ffeeeedd__injection__description' );
 
-  /* -- @subsection Modifie la valeur des métas 'Title' dans le <head> -------------------- */
-  function ffeeeedd__injection__titre( $title ) {
-    global $wp_query;
-    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {
-      return get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true );
-    } else {
+  /* -- @subsection Génère le titre utilisé dans les métas 'Title' -------------------- */
+  function ffeeeedd__injection__titre( $title, $sep, $seplocation ) {
+    global $wp_query, $page, $paged;
+    // Ne change rien pour les flux RSS
+    if ( is_feed() )
       return $title;
+    // Modifie le titre si le champ de l'administration est rempli
+    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) )
+      $title = esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . ' ' . $sep . ' ';
+    // Ajoute le nom du site
+    if ( 'right' == $seplocation )
+      $title .= get_bloginfo( 'name' );
+    else
+      $title = get_bloginfo( 'name' ) . $title;
+    // Ajoute la description (pour la page d'accueil et de blog)
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) )
+      $title .= ' ' . $sep . ' ' . $site_description;
+    // Ajoute le numéro de la page dans le cas d'une pagination
+    if ( $paged >= 2 || $page >= 2 )
+      $title .= ' ' . $sep . ' ' . sprintf( __( 'Page %s', 'ffeeeedd' ), max( $paged, $page ) );
+    return $title;
+  }
+  add_filter( 'wp_title', 'ffeeeedd__injection__titre', 10, 3 );
+
+  /* -- @subsection Ajoute un <link rel="canonical" /> si le champ est rempli -------------------- */
+  function ffeeeedd__injection__canonical() {
+    global $wp_query;
+    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
+      echo '<link rel="canoncial" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
     }
   }
-  add_filter( 'wp_title', 'ffeeeedd__injection__titre' );
+  add_filter( 'wp_head', 'ffeeeedd__injection__canonical' );
 
 
   /* == @section Ajout des métas Image dans le <head> ==================== */

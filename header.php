@@ -15,7 +15,7 @@
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
   <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
     <meta charset="utf-8"/>
-    <title><?php is_front_page() ? bloginfo( 'name' ) : wp_title( '', true ); ?></title>
+    <title><?php wp_title( '-', true, 'right' ); ?></title>
     <base href="<?php echo esc_url( home_url() ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="initial-scale=1.0" />
@@ -40,7 +40,7 @@
         <meta name="msapplication-TileImage" content="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png">
     <!-- /Favicons, icons et Tuile Windows 8 -->
     <!-- Métas Facebook simples -->
-      <meta property="og:title" content="<?php is_front_page() ? esc_attr( bloginfo( 'name' ) ) : esc_attr( wp_title( '', true ) ); ?>" />
+      <meta property="og:title" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
       <meta property="og:site_name" content="<?php esc_attr( bloginfo( 'name' ) ); ?>" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="<?php echo esc_url( get_permalink() ); ?>" />
@@ -48,14 +48,14 @@
     <!-- Métas Twitter simples -->
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content="<?php echo esc_url( get_permalink() ); ?>">
-      <meta name="twitter:title" content="<?php is_front_page() ? esc_attr( bloginfo( 'name' ) ) : esc_attr( wp_title( '', true ) ); ?>" />
+      <meta name="twitter:title" content="<?php esc_attr( wp_title( '-', true, 'right' ) );?>" />
       <?php if ( get_the_author_meta( 'twitter', 1 ) ) : ?>
       <meta name="twitter:creator" content="<?php esc_attr( the_author_meta( 'twitter', 1 ) ); ?>" />
       <?php endif; ?>
     <!-- /Fin des métas Twitter simples -->
     <!-- Métas DublinCore simples -->
       <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-      <meta name="DC.title" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="<?php is_front_page() ? esc_attr( bloginfo( 'name' ) ) : esc_attr( wp_title( '', true ) ); ?>" />
+      <meta name="DC.title" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
       <meta name="DC.identifier" content="<?php echo esc_url( get_permalink() ); ?>" />
       <meta name="DC.type" content="text" />
       <meta name="DC.subject" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="HTML, document, Dublin Core" />

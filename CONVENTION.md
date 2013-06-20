@@ -438,7 +438,7 @@ Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce t
 Charte PHP
 ----------
 
-* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress.
+* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress et à la création de thèmes (cf [Theme Review](http://codex.wordpress.org/Theme_Review) ).
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -475,6 +475,7 @@ Charte PHP
 ==
 
 * Références & inspirations :
+ * [Theme Review](http://codex.wordpress.org/Theme_Review)
  * [WordPress PHP Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/php/)
  * [PEAR Coding Standards](http://pear.php.net/manual/en/standards.php)
 
@@ -541,6 +542,9 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * Changer le préfixe des tables de la base de données `wp_` par défaut.
  * Ne pas conserver l'identifiant `admin` pour le compte super administrateur : personnaliser l'identifiant.
  * Supprimer le fichier `readme.html` à la racine de WordPress.
+ * Si possible, protéger le répertoire `wp-admin` à l'aide d'un fichier `.htpasswd` et rendre l'authentification obligatoire via le `.htaccess`.
+ * Interdire l'éditeur PHP dans l'administration en ajoutant `define('DISALLOW_FILE_EDIT', true);` au fichier `wp-config.php`.
+ * WordPress a [une page dédiée sur le codex](http://codex.wordpress.org/Hardening_WordPress).
 
 ==
 
@@ -596,3 +600,4 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [La documentation Twitter](https://dev.twitter.com/docs/cards)
  * [Les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
  * [Xenu](http://home.snafu.de/tilman/xenulink.html)
+ * [Hardening WordPress](http://codex.wordpress.org/Hardening_WordPress)
