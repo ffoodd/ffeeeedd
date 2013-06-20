@@ -707,7 +707,7 @@
   function ffeeeedd__injection__canonical() {
     global $wp_query;
     if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
-      echo '<link rel="canoncial" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
+      echo '<link rel="canonical" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
     }
   }
   add_filter( 'wp_head', 'ffeeeedd__injection__canonical' );
