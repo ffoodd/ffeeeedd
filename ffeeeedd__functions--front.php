@@ -30,7 +30,6 @@
     -- Créer les éléments html5 pour IE8 et -
     -- Tester l'activation du js
     -- Réponse aux commentaires
-  == Minification du HTML
   == Fil d'Ariane
     -- Récupère les catégories parentes et y ajoute les microdonnées
     -- On génère le fil d'Ariane
@@ -187,18 +186,16 @@
 
   /* -- @subsection Ajouter les scripts et styles via wp_head() -------------------- */
   add_action( 'wp_enqueue_scripts', 'ffeeeedd__script' );
-  function ffeeeedd__script() {
-    // À employer en dev, script.js est indenté, lisible et les fonctions/variables ont des intitulés compréhensibles.
-    //wp_register_script( 'site', get_template_directory_uri().'/script.js', false, null, false );
-    // À utiliser en prod, fichier minifié et obscurci. Ajouter la date ou la version pour la mise en cache.
-    //wp_register_script( 'site', get_template_directory_uri().'/script.20130103.min.js', false, null, false );
-    //wp_enqueue_script( 'site' );
+  if ( ! function_exists( 'ffeeeedd__script' ) ) {
+    function ffeeeedd__script() {
+      // À employer en dev, script.js est indenté, lisible et les fonctions/variables ont des intitulés compréhensibles.
+      //wp_register_script( 'site', get_template_directory_uri().'/script.js', false, null, false );
+      //wp_enqueue_script( 'site' );
 
-    // À employer en dev, style.css utilise @import pour améliorer la compréhension de l'architecture css.
-    wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
-    // À utiliser en prod, fichier minifié. Ajouter la date ou la version pour la mise en cache.
-    //wp_register_style( 'all', get_stylesheet_directory_uri().'/style.20130103.min.css', '', null, 'all' );
-    wp_enqueue_style( 'all' );
+      // À employer en dev, style.css utilise @import pour améliorer la compréhension de l'architecture css.
+      wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
+      wp_enqueue_style( 'all' );
+    }
   }
 
   /* -- @subsection Créer les éléments html5 pour IE8 et - -------------------- */
@@ -243,29 +240,6 @@
   /* -- @subsection Réponse aux commentaires -------------------- */
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
   wp_enqueue_script( 'comment-reply' );
-
-
-  /* == @section Minification du HTML ==================== */
-  /**
-   * @author Jonathan Buttigieg
-   * @see https://twitter.com/GeekPressFR
-   * @see http://www.geekpress.fr/wordpress/astuce/minifier-html-sans-plugin-1566/
-   */
-
-  /*add_action('get_header', 'ffeeeedd__minif');
-  function ffeeeedd__minif() {
-    ob_start( 'end_minif' );
-  }
-  function end_minif( $html ) {
-    // Suppression des commentaires HTML, sauf les commentaires conditionnels pour IE
-    // À n'utiliser qu'en prod
-    $html = preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/s', '', $html);
-    // Suppression des espaces vides
-    $html = str_replace( array( "\r\n", "\r", "\n", "\t" ), '', $html );
-    while ( stristr( $html, '  ' ) )
-    $html = str_replace( '  ', ' ', $html );
-    return $html;
-  }*/
 
 
   /* == @section Fil d'Ariane ==================== */

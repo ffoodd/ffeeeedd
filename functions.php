@@ -16,6 +16,7 @@
   == Options du thème
   == Traduction
   == Colonnes latérales
+  == Personnaliser le logo
   == Fonctions conditionnelles
     -- Fonctions de l'administration
     -- Fonctions du front-end
@@ -73,6 +74,30 @@
     ) );
   }
   add_action( 'widgets_init', 'ffeeeedd_widgets_init' );
+
+
+  /* == @section Personnaliser le logo ==================== */
+  /**
+   * @note Ajoute le support de la personnlisation de l'entête,
+   * @note On le détourne pour personnaliser le logo.
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   */
+  function ffeeeedd__logo() {
+    $header_args = array(
+      'default-image'       => get_template_directory_uri() . '/img/logo.png',
+      'width'               => 180,
+      'height'              => 180,
+      'flex-width'          => true,
+      'flex-height'         => true,
+      'random-default'      => false,
+      'header-text'         => false,
+      'default-text-color'  => '',
+      'uploads'             => true,
+    );
+    add_theme_support( 'custom-header', $header_args );
+  }
+  add_action( 'after_setup_theme', 'ffeeeedd__logo' );
 
 
   /* == @section Fonctions conditionnelles ==================== */

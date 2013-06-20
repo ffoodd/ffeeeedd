@@ -36,12 +36,12 @@
 /* Sommaire */
 /* ----------------------------- */
 /*
- 1- Détection des erreurs.
- 2- Messages d'erreur.
+ == Détection des erreurs.
+ == Messages d'erreur.
 */
 
 
-/* =Détection des erreurs.
+/* == @section Détection des erreurs.
  *
  * @note : Sert à détecter les liens utilisés comme boutons d'action,
  * certains liens temporaires dont l'url n'est pas renseignée,
@@ -164,11 +164,7 @@ th:empty {
   background: gold !important;
 }
 
-/* =Messages d'erreur
- * ==Styles d'alertes.
- * ==Contenu des alertes.
-*/
-
+/* == @section Messages d'erreur, Styles d'alertes, Contenu des alertes. */
 
 /* ==Styles d'alertes */
 /* Liens */
