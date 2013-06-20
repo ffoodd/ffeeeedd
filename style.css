@@ -33,18 +33,6 @@
 
 @import url("css/kit.css") screen;
 
-/*
- * @note : Utile dans le cas d'un site responsive
- *
- @import url("css/media.css") screen;
-*/
-
 @import url("css/ie.css") screen;
 
 @import url("css/impression.css") print;
-
-/*
- * @note : À supprimer avant de compiler les css
- * Sert à vérifier les éléments vides, invalides ou dépéréciés.
- */
-@import url("css/debug.css") screen;
