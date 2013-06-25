@@ -18,8 +18,8 @@ L'intérêt - personnel - de ce projet est d'avoir une base riche : micro-donné
 
 De plus, une approche accessible est amenée avec le soutien et les conseils de [Kloh](http://www.kloh.fr/ "Kloh.fr"), expert accessiweb.
 
-Comment ça marche ?
--------------------
+Mode d'emploi
+-------------
 
 Afin de faciliter la personnalisation de ce thème et son adaptation à chaque projet, un micro-framework css est utilisé - basé sur [Knacss](http://knacss.com/ "Knaccs.com") par l'excellent [Raphaël Goetter](http://goetter.fr/ "Goetter.fr"). La version utilisée sur ffeeeedd est cependant légèrement retouchée, et sera enrichie de quelques astuces personnelles.
 
@@ -28,15 +28,15 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 3. Définir "ffeeeedd--prototype" comme thème actif pour prototyper l'ensemble du site.
  * Travailler dans `prototype.css` pour personnaliser le rythme vertical,
  * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront factices, à savoir en HTML dans les templates de ffeeeedd,
- * Appliquer les classes définies dans `structure.css` pour agencer les blocs (il est possible d'ajouterdes classes),
+ * Appliquer les classes définies dans `structure.css` pour agencer les blocs (il est possible d'ajouterdes classes).
  * Prévoir la version mobile dès cette étape.
 4. Transférer les ajouts de `prototype.css` vers `kit.css` dans ffeeeedd.
-5. Définir "ffeeeedd--developpement" comme thème actif
+5. Définir "ffeeeedd--developpement" comme thème actif :
  * Certaines fonctions et blocs devront être ajoutés ou créés à ce moment-là, afin de populer les blocs factices créés lors du prototypage,
- * Activer le mode `WP_DEBUG` de WordPress
+ * Activer le mode `WP_DEBUG` de WordPress,
  * Vérifier les points remontés par `debug.css` régulièrement,
- * Personnaliser le `kit.css` : couleurs, typographies, classes spécifiques...
- * Ajouter les scripts utiles, ainsi que les plugins.
+ * Personnaliser le `kit.css` : couleurs, typographies, classes spécifiques, etc,
+ * Ajouter les scripts utiles, ainsi que les plugins,
  * Effectuer une recette complète du site (cf "Recette générale" ci-après).
 6. Concaténer et minifier les fichiers css (vers `style.css`, en omettant `debug.css`) et javascript (vers `script.js`) et les placer dans "ffeeeedd--production".
 7. Définir "ffeeeedd--production" comme thème actif.
