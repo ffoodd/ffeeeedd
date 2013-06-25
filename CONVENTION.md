@@ -44,7 +44,7 @@ Les règles suivantes sont valables pour tous les fichiers, à l'exception des f
 Charte CSS
 ----------
 
-@note : seul le fichier kit.css est voué à être modifié.
+@note : L'intention principale est de n'avoir à modifier que `kit.css` (et `ie.css` bien sûr), mais dans le cadre d'un site plus avancé, il sera possible de modifier également `structure.css` pour amplifier ses capacités.
 
 * Encodage : Déclarer le charset `@charset "UTF-8";` en tout début de fichier.
 
@@ -76,22 +76,22 @@ Charte CSS
  * Les règles sont ferrées à gauche.
  * Un espace avant l'accolade ouvrante ` {`.
  * Un espace après les deux-points `: ` d'une règle.
- * Un point-virgule `;` à la fin de chaque règle.
- * L'accolade de fermeture `}` est placé à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'applique les déclarations.
+ * Un point-virgule `;` à la fin de *chaque* règle.
+ * L'accolade de fermeture `}` est placée à la ligne après la dernière règle et au même niveau d'indentation que le(s) sélecteur(s) au(x)quel(s) s'appliquent les déclarations.
  * Une ligne est sautée entre chaque bloc de règles.
- * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur qui contient une classe ou un ID*.
- * Les sélecteurs d'adjacence, d'enfant ou d'attributs doivent être évité autant que possible, car ils nuisent à la performance globale.
+ * Éviter de surqualifier les sélecteurs : *ne jamais indiquer l'élément HTML dans un sélecteur qui contient une classe ou un ID*. La seule exception acceptable concerne les sélecteurs d'attributs, mais même dans ce cas il faut tenter de s'en passer.
+ * Les sélecteurs d'adjacence, d'enfant ou d'attributs doivent être évités autant que possible, car ils nuisent à la performance globale.
  * De même les sélecteurs doivent être courts, une seule cible par sélecteur est l'idéal.
  * Les sélecteurs d'attributs doivent utiliser des guillemets doubles ( `type="radio"` ).
  * Dans tous les cas utilisant des guillemets, préférer les guillemets doubles.
- * Exception : Dans le cas d'une déclaration contenant une seule règle *et* un seul sélecteur, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades.
+ * Exception : Dans le cas d'une déclaration contenant une seule règle *et* un seul sélecteur, ne pas la mettre à la ligne mais préférer insérer un espace avant et après les accolades (`.classe { margin: 0; }`).
 
 ==
-  
+
 * Classes et identifiants :
  * Limiter au maximum l'utilisation d'identifiants.
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
- * Le fichier structure.css met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirée de la pensée [OOCSS](http://oocss.org/ "oocss.org"). *Il n'est pas censé être modifié.*
+ * Le fichier `structure.css` met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirées de la pensée [OOCSS](http://oocss.org/ "oocss.org"). Il est possible d'ajouter des classes en suivant les règles d'écriture déjà définies, notamment pour les largeurs en pixels.
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
   * Ex: `.block`
   * Ex: `.block--element`
@@ -104,16 +104,20 @@ Charte CSS
  * La valeur des couleurs simples doit se faire en hexadécimal raccourci ( `#fff` pour le blanc )
  * Utiliser des bas de casses pour les valeurs hexadécimales.
  * La valeur des couleurs complexes doit se faire autant que possible en `hsl` / `hsla` avec un fallback en `rgb` pour *IE8 et -* . ( cf [l'article de Vincent De Oliveira](http://blog.iamvdo.me/post/46251119961/les-avantages-de-hsl-par-rapport-a-rgb) ).
- * Les corps de texte doivent être formulés en `em` (avec un fallback en `px` pour *IE7 et -*).
+ * Les corps de texte doivent être formulés en `em` (avec un fallback en `px` pour *IE7 et - s'ils sont supportés*).
  * Les hauteurs doivent être formulées en `em` afin de conserver le rythme vertical.
- * Les *marges* ( margin et padding ) doivent également être formulées en `em`.
+ * Les *marges* ( `margin` et `padding` ) doivent également être formulées en `em`.
  * Les largeurs doivent être formulées en `%` afin de simplifier les calculs de largeurs cumulées.
- * Les chiffres magiques ( arbitraires, ex : 37px ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
- * Ne pas préciser d'unité pour les valeurs nulles (0) lorsque c'est autorisé.
- * Ne pas préciser le 0 dans les valeurs décimales inférieures à 1 ( 0.2 => .2 ).
+ * Les chiffres magiques ( arbitraires, ex : `37px` ) sont à bannir : toutes les valeurs doivent être exprimées de façon relative.
+ * Ne pas préciser d'unité pour les valeurs nulles (`0`) lorsque c'est autorisé.
+ * Ne pas préciser le `0` dans les valeurs décimales inférieures à `1` ( `0.2` => `.2` ).
  * Toujours ajouter une espace après une virgule dans les valeurs complexes ( comme `hsla`, Ex: `hsla( 0, 0, 0, .5)`.
  * Proscrire l'emploi de `!important`.
  * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
+  * Ex: `-webkit-machin: 0;`
+  * Ex: `-moz-machin:    0;`
+  * Ex: `-o-machin:      0;`
+  * Ex: `machin:         0;`
  * Exception : Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les dégradés ).
 
 ==
@@ -124,15 +128,14 @@ Charte CSS
  * `a:visited { }` : pour les liens visités.
  * `a:hover { }` : pour les liens survolés.
  * `a:active { }` : pour les liens actifs.
- * `a { }`.
- 
+
 ==
 
 * Navigation : La navigation au clavier doit être facile et claire, la prise de `:focus` doit être visuellement indiquée.
 
 * Media Queries :
- * Les requêtes médias doivent être situées à la fin du fichier afin d'éviter les conflits dans la cascade.
- * En phase de développement, il est envisageable d'ajouter un fichier `medias.css` appellé après le kit.
+ * Les requêtes médias doivent être situées à la fin du fichier `kit.css` afin d'éviter les conflits dans la cascade.
+ * En phase de développement, il est envisageable d'ajouter un fichier `medias.css` appellé après le `kit.css`.
  * Les requêtes médias doivent être indentées logiquement, afin que leur imbrication soit visuellement parlante ( les déclarations au sein d'une requête auront un niveau d'indentation suplémentaire par rapport aux déclarations hors requêtes ).
  * Les requêtes médias sont ordonnées de la contrainte la plus basse à la contrainte la plus haute, de façon cumulative ( penser "Mobile First" ).
 
@@ -140,8 +143,8 @@ Charte CSS
 
 * Images :
  * Les images ajoutées via CSS doivent être purement décoratives.
- * Les images présentes sur l'ensemble des pages - ou presque - doivent être regroupées en sprite, au format .png de préférence.
- * Les png doivent être optimisés : en png-8 quand c'est possible, et avec des outils tels que [PngOptimizer](http://psydk.org/PngOptimizer.php "Optimisateur de png").
+ * Les images présentes sur l'ensemble des pages - ou presque - doivent être regroupées en sprite, au format `.png` de préférence.
+ * Les `.png` doivent être optimisés : en `png-8` quand c'est possible, et avec des outils tels que [PngOptimizer](http://psydk.org/PngOptimizer.php "Optimisateur de png").
  * Les petites images spécifiques à certaines pages ne doivent pas être ajoutées au sprite, mais peuvent être converties en DataURI ( encodage en base64 ). Des sites comme [Duri.me](http://duri.me/ "Encoder une image en base64") permettent une conversion très simple.
 
 ==
@@ -151,24 +154,24 @@ Charte CSS
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
  * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
- * Les formats .woff et .eot suffisent dans la plupart des cas.
+ * Les formats `.woff` et `.eot` suffisent dans la plupart des cas.
  * Éviter l'emploi de faux-gras et faux-italiques ( id est : généré par le navigateur en l'absence de fichier dédié ).
  * Il est fortement déconseillé d'utiliser plus de trois typographies ( leur déclinaison en graisse(s) est recommandée ).
 
 ==
 
 * Compatibilité :
- * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé ( CSSDoc prévoit le duo @bugfix et @affected ).
+ * Dans le cas de règles expérimentales ou anciennes, ajouter un commentaire pour spécifier le navigateur / version ciblé(e) ( CSSDoc prévoit le duo `@bugfix` et `@affected` ).
  * Dégradés : un outil tel que [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé") doit être utilisé pour les dégradés, afin de maximiser la compatibilité.
  * Dégradés : les dégradés sont des valeurs de `background-image` : il faut définir un fallback à l'aide de `background-color`, et ne surtout pas les appliquer directement en tant que `background` !
  * Les préfixes vendeurs doivent précéder la version non-préfixée.
- * Les styles spécifiques à IE8 et inférieur doivent être inclus dans le fichier final styles.css, afin d'en faciliter la maintenance.
+ * Les styles spécifiques à IE8 et inférieur doivent être inclus dans le fichier `style.css` en phase de production, afin d'en faciliter la maintenance.
  * Les styles spécifiques à IE8 et inférieur s'appuient sur des classes conditonnelles appliquées à `<html>`.
  * Une couleur de fond doit être appliquée au `<body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
- * Une classe js / no-js permet d'appliquer des styles en fonction de l'activation du javascript, lorsque les data-attributs ne suffisent pas.
+ * Une classe `js` / `no-js` permet d'appliquer des styles en fonction de l'activation du javascript, lorsque les data-attributs ne suffisent pas.
  * Éviter les filtres propriétaires de Microsoft : la transparence ou les dégradés sont souvent de simples ornements, dispensables dans le cadre d'une dégradation gracieuse comme d'une amélioration progressive.
- * Si besoin de distinguer un élément au sein d'un groupes d'éléments identiques ( Ex : un `<li>` dans un `<ul>` ), préférer distinguer le premier élément plutôt que le dernier. `:first-child` dispose d'une meilleure compatibilité que son jumeau maléfique, et le nombre total peut varier ce qui rend le dernier élément volatile, tandis qu'on est sûr de toujours avoir un premier élément.
+ * Si besoin de distinguer un élément au sein d'un groupes d'éléments identiques ( Ex : un `<li>` dans un `<ul>` ), préférer distinguer le premier élément plutôt que le dernier. `:first-child` dispose d'une meilleure compatibilité que son jumeau maléfique `:last-child`, et le nombre total peut varier ce qui rend le dernier élément volatile, tandis qu'on est sûr de toujours avoir un premier élément.
 
 ==
 
@@ -236,9 +239,9 @@ Charte HTML
 
 * Encodage : Spécifier l'encodage via la balise meta dédiée `<meta charset="utf-8">`.
 
-* Langue : Ma langue doit être spécifiée sur la balise `<html>` ( ex: `lang="fr-FR"` ).
+* Langue : La langue doit être spécifiée sur la balise `<html>` ( ex: `lang="fr-FR"` ).
 
-* Organisation du `<head>` : 
+* Organisation du `<head>` :
  * La `<meta charset="utf-8">` doit être le premier enfant du `<head>`.
  * La balise `<title>` doit venir en deuxième position.
  * Ajouter la balise `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` en vue d'améliorer le rendu sur IE.
@@ -250,11 +253,11 @@ Charte HTML
 
 * Espaces : Supprimer les espaces inutiles en bout de ligne.
 
-* Écriture : Les balises et attributs doivent être rédigés en minuscules ( CamelCase prohibé ).
+* Écriture : Les balises et attributs doivent être rédigés en minuscules ( *CamelCase prohibé* ).
 
 * Retours chariots : Revenir à la ligne à chaque ouverture de balise, et indenter en conséquence. Reformulé : une seule balise par ligne.
 
-* Sémantique : Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement. Un détail de chaque balise et de son sens est disponible sur [HTML5 Doctor](http://html5doctor.com/ "Index des éléments HTML5")
+* Sémantique : Utiliser les balises en fonction de leur signification et non de leur mise en forme : le choix des balises doit se faire indépendamment de la présentation et du comportement. Un détail de chaque balise et de son sens est disponible sur [HTML5 Doctor](http://html5doctor.com/ "Index des éléments HTML5").
 
 * Organisation : La hiérarchie des titres doit être cohérente et claire.
 
@@ -262,7 +265,7 @@ Charte HTML
 
 * Commentaires : Commenter la fermeture de chaque balise importante en HTML, puis sauter une ligne. L'importance dépend du seul jugement de l'auteur, mais certains cas sont indispensables : par exemple `<main>` s'ouvre dans `header.php` et se ferme dans `footer.php`. *L'intérêt est de faciliter l'orientation dans le code source.*
 
-* Multimédias : Fournir des alternatives aux médias ( attributs alt, sous-titres, etc...).
+* Multimédias : Fournir des alternatives aux médias ( attributs `alt`, sous-titres, etc...).
 
 * Fermeture de balise : Chaque balise doit être correctement fermée; les balises auto-fermantes doivent contenir un espace avant le slash de fermeture.
 
@@ -271,7 +274,7 @@ Charte HTML
  * Utiliser des guillemets doubles pour cerner les valeurs des attributs.
  * Spécifier les *rôles ARIA* dès que possible ( cf: [WAI ARIA](http://www.w3.org/TR/wai-aria/ "La recommandation du W3C") ).
  * Ajouter les *microdonnées* lorsque c'est utile ( cf: [schema.org](http://schema.org/docs/full.html "Liste des microdonnées") ).
- * L'attribut style ne doit pas être utilisé.
+ * L'attribut `style` ne doit pas être utilisé.
  * Dans le cas de nombreux attributs, on envisagera de revenir à la ligne entre chaque attribut afin d'améliorer la lisibilité.
 
 ==
@@ -280,7 +283,7 @@ Charte HTML
  1. `class` : valoriser l'utilisation des classes par rapport aux IDs pour les CSS.
  2. `id`
  3. `role`
- 4. `data-*` : pour servir de crochat au javascript.
+ 4. `data-*` : pour servir de crochet au javascript.
  5. `aria-*` : pour l'accessibilité et la sémantique.
  6. autre(s) : href, title, alt, microdonnées, etc...
 
@@ -293,21 +296,21 @@ Charte HTML
 ==
 
 * Les favicon, Apple icon et tuiles Windows doivent être fournies aux formats demandés :
- * apple-touch-icon-144x144.png
- * apple-touch-icon-114x114.png
- * apple-touch-icon-72x72.png
- * apple-touch-icon.png
- * favicon.ico (48x48)
- * favicon.png (32x32)
- * favicon-128.png
- * favicon.ico (16x16)
+ * `apple-touch-icon-144x144.png`
+ * `apple-touch-icon-114x114.png`
+ * `apple-touch-icon-72x72.png`
+ * `apple-touch-icon.png`
+ * `favicon.ico` (48x48)
+ * `favicon.png` (32x32)
+ * `favicon-128.png`
+ * `favicon.ico` (16x16)
 * Pour ce faire, utiliser le fichier `ffeeeedd__favicons.psd` inclus dans le dossier `img` :
- * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregistrez l'objet puis le psd.
- * Choisissez "Enregistrer pour le web", au format png-24. Toutes les images nécessaires seront exportées, déjà nommées correctement.
- * Convertissez les fichiers dont le nom se termine par "-ico.png" au format .ico via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en favicon.ico.
+ * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregistrez l'objet puis le `psd`.
+ * Choisissez "Enregistrer pour le web", au format `png-24`. Toutes les images nécessaires seront exportées, déjà nommées correctement.
+ * Convertissez les fichiers dont le nom se termine par "-ico.png" au format `.ico` via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en `favicon.ico`.
  * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd/img/ico`.
  * *Exception* : le `favicon.ico` de 16x16 pixel doit être placé à la racine du site.
- * Optimisez vos .png à l'aide de [PNG Optimizer](http://psydk.org/PngOptimizer.php) par exemple, et le tour est joué !
+ * Optimisez vos `.png` à l'aide de [PNG Optimizer](http://psydk.org/PngOptimizer.php) par exemple, et le tour est joué !
 
 ==
 
@@ -320,18 +323,18 @@ Charte HTML
  * Les erreurs sont retournées champ par champ, avec un intitulé explicitant l'erreur.
  * Le succès d'une soumission est également explicité textuellement.
  * Les contraintes de chaque champ sont indiquées à côté de celui-ci ( masque de saisie, sensibilité à la casse, nombre de caractères... ).
- 
+
 ==
 
 * Tableaux :
  * Chaque tableau de données doit disposer d'un titre.
- * Les en-têtes sont correctement balisées (`<th>`).
- * Les cellules doivent être reliées à leur en-tête.
+ * Les en-têtes sont correctement balisées ( `<th>` ).
+ * Les cellules doivent être reliées à leur en-tête ( `header=""` ).
 
 ==
 
 * Liens :
- * Chaque lien est doté d'un intitulé utile, décrivant sa fonction ou sa cible.
+ * Chaque lien est doté d'un intitulé utile, décrivant sa fonction et/ou sa cible.
  * Éviter les intitulés passe-partout (en savoir plus, cliquez ici).
  * Le soulignement est réservé aux liens, afin de les distinguer visuellement.
  * Les liens visités ont un style particulier, différenciant.
@@ -350,7 +353,7 @@ Charte HTML
 
 * Compatibilité :
  * S'appuyer sur des commentaires conditionnels pour cibler les versions d'IE.
- * Une classe no-js doit être présente sur `<html>` afin de tester l'activation du js.
+ * Une classe `no-js` doit être présente sur `<html>` afin de tester l'activation du js.
 
 ==
 
@@ -412,7 +415,7 @@ Charte Javascript
 
 ==
 
-* Manipulation du DOM : préférer s'appuyer sur des attributs `data-` que sur des classes ou des id.
+* Manipulation du DOM : préférer s'appuyer sur des attributs `data-` que sur des classes ou des identifiants.
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
@@ -438,7 +441,7 @@ Je garde bon espoir de me passer d'une librairie ou - à défaut - de baser ce t
 Charte PHP
 ----------
 
-* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress et à la création de thèmes (cf [Theme Review](http://codex.wordpress.org/Theme_Review) ).
+* Respect de WordPress : Pour des raisons évidentes, le code doit respecter les conventions inhérentes à WordPress et à la création de thèmes (cf [Theme Review](http://codex.wordpress.org/Theme_Review) ) à quelques exceptions près, précisées ci-après.
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -483,7 +486,7 @@ Charte PHP
 Mise en Production
 ------------------
 
-Lorsque le développement et l'intégration sont terminées, une recette est nécessaire. Il s'agit de parcourir toutes les pages, vérifier toutes les fonctionnalités ainsi que la compatibilité navigateurs. Selon les contraintes du projet, des tests sur différents terminaux et un audit d'accessibilité peuvent être nécessaires. Différents outils peuvent nous y aider. On passera ensuite à l'optimisation technique en vue d'améliorer les performances du site, toujours bénéfique tant aux internautes qu'aux robots.
+Lorsque le développement et l'intégration sont terminés, une recette est nécessaire. Il s'agit de parcourir toutes les pages, vérifier toutes les fonctionnalités ainsi que la compatibilité navigateurs. Selon les contraintes du projet, des tests sur différents terminaux et un audit d'accessibilité peuvent être nécessaires. Différents outils peuvent nous y aider. On passera ensuite à l'optimisation technique en vue d'améliorer les performances du site, toujours bénéfique tant aux internautes qu'aux robots.
 
 * Vérifications :
  * Une vérification avancée du thème (si vous en avez modifié les fonctions, ou si vous l'avez personnalisé) est indispensable. Je vous recommande l'utilisation de [Theme-Check](http://wordpress.org/plugins/theme-check/ 'Theme-Check sur le repostory des plugins'), et n'oubliez pas d'activer WP_DEBUG !
