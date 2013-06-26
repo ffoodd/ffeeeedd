@@ -13,7 +13,6 @@
 /* Sommaire */
 /* ----------------------------- */
 /*
-  == Styles dans l'éditeur
   == Référencement Social / SEO
     -- Création des blocs dans l'administration
     -- Ajout des champs utiles dans ces blocs
@@ -22,12 +21,6 @@
   == Compteur de caractères sur le champ extrait dans l'administration
 */
 
-
-  /* == @section Styles dans l'éditeur ==================== */
-  function ffeeeedd__styles__editeur() {
-    add_editor_style( 'css/editeur.css' );
-  }
-  add_action( 'init', 'ffeeeedd__styles__editeur' );
 
   /* == @section Référencement Social / SEO ==================== */
   /**

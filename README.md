@@ -27,10 +27,10 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 2. Si besoin, importer du contenu factice : utiliser celui proposé par WordPress dans les [Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test).
 3. Définir "ffeeeedd--prototype" comme thème actif pour prototyper l'ensemble du site.
  * Travailler dans `prototype.css` pour personnaliser le rythme vertical,
- * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront factices, à savoir en HTML dans les templates de ffeeeedd,
- * Appliquer les classes définies dans `structure.css` pour agencer les blocs (il est possible d'ajouterdes classes).
- * Prévoir la version mobile dès cette étape.
-4. Transférer les ajouts de `prototype.css` vers `kit.css` dans ffeeeedd.
+ * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront statiques, à savoir en HTML dans les templates de ffeeeedd,
+ * Appliquer les classes définies dans `structure.css` pour agencer les blocs (il est possible d'ajouter des classes pour les largeurs par exemple, mais uniquement dans `kit.css` et en respectant les conventions d'écriture pré-établies).
+ * Prévoir la version mobile dès cette étape (en utilisant `adaptation.css`).
+4. Transférer les ajouts de `prototype.css` vers `kit.css` dans "ffeeeedd--developpement".
 5. Définir "ffeeeedd--developpement" comme thème actif :
  * Certaines fonctions et blocs devront être ajoutés ou créés à ce moment-là, afin de populer les blocs factices créés lors du prototypage,
  * Activer le mode `WP_DEBUG` de WordPress,

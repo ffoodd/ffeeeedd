@@ -2,16 +2,15 @@
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
-* @lastmodified 2013-06-03
+* @lastmodified 2013-06-26
 * @subsection Références :
   * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
   * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
 */
 
 /* ----------------------------- */
-/* ==Reset */
-/* @note : Aucun de ces éléments ne doit être modifié. 
- * @note : Pour les modifier, utiliser la partie "Kit" et s'appuyer autant que possible sur la cascade.
+/* ==Base */
+/* @note : Aucun de ces éléments ne doit être modifié.
 /* ----------------------------- */
 
 /* Soft reset */
@@ -110,7 +109,7 @@ div {
   word-wrap: break-word;
 }
 
-/* Éviter interlignage disgracieux */
+/* Éviter l'interlignage disgracieux */
 sup,
 sub {
   vertical-align: 0;

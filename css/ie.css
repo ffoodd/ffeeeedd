@@ -1,8 +1,0 @@
-@charset "UTF-8";
-/* ----------------------------- */
-/* ==Pansement pour IE */
-/* ----------------------------- */
-
-.ie8 img {
-  width: auto; /* @bugfix @affected IE8 */
-}
