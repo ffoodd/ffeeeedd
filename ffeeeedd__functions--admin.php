@@ -87,6 +87,7 @@
    * @see https://twitter.com/geekeriesfr
    * @see http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
    */
+
   function ffeeeedd__user() {
     /* Supprimer des champs */
     unset( $contact['aim'] );
@@ -106,6 +107,7 @@
    * @see https://twitter.com/eliorivero
    * @see http://www.ilovecolors.com.ar/character-counter-excerpt-wordpress/
    */
+
   define( 'THEME_URI', get_template_directory_uri() );
   add_action( 'admin_enqueue_scripts', 'ffeeeedd__compteur', 10, 1 );
   function ffeeeedd__compteur( $page ) {

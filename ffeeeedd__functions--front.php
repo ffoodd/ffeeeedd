@@ -144,6 +144,7 @@
    * @see https://twitter.com/GeekPressFR
    * @see http://www.geekpress.fr/wordpress/tutoriel/ajouter-meta-open-graph-facebook-theme-wordpress-593/
    */
+
   function ffeeeedd__opengraph( $output ) {
     return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
   }
@@ -157,6 +158,7 @@
    * @note inspiré de la fonction "twentytwelve_entry_meta" du thème Twentytwelve, enrichie par mes soins de microdonnées, de la date de dernière modification et avec un format de date Français.
    * @see http://wordpress.org/extend/themes/twentytwelve
    */
+
   if ( ! function_exists( 'ffeeeedd__meta' ) ) :
     function ffeeeedd__meta() {
       // Liste des catégories & tags avec un séparateur.
@@ -188,11 +190,6 @@
   add_action( 'wp_enqueue_scripts', 'ffeeeedd__script' );
   if ( ! function_exists( 'ffeeeedd__script' ) ) {
     function ffeeeedd__script() {
-      // À employer en dev, script.js est indenté, lisible et les fonctions/variables ont des intitulés compréhensibles.
-      //wp_register_script( 'site', get_template_directory_uri().'/script.js', false, null, false );
-      //wp_enqueue_script( 'site' );
-
-      // À employer en dev, style.css utilise @import pour améliorer la compréhension de l'architecture css.
       wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
       wp_enqueue_style( 'all' );
     }
@@ -697,6 +694,7 @@
    * @author Gaël Poupard
    * @see https://twitter.com/ffoodd_fr
    */
+
   function ffeeeedd__injection__image() {
     global $post;
     if ( is_single() && has_post_thumbnail() ) {

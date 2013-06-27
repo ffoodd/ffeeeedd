@@ -41,6 +41,7 @@
    * @see Twentytwelve - Thème WordPress par défaut.
    * @link http://wordpress.org/extend/themes/twentytwelve
   */
+
   add_action( 'after_setup_theme', 'ffeeeedd__setup' );
   function ffeeeedd__setup() {
     load_theme_textdomain( 'ffeeeedd', get_template_directory() . '/lang' );
@@ -83,6 +84,7 @@
    * @author Gaël Poupard
    * @see https://twitter.com/ffoodd_fr
    */
+
   function ffeeeedd__logo() {
     $header_args = array(
       'default-image'       => get_template_directory_uri() . '/img/logo.png',
