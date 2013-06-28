@@ -66,7 +66,7 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 - [ ] Déplacer certaines fonctions (partage social, SEO) vers des plugins afin de ne pas créer de dépendance à ffeeeedd,
 - [ ] Créer une flotte de plugin "ffeeeedd",
 - [ ] Utiliser des transients pour certaines données,
-- [ ] Améliorer le worklow afin de ne pas avoir à modifier le thème parent,
+- [x] Améliorer le worklow afin de ne pas avoir à modifier le thème parent,
 - [ ] Proposer à des personnes compétentes d'auditer le thème et le projet,
 - [ ] Créer un fichier `kit.html` permettant de personnaliser l'ensemble du `kit.css` directement,
 - [ ] Créer une liste de plugins recommandés,
