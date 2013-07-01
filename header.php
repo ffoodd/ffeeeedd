@@ -22,22 +22,22 @@
     <link rel="pingback" href="<?php esc_url( bloginfo( 'pingback_url' ) ); ?>" />
     <!-- Favicons, icons et Tuile Windows 8 // @see : http://iconifier.net/ -->
       <!-- Pour les appareils Apple -->
-        <link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-114x114.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-72x72.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png" sizes="144x144">
+        <link rel="apple-touch-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon-114x114.png" sizes="114x114">
+        <link rel="apple-touch-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon-72x72.png" sizes="72x72">
+        <link rel="apple-touch-icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon.png">
       <!-- Pour le "Speed Dial" d'Opéra -->
-        <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png" type="image/png">
+        <link rel="icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png" type="image/png">
       <!-- Pour les navigateurs ( onglets, favoris, barres d'adresse ) : FF et Safari utiliseront la dernière mentionnée, Chrome et Opéra font n'importe quoi -->
-        <link rel="shortcut icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/favicon.png">
-        <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/favicon-128.png" sizes="128x128">
+        <link rel="shortcut icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/favicon.png">
+        <link rel="icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/favicon-128.png" sizes="128x128">
       <!-- Pour IE a.k.a. "Old School" -->
       <!--[if IE]><link rel="shortcut icon" href="<?php echo esc_url( home_url() ); ?>/favicon.ico"><![endif]-->
       <!-- Pour Windows 8 -->
         <meta name="application-name" content="<?php esc_attr( bloginfo( 'name' ) ); ?>">
         <meta name="msapplication-TileColor" content="#f2f2e2">
-        <meta name="msapplication-TileImage" content="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/ico/apple-touch-icon-144x144.png">
     <!-- /Favicons, icons et Tuile Windows 8 -->
     <!-- Métas Facebook simples -->
       <meta property="og:title" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
@@ -88,7 +88,11 @@
     </header><!-- / banner -->
 
     <nav class="mw960p center clear print-hidden" id="nav" role="navigation">
-      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) ); ?>
+      <?php if ( has_nav_menu( 'primary' ) ) {
+        wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) );
+      } else {
+        wp_dropdown_pages( array( 'depth' => 1 ) );
+      } ?>
     </nav><!-- / #nav -->
 
     <main class="mw960p center" id="content" role="main" itemprop="mainContentOfPage">

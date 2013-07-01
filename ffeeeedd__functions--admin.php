@@ -115,7 +115,7 @@
       $post = get_post( $_GET['post'] );
       $typenow = $post->post_type;
       if( $typenow != 'page' )
-        if ( $page == 'post.php' || $page == 'post-new.php' )
+        if ( $page == 'post-new.php' || $page == 'post.php' )
           wp_enqueue_script( 'ffeeeedd__compteur', THEME_URI .'/js/ffeeeedd__compteur.js', array('jquery'), null, false );
     }
   }

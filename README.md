@@ -27,7 +27,7 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 2. Si besoin, importer du contenu factice : utiliser celui proposé par WordPress dans les [Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test).
 3. Définir "ffeeeedd--prototype" comme thème actif pour prototyper l'ensemble du site.
  * Travailler dans `typographie.css` pour personnaliser le rythme vertical,
- * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront statiques, à savoir en HTML dans les templates de ffeeeedd,
+ * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront statiques, à savoir en HTML dans les templates de ffeeeedd (qui auront été - pour l'occasion - copiés dans le thème enfant),
  * Appliquer les classes définies dans `structure.css` pour agencer les blocs.
  * Si vous avez besoin d'ajouter de nouvelles classes, il est possible de le faire dans `structure--etendue.css` pour les largeurs par exemple, mais en respectant les conventions d'écriture pré-établies.
  * Prévoir la version mobile dès cette étape (en utilisant `adaptation.css`).
