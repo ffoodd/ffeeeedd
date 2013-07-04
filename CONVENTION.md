@@ -93,9 +93,6 @@ Charte CSS
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier `structure.css` met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirées de la pensée [OOCSS](http://oocss.org/ "oocss.org"). Il est possible d'ajouter des classes en suivant les règles d'écriture déjà définies, notamment pour les largeurs en pixels.
  * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
-  * Ex: `.block`
-  * Ex: `.block--element`
-  * Ex: `.block--element__modifier`
 
 ==
 
@@ -114,10 +111,6 @@ Charte CSS
  * Toujours ajouter une espace après une virgule dans les valeurs complexes ( comme `hsla`, Ex: `hsla( 0, 0, 0, .5)`.
  * Proscrire l'emploi de `!important`.
  * Dans le cas des préfixes vendeurs, ferrer à gauche les règles *et* les valeurs ( après les deux points ).
-  * Ex: `-webkit-machin: 0;`
-  * Ex: `-moz-machin:    0;`
-  * Ex: `-o-machin:      0;`
-  * Ex: `machin:         0;`
  * Exception : Dans le cas d'une valeur complexe, il convient de la scinder en plusieurs lignes avec une indentation supplémentaire pour en faciliter la lecture ( notamment les dégradés ).
 
 ==
