@@ -69,6 +69,9 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 - [x] Améliorer le worklow afin de ne pas avoir à modifier le thème parent,
 - [ ] Proposer à des personnes compétentes d'auditer le thème et le projet,
 - [ ] Créer un fichier `kit.html` permettant de personnaliser l'ensemble du `kit.css` directement,
-- [ ] Créer une liste de plugins recommandés,
+- [ ] Créer une liste de plugins recommandés, avec entre autres :
+ - [Theme Check](http://wordpress.org/plugins/theme-check/)
+ - [Google Sitemap Generator](http://wordpress.org/plugins/google-sitemap-generator/)
+ - [ACF](http://www.advancedcustomfields.com/ 'Advanced Custom Fields')
 - [ ] Créer une checklist qualité / méthodologie pour faciliter le suivi de chantier,
 - [ ] Audit A11y.

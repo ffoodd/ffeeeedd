@@ -494,6 +494,7 @@ Lorsque le développement et l'intégration sont terminés, une recette est néc
 * Optimisation CSS :
  * Les fichiers .css doivent être concaténés en un seul ( `style.css` conseillé, conformément aux [conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex") ).
  * *Exception :* Le fichier `debug.css` ne doit pas être concaténé.
+ * *Exception :* Le fichier `prototype.css` ne doit pas être concaténé.
  * Les fichiers .css doivent être conservés tels quels dans le répertoire `/css` .
  * Le fichier final doit être minifié selon les règles suivantes :
   * Supprimer les espaces avant et après les accolades ouvrantes ( `{` ),
