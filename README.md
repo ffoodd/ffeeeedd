@@ -14,7 +14,7 @@ L'objectif à moyen terme et de garder à disposition une base saine et souple d
 Pourquoi ça existe ?
 --------------------
 
-L'intérêt - personnel - de ce projet est d'avoir une base riche : micro-données, performances, sémantique, robustesse. Des choses indispensables qui ne devraient pas être recrées lors de chaque projet, mais présent à la racine de chacun.
+L'intérêt - personnel - de ce projet est d'avoir une base riche : micro-données, performances, sémantique, robustesse. Des choses indispensables qui ne devraient pas être recrées lors de chaque projet, mais présentes à la racine de chacun. Mon capital WordPress, en quelque sorte.
 
 De plus, une approche accessible est amenée avec le soutien et les conseils de [Kloh](http://www.kloh.fr/ "Kloh.fr"), expert accessiweb.
 
@@ -39,19 +39,19 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
  * Ajouter les scripts utiles, ainsi que les plugins,
  * Effectuer une recette complète du site (cf "Recette générale" ci-après).
 5. Concaténer dans l'ordre et minifier les fichiers css vers `style.css` dans "ffeeeedd--production" :
- * `base.css`
- * `structure.css`
- * `formulaires.css`
- * `structure--etendue.css`
- * `typographie.css`
- * `adaptation.css`
- * `ie.css`
- * `impression.css`
- * `adaptation.css`
+ * `base.css` (ffeeeedd--prototype)
+ * `structure.css` (ffeeeedd--prototype)
+ * `formulaires.css` (ffeeeedd--prototype)
+ * `structure--etendue.css` (ffeeeedd--prototype)
+ * `typographie.css` (ffeeeedd--prototype)
+ * `modules.css` (ffeeeedd--developpement)
+ * `adaptation.css` (ffeeeedd--developpement)
+ * `ie.css` (ffeeeedd--developpement)
+ * `impression.css` (ffeeeedd--developpement)
  * Commenter les appels dans `style.css` du thème parent.
- * et les javascript (vers `script.js`).
+ * et concaténer dans l'ordre et minifier les fichiers javascript (vers `script.js`).
 6. Définir "ffeeeedd--production" comme thème actif.
- * Ajouter `editeur.css` dans le répertoire "css" en y insérant le contenu de `typographie.css`.
+ * Ajouter `editeur.css` dans le répertoire "css" (en y insérant le contenu de `typographie.css` personnalisé dans "ffeeeedd--production", ainsi que la typographie appellée dans `modules.css`.
 7. Recette générale :
  * Utiliser le plugin Theme-Check,
  * Auditer à l'aide des checklists d'Opquast,
