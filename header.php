@@ -49,9 +49,9 @@
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content="<?php echo esc_url( get_permalink() ); ?>">
       <meta name="twitter:title" content="<?php esc_attr( wp_title( '-', true, 'right' ) );?>" />
-      <?php if ( get_the_author_meta( 'twitter', 1 ) ) : ?>
+      <?php if ( get_the_author_meta( 'twitter', 1 ) ) { ?>
       <meta name="twitter:creator" content="<?php esc_attr( the_author_meta( 'twitter', 1 ) ); ?>" />
-      <?php endif; ?>
+      <?php } ?>
     <!-- /Fin des métas Twitter simples -->
     <!-- Métas DublinCore simples -->
       <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
@@ -62,9 +62,9 @@
       <meta name="DC.language" scheme="DCTERMS.RFC4646" content="<?php esc_attr( bloginfo( 'language' ) ); ?>" />
     <!-- /Fin des métas DublinCore simples -->
     <!-- Authentification de l'auteur sur Google+ -->
-    <?php if ( get_the_author_meta( 'google', 1 ) ) : ?>
+    <?php if ( get_the_author_meta( 'google', 1 ) ) { ?>
     <link rel="author" href="<?php esc_url( the_author_meta('google', 1 ) ); ?>">
-    <?php endif; ?>
+    <?php } ?>
     <!-- / Fin de l'authentification de l'auteur sur Google+ -->
     <?php wp_head(); ?>
   </head>

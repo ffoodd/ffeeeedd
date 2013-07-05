@@ -12,23 +12,23 @@
  */
 get_header(); ?>
 
-<?php if ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) { the_post(); ?>
 
   <h2><?php echo __( 'Auteur', 'ffeeeedd' ); ?> : <?php echo get_the_author() ; ?></h2>
 
-  <?php if ( get_the_author_meta( 'description' ) ) : ?>
+  <?php if ( get_the_author_meta( 'description' ) ) { ?>
   <article itemscope itemtype="http://schema.org/Person">
     <?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
     <h3 itemprop="name"><?php echo get_the_author() ; ?></h3>
     <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
-    <?php if ( get_the_author_meta( 'user_url' ) ) : ?>
+    <?php if ( get_the_author_meta( 'user_url' ) ) { ?>
     <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php echo __( 'Consulter son site', 'ffeeeedd' ); ?></a>
-    <?php endif; ?>
+    <?php } ?>
   </article>
-  <?php endif; ?>
+  <?php } ?>
 
   <ol>
-    <?php rewind_posts(); while ( have_posts() ) : the_post(); ?>
+    <?php rewind_posts(); while ( have_posts() ) { the_post(); ?>
     <li <?php post_class( 'mb2' ); ?>>
       <article itemscope itemtype="http://schema.org/Article">
         <h3 itemprop="name">
@@ -46,13 +46,13 @@ get_header(); ?>
         <footer><?php ffeeeedd__meta(); ?></footer>
       </article>
     </li>
-    <?php endwhile; ?>
+    <?php } ?>
   </ol>
 
   <?php ffeeeedd__pagination(); ?>
 
-  <?php else : ?>
+  <?php } else { ?>
     <h2><?php echo get_the_author() ; ?> <?php echo __( 'n\'a rédigé aucun article pour le moment', 'ffeeeedd' ); ?>.</h2>
-  <?php endif; ?>
+  <?php } ?>
 
 <?php get_footer(); ?>

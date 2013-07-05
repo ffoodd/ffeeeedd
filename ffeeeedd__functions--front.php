@@ -235,8 +235,7 @@
   add_action( 'wp_head', 'ffeeeedd__test_js' );
 
   /* -- @subsection Réponse aux commentaires -------------------- */
-  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-  wp_enqueue_script( 'comment-reply' );
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
 
 
   /* == @section Fil d'Ariane ==================== */
@@ -255,20 +254,23 @@
   function ffeeeedd__categories( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
     $final = '';
     $parent = &get_category( $id );
-    if (is_wp_error( $parent ) )
+    if (is_wp_error( $parent ) ) {
       return $parent;
-    if ( $nicename )
+    }
+    if ( $nicename ) {
       $name = $parent->name;
-    else
+    } else {
       $name = $parent->cat_name;
+    }
     if ( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
       $visited[] = $parent->parent;
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
-    if ( $link )
+    if ( $link ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
-    else
+    } else {
       $final .= $name . $separator;
+    }
     return $final;
   }
 
@@ -286,10 +288,11 @@
     // Début du fil d'Ariane
     if ( is_front_page() && is_home() ) {
       // Accueil par défaut
-      if ( $paged >= 1 )
+      if ( $paged >= 1 ) {
         $final .= $startdefault;
-      else
+      } else {
         $final .= $starthome;
+      }
     } elseif ( is_front_page() ) {
       // Accueil statique ( page statique définie )
       $final .= $starthome;
@@ -298,7 +301,9 @@
       if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
         $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Les articles', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></a></li>';
-      } else $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></li>';
+      } else {
+        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></li>';
+      }
     } else {
       // Pour tout le reste
       $final .= $startdefault;
@@ -344,9 +349,9 @@
       // Catégories d'articles
       $category = get_the_category();
       $category_id = get_cat_ID( $category[0]->cat_name );
-      if ( $category_id != 0 )
+      if ( $category_id != 0 ) {
         $final .= ffeeeedd__categories( $category_id, true, $sep );
-      elseif ($category_id == 0) {
+      } elseif ($category_id == 0) {
         $post_type = get_post_type();
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
@@ -363,8 +368,9 @@
         $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Commentaires page ', 'ffeeeedd' ) . $cpage . '</span></li>';
       }
       // Sans pages de commentaires
-      else
+      else {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
+      }
     }
 
     // Catégories
@@ -374,20 +380,23 @@
       $category = get_category( $categoryid );
       $categoryparent = get_category( $category->parent );
       // Résulat
-      if ( $category->parent != 0 )
+      if ( $category->parent != 0 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . ffeeeedd__categories( $categoryparent, true, $sep, true ) . '</span></li>';
-      if ( $paged <= 1 )
+      }
+      if ( $paged <= 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
-      else
+      } else {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
+      }
     }
 
     // Pages
     elseif ( is_page() && !is_home() ) {
       $post = $wp_query->get_queried_object();
       // Page simple
-      if ( $post->post_parent == 0 )
+      if ( $post->post_parent == 0 ) {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
+      }
       // Page avec ancêtre(s)
       elseif ( $post->post_parent != 0 ) {
         $title = the_title( '', '', false );
@@ -399,21 +408,24 @@
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
             $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $name ) . '" href="' . esc_url( get_permalink( $ancestor ) ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
             $i++;
-            if ( $i < $ancestors )
+            if ( $i < $ancestors ) {
               $final .= $sep . '</li>';
+            }
           }
-          else
+          else {
             $final .= '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></li>';
+          }
         }
       }
     }
 
     // Auteurs
     elseif ( is_author() ) {
-      if( get_query_var( 'author_name' ) )
+      if( get_query_var( 'author_name' ) ) {
         $curauth = get_user_by( 'slug', get_query_var( 'author_name' ) );
-      else
+      } else {
         $curauth = get_userdata( get_query_var( 'author' ) );
+      }
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles de ', 'ffeeeedd' ) . $curauth->nickname . '</span></li>';
     }
 
@@ -435,8 +447,9 @@
     }
 
     // Page 404
-    elseif ( is_404() )
+    elseif ( is_404() ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page non trouvée ', 'ffeeeedd' ) . '</span></li>';
+    }
 
     // Archives - autres
     elseif ( is_archive() ) {
@@ -444,16 +457,17 @@
       $posttypeobject = get_post_type_object( $posttype );
       $taxonomie = get_taxonomy( get_query_var( 'taxonomy' ) );
       $titrearchive = $posttypeobject->labels->menu_name;
-      if ( !empty( $taxonomie ) )
+      if ( !empty( $taxonomie ) ) {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $taxonomie->labels->name . '</span></li>';
-      else
+      } else {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $titrearchive . '</span></li>';
+      }
     }
 
     // Pagination
-    if ( $paged >= 1 )
+    if ( $paged >= 1 ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Page ' . $paged . '</span></li>';
-
+    }
     // The End
     $final .= '</ol>';
     echo $final;
@@ -483,10 +497,12 @@
         'next_text' => '&rarr;',
         'prev_text' => '&larr;'
       );
-      if( $wp_rewrite->using_permalinks() )
+      if( $wp_rewrite->using_permalinks() ) {
         $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
-      if( !empty( $wp_query->query_vars['s'] ) )
+      }
+      if( !empty( $wp_query->query_vars['s'] ) ) {
         $pagination['add_args'] = array( 's' => str_replace( ' ' , '+', get_query_var( 's' ) ) );
+      }
       echo str_replace( 'page/1/', '', paginate_links( $pagination ) );
     }
   }
@@ -653,23 +669,28 @@
   function ffeeeedd__injection__titre( $title, $sep, $seplocation ) {
     global $wp_query, $page, $paged;
     // Ne change rien pour les flux RSS
-    if ( is_feed() )
+    if ( is_feed() ) {
       return $title;
+    }
     // Modifie le titre si le champ de l'administration est rempli
-    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) )
+    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {
       $title = esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . ' ' . $sep . ' ';
+    }
     // Ajoute le nom du site
-    if ( 'right' == $seplocation )
+    if ( 'right' == $seplocation ) {
       $title .= get_bloginfo( 'name' );
-    else
+    } else {
       $title = get_bloginfo( 'name' ) . $title;
+    }
     // Ajoute la description (pour la page d'accueil et de blog)
     $site_description = get_bloginfo( 'description', 'display' );
-    if ( $site_description && ( is_home() || is_front_page() ) )
+    if ( $site_description && ( is_home() || is_front_page() ) ) {
       $title .= ' ' . $sep . ' ' . $site_description;
+    }
     // Ajoute le numéro de la page dans le cas d'une pagination
-    if ( $paged >= 2 || $page >= 2 )
+    if ( $paged >= 2 || $page >= 2 ) {
       $title .= ' ' . $sep . ' ' . sprintf( __( 'Page %s', 'ffeeeedd' ), max( $paged, $page ) );
+    }
     return $title;
   }
   add_filter( 'wp_title', 'ffeeeedd__injection__titre', 10, 3 );

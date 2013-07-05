@@ -16,7 +16,7 @@
  */
 get_header(); ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
   <article role="article" itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>
     <h2 itemprop="name"><?php the_title(); ?></h2>
 
@@ -39,6 +39,7 @@ get_header(); ?>
 
   <?php comments_template( '', true ); ?>
 
-<?php endwhile; endif; ?>
+<?php }
+  } ?>
 
 <?php get_footer(); ?>

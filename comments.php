@@ -12,12 +12,12 @@
  */
 
 // On vérifie d'abord si la page est protégée : si c'est le cas, on n'affiche rien.
-if ( post_password_required() )
+if ( post_password_required() ) {
   return;
-?>
+} ?>
 
 <div class="comments-area" id="comments">
-  <?php if ( have_comments() ) : ?>
+  <?php if ( have_comments() ) { ?>
     <h2 class="comments-title" itemprop="interactionCount" content="UserComments:<?php echo esc_attr( get_comments_number() ); ?>">
     <?php
       printf( _n( __( 'Une réponse sur &ldquo;%2$s&rdquo;', 'ffeeeedd' ), __( '%1$s réponses sur &ldquo;%2$s&rdquo;', 'ffeeeedd' ), get_comments_number(), '' ),
@@ -30,10 +30,10 @@ if ( post_password_required() )
     </ol>
 
     <?php // Si les commentaires ont été fermés :
-    if ( ! comments_open() && get_comments_number() ) : ?>
+    if ( ! comments_open() && get_comments_number() ) { ?>
       <p class="nocomments"><?php echo __( 'Les commentaires sont clos', 'ffeeeedd' ); ?>.</p>
-    <?php endif; ?>
-  <?php endif; ?>
+    <?php }
+  } ?>
 
   <?php comment_form(); ?>
 </div>

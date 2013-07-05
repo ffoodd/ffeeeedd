@@ -14,7 +14,7 @@
  */
 get_header(); ?>
 
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
   <article class="col" role="article" itemscope itemtype="http://schema.org/Article">
     <h2 itemprop="name"><?php the_title(); ?></h2>
     <div itemprop="articleBody">
@@ -37,20 +37,21 @@ get_header(); ?>
 
       <h3><?php echo __( 'Tous les articles', 'ffeeeedd' ); ?></h3>
       <?php $ffeeeedd__article = new WP_Query( array( 'post_type' => 'post', 'nopaging' => 'true', 'orderby' => 'date' ) ); ?>
-      <?php if ( $ffeeeedd__article->have_posts() ) : ?>
+      <?php if ( $ffeeeedd__article->have_posts() ) { ?>
       <ul>
-        <?php while ( $ffeeeedd__article->have_posts() ) : $ffeeeedd__article->the_post(); ?>
+        <?php while ( $ffeeeedd__article->have_posts() ) { $ffeeeedd__article->the_post(); ?>
           <li>
             <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
             <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
           </li>
-        <?php endwhile; ?>
+        <?php } ?>
       </ul>
-      <?php endif; ?>
+      <?php } ?>
 
     </div>
   </article>
-<?php endwhile; ?>
+<?php }
+  } ?>
 
 <?php get_sidebar(); ?>
 

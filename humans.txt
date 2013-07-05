@@ -5,6 +5,7 @@
 
     Gaël Poupard -- Initiateur du projet : développement, intégration, conception -- @ffoodd_fr
     Luc Poupard -- Conseiller technique en accessibilité et premier utilisateur -- @klohFR
+    David Bénard -- Conseiller en rédaction PHP -- @magicbart
 
 # THANKS
 

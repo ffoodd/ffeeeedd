@@ -12,9 +12,9 @@
  */
 
 // On vérifie si la colonne latérale est active; si elle en l'est pas, on ne l'affiche pas.
-if ( ! is_active_sidebar( 'accueil' ) )
+if ( ! is_active_sidebar( 'accueil' ) ) {
   return;
-?>
+} ?>
 
 <aside class="col w25 print-hidden" role="complementary">
   <?php if ( is_active_sidebar( 'accueil' ) ) { dynamic_sidebar( 'accueil' ); } ?>

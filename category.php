@@ -12,12 +12,12 @@
  */
 get_header(); ?>
 
-<?php if ( have_posts() ) : ?>
+<?php if ( have_posts() ) { ?>
 
   <h2><?php echo __( 'Catégorie', 'ffeeeedd' ); ?> : <?php echo single_cat_title( '', false ); ?></h2>
 
   <ol>
-    <?php while ( have_posts() ) : the_post(); ?>
+    <?php while ( have_posts() ) { the_post(); ?>
     <li <?php post_class( 'mb2' ); ?>>
       <article itemscope itemtype="http://schema.org/Article">
         <h3 itemprop="name">
@@ -28,20 +28,20 @@ get_header(); ?>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
           <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ) ); ?>
         </a>
-        <?php }?>
+        <?php } ?>
         <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
         <footer><?php ffeeeedd__meta(); ?></footer>
       </article>
     </li>
-    <?php endwhile; ?>
+    <?php } ?>
   </ol>
 
   <?php ffeeeedd__pagination(); ?>
 
-  <?php else : ?>
+  <?php } else { ?>
     <h2><?php echo __( 'Il n\'y a aucun article dans la catégorie', 'ffeeeedd' ); ?> <?php echo single_cat_title( '', false ); ?>.</h2>
-  <?php endif; ?>
+  <?php } ?>
 
 <?php get_footer(); ?>
