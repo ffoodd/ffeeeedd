@@ -11,6 +11,8 @@ Charte d'intégration
 
 @see [Luc Poupard](http://www.kloh.fr "kloh.fr") [@klohFR](https://twitter.com/klohFR "@klohFR")
 
+@see David Bénard [@magicbart](https://twitter.com/magicbart "@magicbart")
+
 @see [WordPress Theme Review](http://codex.wordpress.org/Theme_Review "Critères de conformité WordPress")
 
 La présente charte détaille l'ensemble des règles et/ou recommandations à suivre pour créer ou modifier l'ensemble des fichiers du thème : HTML, CSS, microdonnées, microformats, javascript, images… Il s'agit de règles générales applicables à l'ensemble du thème.
@@ -442,6 +444,8 @@ Charte PHP
 
 * Accolades : L'accolade ouvrante doit être sur la même ligne que la définition de la fonction et précédée d'une espace; l'accolade fermante doit être isolée sur la ligne suivant la dernière déclaration de la fonction.
 
+* Accolades : ouvrir et fermer les accolades pour chaque `if`, `else`, `elseif`, `while`, `swicth`, etc comme conseillé dans [la convention Zend](http://framework.zend.com/manual/1.12/fr/coding-standard.coding-style.html).
+
 * Parenthèses : Une espace doit être insérée après la parenthèse ouvrante, et avant la parenthèse fermante : `if( this );`.
 
 * Concaténation : Dans des chaînes concaténées, toujours cerner les points par des espaces : `echo '<a href="' . $lien . '">';`.
@@ -462,7 +466,7 @@ Charte PHP
 
 * Annotations : Citer les sources & références, et annoter autant que possible le code.
 
-* Guillemets : Préférer les guillemets simples.
+* Guillemets : Préférer les guillemets simples dès que possible.
 
 * Nommage : Les fonctions du thème doivent être préfixées par `ffeeeedd__` et disposer d'un intitulé clair, en français ( le cas échéant, dans la langue de l'auteur ).
 
@@ -474,6 +478,7 @@ Charte PHP
  * [Theme Review](http://codex.wordpress.org/Theme_Review)
  * [WordPress PHP Coding Standard](http://make.wordpress.org/core/handbook/coding-standards/php/)
  * [PEAR Coding Standards](http://pear.php.net/manual/en/standards.php)
+ * [Convention Zend](http://framework.zend.com/manual/1.12/fr/coding-standard.coding-style.html)
 
 
 Mise en Production

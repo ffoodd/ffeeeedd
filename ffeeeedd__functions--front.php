@@ -516,11 +516,11 @@
   */
 
   /* -- @subsection Gère l'affichage des commentaires -------------------- */
-  if ( !function_exists( 'ffeeeedd_comment' ) ) :
+  if ( !function_exists( 'ffeeeedd_comment' ) ) {
     // Template pour les commentaires & pingbacks.
     function ffeeeedd_comment( $comment, $args, $depth ) {
       $GLOBALS['comment'] = $comment;
-      switch ( $comment->comment_type ) :
+      switch ( $comment->comment_type ) {
         case 'pingback' :
         case 'trackback' :
         // On affiche différemment les trackbacks. ?>
@@ -559,9 +559,9 @@
           </div>
         </article>
       <?php break;
-      endswitch;
+      }
     }
-  endif;
+  }
 
   /* -- @subsection Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email -------------------- */
   add_filter( 'comment_form_defaults', 'fields_html5' );
