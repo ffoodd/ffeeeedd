@@ -19,6 +19,7 @@ form,
 fieldset {
   border: 0;
 }
+
 input,
 button,
 select,
@@ -28,10 +29,12 @@ label {
 
 /* Éléments de formulaires */
 label { cursor: pointer; }
+
 legend {
   border: 0;
   white-space: normal;
 }
+
 button,
 input,
 select {
@@ -39,6 +42,7 @@ select {
   margin: 0;
   vertical-align: baseline;
 }
+
 textarea {
   font-size: 1.75em;
   min-height: 5em;
@@ -47,6 +51,7 @@ textarea {
   resize: vertical;
   vertical-align: top;
 }
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -55,13 +60,14 @@ input[type="submit"] {
   -webkit-appearance: button; /* @ bugfix
   @affected Types d'input cliquables sur iOS */
 }
+
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0; /* @bugfix
   @affected Corrige un espace excessif sur IE8/9 */
 }
-input[type="search"] { -webkit-appearance: textfield; }
 
+input[type="search"] { -webkit-appearance: textfield; }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -69,7 +75,9 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none; /* @bugfix
   @affected 'x' apparait à droite d'un champ de recherche lorsqu'un texte est entré. Ceci le retire */
 }
+
 ::-webkit-input-placeholder { color: #777; }
+
 input:-moz-placeholder,
 textarea:-moz-placeholder  { color: #777; }
 
