@@ -94,7 +94,7 @@ Charte CSS
  * Limiter au maximum l'utilisation d'identifiants.
  * Les classes et identifiants - et, de fait, les sélecteurs - doivent être écrits en minuscules. *NB :* le CamelCase est interdit.
  * Le fichier `structure.css` met en place des classes réutilisables, basées sur [knacss](http://knacss.com/) et fortement inspirées de la pensée [OOCSS](http://oocss.org/ "oocss.org"). Il est possible d'ajouter des classes en suivant les règles d'écriture déjà définies, notamment pour les largeurs en pixels.
- * Les sélecteurs composés dans le kit le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
+ * Les sélecteurs composés dans `modules.css` le seront suivant la [méthode BEM](http://bem.info/method/) ( documentation utile sur [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) ).
 
 ==
 
@@ -129,8 +129,7 @@ Charte CSS
 * Navigation : La navigation au clavier doit être facile et claire, la prise de `:focus` doit être visuellement indiquée.
 
 * Media Queries :
- * Les requêtes médias doivent être situées à la fin du fichier `kit.css` afin d'éviter les conflits dans la cascade.
- * En phase de développement, il est envisageable d'ajouter un fichier `medias.css` appellé après le `kit.css`.
+ * Les requêtes médias doivent être incluses dans le fichier `adaptation.css`.
  * Les requêtes médias doivent être indentées logiquement, afin que leur imbrication soit visuellement parlante ( les déclarations au sein d'une requête auront un niveau d'indentation suplémentaire par rapport aux déclarations hors requêtes ).
  * Les requêtes médias sont ordonnées de la contrainte la plus basse à la contrainte la plus haute, de façon cumulative ( penser "Mobile First" ).
 
@@ -145,7 +144,7 @@ Charte CSS
 ==
 
 * Typographies :
- * Un rythme vertical est primordial : une portion du kit.css y est dédiée. Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical").
+ * Un rythme vertical est primordial, issue d'une échelle typographique clairement définie : un fichier y est dédié (`typographie.css`). Elle est personnalisable via [cet outil](http://soqr.fr/vertical-rhythm/ "Générateur de rythme vertical").
  * L'utilisation de polices exotiques doit se faire à l'aide de `@font-face` ou de services tels que [Typekit](https://typekit.com/ "Typekit").
  * Un fallback correct doit être fourni pour chaque police exotique. Deux outils à votre secours : le [font-stack builder](http://www.codestyle.org/servlets/FontStack?stack=Palatino%20Linotype,Palatino,FreeSerif&generic= "CodeStyle") et [FFFALLBACK](http://ffffallback.com/"Le bookmarklet FFFALLBACK").
  * Un dernier recours doit être fourni sous la forme d'une famille générique ( ex : `sans-serif` ).
@@ -160,7 +159,7 @@ Charte CSS
  * Dégradés : un outil tel que [CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/ "Générateur de dégradé") doit être utilisé pour les dégradés, afin de maximiser la compatibilité.
  * Dégradés : les dégradés sont des valeurs de `background-image` : il faut définir un fallback à l'aide de `background-color`, et ne surtout pas les appliquer directement en tant que `background` !
  * Les préfixes vendeurs doivent précéder la version non-préfixée.
- * Les styles spécifiques à IE8 et inférieur doivent être inclus dans le fichier `style.css` en phase de production, afin d'en faciliter la maintenance.
+ * Les styles spécifiques à IE8 et inférieur doivent être inséré dans le fichier `ie.css` dédié.
  * Les styles spécifiques à IE8 et inférieur s'appuient sur des classes conditonnelles appliquées à `<html>`.
  * Une couleur de fond doit être appliquée au `<body>`, au cas ou un navigateur appliquerait une couleur incorrecte.
  * Aucun hack n'est autorisé : chaque problème appelle une solution propre.
@@ -299,11 +298,11 @@ Charte HTML
  * `favicon.png` (32x32)
  * `favicon-128.png`
  * `favicon.ico` (16x16)
-* Pour ce faire, utiliser le fichier `ffeeeedd__favicons.psd` inclus dans le dossier `img` :
+* Pour ce faire, utiliser le fichier `ffeeeedd__favicons.psd` inclus dans le dossier `img` du thème enfant `ffeeeedd--production` :
  * Modifiez le premier objet dynamique en y incluant votre image (logo ou autre), enregistrez l'objet puis le `psd`.
  * Choisissez "Enregistrer pour le web", au format `png-24`. Toutes les images nécessaires seront exportées, déjà nommées correctement.
  * Convertissez les fichiers dont le nom se termine par "-ico.png" au format `.ico` via [favicon.cc](http://www.favicon.cc/ 'Convertissez vos png en ico') et les renommer en `favicon.ico`.
- * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd/img/ico`.
+ * Par défaut Photoshop enregistre les fichiers dans un dossier "Images" : déplacez son contenu dans le dossier `ffeeeedd--production/ico`.
  * *Exception* : le `favicon.ico` de 16x16 pixel doit être placé à la racine du site.
  * Optimisez vos `.png` à l'aide de [PNG Optimizer](http://psydk.org/PngOptimizer.php) par exemple, et le tour est joué !
 
@@ -324,7 +323,7 @@ Charte HTML
 * Tableaux :
  * Chaque tableau de données doit disposer d'un titre.
  * Les en-têtes sont correctement balisées ( `<th>` ).
- * Les cellules doivent être reliées à leur en-tête ( `header=""` ).
+ * Les cellules doivent être reliées à leur en-tête ( `headers=""` ).
 
 ==
 
@@ -389,7 +388,7 @@ Charte HTML
 Charte Javascript
 -----------------
 
-Ça n'est pas ma spécialité : en conséquence les scripts actuels s'appuient sur la librairie [jQuery](http://www.jquery.com "jquery.com") et les plugins utiles.
+Ça n'est pas ma spécialité, vous voilà prévenus !
 
 * Indentation : Utiliser 2 espaces pour chaque niveau d'indentation.
 
@@ -497,10 +496,10 @@ Lorsque le développement et l'intégration sont terminés, une recette est néc
 *Attention :* chaque concaténation / minification doit se faire après avoir dupliqué les fichiers sources.
 
 * Optimisation CSS :
- * Les fichiers .css doivent être concaténés en un seul ( `style.css` conseillé, conformément aux [conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex") ).
+ * Les fichiers .css doivent être concaténés en un seul fichier `style.css`, conformément aux [conventions WordPress sur la déclaration des thèmes](http://codex.wordpress.org/Theme_Development#Theme_Stylesheet "Explications sur le Codex") ).
  * *Exception :* Le fichier `debug.css` ne doit pas être concaténé.
  * *Exception :* Le fichier `prototype.css` ne doit pas être concaténé.
- * Les fichiers .css doivent être conservés tels quels dans le répertoire `/css` .
+ * Les fichiers .css doivent être conservés tels quels dans les répertoires `/css` d'origine.
  * Le fichier final doit être minifié selon les règles suivantes :
   * Supprimer les espaces avant et après les accolades ouvrantes ( `{` ),
   * Supprimer les espaces avant et après les accolades fermantes ( `}` ),
@@ -514,14 +513,13 @@ Lorsque le développement et l'intégration sont terminés, une recette est néc
 
 ==
 
-* Minification : Le code HTML doit être minifé pour le navigateur ( ffeeeedd intègre une fonction dans ce but ).
+* Minification : Le code HTML doit être minifé pour le navigateur ( `ffeeeedd--production` intègre une fonction dans ce but ).
 
 * Optimisation js :
- * Les scripts sont basés sur jQuery ( en attendant un éventuel passage à Zepto ).
  * Charger les scripts en fin de documents dès que possible ( WordPress intègre un paramètre booléen sur la fonction [wp_enqueue_script](http://codex.wordpress.org/Function_Reference/wp_enqueue_script "Un tour sur le codex, ça vous dit ?") ).
- * Charger les scripts en asynchrone dès que possible ( les attributs `async` et `defer` sont voués à ça ).
+ * Charger les scripts en asynchrone dès que possible ( les attributs `async` et `defer` sont voués à ça : pour en savoir plus, [un petit tour sur Alsacréations](http://www.alsacreations.com/astuce/lire/1562-script-attribut-async-defer.html "Article sur async et defer par Dew")).
  * Les scripts doivent être minifiés :
-  * Concaténer les fichiers ( à l'exception de la lib' ).
+  * Concaténer les fichiers ( à l'exception de la lib' utilisée).
   * Supprimer les commentaires.
  * L'outil [jsCompress](http://jscompress.com/ "jscompress.com") peut-être utilisé pour cette opération.
 
@@ -533,13 +531,15 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * Activer la compression ( Gzip ou Deflate ),
  * Définir un type MIME correct pour chaque type de fichier utilisé,
  * Optimiser la mise en cache navigateur,
- * Supprimer les Etags.
+ * Supprimer les Etags,
+ * Interdire l'accès aux index de répertoire,
+ * Personnaliser les pages d'erreur (404, 403).
+ * Adapter le fichier `.htaccess` afin d'améliorer la gestion du cache, les performances globales, gérer les autorisations d'accès aux répertoires, personnaliser les pages d'erreur, etc.. Voir l'article à propos du [.htaccess pour WordPress sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/).
 
 ==
 
 * Sécurité :
  * Chaque répertoire doit contenir un fichier index.php - vide s'il n'existe pas.
- * Dans le .htaccess, protéger les index de répertoire : deux précautions valent mieux qu'une.
  * Utiliser des mots de passe sécurisant : au moins 8 caractères dont des chiffres, symboles spéciaux, majuscules et minuscules.
  * Changer le préfixe des tables de la base de données `wp_` par défaut.
  * Ne pas conserver l'identifiant `admin` pour le compte super administrateur : personnaliser l'identifiant.
@@ -559,12 +559,6 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 * Human.txt :
  * Éditer le fichier human.txt afin de créditer tous les participants, les sources et les informations sur le projet.
 
-
-==
-
-* `.htaccess` :
- * Adapter le fichier `.htaccess` afin d'améliorer la gestion du cache, les performances globales, gérer les autorisations d'accès aux répertoires, personnaliser les pages d'erreur, etc.. Voir l'article à propos du [.htaccess pour WordPress sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/).
-
 ==
 
 * Réseaux sociaux :
@@ -576,11 +570,6 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 
 * wp-config.php : WordPress peut être optimisé de manière simple dans le wp-config.
  * Suivez les conseils  de [cet article](http://www.seomix.fr/wp-config-vitesse/ "Daniel Roch / seo-mix vous conseille sur la modification du wp-config") en l'adaptant au contexte de votre projet.
-
-==
-
-* Divers :
- * Personnaliser les pages d'erreurs les plus courantes ( 404, 403 ).
 
 ==
 
@@ -609,3 +598,4 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [Les instructions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
  * [Xenu](http://home.snafu.de/tilman/xenulink.html)
  * [Hardening WordPress](http://codex.wordpress.org/Hardening_WordPress)
+ * [Async et defer par Dew](http://www.alsacreations.com/astuce/lire/1562-script-attribut-async-defer.html "Article sur async et defer par Dew")
