@@ -209,8 +209,8 @@
    */
   function ffeeeedd__ie_html5 () {
     // On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress
-    global $is_winIE;
-    if( $is_winIE ) {
+    global $is_IE;
+    if( $is_IE ) {
       // Puis on ajoute, dans un commentaire conditionnel, le script magique
       echo '<!--[if lt IE 9]>';
       echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0hgroup0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
