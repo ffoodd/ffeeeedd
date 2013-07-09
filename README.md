@@ -23,7 +23,10 @@ Mode d'emploi
 
 Afin de faciliter la personnalisation de ce thème et son adaptation à chaque projet, un micro-framework css est utilisé - basé sur [Knacss](http://knacss.com/ "Knaccs.com") par l'excellent [Raphaël Goetter](http://goetter.fr/ "Goetter.fr"). La version utilisée sur ffeeeedd est cependant légèrement retouchée, et sera enrichie de quelques astuces personnelles.
 
-1. Installer le thème ffeeeedd et ses thèmes enfants.
+1. Installer le thème ffeeeedd et ses thèmes enfants :
+ * [ffeeeedd--prototype](https://github.com/ffoodd/ffeeeedd--prototype)
+ * [ffeeeedd--developpement](https://github.com/ffoodd/ffeeeedd--developpement)
+ * [ffeeeedd--production](https://github.com/ffoodd/ffeeeedd--production)
 2. Si besoin, importer du contenu factice : utiliser celui proposé par WordPress dans les [Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test).
 3. Définir "ffeeeedd--prototype" comme thème actif pour prototyper l'ensemble du site.
  * Travailler dans `typographie.css` pour personnaliser le rythme vertical,
