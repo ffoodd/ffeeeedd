@@ -600,6 +600,6 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
  * [wp-config sur seo-mix](http://www.seomix.fr/wp-config-vitesse/ "Daniel Roch / seo-mix vous conseille sur la modification du wp-config")
  * [Validation Twitter par TweetPress](http://wordpress.org/plugins/jm-twitter-cards/faq/)
  * [La documentation Twitter](https://dev.twitter.com/docs/cards)
- * [Les instrustions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
+ * [Les instructions de Google](https://plus.google.com/authorship "Associez votre profil Google+ au contenu que vous créez")
  * [Xenu](http://home.snafu.de/tilman/xenulink.html)
  * [Hardening WordPress](http://codex.wordpress.org/Hardening_WordPress)
