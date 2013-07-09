@@ -88,12 +88,12 @@
   */
 
   /* -- @subsection Désactive les liens et scripts inutiles générés par WordPress */
-  add_theme_support( 'automatic-feed-links' );
   remove_action( 'wp_head', 'wp_generator' );
   remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
   remove_action( 'wp_head', 'wp_dlmp_l10n_style' );
   remove_action( 'wp_head', 'rsd_link' );
   remove_action( 'wp_head', 'wlwmanifest_link' );
+  remove_action( 'wp_head', 'feed_links_extra', 3 );
 
   /*-- @subsection Retire les attributs title inutiles sur les liens générés par WordPress */
   add_filter( 'wp_nav_menu', 'ffeeeedd__attributs__title' );

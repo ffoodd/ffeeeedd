@@ -66,6 +66,7 @@
     <link rel="author" href="<?php esc_url( the_author_meta('google', 1 ) ); ?>">
     <?php } ?>
     <!-- / Fin de l'authentification de l'auteur sur Google+ -->
+    <link rel="alternate" type="application/rss+xml" title="ffeeeedd | Flux RSS 2.0" href="<?php esc_url( bloginfo( 'rss2_url' ) ); ?>">
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
