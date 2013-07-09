@@ -59,7 +59,7 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
  * Utiliser le plugin Theme-Check,
  * Auditer à l'aide des checklists d'Opquast,
  * Tester sur tous les navigateurs cibles,
- * Appliquer les conseils de sécurité et de performances préconisés.
+ * Appliquer les conseils de sécurité et de performances préconisés (notamment concernant le fichier `.htaccess`).
 
 ==
 

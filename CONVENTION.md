@@ -559,6 +559,12 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 * Human.txt :
  * Éditer le fichier human.txt afin de créditer tous les participants, les sources et les informations sur le projet.
 
+
+==
+
+* `.htaccess` :
+ * Adapter le fichier `.htaccess` afin d'améliorer la gestion du cache, les performances globales, gérer les autorisations d'accès aux répertoires, personnaliser les pages d'erreur, etc.. Voir l'article à propos du [.htaccess pour WordPress sur Seo-Mix](http://www.seomix.fr/guide-htaccess-performances-et-temps-de-chargement/).
+
 ==
 
 * Réseaux sociaux :
@@ -574,7 +580,7 @@ Les fichiers .php ne doivent en aucun cas être minifiés.
 ==
 
 * Divers :
- * Personnaliser les pages d'erreurs les plus courantes ( 404, 403, 500 ).
+ * Personnaliser les pages d'erreurs les plus courantes ( 404, 403 ).
 
 ==
 
