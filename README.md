@@ -23,7 +23,7 @@ Mode d'emploi
 
 Afin de faciliter la personnalisation de ce thème et son adaptation à chaque projet, un micro-framework css est utilisé - basé sur [Knacss](http://knacss.com/ "Knaccs.com") par l'excellent [Raphaël Goetter](http://goetter.fr/ "Goetter.fr"). La version utilisée sur ffeeeedd est cependant légèrement retouchée, et sera enrichie de quelques astuces personnelles.
 
-De plus un important travail de normalisation a été effectué : [une convention complète a été rédigée](https://github.com/ffoodd/convention "La convention sur GitHub"), qui comprend les règles de nommage, les chartes d'écriture pour les langages utilisés et quelques explications.
+De plus un important travail de normalisation a été effectué : [une convention complète a été rédigée](https://github.com/ffoodd/Convention "La convention sur GitHub"), qui comprend les règles de nommage, les chartes d'écriture pour les langages utilisés et quelques explications.
 
 1. Installer le thème ffeeeedd et ses thèmes enfants :
  * [ffeeeedd--prototype](https://github.com/ffoodd/ffeeeedd--prototype)
