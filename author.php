@@ -14,7 +14,7 @@ get_header(); ?>
 
 <?php if ( have_posts() ) { the_post(); ?>
 
-  <h2><?php echo __( 'Auteur', 'ffeeeedd' ); ?> : <?php echo get_the_author() ; ?></h2>
+  <h2><?php _e( 'Author', 'ffeeeedd' ); ?> : <?php echo get_the_author() ; ?></h2>
 
   <?php if ( get_the_author_meta( 'description' ) ) { ?>
   <article itemscope itemtype="http://schema.org/Person">
@@ -22,13 +22,13 @@ get_header(); ?>
     <h3 itemprop="name"><?php echo get_the_author() ; ?></h3>
     <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
     <?php if ( get_the_author_meta( 'user_url' ) ) { ?>
-    <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php echo __( 'Consulter son site', 'ffeeeedd' ); ?></a>
+    <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php _e( 'Website', 'ffeeeedd' ); ?></a>
     <?php } ?>
   </article>
   <?php } ?>
 
   <ol>
-    <?php rewind_posts(); while ( have_posts() ) { the_post(); ?>
+    <?php while ( have_posts() ) { the_post(); ?>
     <li <?php post_class( 'mb2' ); ?>>
       <article itemscope itemtype="http://schema.org/Article">
         <h3 itemprop="name">
@@ -37,9 +37,9 @@ get_header(); ?>
         <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
         <?php if ( has_post_thumbnail() ) { ?>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ) ); ?>
+          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => __( 'Permalink to the post', 'ffeeeedd' ) ) ); ?>
         </a>
-        <?php }?>
+        <?php } ?>
         <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
@@ -52,7 +52,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php echo get_the_author() ; ?> <?php echo __( 'n\'a rédigé aucun article pour le moment', 'ffeeeedd' ); ?>.</h2>
+    <h2><?php echo get_the_author() ; ?> <?php _e( 'didn\'t wrote anything for now.', 'ffeeeedd' ); ?>.</h2>
   <?php } ?>
 
 <?php get_footer(); ?>

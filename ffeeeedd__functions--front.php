@@ -119,7 +119,7 @@
 
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
   function ffeeeedd__extrait__lien() {
-    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Lire la suite de «&nbsp;', 'ffeeeedd' ) . get_the_title() . __( '&nbsp;» <span class="meta-nav">&rarr;</span>', 'ffeeeedd' ) . '</a>';
+    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . get_the_title() . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
   }
 
   /* -- @subsection Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite" -------------------- */
@@ -166,14 +166,14 @@
       $tag_list = get_the_tag_list( '', ( ', ' ) );
       // On génère le contenu en fonction des informations disponibles ( mots-clés, catégories, auteur ).
       if ( '' != $tag_list ) {
-        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'et publié dans', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span><br />' . __( 'Mots-clés', 'ffeeeedd' ) .' : <span itemprop="keywords">' . $tag_list . '.</span></p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span><br />' . __( 'Tags:', 'ffeeeedd' ) .' <span itemprop="keywords">' . $tag_list . '.</span></p>';
       } elseif ( '' != $categories_list ) {
-        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'et publié dans', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span></p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span></p>';
       } else {
-        echo '<p>' . __( 'Article rédigé par', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
       }
       // On génère la date de dernière modification
-      echo '<p class="print-hidden">' . __( 'Édité le', 'ffeeeedd' ) . ' <time class="updated" datetime="' . get_the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . get_the_modified_date() . '</time>.</p>';
+      echo '<p class="print-hidden">' . __( 'Last modified on', 'ffeeeedd' ) . ' <time class="updated" datetime="' . get_the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . get_the_modified_date() . '</time>.</p>';
   }
   endif;
 
@@ -267,7 +267,7 @@
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
     if ( $link ) {
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'All entries in ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     } else {
       $final .= $name . $separator;
     }
@@ -300,9 +300,9 @@
       // Page de blog ( liste des articles )
       if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
-        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Les articles', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></a></li>';
+        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Entries', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Entries', 'ffeeeedd' ) . '</span></a></li>';
       } else {
-        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Les articles', 'ffeeeedd' ) . '</span></li>';
+        $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries', 'ffeeeedd' ) . '</span></li>';
       }
     } else {
       // Pour tout le reste
@@ -365,7 +365,7 @@
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $permalink ) . '" itemprop="url" title="' . esc_attr( $title ) . '"><span itemprop="title">' . $title . '</span></a>';
-        $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Commentaires page ', 'ffeeeedd' ) . $cpage . '</span></li>';
+        $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Comments page ', 'ffeeeedd' ) . $cpage . '</span></li>';
       }
       // Sans pages de commentaires
       else {
@@ -386,7 +386,7 @@
       if ( $paged <= 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       } else {
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'Voir tous les articles de ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'All entries in ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
       }
     }
 
@@ -426,29 +426,29 @@
       } else {
         $curauth = get_userdata( get_query_var( 'author' ) );
       }
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles de ', 'ffeeeedd' ) . $curauth->nickname . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries written by ', 'ffeeeedd' ) . $curauth->nickname . '</span></li>';
     }
 
     // Tags
     elseif ( is_tag() ) {
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles sur le thème ', 'ffeeeedd' ) . single_tag_title( '', false ) . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . single_tag_title( '', false ) . '</span></li>';
     }
 
     // Formats
     elseif ( is_tax( 'post_format' ) ) {
       $format = get_post_format( $post->ID );
       $pretty_format = get_post_format_string( $format );
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Articles sur le thème ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
     }
 
     // Recherche
     elseif ( is_search() ) {
-      $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Résultats de votre recherche sur "', 'ffeeeedd' ) . get_search_query() . '"</span></li>';
+      $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Search results for "', 'ffeeeedd' ) . get_search_query() . '"</span></li>';
     }
 
     // Page 404
     elseif ( is_404() ) {
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page non trouvée ', 'ffeeeedd' ) . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page not found ', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Archives - autres
@@ -525,7 +525,7 @@
         case 'trackback' :
         // On affiche différemment les trackbacks. ?>
           <li <?php comment_class(); ?>>
-            <p><?php _e( 'Pingback :', 'ffeeeedd' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Modifier)', 'ffeeeedd' ), '<span class="edit-link">', '</span>' ); ?></p>
+            <p><?php _e( 'Pingback :', 'ffeeeedd' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'ffeeeedd' ), '<span class="edit-link">', '</span>' ); ?></p>
         <?php break;
         default :
         // On passe aux commentaires standards.
@@ -536,7 +536,7 @@
               <?php echo get_avatar( $comment, 44 );
               printf( '<cite itemprop="creator">%1$s %2$s</cite>',
                 get_comment_author_link(),
-                ( $comment->user_id === $post->post_author ) ? '<small> (' .  __( 'Rédacteur', 'ffeeeedd' ) . ' ) </small>' : ''
+                ( $comment->user_id === $post->post_author ) ? '<small> (' .  __( 'Post author', 'ffeeeedd' ) . ' ) </small>' : ''
               );
               printf( '<time datetime="%2$s" itemprop="commentTime">%3$s</time>',
                 esc_url( get_comment_link( $comment->comment_ID ) ),
@@ -546,16 +546,16 @@
             </header>
 
             <?php if ( '0' == $comment->comment_approved ) { ?>
-              <p><?php echo __( 'Votre commentaire est en attente de modération', 'ffeeeedd' ); ?>.</p>
+              <p><?php _e( 'Your comment is awaiting moderation.', 'ffeeeedd' ); ?>.</p>
             <?php } ?>
 
             <section itemprop="commentText">
               <?php comment_text(); ?>
-              <?php edit_comment_link( __( 'Modifier', 'ffeeeedd' ), '<p>', '</p>' ); ?>
+              <?php edit_comment_link( __( 'Edit', 'ffeeeedd' ), '<p>', '</p>' ); ?>
             </section>
 
             <div class="reply" itemprop="replyToUrl">
-              <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Répondre', 'ffeeeedd' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+              <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'ffeeeedd' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
             </div>
           </article>
         <?php break;
@@ -570,7 +570,7 @@
       // Type author
       $fields['fields']['author'] = '
       <p class="comment-form-author">
-        <label for="author">' . __( 'Nom', 'ffeeeedd' ) . ' <span class="required">*</span></label>
+        <label for="author">' . __( 'Name', 'ffeeeedd' ) . ' <span class="required">*</span></label>
         <input id="author" name="author" value="" aria-required="true" required="required" size="30" type="text" />
       </p>';
       // Type email
@@ -582,7 +582,7 @@
       // Type url et placeholder http://
       $fields['fields']['url'] = '
       <p class="comment-form-url">
-        <label for="url">' . __( 'Site web', 'ffeeeedd' ) . '</label>
+        <label for="url">' . __( 'Website', 'ffeeeedd' ) . '</label>
         <input id="url" name="url" value="" placeholder="http://" size="30" type="url" />
       </p>';
       return $fields;
@@ -592,7 +592,7 @@
   /* -- @subsection Ajout de l'attribut HTML5 required sur le textarea -------------------- */
   add_filter( 'comment_form_defaults', 'changing_comment_form_defaults' );
   function changing_comment_form_defaults( $defaults ) {
-    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __( 'Commentaire', 'ffeeeedd' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
+    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'ffeeeedd' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
     return $defaults;
   }
 

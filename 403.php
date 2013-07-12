@@ -14,16 +14,16 @@ get_header(); ?>
 
   <article role="article" itemscope itemtype="http://schema.org/Article">
     <header>
-      <h1 itemprop="name"><?php echo __( 'Erreur 403', 'ffeeeedd' ); ?></h1>
-      <h2 itemprop="description"><?php echo __( 'Vous n\'avez pas accès à ce contenu.', 'ffeeeedd' ); ?></h2>
+      <h1 itemprop="name"><?php _e( '403', 'ffeeeedd' ); ?></h1>
+      <h2 itemprop="description"><?php _e( 'Authorized personnel only.', 'ffeeeedd' ); ?></h2>
     </header>
-    <p itemprop="articleBody"><?php echo __( 'Ce contenu est réservé au personnel autorisé ! Ne paniquez pas, on peut vous aider :', 'ffeeeedd' ); ?></p>
-    <p class="h4-like"><?php echo __( 'Vous êtes ici :', 'ffeeeedd' ); ?> <span>&#10799;</span></p>
-    <p><?php echo __( 'Si vous êtes perdu, voilà ce que nous vous proposons :', 'ffeeeedd' ); ?></p>
+    <p itemprop="articleBody"><?php _e( 'Don\'t panic, we can help you. See:', 'ffeeeedd' ); ?></p>
+    <p class="h4-like"><?php _e( 'Here you are:', 'ffeeeedd' ); ?> <span>&#10799;</span></p>
+    <p><?php _e( 'If you\'re still lost, these suggestions may help:', 'ffeeeedd' ); ?></p>
     <ul>
       <?php wp_nav_menu( array( 'theme_location' => '404', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
       <li>
-        <a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php echo __( 'Contacter l\'administrateur du site', 'ffeeeedd' ); ?></a>
+        <a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php _e( 'Email this website\'s author', 'ffeeeedd' ); ?></a>
       </li>
     </ul>
   </article>

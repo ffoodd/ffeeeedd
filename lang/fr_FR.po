@@ -1,0 +1,310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ffeeeedd\n"
+"POT-Creation-Date: 2013-07-12 15:19+0100\n"
+"PO-Revision-Date: 2013-07-12 15:21+0100\n"
+"Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
+"Language-Team: Luc Poupard, Gaël Poupard\n"
+"Language: english\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: gettext;gettext_noop;_;__;_e\n"
+"X-Poedit-Basepath: D:\\clients\\GitHub\\ffeeeedd\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: D:\\clients\\GitHub\\ffeeeedd\n"
+
+#: D:\clients\GitHub\ffeeeedd/403.php:17
+msgid "403"
+msgstr "Erreur 403"
+
+#: D:\clients\GitHub\ffeeeedd/403.php:18
+msgid "Authorized personnel only."
+msgstr "Accès réservé au personnel autorisé."
+
+#: D:\clients\GitHub\ffeeeedd/403.php:20 D:\clients\GitHub\ffeeeedd/404.php:20
+msgid "Don't panic, we can help you. See:"
+msgstr "Ne paniquez pas, nous allons vous aider :"
+
+#: D:\clients\GitHub\ffeeeedd/403.php:21 D:\clients\GitHub\ffeeeedd/404.php:21
+msgid "Here you are:"
+msgstr "Vous êtes ici :"
+
+#: D:\clients\GitHub\ffeeeedd/403.php:22 D:\clients\GitHub\ffeeeedd/404.php:22
+msgid "If you're still lost, these suggestions may help:"
+msgstr "Si vous êtes perdus, ces liens pourront peut-être vous aider :"
+
+#: D:\clients\GitHub\ffeeeedd/403.php:26 D:\clients\GitHub\ffeeeedd/404.php:26
+msgid "Email this website's author"
+msgstr "Contactez l'administrateur du site"
+
+#: D:\clients\GitHub\ffeeeedd/404.php:17
+msgid "404"
+msgstr "Erreur 44"
+
+#: D:\clients\GitHub\ffeeeedd/404.php:18
+msgid "Page not found"
+msgstr "Page non trouvée"
+
+#: D:\clients\GitHub\ffeeeedd/archive.php:17
+msgid "Archive"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/archive.php:29
+#: D:\clients\GitHub\ffeeeedd/author.php:40
+#: D:\clients\GitHub\ffeeeedd/category.php:29
+#: D:\clients\GitHub\ffeeeedd/home.php:29
+#: D:\clients\GitHub\ffeeeedd/index.php:29
+#: D:\clients\GitHub\ffeeeedd/tag.php:29
+msgid "Permalink to the post"
+msgstr "Lien vers l'article"
+
+#: D:\clients\GitHub\ffeeeedd/archive.php:32
+#: D:\clients\GitHub\ffeeeedd/author.php:43
+#: D:\clients\GitHub\ffeeeedd/category.php:32
+#: D:\clients\GitHub\ffeeeedd/home.php:32
+#: D:\clients\GitHub\ffeeeedd/index.php:32
+#: D:\clients\GitHub\ffeeeedd/single.php:23
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:45
+#: D:\clients\GitHub\ffeeeedd/tag.php:32
+msgid "j F Y"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/archive.php:44
+#: D:\clients\GitHub\ffeeeedd/home.php:44
+#: D:\clients\GitHub\ffeeeedd/index.php:44
+msgid "Nothing found"
+msgstr "Aucun article à afficher"
+
+#: D:\clients\GitHub\ffeeeedd/author.php:17
+msgid "Author"
+msgstr "Auteur"
+
+#: D:\clients\GitHub\ffeeeedd/author.php:25
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:585
+msgid "Website"
+msgstr "Site"
+
+#: D:\clients\GitHub\ffeeeedd/author.php:55
+msgid "didn't wrote anything for now."
+msgstr "n'a rédigé aucun article pour le moment."
+
+#: D:\clients\GitHub\ffeeeedd/category.php:17
+msgid "Category:"
+msgstr "Catégorie :"
+
+#: D:\clients\GitHub\ffeeeedd/category.php:44
+msgid "Nothing found in "
+msgstr "Aucun article trouvé dans"
+
+#: D:\clients\GitHub\ffeeeedd/comments.php:23
+#, php-format
+msgid "First thought on &ldquo;%2$s&rdquo;"
+msgstr "Un commentaire sur &ldquo;%2$s&rdquo;"
+
+#: D:\clients\GitHub\ffeeeedd/comments.php:23
+#, php-format
+msgid "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr "%1$s commentaires sur &ldquo;%2$s&rdquo;"
+
+#: D:\clients\GitHub\ffeeeedd/comments.php:34
+msgid "Comments are closed."
+msgstr "Les commentaires sont clos."
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:39
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:40
+msgid "SEO"
+msgstr "Référencement naturel"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:49
+msgid "Those datas are used in <meta> tags for SEO and SMO."
+msgstr ""
+"Ces informations seront utilisées dans les balises <meta> pour optimiser le "
+"référencement naturel et le partage sur les réseaux sociaux."
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:50
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:52
+msgid "Title"
+msgstr "Titre"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:55
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:57
+msgid "Description"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:60
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:62
+msgid "Canonical URL"
+msgstr "URL canonique"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:122
+msgid "Continue reading"
+msgstr "Lire la suite de"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:169
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:171
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:173
+msgid "Entry written by"
+msgstr "Article rédigé par"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:169
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:171
+msgid "in"
+msgstr "dans"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:169
+msgid "Tags:"
+msgstr "Mots-clés :"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:176
+msgid "Last modified on"
+msgstr "Modifié le"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:270
+msgid "All entries in "
+msgstr "Tous les articles dans"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:303
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:305
+msgid "Entries"
+msgstr "Articles"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:368
+msgid "Comments page "
+msgstr "Commentaires page"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:429
+msgid "Entries written by "
+msgstr "Articles rédigés par "
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:434
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:441
+msgid "Entries about "
+msgstr "Articles sur le thème de"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:446
+msgid "Search results for \""
+msgstr "Résultats de la recherche pour \""
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:451
+msgid "404 - Page not found "
+msgstr "404 - Page non trouvée"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:528
+msgid "Pingback :"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:528
+msgid "(Edit)"
+msgstr "(Modifier)"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:539
+msgid "Post author"
+msgstr "Rédacteur"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:549
+msgid "Your comment is awaiting moderation."
+msgstr "Votre commentaire est en attente de modération."
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:554
+msgid "Edit"
+msgstr "Modifier"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:558
+msgid "Reply"
+msgstr "Répondre"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:573
+msgid "Name"
+msgstr "Nom"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:579
+msgid "Email"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:595
+msgid "Comment"
+msgstr "Commentaire"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:692
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/footer.php:4
+msgid "By default, this content is licensed under"
+msgstr "Sauf mention contraire, l'ensemble du contenu est sous"
+
+#: D:\clients\GitHub\ffeeeedd/header.php:69
+msgid "RSS feed"
+msgstr "Flux RSS"
+
+#: D:\clients\GitHub\ffeeeedd/header.php:76
+msgid "Skip to navigation"
+msgstr "Aller au menu"
+
+#: D:\clients\GitHub\ffeeeedd/header.php:78
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: D:\clients\GitHub\ffeeeedd/home.php:17
+#: D:\clients\GitHub\ffeeeedd/index.php:17
+msgid "Recent posts"
+msgstr "Articles récents"
+
+#: D:\clients\GitHub\ffeeeedd/single.php:29
+#: D:\clients\GitHub\ffeeeedd/single.php:30
+#: D:\clients\GitHub\ffeeeedd/single.php:31
+msgid "Share on"
+msgstr "Partager sur"
+
+#: D:\clients\GitHub\ffeeeedd/single.php:32
+msgid "Email to a friend"
+msgstr "Envoyer par email"
+
+#: D:\clients\GitHub\ffeeeedd/single.php:34
+msgid "Print this post"
+msgstr "Imprimez cet article"
+
+#: D:\clients\GitHub\ffeeeedd/single.php:35
+msgid ""
+"In order to print this post, please use the following keyboard shortcut: "
+"<kbd>Ctrl + P</kbd>"
+msgstr "Pour imprimer cet article, utilisez le raccourci"
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:22
+msgid "Pages"
+msgstr ""
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:25
+msgid "Feeds"
+msgstr "Flux"
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:28
+msgid "Posts RSS feed"
+msgstr "Flux RSS des articles"
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:31
+msgid "Comments RSS feed"
+msgstr "Flux RSS des commentaires"
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:35
+msgid "Categories"
+msgstr "Catégories"
+
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:38
+msgid "Posts"
+msgstr "Articles"
+
+#: D:\clients\GitHub\ffeeeedd/tag.php:17
+msgid "Tags"
+msgstr "Mots-clés"
+
+#: D:\clients\GitHub\ffeeeedd/tag.php:44
+msgid "No post found tagged"
+msgstr "Aucun article trouvé portant l'étiquette"
+
+#~ msgid "ffeeeedd | RSS feed"
+#~ msgstr "Flux RSS"

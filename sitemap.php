@@ -19,23 +19,23 @@ get_header(); ?>
     <h2 itemprop="name"><?php the_title(); ?></h2>
     <div itemprop="articleBody">
 
-      <h3><?php echo __( 'Pages', 'ffeeeedd' ); ?></h3>
+      <h3><?php _e( 'Pages', 'ffeeeedd' ); ?></h3>
       <ul><?php wp_list_pages( 'title_li=' ); ?></ul>
 
-      <h3><?php echo __( 'Flux', 'ffeeeedd' ); ?></h3>
+      <h3><?php _e( 'Feeds', 'ffeeeedd' ); ?></h3>
       <ul>
         <li>
-          <a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank"><?php echo __( 'Flux RSS des articles', 'ffeeeedd' ); ?></a>
+          <a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank"><?php _e( 'Posts RSS feed', 'ffeeeedd' ); ?></a>
         </li>
         <li>
-          <a href="<?php bloginfo( 'comments_rss2_url' ); ?>" target="_blank"><?php echo __( 'Flux RSS des commentaires', 'ffeeeedd' ); ?></a>
+          <a href="<?php bloginfo( 'comments_rss2_url' ); ?>" target="_blank"><?php _e( 'Comments RSS feed', 'ffeeeedd' ); ?></a>
         </li>
       </ul>
 
-      <h3><?php echo __( 'Catégories', 'ffeeeedd' ); ?></h3>
+      <h3><?php _e( 'Categories', 'ffeeeedd' ); ?></h3>
       <ul><?php wp_list_categories( 'show_count=1' ); ?></ul>
 
-      <h3><?php echo __( 'Tous les articles', 'ffeeeedd' ); ?></h3>
+      <h3><?php _e( 'Posts', 'ffeeeedd' ); ?></h3>
       <?php $ffeeeedd__article = new WP_Query( array( 'post_type' => 'post', 'nopaging' => 'true', 'orderby' => 'date' ) ); ?>
       <?php if ( $ffeeeedd__article->have_posts() ) { ?>
       <ul>

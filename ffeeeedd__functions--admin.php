@@ -36,8 +36,8 @@
 
   /* -- @subsection Création des blocs dans l'administration -------------------- */
   function ffeeeedd__metabox() {
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'Référencement', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
+    add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
   }
   add_action( 'add_meta_boxes', 'ffeeeedd__metabox' );
 
@@ -46,20 +46,20 @@
     $val_title = get_post_meta( $post->ID, '_ffeeeedd__metabox__titre', true );
     $val_canonical = get_post_meta( $post->ID, '_ffeeeedd__metabox__canonical', true );
     $val_description = get_post_meta( $post->ID, '_ffeeeedd__metabox__description', true ); ?>
-    <p><?php echo __( 'Ces champs sont utilisés dans les balises \'meta\' utiles au référencement naturel et au partage social.', 'ffeeeedd' ); ?>.</p>
-    <p><strong><?php echo __( 'Titre', 'ffeeeedd' ); ?></strong></p>
+    <p><?php _e( 'Those datas are used in <meta> tags for SEO and SMO.', 'ffeeeedd' ); ?>.</p>
+    <p><strong><?php _e( 'Title', 'ffeeeedd' ); ?></strong></p>
     <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__titre"><?php echo __( 'Titre', 'ffeeeedd' ); ?></label>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__titre"><?php _e( 'Title', 'ffeeeedd' ); ?></label>
       <input id="ffeeeedd__metabox__titre" name="ffeeeedd__metabox__titre" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
     </p>
-    <p><strong><?php echo __( 'Description', 'ffeeeedd' ); ?></strong></p>
+    <p><strong><?php _e( 'Description', 'ffeeeedd' ); ?></strong></p>
     <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php echo __( 'Description', 'ffeeeedd' ); ?></label>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php _e( 'Description', 'ffeeeedd' ); ?></label>
       <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:vertical;"><?php echo $val_description; ?></textarea>
     </p>
-    <p><strong><?php echo __( 'URL(s) canonique(s)', 'ffeeeedd' ); ?></strong></p>
+    <p><strong><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></strong></p>
     <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__canonical"><?php echo __( 'URL canonique', 'ffeeeedd' ); ?></label>
+      <label class="screen-reader-text" for="ffeeeedd__metabox__canonical"><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></label>
       <input id="ffeeeedd__metabox__canonical" name="ffeeeedd__metabox__canonical" placeholder="http://" type="url" style="width:100%;" value="<?php echo $val_canonical; ?>" />
     </p>
   <?php }

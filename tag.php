@@ -14,7 +14,7 @@ get_header(); ?>
 
 <?php if ( have_posts() ) { ?>
 
-  <h2><?php echo __( 'Mot-clé', 'ffeeeedd' ); ?> : <?php echo single_tag_title( '', false ); ?></h2>
+  <h2><?php _e( 'Tags', 'ffeeeedd' ); ?> : <?php echo single_tag_title( '', false ); ?></h2>
 
   <ol>
     <?php while ( have_posts() ) { the_post(); ?>
@@ -26,7 +26,7 @@ get_header(); ?>
         <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
         <?php if ( has_post_thumbnail() ) { ?>
         <a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => 'Lien vers l\'article' ) ); ?>
+          <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => __( 'Permalink to the post', 'ffeeeedd' ) ) ); ?>
         </a>
         <?php } ?>
         <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
@@ -41,7 +41,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php echo __( 'Il n\'y a aucun article étiquetté avec le mot-clé', 'ffeeeedd' ); ?> <?php echo single_tag_title( '', false ); ?></h2>
+    <h2><?php _e( 'No post found tagged', 'ffeeeedd' ); ?> <?php echo single_tag_title( '', false ); ?></h2>
   <?php } ?>
 
 <?php get_footer(); ?>
