@@ -49,8 +49,8 @@ De plus un important travail de normalisation a été effectué : [une conventio
  * `formulaires.css` (ffeeeedd--prototype)
  * `structure--etendue.css` (ffeeeedd--prototype)
  * `typographie.css` (ffeeeedd--prototype)
+ * `adaptation.css` (ffeeeedd--prototype)
  * `modules.css` (ffeeeedd--developpement)
- * `adaptation.css` (ffeeeedd--developpement)
  * `ie.css` (ffeeeedd--developpement)
  * `impression.css` (ffeeeedd--developpement)
  * Commenter les appels dans `style.css` du thème parent.
