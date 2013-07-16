@@ -9,7 +9,7 @@ Qu'est-ce que c'est ?
 
 Ce thème n'a pour prétention de départ que d'améliorer mon flux de travail et de création de thèmes WordPress. Beaucoup de bonnes intentions mais reste à produire la qualité !
 
-L'objectif à moyen terme et de garder à disposition une base saine et souple de thème WordPress, enrichie de composants spécifiques récoltés, conçus et améliorés au fil de mes pérégrinations professionnelles.
+L'objectif à moyen terme est de garder à disposition une base saine et souple de thème WordPress, enrichie de composants spécifiques récoltés, conçus et améliorés au fil de mes pérégrinations professionnelles.
 
 Pourquoi ça existe ?
 --------------------
