@@ -248,7 +248,7 @@
    * @note : Modifications :
    * @author : Gaël Poupard
    * @see : https://twitter.com/ffoodd_fr
-   * @note : Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, et mise en place des microdonnées au lieu des microformats.
+   * @note : Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, du nombre de résultats et de la requête de la recherche, et mise en place des microdonnées au lieu des microformats.
   */
 
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
