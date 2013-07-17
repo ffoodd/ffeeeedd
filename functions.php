@@ -24,8 +24,8 @@
 
   /* == @section Options du thème ==================== */
   /**
-   * @see Twentytwelve - Thème WordPress par défaut.
-   * @see http://wordpress.org/extend/themes/twentytwelve
+   * @see : Twentytwelve - Thème WordPress par défaut.
+   * @see : http://wordpress.org/extend/themes/twentytwelve
   */
 
   add_theme_support( 'post-thumbnails' );
@@ -35,11 +35,11 @@
 
   /* == @section Traduction ==================== */
   /**
-   * @author Luc Poupard
-   * @see https://twitter.com/klohFR
-   * @note I18n : déclare le domaine et l'emplacement des fichiers de traduction
-   * @see Twentytwelve - Thème WordPress par défaut.
-   * @link http://wordpress.org/extend/themes/twentytwelve
+   * @author : Luc Poupard
+   * @see : https://twitter.com/klohFR
+   * @note : I18n : déclare le domaine et l'emplacement des fichiers de traduction
+   * @see : Twentytwelve - Thème WordPress par défaut.
+   * @link : http://wordpress.org/extend/themes/twentytwelve
   */
 
   add_action( 'after_setup_theme', 'ffeeeedd__setup' );
@@ -50,8 +50,8 @@
 
   /* == @section Colonnes latérales ==================== */
   /**
-    @author Gaël Poupard
-    @see https://twitter.com/ffoodd_fr
+    @author : Gaël Poupard
+    @see : https://twitter.com/ffoodd_fr
   */
 
   function ffeeeedd_widgets_init() {
@@ -79,10 +79,10 @@
 
   /* == @section Personnaliser le logo ==================== */
   /**
-   * @note Ajoute le support de la personnlisation de l'entête,
-   * @note On le détourne pour personnaliser le logo.
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
+   * @note : Ajoute le support de la personnlisation de l'entête,
+   * @note : On le détourne pour personnaliser le logo.
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
    */
 
   function ffeeeedd__logo() {
@@ -104,12 +104,12 @@
 
   /* == @section Fonctions conditionnelles ==================== */
   /**
-    @author Grégory Viguier
-    @see https://twitter.com/ScreenFeedFr
-    @see http://www.screenfeed.fr/blog/accelerer-wordpress-en-divisant-le-fichier-functions-php-0548/
-    @note Version simple librement adaptée pour ffeeeedd
-    @author Gaël Poupard
-    @see https://twitter.com/ffoodd_fr
+    @author : Grégory Viguier
+    @see : https://twitter.com/ScreenFeedFr
+    @see : http://www.screenfeed.fr/blog/accelerer-wordpress-en-divisant-le-fichier-functions-php-0548/
+    @note : Version simple librement adaptée pour ffeeeedd
+    @author : Gaël Poupard
+    @see : https://twitter.com/ffoodd_fr
   */
 
   /* -- @subsection Fonctions de l'administration  -------------------- */

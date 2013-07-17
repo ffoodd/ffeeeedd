@@ -44,14 +44,15 @@
     -- Génère le titre utilisé dans les métas 'Title'
     -- Ajoute un <link rel="canonical" /> si le champ est rempli
   == Ajout des métas Image dans le <head>
+  == Amélioration de la recherche
 */
 
 
   /* == @section Classes sur la navigation ==================== */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Retire la multitude de classes générées par WordPress et inutiles; ajoute les classes permettant d'identifier les parents directs ou indirects, et autorise l'ajout de la classe "inbl" de Knacss depuis l'administration.
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Retire la multitude de classes générées par WordPress et inutiles; ajoute les classes permettant d'identifier les parents directs ou indirects, et autorise l'ajout de la classe "inbl" de Knacss depuis l'administration.
   */
 
   /* -- @subsection Retire les classes générées - sauf les 'current_page' - par Wordpress sur le menu principal -------------------- */
@@ -82,9 +83,9 @@
 
   /* == @section Liens générés ==================== */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note La deuxième sous-section provient d'un bout de code trouvé dans un dossier "wordcamp-code" dont je en suis pas parvenu à retrouver l'origine.
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : La deuxième sous-section provient d'un bout de code trouvé dans un dossier "wordcamp-code" dont je en suis pas parvenu à retrouver l'origine.
   */
 
   /* -- @subsection Désactive les liens et scripts inutiles générés par WordPress */
@@ -113,8 +114,8 @@
 
   /* == @section Gestion des extraits ==================== */
   /**
-   * @note Tiré de Twentyeleven - Ancien thème WordPress par défaut
-   * @see http://theme.wordpress.com/themes/twentyeleven/
+   * @note : Tiré de Twentyeleven - Ancien thème WordPress par défaut
+   * @see : http://theme.wordpress.com/themes/twentyeleven/
    */
 
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
@@ -140,9 +141,9 @@
 
   /* == @section Ajout d'Open Graph pour le Doctype ==================== */
   /**
-   * @author Jonathan Buttigieg
-   * @see https://twitter.com/GeekPressFR
-   * @see http://www.geekpress.fr/wordpress/tutoriel/ajouter-meta-open-graph-facebook-theme-wordpress-593/
+   * @author : Jonathan Buttigieg
+   * @see : https://twitter.com/GeekPressFR
+   * @see : http://www.geekpress.fr/wordpress/tutoriel/ajouter-meta-open-graph-facebook-theme-wordpress-593/
    */
 
   function ffeeeedd__opengraph( $output ) {
@@ -153,10 +154,10 @@
 
   /* == @section <footer> pour les articles ==================== */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note inspiré de la fonction "twentytwelve_entry_meta" du thème Twentytwelve, enrichie par mes soins de microdonnées, de la date de dernière modification et avec un format de date Français.
-   * @see http://wordpress.org/extend/themes/twentytwelve
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note :inspiré de la fonction "twentytwelve_entry_meta" du thème Twentytwelve, enrichie par mes soins de microdonnées, de la date de dernière modification et avec un format de date Français.
+   * @see : http://wordpress.org/extend/themes/twentytwelve
    */
 
   if ( ! function_exists( 'ffeeeedd__meta' ) ) :
@@ -180,10 +181,10 @@
 
   /* == @section Injection des scripts et styles ==================== */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note inspiré du thème Twentytwelve.
-   * @see http://wordpress.org/extend/themes/twentytwelve
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : inspiré du thème Twentytwelve.
+   * @see : http://wordpress.org/extend/themes/twentytwelve
    */
 
   /* -- @subsection Ajouter les scripts et styles via wp_head() -------------------- */
@@ -197,15 +198,15 @@
 
   /* -- @subsection Créer les éléments html5 pour IE8 et - -------------------- */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Inspiré par deux astuces croisées sur le web :
-   * @see http://tweetpress.fr/codewp/detection-navigateur-wordpress/
-   * @author Julien Maury
-   * @see https://twitter.com/TweetPressFr
-   * @see https://github.com/mlbli/HTML5forIE
-   * @author Matthias Le Brun
-   * @see https://twitter.com/_mlb
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Inspiré par deux astuces croisées sur le web :
+   * @see : http://tweetpress.fr/codewp/detection-navigateur-wordpress/
+   * @author : Julien Maury
+   * @see : https://twitter.com/TweetPressFr
+   * @see : https://github.com/mlbli/HTML5forIE
+   * @author : Matthias Le Brun
+   * @see : https://twitter.com/_mlb
    */
   function ffeeeedd__ie_html5 () {
     // On commence par tester s'il s'agit bien d'IE à l'aide d'une variable globale proposée par WordPress
@@ -221,11 +222,11 @@
 
   /* -- @subsection Tester l'activation du js -------------------- */
   /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Inspiré par Modernizr
-   * @author http://modernizr.com/
-   * @see http://modernizr.github.io/Modernizr/annotatedsource.html#section-103
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Inspiré par Modernizr
+   * @author : http://modernizr.com/
+   * @see : http://modernizr.github.io/Modernizr/annotatedsource.html#section-103
   */
   function ffeeeedd__test_js () {
     echo "<!-- Test de l'activation du javascript -->";
@@ -240,14 +241,14 @@
 
   /* == @section Fil d'Ariane ==================== */
   /**
-   * @author Daniel Roch
-   * @see https://twitter.com/rochdaniel
-   * @see http://www.seomix.fr/fil-dariane-chemin-navigation/
-   * @see http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=185417
-   * @note Modifications :
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, et mise en place des microdonnées au lieu des microformats.
+   * @author : Daniel Roch
+   * @see : https://twitter.com/rochdaniel
+   * @see : http://www.seomix.fr/fil-dariane-chemin-navigation/
+   * @see : http://support.google.com/webmasters/bin/answer.py?hl=fr&answer=185417
+   * @note : Modifications :
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, et mise en place des microdonnées au lieu des microformats.
   */
 
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
@@ -476,9 +477,9 @@
 
   /* == @section Pagination ==================== */
   /**
-   * @author Jonathan Buttigieg
-   * @see https://twitter.com/GeekPressFR
-   * @see http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
+   * @author : Jonathan Buttigieg
+   * @see : https://twitter.com/GeekPressFR
+   * @see : http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
   */
 
   if( !function_exists( 'ffeeeedd__pagination' ) ) {
@@ -510,9 +511,9 @@
 
   /* == @section Commentaires ==================== */
   /**
-   * @author Luc Poupard
-   * @see https://twitter.com/klohFR
-   * @note Personnalise l'affichage des commentaires, ajout des microdonnées, et amélioration de l'accessibilité du formulaire avec les attributs et rôles ARIA.
+   * @author : Luc Poupard
+   * @see : https://twitter.com/klohFR
+   * @note : Personnalise l'affichage des commentaires, ajout des microdonnées, et amélioration de l'accessibilité du formulaire avec les attributs et rôles ARIA.
   */
 
   /* -- @subsection Gère l'affichage des commentaires -------------------- */
@@ -599,9 +600,9 @@
   /* -- @subsection Suppression de l'attribut rel="nofollow" sur les commentaires --------
   ------------ */
   /**
-    @author Jonathan Buttigieg
-    @see https://twitter.com/GeekPressFR
-    @see http://www.geekpress.fr/wordpress/astuce/supprimer-nofollow-commentaires-1500/
+    @author : Jonathan Buttigieg
+    @see : https://twitter.com/GeekPressFR
+    @see : http://www.geekpress.fr/wordpress/astuce/supprimer-nofollow-commentaires-1500/
   */
   add_filter( 'get_comment_author_link', 'ffeeeedd__dofollow' );
   add_filter( 'comment_text', 'ffeeeedd__dofollow' );
@@ -614,14 +615,14 @@
 
   /* == @section Référencement Social / SEO ==================== */
   /**
-   * @note Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
-   * @author Sylvain Fouillaud
-   * @see https://twitter.com/noviseo
-   * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
-   * @note Modifications :
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
+   * @note : Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
+   * @author : Sylvain Fouillaud
+   * @see : https://twitter.com/noviseo
+   * @see : http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note : Modifications :
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
   /* -- @subsection Ajoute les métas 'Description' dans le <head> -------------------- */
@@ -707,13 +708,13 @@
 
   /* == @section Ajout des métas Image dans le <head> ==================== */
   /**
-   * @note Inspiré par le thème Noviseo2012, avec une gestion des images améliorée
-   * @author Sylvain Fouillaud
-   * @see https://twitter.com/noviseo
-   * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note : Inspiré par le thème Noviseo2012, avec une gestion des images améliorée
+   * @author : Sylvain Fouillaud
+   * @see : https://twitter.com/noviseo
+   * @see : http://noviseo.fr/2012/11/theme-wordpress-referencement/
    * @note : La fonction est modifiée pour prendre en compte le logo personnalisé.
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
    */
 
   function ffeeeedd__injection__image() {
@@ -734,3 +735,28 @@
     }
   }
   add_action( 'wp_head', 'ffeeeedd__injection__image' );
+
+
+  /* == @section Amélioration de la recherche ==================== */
+  /**
+   * @note : La requête est modifiée pour chercher dans tous les types de contenus, et trier les résultats par date, avec une pagination de 10 en 10.
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @param : type $query : la requête effectuée
+   * @return : type : la requête personnalisée par nos soins
+   */
+
+  function ffeeeedd__recherche( $query ) {
+    // On vérifie s'il s'agit dune page de recherche ou d'un flux rss
+    if ( $query->is_search or $query->is_feed ) {
+      // La recherche parcoure tous les contenus
+      $query->set( 'post_type', 'any' );
+      // On définit à 10 le nombre de résultats, comme sur les autres pages de boucles
+      $query->set( 'posts_per_page', 10 );
+      // On définit l'ordre d'affichage chronologique
+      $query->set( 'orderby', 'date' );
+    }
+    return $query;
+  }
+  // Ce filtre va intercepter la boucle et ré-ordonner les résultats avant qu'ils ne soient renvoyés et affichés
+  add_filter('pre_get_posts','ffeeeedd__recherche');

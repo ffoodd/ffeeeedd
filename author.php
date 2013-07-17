@@ -52,7 +52,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php echo get_the_author() ; ?> <?php _e( 'didn\'t wrote anything for now.', 'ffeeeedd' ); ?>.</h2>
+    <h2><?php echo get_the_author() ; ?> <?php _e( 'didn\'t write anything for now.', 'ffeeeedd' ); ?>.</h2>
   <?php } ?>
 
 <?php get_footer(); ?>

@@ -24,14 +24,14 @@
 
   /* == @section Référencement Social / SEO ==================== */
   /**
-   * @note Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
-   * @author Sylvain Fouillaud
-   * @see https://twitter.com/noviseo
-   * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
-   * @note Modifications :
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
+   * @note : Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
+   * @author : Sylvain Fouillaud
+   * @see : https://twitter.com/noviseo
+   * @see : http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note : Modifications :
+   * @author : Gaël Poupard
+   * @see : https://twitter.com/ffoodd_fr
+   * @note : Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
   /* -- @subsection Création des blocs dans l'administration -------------------- */
@@ -81,11 +81,11 @@
 
   /* == @section Profil utilisateur ==================== */
   /**
-   * @note Ajoute un champ 'Twitter' dans les profils utilisateur
-   * @note Supprime les champs inutiles
-   * @author Valentin Brandt
-   * @see https://twitter.com/geekeriesfr
-   * @see http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
+   * @note : Ajoute un champ 'Twitter' dans les profils utilisateur
+   * @note : Supprime les champs inutiles
+   * @author : Valentin Brandt
+   * @see : https://twitter.com/geekeriesfr
+   * @see : http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
    */
 
   function ffeeeedd__user() {
@@ -103,9 +103,9 @@
 
   /* == @section Compteur de caractères sur le champ extrait dans l'administration ==================== */
   /**
-   * @author Elio Rivero
-   * @see https://twitter.com/eliorivero
-   * @see http://www.ilovecolors.com.ar/character-counter-excerpt-wordpress/
+   * @author : Elio Rivero
+   * @see : https://twitter.com/eliorivero
+   * @see : http://www.ilovecolors.com.ar/character-counter-excerpt-wordpress/
    */
 
   define( 'THEME_URI', get_template_directory_uri() );

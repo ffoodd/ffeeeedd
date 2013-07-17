@@ -41,7 +41,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php _e( 'Nothing found', 'ffeeeedd' ); ?></h2>
+    <h2><?php _e( 'Nothing found.', 'ffeeeedd' ); ?></h2>
   <?php } ?>
 
 <?php get_footer(); ?>

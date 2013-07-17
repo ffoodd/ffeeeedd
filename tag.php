@@ -41,7 +41,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php _e( 'No post found tagged', 'ffeeeedd' ); ?> <?php echo single_tag_title( '', false ); ?></h2>
+    <h2><?php _e( 'No post found tagged', 'ffeeeedd' ); ?> <?php echo single_tag_title( '', false ); ?>.</h2>
   <?php } ?>
 
 <?php get_footer(); ?>
