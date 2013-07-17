@@ -444,7 +444,13 @@
 
     // Recherche
     elseif ( is_search() ) {
-      $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Search results for "', 'ffeeeedd' ) . get_search_query() . '"</span></li>';
+      global $wp_query;
+      $count = $wp_query->found_posts;
+      if ( $count > 1 ) {
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() ) . '</span></li>';
+      } elseif ( $count == 1 ) {
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . '</span></li>';
+      }
     }
 
     // Page 404
@@ -672,6 +678,16 @@
     // Ne change rien pour les flux RSS
     if ( is_feed() ) {
       return $title;
+    }
+    // Dans la page recherche, on indique le terme recherché
+    if ( is_search() ) {
+      global $wp_query;
+      $count = $wp_query->found_posts;
+      if ( $count > 1 ) {
+        $title = sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() );
+      } elseif ( $count == 1 ) {
+        $title = sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . ' ' . $sep . ' ';
+      }
     }
     // Modifie le titre si le champ de l'administration est rempli
     if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {

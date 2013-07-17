@@ -18,7 +18,17 @@ get_header(); ?>
 
 <?php if ( have_posts() ) { ?>
 
-  <h2><?php _e( 'Search: ', 'ffeeeedd' ) . get_search_query() . '' ; ?></h2>
+  <?php global $wp_query;
+  $count = $wp_query->found_posts;
+  if ( $count > 1 ) {
+    echo '<h2>';
+    echo sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() );
+    echo '</h2>';
+  } elseif ( $count == 1 ) {
+    echo '<h2>';
+    echo sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() );
+    echo '</h2>';
+  } ?>
 
   <ol>
     <?php while ( have_posts() ) { the_post();
@@ -45,7 +55,7 @@ get_header(); ?>
     <?php } ?>
   </ol>
 
-  <?php ffeeeedd_pagination(); ?>
+  <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
     <h2><?php _e('Sorry, but nothing matched your search criteria.', 'ffeeeedd'); ?></h2>
