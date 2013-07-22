@@ -160,7 +160,7 @@
    * @see : http://wordpress.org/extend/themes/twentytwelve
    */
 
-  if ( ! function_exists( 'ffeeeedd__meta' ) ) :
+  if ( ! function_exists( 'ffeeeedd__meta' ) ) {
     function ffeeeedd__meta() {
       // Liste des catégories & tags avec un séparateur.
       $categories_list = get_the_category_list( ( ', ' ) );
@@ -175,9 +175,8 @@
       }
       // On génère la date de dernière modification
       echo '<p class="print-hidden">' . __( 'Last modified on', 'ffeeeedd' ) . ' <time class="updated" datetime="' . get_the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . get_the_modified_date() . '</time>.</p>';
+    }
   }
-  endif;
-
 
   /* == @section Injection des scripts et styles ==================== */
   /**
@@ -488,7 +487,7 @@
    * @see : http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
   */
 
-  if( !function_exists( 'ffeeeedd__pagination' ) ) {
+  if( ! function_exists( 'ffeeeedd__pagination' ) ) {
     function ffeeeedd__pagination() {
       global $wp_query, $wp_rewrite;
       $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
@@ -523,7 +522,7 @@
   */
 
   /* -- @subsection Gère l'affichage des commentaires -------------------- */
-  if ( !function_exists( 'ffeeeedd_comment' ) ) {
+  if ( ! function_exists( 'ffeeeedd_comment' ) ) {
     // Template pour les commentaires & pingbacks.
     function ffeeeedd_comment( $comment, $args, $depth ) {
       $GLOBALS['comment'] = $comment;
@@ -572,7 +571,7 @@
 
   /* -- @subsection Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email -------------------- */
   add_filter( 'comment_form_defaults', 'fields_html5' );
-  if ( !function_exists( 'fields_html5' )) {
+  if ( ! function_exists( 'fields_html5' )) {
     function fields_html5( $fields ) {
       // Type author
       $fields['fields']['author'] = '
