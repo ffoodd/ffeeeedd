@@ -107,14 +107,14 @@
 .left,
 .alignleft { float: left; }
 img.left,
-img.alignleft { margin-right: 1em; }
+img.alignleft { margin-right: 2em; }
 
 /* À droite */
 .right
 .alignright { float: right; }
 
 img.right,
-img.alignright { margin-left: 1em; }
+img.alignright { margin-left: 2em; }
 
 /* Centré */
 .aligncenter {

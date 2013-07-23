@@ -150,4 +150,4 @@ a img { border: 0; }
 
 a:hover img,
 a:active img,
-a:focus img { outline: 4px solid inherit; }
+a:focus img { outline: 4px solid; }
