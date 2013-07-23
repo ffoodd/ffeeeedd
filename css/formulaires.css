@@ -44,12 +44,13 @@ select {
 }
 
 textarea {
-  font-size: 1.75em;
   min-height: 5em;
   overflow: auto; /* @bugfix
   @affected Supprime la scrollbar par défaut sur IE6/7/8/9 */
   resize: vertical;
   vertical-align: top;
+  /* Évite l'aplication d'une fonte monospace */
+  font-family: inherit;
 }
 
 button,
