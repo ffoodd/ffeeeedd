@@ -31,9 +31,9 @@ a {
   text-decoration: none;
 }
 
+a:focus,
 a:hover,
-a:active,
-a:focus {
+a:active {
   text-decoration: underline;
 }
 
@@ -148,6 +148,6 @@ img {
 
 a img { border: 0; }
 
+a:focus img,
 a:hover img,
-a:active img,
-a:focus img { outline: 4px solid; }
+a:active img { outline: 4px solid; }
