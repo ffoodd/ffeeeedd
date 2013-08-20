@@ -514,7 +514,7 @@
   }
 
 
-  /* == @section Commentaires ==================== */
+  /* == @section Gestion des commentaires ==================== */
   /**
    * @author : Luc Poupard
    * @see : https://twitter.com/klohFR

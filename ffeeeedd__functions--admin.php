@@ -89,10 +89,6 @@
    */
 
   function ffeeeedd__user() {
-    /* Supprimer des champs */
-    unset( $contact['aim'] );
-    unset( $contact['yim'] );
-    unset( $contact['jabber'] );
     /* Ajouter un champ Twitter */
     $contact['twitter'] = 'Twitter';
     $contact['google'] = 'Google+';
