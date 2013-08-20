@@ -34,49 +34,57 @@
    * @note : Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
-  /* -- @subsection Création des blocs dans l'administration -------------------- */
-  function ffeeeedd__metabox() {
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
-    add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
-  }
-  add_action( 'add_meta_boxes', 'ffeeeedd__metabox' );
+  /* @note : on teste d'abord si la fonction est surchargée ou si un plugin dédié existe : */
+  if (
+    ! function_exists( 'ffeeeedd__metabox' ) &&
+    ! class_exists( 'WPSEO_Frontend' ) &&
+    ! class_exists( 'All_in_One_SEO_Pack' )
+  ) {
 
-  /* -- @subsection Ajout des champs utiles dans ces blocs -------------------- */
-  function ffeeeedd__metabox__contenu( $post ) {
-    $val_title = get_post_meta( $post->ID, '_ffeeeedd__metabox__titre', true );
-    $val_canonical = get_post_meta( $post->ID, '_ffeeeedd__metabox__canonical', true );
-    $val_description = get_post_meta( $post->ID, '_ffeeeedd__metabox__description', true ); ?>
-    <p><?php _e( 'Those datas are used in <meta> tags for SEO and SMO.', 'ffeeeedd' ); ?>.</p>
-    <p><strong><?php _e( 'Title', 'ffeeeedd' ); ?></strong></p>
-    <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__titre"><?php _e( 'Title', 'ffeeeedd' ); ?></label>
-      <input id="ffeeeedd__metabox__titre" name="ffeeeedd__metabox__titre" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
-    </p>
-    <p><strong><?php _e( 'Description', 'ffeeeedd' ); ?></strong></p>
-    <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php _e( 'Description', 'ffeeeedd' ); ?></label>
-      <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:vertical;"><?php echo $val_description; ?></textarea>
-    </p>
-    <p><strong><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></strong></p>
-    <p>
-      <label class="screen-reader-text" for="ffeeeedd__metabox__canonical"><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></label>
-      <input id="ffeeeedd__metabox__canonical" name="ffeeeedd__metabox__canonical" placeholder="http://" type="url" style="width:100%;" value="<?php echo $val_canonical; ?>" />
-    </p>
-  <?php }
+    /* -- @subsection Création des blocs dans l'administration -------------------- */
+    function ffeeeedd__metabox() {
+      add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
+      add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
+    }
+    add_action( 'add_meta_boxes', 'ffeeeedd__metabox' );
 
-  /* -- @subsection Sauvegarder la valeur de ces champs -------------------- */
-  function ffeeeedd__metabox__save( $post_ID ) {
-    if( isset( $_POST['ffeeeedd__metabox__titre'] ) ) {
-      update_post_meta( $post_ID, '_ffeeeedd__metabox__titre', esc_html( $_POST['ffeeeedd__metabox__titre'] ) );
+    /* -- @subsection Ajout des champs utiles dans ces blocs -------------------- */
+    function ffeeeedd__metabox__contenu( $post ) {
+      $val_title = get_post_meta( $post->ID, '_ffeeeedd__metabox__titre', true );
+      $val_canonical = get_post_meta( $post->ID, '_ffeeeedd__metabox__canonical', true );
+      $val_description = get_post_meta( $post->ID, '_ffeeeedd__metabox__description', true ); ?>
+      <p><?php _e( 'Those datas are used in <meta> tags for SEO and SMO.', 'ffeeeedd' ); ?>.</p>
+      <p><strong><?php _e( 'Title', 'ffeeeedd' ); ?></strong></p>
+      <p>
+        <label class="screen-reader-text" for="ffeeeedd__metabox__titre"><?php _e( 'Title', 'ffeeeedd' ); ?></label>
+        <input id="ffeeeedd__metabox__titre" name="ffeeeedd__metabox__titre" type="text" style="width:100%;" value="<?php echo $val_title; ?>" />
+      </p>
+      <p><strong><?php _e( 'Description', 'ffeeeedd' ); ?></strong></p>
+      <p>
+        <label class="screen-reader-text" for="ffeeeedd__metabox__description"><?php _e( 'Description', 'ffeeeedd' ); ?></label>
+        <textarea id="ffeeeedd__metabox__description" name="ffeeeedd__metabox__description" style="width:100%; resize:vertical;"><?php echo $val_description; ?></textarea>
+      </p>
+      <p><strong><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></strong></p>
+      <p>
+        <label class="screen-reader-text" for="ffeeeedd__metabox__canonical"><?php _e( 'Canonical URL', 'ffeeeedd' ); ?></label>
+        <input id="ffeeeedd__metabox__canonical" name="ffeeeedd__metabox__canonical" placeholder="http://" type="url" style="width:100%;" value="<?php echo $val_canonical; ?>" />
+      </p>
+    <?php }
+
+    /* -- @subsection Sauvegarder la valeur de ces champs -------------------- */
+    function ffeeeedd__metabox__save( $post_ID ) {
+      if( isset( $_POST['ffeeeedd__metabox__titre'] ) ) {
+        update_post_meta( $post_ID, '_ffeeeedd__metabox__titre', esc_html( $_POST['ffeeeedd__metabox__titre'] ) );
+      }
+      if( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
+        update_post_meta( $post_ID, '_ffeeeedd__metabox__description', esc_html( $_POST['ffeeeedd__metabox__description'] ) );
+      }
+      if( isset( $_POST['ffeeeedd__metabox__canonical'] ) ) {
+        update_post_meta( $post_ID, '_ffeeeedd__metabox__canonical', esc_html( $_POST['ffeeeedd__metabox__canonical'] ) );
+      }
     }
-    if( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
-      update_post_meta( $post_ID, '_ffeeeedd__metabox__description', esc_html( $_POST['ffeeeedd__metabox__description'] ) );
-    }
-    if( isset( $_POST['ffeeeedd__metabox__canonical'] ) ) {
-      update_post_meta( $post_ID, '_ffeeeedd__metabox__canonical', esc_html( $_POST['ffeeeedd__metabox__canonical'] ) );
-    }
+    add_action( 'save_post', 'ffeeeedd__metabox__save' );
   }
-  add_action( 'save_post', 'ffeeeedd__metabox__save' );
 
 
   /* == @section Profil utilisateur ==================== */
@@ -87,14 +95,15 @@
    * @see : https://twitter.com/geekeriesfr
    * @see : http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
    */
-
-  function ffeeeedd__user() {
-    /* Ajouter un champ Twitter */
-    $contact['twitter'] = 'Twitter';
-    $contact['google'] = 'Google+';
-    return $contact;
-  }
   add_filter( 'user_contactmethods', 'ffeeeedd__user', 75, 1 );
+  if ( ! function_exists( 'ffeeeedd__user' ) ) {
+    function ffeeeedd__user() {
+      /* Ajouter un champ Twitter */
+      $contact['twitter'] = 'Twitter';
+      $contact['google'] = 'Google+';
+      return $contact;
+    }
+  }
 
 
   /* == @section Compteur de caractères sur le champ extrait dans l'administration ==================== */

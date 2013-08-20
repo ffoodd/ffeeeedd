@@ -19,11 +19,11 @@ get_header(); ?>
   $count = $wp_query->found_posts;
   if ( $count > 1 ) {
     echo '<h2>';
-    echo sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() );
+    echo sprintf( __('%1$s search results for %2$s', 'ffeeeedd' ), $count, get_search_query() );
     echo '</h2>';
   } elseif ( $count == 1 ) {
     echo '<h2>';
-    echo sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() );
+    echo sprintf( __('A single search result for %1$s', 'ffeeeedd' ), get_search_query() );
     echo '</h2>';
   } ?>
 

@@ -85,19 +85,21 @@
    * @see : https://twitter.com/ffoodd_fr
    */
 
-  function ffeeeedd__logo() {
-    $header_args = array(
-      'default-image'       => get_template_directory_uri() . '/img/logo.png',
-      'width'               => 180,
-      'height'              => 180,
-      'flex-width'          => true,
-      'flex-height'         => true,
-      'random-default'      => false,
-      'header-text'         => false,
-      'default-text-color'  => '',
-      'uploads'             => true,
-    );
-    add_theme_support( 'custom-header', $header_args );
+  if( ! function_exists( 'ffeeeedd__logo' ) ) {
+    function ffeeeedd__logo() {
+      $header_args = array(
+        'default-image'       => get_template_directory_uri() . '/img/logo.png',
+        'width'               => 180,
+        'height'              => 180,
+        'flex-width'          => true,
+        'flex-height'         => true,
+        'random-default'      => false,
+        'header-text'         => false,
+        'default-text-color'  => '',
+        'uploads'             => true,
+      );
+      add_theme_support( 'custom-header', $header_args );
+    }
   }
   add_action( 'after_setup_theme', 'ffeeeedd__logo' );
 

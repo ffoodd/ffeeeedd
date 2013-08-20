@@ -59,8 +59,10 @@
   add_filter( 'nav_menu_css_class', 'ffeeeedd__css__attributs', 100, 1 );
   add_filter( 'nav_menu_item_id', 'ffeeeedd__css__attributs', 100, 1 );
   add_filter( 'page_css_class', 'ffeeeedd__css__attributs', 100, 1 );
-  function ffeeeedd__css__attributs( $var ) {
-    return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'inbl' ) ) : '';
+  if( ! function_exists( 'ffeeeedd__css__attributs' ) ) {
+    function ffeeeedd__css__attributs( $var ) {
+      return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'inbl' ) ) : '';
+    }
   }
 
   /* -- @subsection Ajoute une classe aux parents dans la navigation -------------------- */
@@ -119,13 +121,17 @@
    */
 
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
-  function ffeeeedd__extrait__lien() {
-    return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . get_the_title() . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
+  if( ! function_exists( 'ffeeeedd__extrait__lien' ) ) {
+    function ffeeeedd__extrait__lien() {
+      return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . get_the_title() . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
+    }
   }
 
   /* -- @subsection Remplace le "[...]" ajouté automatiquement aux extraits par une ellipse et le lien "Lire la suite" -------------------- */
-  function ffeeeedd__extrait_auto( $more ) {
-    return ' &hellip;' . ffeeeedd__extrait__lien();
+  if( ! function_exists( 'ffeeeedd__extrait__auto' ) ) {
+    function ffeeeedd__extrait_auto( $more ) {
+      return ' [&hellip;]' . ffeeeedd__extrait__lien();
+    }
   }
   add_filter( 'excerpt_more', 'ffeeeedd__extrait_auto' );
 
@@ -213,7 +219,7 @@
     if( $is_IE ) {
       // Puis on ajoute, dans un commentaire conditionnel, le script magique
       echo '<!--[if lt IE 9]>';
-      echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0hgroup0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
+      echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0main0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
       echo '<![endif]-->';
     }
   }
@@ -253,7 +259,7 @@
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
   function ffeeeedd__categories( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
     $final = '';
-    $parent = &get_category( $id );
+    $parent = get_category( $id );
     if (is_wp_error( $parent ) ) {
       return $parent;
     }
@@ -446,7 +452,7 @@
       global $wp_query;
       $count = $wp_query->found_posts;
       if ( $count > 1 ) {
-        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() ) . '</span></li>';
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('%1$s search results for %2$s', 'ffeeeedd' ), $count, get_search_query() ) . '</span></li>';
       } elseif ( $count == 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . '</span></li>';
       }
@@ -570,9 +576,9 @@
   }
 
   /* -- @subsection Ajout des types de champs HTML5 url et email sur les commentaires, et de l'attribut HTML5 required sur le nom et l'email -------------------- */
-  add_filter( 'comment_form_defaults', 'fields_html5' );
-  if ( ! function_exists( 'fields_html5' )) {
-    function fields_html5( $fields ) {
+  add_filter( 'comment_form_defaults', 'ffeeeedd__champs__html5' );
+  if ( ! function_exists( 'ffeeeedd__champs__html5' ) ) {
+    function ffeeeedd__champs__html5( $fields ) {
       // Type author
       $fields['fields']['author'] = '
       <p class="comment-form-author">
@@ -596,10 +602,12 @@
   }
 
   /* -- @subsection Ajout de l'attribut HTML5 required sur le textarea -------------------- */
-  add_filter( 'comment_form_defaults', 'changing_comment_form_defaults' );
-  function changing_comment_form_defaults( $defaults ) {
-    $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'ffeeeedd' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
-    return $defaults;
+  add_filter( 'comment_form_defaults', 'ffeeeedd__textarea__html5' );
+  if ( ! function_exists( 'ffeeeedd__textarea__html5' ) ) {
+    function ffeeeedd__textarea__html5( $defaults ) {
+      $defaults['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'ffeeeedd' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p>';
+      return $defaults;
+    }
   }
 
   /* -- @subsection Suppression de l'attribut rel="nofollow" sur les commentaires --------
@@ -630,96 +638,109 @@
    * @note : Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
-  /* -- @subsection Ajoute les métas 'Description' dans le <head> -------------------- */
-  function ffeeeedd__injection__description() {
-    global $wp_query;
-    // Si le champ est rempli, on affiche sa valeur
-    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) ) {
-      echo '<!-- Métas Description dynamiques -->';
-      echo '<meta name="description" content="';
-      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
-      echo '" />';
-      echo '<meta property="og:description" content="';
-      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
-      echo '" />';
-      echo '<meta name="twitter:description" content="';
-      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
-      echo '" />';
-      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
-      echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
-      echo '" />';
-      echo '<!-- Fin des métas Description dynamiques -->';
-    }
-    // Sinon, dans le cas d'un article on affiche l'extrait
-    elseif ( is_single() ) {
-      echo '<!-- Métas Description dynamiques -->';
-      echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-      echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-      echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
-      echo '<!-- Fin des métas Description dynamiques -->';
-    }
-    // Sinon, on affiche la description générale du site
-    else {
-      echo '<!-- Métas Description dynamiques -->';
-      echo '<meta name="description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
-      echo '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
-      echo '<meta name="twitter:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
-      echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
-      echo '<!-- Fin des métas Description dynamiques -->';
-    }
-  }
-  add_action( 'wp_head', 'ffeeeedd__injection__description' );
+  /* @note : on teste d'abord si la fonction est surchargée ou si un plugin dédié existe : */
+  if (
+    ! function_exists( 'ffeeeedd__metabox' ) &&
+    ! class_exists( 'WPSEO_Frontend' ) &&
+    ! class_exists( 'All_in_One_SEO_Pack' )
+  ) {
 
-  /* -- @subsection Génère le titre utilisé dans les métas 'Title' -------------------- */
-  function ffeeeedd__injection__titre( $title, $sep, $seplocation ) {
-    global $wp_query, $page, $paged;
-    // Ne change rien pour les flux RSS
-    if ( is_feed() ) {
-      return $title;
-    }
-    // Dans la page recherche, on indique le terme recherché
-    if ( is_search() ) {
-      global $wp_query;
-      $count = $wp_query->found_posts;
-      if ( $count > 1 ) {
-        $title = sprintf( __('%1$s search results for "%2$s"', 'ffeeeedd' ), $count, get_search_query() );
-      } elseif ( $count == 1 ) {
-        $title = sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . ' ' . $sep . ' ';
+    /* -- @subsection Ajoute les métas 'Description' dans le <head> -------------------- */
+    if ( ! function_exists( 'ffeeeedd__injection__description' ) ) {
+      function ffeeeedd__injection__description() {
+        global $wp_query;
+        // Si le champ est rempli, on affiche sa valeur
+        if ( isset( $wp_query->post->ID ) && get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) ) {
+          echo '<!-- Métas Description dynamiques -->';
+          echo '<meta name="description" content="';
+          echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
+          echo '" />';
+          echo '<meta property="og:description" content="';
+          echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
+          echo '" />';
+          echo '<meta name="twitter:description" content="';
+          echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
+          echo '" />';
+          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
+          echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
+          echo '" />';
+          echo '<!-- Fin des métas Description dynamiques -->';
+        }
+        // Sinon, dans le cas d'un article on affiche l'extrait
+        elseif ( is_single() ) {
+          echo '<!-- Métas Description dynamiques -->';
+          echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+          echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+          echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
+          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
+          echo '<!-- Fin des métas Description dynamiques -->';
+        }
+        // Sinon, on affiche la description générale du site
+        else {
+          echo '<!-- Métas Description dynamiques -->';
+          echo '<meta name="description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+          echo '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+          echo '<meta name="twitter:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
+          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
+          echo '<!-- Fin des métas Description dynamiques -->';
+        }
       }
     }
-    // Modifie le titre si le champ de l'administration est rempli
-    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {
-      $title = esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . ' ' . $sep . ' ';
+    add_action( 'wp_head', 'ffeeeedd__injection__description' );
+  
+    /* -- @subsection Génère le titre utilisé dans les métas 'Title' -------------------- */
+    if ( ! function_exists( 'ffeeeedd__injection__titre' ) ) {
+      function ffeeeedd__injection__titre( $title, $sep, $seplocation ) {
+        global $wp_query, $page, $paged;
+        // Ne change rien pour les flux RSS
+        if ( is_feed() ) {
+          return $title;
+        }
+        // Dans la page recherche, on indique le terme recherché
+        if ( is_search() ) {
+          global $wp_query;
+          $count = $wp_query->found_posts;
+          if ( $count > 1 ) {
+            $title = sprintf( __('%1$s search results for %2$s', 'ffeeeedd' ), $count, get_search_query() );
+          } elseif ( $count == 1 ) {
+            $title = sprintf( __('A single search result for %1$s', 'ffeeeedd' ), get_search_query() ) . ' ' . $sep . ' ';
+          }
+        }
+        // Modifie le titre si le champ de l'administration est rempli
+        if ( isset( $wp_query->post->ID ) && get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) {
+          $title = esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . ' ' . $sep . ' ';
+        }
+        // Ajoute le nom du site
+        if ( 'right' == $seplocation ) {
+          $title .= get_bloginfo( 'name' );
+        } else {
+          $title = get_bloginfo( 'name' ) . $title;
+        }
+        // Ajoute la description (pour la page d'accueil et de blog)
+        $site_description = get_bloginfo( 'description', 'display' );
+        if ( $site_description && ( is_home() || is_front_page() ) ) {
+          $title .= ' ' . $sep . ' ' . $site_description;
+        }
+        // Ajoute le numéro de la page dans le cas d'une pagination
+        if ( $paged >= 2 || $page >= 2 ) {
+          $title .= ' ' . $sep . ' ' . sprintf( __( 'Page %s', 'ffeeeedd' ), max( $paged, $page ) );
+        }
+        return $title;
+      }
     }
-    // Ajoute le nom du site
-    if ( 'right' == $seplocation ) {
-      $title .= get_bloginfo( 'name' );
-    } else {
-      $title = get_bloginfo( 'name' ) . $title;
+    add_filter( 'wp_title', 'ffeeeedd__injection__titre', 10, 3 );
+  
+    /* -- @subsection Ajoute un <link rel="canonical" /> si le champ est rempli -------------------- */
+    if ( ! function_exists( 'ffeeeedd__injection__canonical' ) ) {
+      function ffeeeedd__injection__canonical() {
+        global $wp_query;
+        if( isset( $wp_query->post->ID ) && get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
+            echo '<link rel="canonical" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
+        }
+      }
     }
-    // Ajoute la description (pour la page d'accueil et de blog)
-    $site_description = get_bloginfo( 'description', 'display' );
-    if ( $site_description && ( is_home() || is_front_page() ) ) {
-      $title .= ' ' . $sep . ' ' . $site_description;
-    }
-    // Ajoute le numéro de la page dans le cas d'une pagination
-    if ( $paged >= 2 || $page >= 2 ) {
-      $title .= ' ' . $sep . ' ' . sprintf( __( 'Page %s', 'ffeeeedd' ), max( $paged, $page ) );
-    }
-    return $title;
+    add_filter( 'wp_head', 'ffeeeedd__injection__canonical' );
   }
-  add_filter( 'wp_title', 'ffeeeedd__injection__titre', 10, 3 );
-
-  /* -- @subsection Ajoute un <link rel="canonical" /> si le champ est rempli -------------------- */
-  function ffeeeedd__injection__canonical() {
-    global $wp_query;
-    if ( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
-      echo '<link rel="canonical" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
-    }
-  }
-  add_filter( 'wp_head', 'ffeeeedd__injection__canonical' );
-
 
   /* == @section Ajout des métas Image dans le <head> ==================== */
   /**
@@ -732,24 +753,26 @@
    * @see : https://twitter.com/ffoodd_fr
    */
 
-  function ffeeeedd__injection__image() {
-    global $post;
-    if ( is_single() && has_post_thumbnail() ) {
-      $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
-      echo '<!-- Métas Image dynamiques -->';
-      echo '<meta property="og:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
-      echo '<link rel="image_src" href="'. esc_url( $thumbnail_src[0] ) . '" />';
-      echo '<meta property="twitter:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
-      echo '<!-- Fin des métas Image dynamiques -->';
-    } elseif ( get_header_image() ) {
-      echo '<!-- Métas Image dynamiques -->';
-      echo '<meta property="og:image" content="' . esc_url( get_header_image() ) . '"/>';
-      echo '<link rel="image_src" href="'. esc_url( get_header_image() ) . '" />';
-      echo '<meta property="twitter:image" content="' . esc_url( get_header_image() ) . '"/>';
-      echo '<!-- Fin des métas Image dynamiques -->';
+  if ( ! function_exists( 'ffeeeedd__injection__image' ) ) {
+    function ffeeeedd__injection__image() {
+      global $post;
+      if ( is_single() && has_post_thumbnail() ) {
+        $thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+        echo '<!-- Métas Image dynamiques -->';
+        echo '<meta property="og:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
+        echo '<link rel="image_src" href="'. esc_url( $thumbnail_src[0] ) . '" />';
+        echo '<meta property="twitter:image" content="' . esc_url( $thumbnail_src[0] ) . '"/>';
+        echo '<!-- Fin des métas Image dynamiques -->';
+      } elseif ( get_header_image() ) {
+        echo '<!-- Métas Image dynamiques -->';
+        echo '<meta property="og:image" content="' . esc_url( get_header_image() ) . '"/>';
+        echo '<link rel="image_src" href="'. esc_url( get_header_image() ) . '" />';
+        echo '<meta property="twitter:image" content="' . esc_url( get_header_image() ) . '"/>';
+        echo '<!-- Fin des métas Image dynamiques -->';
+      }
     }
+    add_action( 'wp_head', 'ffeeeedd__injection__image' );
   }
-  add_action( 'wp_head', 'ffeeeedd__injection__image' );
 
 
   /* == @section Amélioration de la recherche ==================== */
@@ -761,17 +784,19 @@
    * @return : type : la requête personnalisée par nos soins
    */
 
-  function ffeeeedd__recherche( $query ) {
-    // On vérifie s'il s'agit dune page de recherche ou d'un flux rss
-    if ( $query->is_search or $query->is_feed ) {
-      // La recherche parcoure tous les contenus
-      $query->set( 'post_type', 'any' );
-      // On définit à 10 le nombre de résultats, comme sur les autres pages de boucles
-      $query->set( 'posts_per_page', 10 );
-      // On définit l'ordre d'affichage chronologique
-      $query->set( 'orderby', 'date' );
+  if ( ! function_exists( 'ffeeeedd__recherche' ) ) {
+    function ffeeeedd__recherche( $query ) {
+      // On vérifie s'il s'agit d'une page de recherche ou d'un flux rss
+      if ( $query->is_search or $query->is_feed ) {
+        // La recherche parcours tous les contenus
+        $query->set( 'post_type', 'any' );
+        // On définit à 10 le nombre de résultats, comme sur les autres pages de boucles
+        $query->set( 'posts_per_page', 10 );
+        // On définit l'ordre d'affichage chronologique
+        $query->set( 'orderby', 'date' );
+      }
+      return $query;
     }
-    return $query;
   }
   // Ce filtre va intercepter la boucle et ré-ordonner les résultats avant qu'ils ne soient renvoyés et affichés
   add_filter('pre_get_posts','ffeeeedd__recherche');
