@@ -26,10 +26,10 @@ get_header(); ?>
     <footer>
       <?php ffeeeedd__meta(); ?>
       <p class="print-hidden">
-        <a href="http://twitter.com/home?status=<?php esc_url( the_permalink() ) ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Twitter</a>
-        <a href="http://www.facebook.com/sharer.php?u=<?php esc_url( the_permalink() ) ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Facebook</a>
-        <a href="https://plus.google.com/share?url=<?php esc_url( the_permalink() ) ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Google+</a>
-        <a href="mailto:?subject=<?php the_title_attribute() ?>?body=<?php esc_url( the_permalink() ) ?>" target="_blank" rel="nofollow"><?php _e( 'Email to a friend', 'ffeeeedd' ); ?></a>
+        <a href="http://twitter.com/home?status=<?php the_permalink(); ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Twitter</a>
+        <a href="http://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>&t=<?php the_title_attribute() ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Facebook</a>
+        <a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" target="_blank" rel="nofollow"><?php _e( 'Share on', 'ffeeeedd' ); ?> Google+</a>
+        <a href="mailto:?subject=<?php the_title_attribute() ?>?body=<?php the_permalink(); ?>" target="_blank" rel="nofollow"><?php _e( 'Email to a friend', 'ffeeeedd' ); ?></a>
         <!-- Mise en place d'une mécanique simple pour l'impression, en fonction de l'activation du js -->
         <a class="js-visible" href="javascript:window.print()" target="_blank" rel="nofollow" title="<?php echo esc_attr__( 'Print this post', 'ffeeeedd' ); ?>"><?php _e( 'Print this post', 'ffeeeedd' ); ?></a>
         <strong class="js-hidden"><?php _e( 'In order to print this post, please use the following keyboard shortcut: <kbd>Ctrl + P</kbd>', 'ffeeeedd' ); ?></strong>
