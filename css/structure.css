@@ -326,8 +326,7 @@ img.alignright { margin-left: 2em; }
 
 
 /* == @section Éléments masqués ==================== */
-.visually-hidden,
-[aria-hidden="true"] {
+.visually-hidden {
   left: -7000px;
   overflow: hidden;
   position: absolute;

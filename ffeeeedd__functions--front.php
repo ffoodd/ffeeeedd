@@ -254,6 +254,8 @@
    * @author : Gaël Poupard
    * @see : https://twitter.com/ffoodd_fr
    * @note : Prise en compte des formats d'articles, corrections des intitulés pour les taxonomies, du nombre de résultats et de la requête de la recherche, et mise en place des microdonnées au lieu des microformats.
+   * @note : Le séparateur est masqué pour les technologies d'assistance.
+   * @see : https://gist.github.com/jonathantneal/4037764
   */
 
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
@@ -286,7 +288,7 @@
     // Variables globales
     global $wp_query;
     $paged = get_query_var( 'paged' );
-    $sep = ' &rarr;&nbsp;';
+    $sep = '<span aria-hidden="true"> &rarr;&nbsp;</span>';
     $final = '<ol class="print-hidden">';
     $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( get_bloginfo( 'name' ) ) . '" href="' . esc_url( home_url() ) . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
     $starthome = get_bloginfo( 'name' );
