@@ -71,7 +71,7 @@
   </head>
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
-    <ul class="w960p center p-reset print-hidden">
+    <ul class="w960p center p-reset mt0 mb0 print-hidden">
       <li class="inbl smaller m-reset">
         <a class="skip" href="#nav"><?php _e( 'Skip to navigation', 'ffeeeedd' ); ?></a></li>
       <li class="inbl smaller m-reset">
