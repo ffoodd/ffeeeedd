@@ -30,7 +30,6 @@
   == Inline-block
   == Largeurs
     -- Largeurs en %
-    -- Largeurs en px
   == Espacements
     -- Marges externes
     -- Marges internes
@@ -234,11 +233,6 @@ img.alignright { margin-left: 2em; }
 .w90 { width: 90%; }
 
 .w100 { width: 100%; }
-
-/* -- @subsection Largeurs en px -------------------- */
-.w960p { width: 960px; }
-
-.mw960p { max-width: 960px; }
 
 
 /* == @section Espacements ====================

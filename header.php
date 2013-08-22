@@ -71,14 +71,14 @@
   </head>
   <body <?php body_class(); ?> role="document" itemscope itemtype="http://schema.org/WebPage">
 
-    <ul class="w960p center p-reset mt0 mb0 print-hidden">
+    <ul class="w--site center p-reset mt0 mb0 print-hidden">
       <li class="inbl smaller m-reset">
         <a class="skip" href="#nav"><?php _e( 'Skip to navigation', 'ffeeeedd' ); ?></a></li>
       <li class="inbl smaller m-reset">
         <a class="skip" href="#content"><?php _e( 'Skip to content', 'ffeeeedd' ); ?></a></li>
     </ul>
 
-    <header class="w960p center" role="banner">
+    <header class="w--site center" role="banner">
       <?php if ( get_header_image() ) { ?>
       <a href="<?php echo esc_url( home_url() ); ?>" title="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="url">
         <img src="<?php esc_url( header_image() ); ?>" class="left" id="logo" alt="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="image"/>
@@ -88,7 +88,7 @@
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>
     </header><!-- / banner -->
 
-    <nav class="mw960p center clear print-hidden" id="nav" role="navigation">
+    <nav class="mw--site center clear print-hidden" id="nav" role="navigation">
       <?php if ( has_nav_menu( 'primary' ) ) {
         wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) );
       } else {
@@ -96,5 +96,5 @@
       } ?>
     </nav><!-- / #nav -->
 
-    <main class="mw960p center" id="content" role="main" itemprop="mainContentOfPage">
+    <main class="mw--site center" id="content" role="main" itemprop="mainContentOfPage">
       <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) { ffeeeedd__ariane(); } ?>
