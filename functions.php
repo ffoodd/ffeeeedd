@@ -80,7 +80,7 @@
 
   /* == @section Personnaliser le logo ==================== */
   /**
-   * @note : Ajoute le support de la personnlisation de l'entête,
+   * @note : Ajoute le support de la personnalisation de l'entête,
    * @note : On le détourne pour personnaliser le logo.
    * @author : Gaël Poupard
    * @see : https://twitter.com/ffoodd_fr

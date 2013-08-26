@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/**
+* @author Gaël Poupard
+* @site Thème ffeeeedd
+* @lastmodified 2013-06-26
+* @subsection Références :
+  * @see : Twentythirteen
+  * @see : http://twentythirteendemo.wordpress.com/
+*/
+
+/* ----------------------------- */
+/* ==Navigation */
+/* @note : Ici sont définis les styles de base de la navigation
+/* ----------------------------- */
+
+/* == @section Navigation ==================== */
+#nav {
+  position: relative;
+}
+
+.menu li {
+  display: inline-block;
+  position: relative;
+}
+
+.menu li a {
+  display: block;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  left: -2px;
+  z-index: 2;
+}
+
+.sub-menu ul {
+  left: 100%;
+  top: 0;
+}
+
+.menu li:hover > ul {
+  display: block;
+}
