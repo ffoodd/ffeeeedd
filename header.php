@@ -61,11 +61,11 @@
       <meta name="DC.subject" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="HTML, document, Dublin Core" />
       <meta name="DC.language" scheme="DCTERMS.RFC4646" content="<?php esc_attr( bloginfo( 'language' ) ); ?>" />
     <!-- /Fin des métas DublinCore simples -->
-    <!-- Authentification de l'auteur sur Google+ -->
     <?php if ( get_the_author_meta( 'google', 1 ) ) { ?>
+    <!-- Authentification de l'auteur sur Google+ -->
     <link rel="author" href="<?php esc_url( the_author_meta('google', 1 ) ); ?>">
-    <?php } ?>
     <!-- / Fin de l'authentification de l'auteur sur Google+ -->
+    <?php } ?>
     <link rel="alternate" type="application/rss+xml" title="<?php esc_attr( bloginfo( 'name' ) ); ?> | <?php _e( 'RSS feed', 'ffeeeedd' ); ?>" href="<?php esc_url( bloginfo( 'rss2_url' ) ); ?>">
     <?php wp_head(); ?>
   </head>
