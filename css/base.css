@@ -148,6 +148,4 @@ img {
 
 a img { border: 0; }
 
-a:focus img,
-a:hover img,
-a:active img { outline: 4px solid; }
+a:focus img { outline: 4px solid; }

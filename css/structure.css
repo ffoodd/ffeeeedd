@@ -105,11 +105,12 @@
 /* À gauche */
 .left,
 .alignleft { float: left; }
+
 img.left,
 img.alignleft { margin-right: 2em; }
 
 /* À droite */
-.right
+.right,
 .alignright { float: right; }
 
 img.right,
