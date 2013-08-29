@@ -82,7 +82,8 @@ figure,
 footer,
 header,
 nav,
-section { display: block; }
+section,
+main { display: block; }
 
 /* Valeurs maximum */
 img,
