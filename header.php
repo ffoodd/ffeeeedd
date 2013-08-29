@@ -11,7 +11,7 @@
  * @since         ffeeeedd 1.0
  *
  */ ?><!DOCTYPE HTML>
-<!--[if IE 8 ]><html <?php language_attributes(); ?> class="no-js ie8"><![endif]-->
+<!--[if IE 8 ]><html <?php language_attributes(); ?> class="ie8 no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
   <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
     <meta charset="utf-8"/>
