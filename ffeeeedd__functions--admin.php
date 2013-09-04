@@ -104,25 +104,3 @@
       return $contact;
     }
   }
-
-
-  /* == @section Compteur de caractères sur le champ extrait dans l'administration ==================== */
-  /**
-   * @author : Elio Rivero
-   * @see : https://twitter.com/eliorivero
-   * @see : http://www.ilovecolors.com.ar/character-counter-excerpt-wordpress/
-   */
-
-  define( 'THEME_URI', get_template_directory_uri() );
-  add_action( 'admin_enqueue_scripts', 'ffeeeedd__compteur', 10, 1 );
-  function ffeeeedd__compteur( $page ) {
-    if ( isset ( $_GET['post'] ) ) {
-      $post = get_post( $_GET['post'] );
-      $typenow = $post->post_type;
-      if( $typenow != 'page' ) {
-        if ( $page == 'post-new.php' || $page == 'post.php' ) {
-          wp_enqueue_script( 'ffeeeedd__compteur', THEME_URI .'/js/ffeeeedd__compteur.js', array('jquery'), null, false );
-        }
-      }
-    }
-  }
