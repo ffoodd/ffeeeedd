@@ -18,7 +18,6 @@
     -- Ajout des champs utiles dans ces blocs
     -- Sauvegarder la valeur de ces champs
   == Profil utilisateur
-  == Compteur de caractères sur le champ extrait dans l'administration
 */
 
 
