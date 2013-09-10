@@ -14,31 +14,28 @@
 /* ----------------------------- */
 
 /* == @section Navigation ==================== */
-#nav {
-  position: relative;
-}
+#nav { position: relative; }
 
 .menu li {
   display: inline-block;
   position: relative;
 }
 
-.menu li a {
-  display: block;
-}
+.menu li a { display: block; }
 
 .sub-menu {
-  display: none;
   position: absolute;
-  left: -2px;
-  z-index: 2;
+  left: -7000px;
+  z-index: 4;
 }
 
-.sub-menu ul {
-  left: 100%;
+.menu li:hover > .sub-menu,
+.menu a:focus + .sub-menu { left: -2px; }
+
+.sub-menu a:focus {
+  left: 7000px;
+  position: absolute;
   top: 0;
 }
 
-.menu li:hover > ul {
-  display: block;
-}
+.menu-toggle { display: none; }
