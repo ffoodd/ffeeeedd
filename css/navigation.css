@@ -38,4 +38,7 @@
   top: 0;
 }
 
+.sub-menu a:hover,
+.sub-menu a:active { position: static; }
+
 .menu-toggle { display: none; }
