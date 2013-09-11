@@ -17,7 +17,7 @@
     <meta charset="utf-8"/>
     <title><?php wp_title( '-', true, 'right' ); ?></title>
     <base href="<?php echo esc_url( home_url() ); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="initial-scale=1.0" />
     <link rel="pingback" href="<?php esc_url( bloginfo( 'pingback_url' ) ); ?>" />
     <!-- Favicons, icons et Tuile Windows 8 // @see : http://iconifier.net/ -->
