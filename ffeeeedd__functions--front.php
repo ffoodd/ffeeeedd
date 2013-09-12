@@ -23,7 +23,6 @@
     -- Ajoute un lien "Lire la suite"
     -- Remplace le "[...]" par une ellipse et le lien "Lire la suite"
     -- Ajoute le lien "Lire la suite" si l'extrait n'est pas généré mais renseigné
-  == Ajout d'Open Graph pour le Doctype
   == <footer> pour les articles
   == Injection des scripts et styles
     -- Ajouter les scripts et styles via wp_head()
@@ -143,19 +142,6 @@
     return $output;
   }
   add_filter( 'get_the_excerpt', 'ffeeeedd__extrait_custom' );
-
-
-  /* == @section Ajout d'Open Graph pour le Doctype ==================== */
-  /**
-   * @author : Jonathan Buttigieg
-   * @see : https://twitter.com/GeekPressFR
-   * @see : http://www.geekpress.fr/wordpress/tutoriel/ajouter-meta-open-graph-facebook-theme-wordpress-593/
-   */
-
-  function ffeeeedd__opengraph( $output ) {
-    return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';
-  }
-  add_filter( 'language_attributes', 'ffeeeedd__opengraph' );
 
 
   /* == @section <footer> pour les articles ==================== */
@@ -663,7 +649,7 @@
           echo '<meta name="twitter:description" content="';
           echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
           echo '" />';
-          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
+          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
           echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
           echo '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
@@ -674,7 +660,7 @@
           echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
+          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
         }
         // Sinon, on affiche la description générale du site
@@ -683,13 +669,13 @@
           echo '<meta name="description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
           echo '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
           echo '<meta name="twitter:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
-          echo '<meta name="DC.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
+          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
         }
       }
     }
     add_action( 'wp_head', 'ffeeeedd__injection__description' );
-  
+
     /* -- @subsection Génère le titre utilisé dans les métas 'Title' -------------------- */
     if ( ! function_exists( 'ffeeeedd__injection__titre' ) ) {
       function ffeeeedd__injection__titre( $title, $sep, $seplocation ) {
@@ -731,7 +717,7 @@
       }
     }
     add_filter( 'wp_title', 'ffeeeedd__injection__titre', 10, 3 );
-  
+
     /* -- @subsection Ajoute un <link rel="canonical" /> si le champ est rempli -------------------- */
     if ( ! function_exists( 'ffeeeedd__injection__canonical' ) ) {
       function ffeeeedd__injection__canonical() {

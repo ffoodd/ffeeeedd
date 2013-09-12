@@ -12,12 +12,11 @@
  *
  */ ?><!DOCTYPE HTML>
 <!--[if IE 8 ]><html <?php language_attributes(); ?> class="ie8 no-js"><![endif]-->
-<!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-  <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
+<!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
+  <head>
     <meta charset="utf-8"/>
     <title><?php wp_title( '-', true, 'right' ); ?></title>
     <base href="<?php echo esc_url( home_url() ); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="initial-scale=1.0" />
     <link rel="pingback" href="<?php esc_url( bloginfo( 'pingback_url' ) ); ?>" />
     <!-- Favicons, icons et Tuile Windows 8 // @see : http://iconifier.net/ -->
@@ -55,11 +54,11 @@
     <!-- /Fin des métas Twitter simples -->
     <!-- Métas DublinCore simples -->
       <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-      <meta name="DC.title" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
-      <meta name="DC.identifier" content="<?php echo esc_url( get_permalink() ); ?>" />
-      <meta name="DC.type" content="text" />
-      <meta name="DC.subject" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="HTML, document, Dublin Core" />
-      <meta name="DC.language" scheme="DCTERMS.RFC4646" content="<?php esc_attr( bloginfo( 'language' ) ); ?>" />
+      <meta name="dcterms.title" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
+      <meta name="dcterms.identifier" content="<?php echo esc_url( get_permalink() ); ?>" />
+      <meta name="dcterms.type" content="text" />
+      <meta name="dcterms.subject" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="HTML, document, Dublin Core" />
+      <meta name="dcterms.language" content="<?php esc_attr( bloginfo( 'language' ) ); ?>" />
     <!-- /Fin des métas DublinCore simples -->
     <?php if ( get_the_author_meta( 'google', 1 ) ) { ?>
     <!-- Authentification de l'auteur sur Google+ -->
