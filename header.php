@@ -14,7 +14,7 @@
 <!--[if IE 8 ]><html <?php language_attributes(); ?> class="ie8 no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title><?php wp_title( '-', true, 'right' ); ?></title>
     <base href="<?php echo esc_url( home_url() ); ?>">
     <meta name="viewport" content="initial-scale=1.0" />
