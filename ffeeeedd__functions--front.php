@@ -122,7 +122,7 @@
   /* -- @subsection Ajoute un lien "Lire la suite" après l'extrait -------------------- */
   if( ! function_exists( 'ffeeeedd__extrait__lien' ) ) {
     function ffeeeedd__extrait__lien() {
-      return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . get_the_title() . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
+      return ' <a href="' . esc_url( get_permalink() ) . '">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . esc_attr( get_the_title() ) . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
     }
   }
 
