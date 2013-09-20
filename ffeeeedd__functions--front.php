@@ -221,7 +221,7 @@
   */
   function ffeeeedd__test_js () {
     echo "<!-- Test de l'activation du javascript -->";
-    echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+'js';</script>";
+    echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+' js';</script>";
     echo "<!-- Fin du test de l'activation du javascript -->";
   }
   add_action( 'wp_head', 'ffeeeedd__test_js' );
