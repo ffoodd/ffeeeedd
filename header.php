@@ -89,7 +89,12 @@
 
     <nav class="mw--site center clear print-hidden" id="nav" role="navigation">
       <?php if ( has_nav_menu( 'primary' ) ) {
-        wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul class="%2$s p-reset">%3$s</ul>', 'container' => false ) );
+        wp_nav_menu( array(
+          'theme_location' => 'primary',
+          'items_wrap' => '<ul class="%2$s aside p-reset m-reset ul-reset" role="menubar">%3$s</ul>',
+          'container' => false,
+          'walker' => new ffeeeedd__walker())
+        );
       } else {
         wp_dropdown_pages( array( 'depth' => 1 ) );
       } ?>
