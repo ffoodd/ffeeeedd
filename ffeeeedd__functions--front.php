@@ -855,6 +855,6 @@
 
   add_filter( 'the_content', 'ffeeeedd__images', 30 );
   function ffeeeedd__images( $img ) {
-    $img = preg_replace( '/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure itemprop="image">$1</figure>', $img );
+    $img = preg_replace( '/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure role="presentation">$1</figure>', $img );
     return $img;
   }
