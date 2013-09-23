@@ -44,6 +44,7 @@
     -- Ajoute un <link rel="canonical" /> si le champ est rempli
   == Ajout des métas Image dans le <head>
   == Amélioration de la recherche
+  == Les <img> sont contenues dans des <figcaption>
 */
 
 
@@ -841,4 +842,19 @@
 
       $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
+  }
+
+
+  /* == @section Les <img> sont contenues dans des <figcaption> ==================== */
+  /**
+   * @note : Le contenu est filtré pour remplacer le conteneur automatique <p> autour des images par une balise plus sémantique <figure>. Astuce trouvée sur Reverie.
+   * @author : Zhen Huang
+   * @see : http://themefortress.com/reverie/
+   * @see : https://github.com/milohuang/reverie/blob/master/lib/clean.php
+   */
+
+  add_filter( 'the_content', 'ffeeeedd__images', 30 );
+  function ffeeeedd__images( $img ) {
+    $img = preg_replace( '/<p>\\s*?(<a .*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', '<figure itemprop="image">$1</figure>', $img );
+    return $img;
   }
