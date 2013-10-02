@@ -656,7 +656,7 @@
           echo '<!-- Fin des métas Description dynamiques -->';
         }
         // Sinon, dans le cas d'un article on affiche l'extrait
-        elseif ( is_single() ) {
+        elseif ( is_single() && has_excerpt() ) {
           echo '<!-- Métas Description dynamiques -->';
           echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
