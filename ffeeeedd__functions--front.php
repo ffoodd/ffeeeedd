@@ -277,7 +277,7 @@
     $paged = get_query_var( 'paged' );
     $sep = '<span aria-hidden="true"> &rarr;&nbsp;</span>';
     $final = '<ol class="print-hidden">';
-    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( get_bloginfo( 'name' ) ) . '" href="' . esc_url( home_url() ) . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
+    $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( home_url() ) . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d'Ariane
