@@ -816,7 +816,7 @@
       $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
       $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-      $output .= $indent . '<li' . $id . $value . $class_names .' role="menuitem" aria-labelledby="' . apply_filters( 'the_title', $item->title, $item->ID ) . '">';
+      $output .= $indent . '<li' . $id . $value . $class_names .' role="menuitem" aria-labelledby="' . esc_attr( apply_filters( 'the_title', $item->title, $item->ID ) ) . '">';
 
       $atts = array();
       $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -835,7 +835,7 @@
       }
 
       $item_output = $args->before;
-      $item_output .= '<a'. $attributes .' id="' . apply_filters( 'the_title', $item->title, $item->ID ) . '">';
+      $item_output .= '<a'. $attributes .' id="' . esc_attr( apply_filters( 'the_title', $item->title, $item->ID ) ) . '">';
       $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
       $item_output .= '</a>';
       $item_output .= $args->after;
