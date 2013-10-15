@@ -32,11 +32,11 @@ get_header(); ?>
     <li <?php post_class( 'mb2' ); ?>>
       <article itemscope itemtype="http://schema.org/Article">
         <h3 itemprop="name">
-          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark" itemprop="url" tabindex="-1"><?php the_title(); ?></a>
         </h3>
         <p class="print-hidden" itemprop="UserComments"><?php comments_number( '0', '1', '% ' ); ?></p>
         <?php if ( has_post_thumbnail() ) { ?>
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" tabindex="-1" aria-hidden="true">
           <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => __( 'Permalink to the post', 'ffeeeedd' ) ) ); ?>
         </a>
         <?php } ?>
