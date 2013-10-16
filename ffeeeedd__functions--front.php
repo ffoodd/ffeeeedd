@@ -61,7 +61,7 @@
   add_filter( 'page_css_class', 'ffeeeedd__css__attributs', 100, 1 );
   if( ! function_exists( 'ffeeeedd__css__attributs' ) ) {
     function ffeeeedd__css__attributs( $var ) {
-      return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'inbl' ) ) : '';
+      return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'current_page_parent', 'current-menu-parent', 'current-menu-item', 'inbl' ) ) : '';
     }
   }
 
