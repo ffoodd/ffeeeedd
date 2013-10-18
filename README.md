@@ -26,47 +26,33 @@ Afin de faciliter la personnalisation de ce thème et son adaptation à chaque p
 De plus un important travail de normalisation a été effectué : [une convention complète a été rédigée](https://github.com/ffoodd/Convention "La convention sur GitHub"), qui comprend les règles de nommage, les chartes d'écriture pour les langages utilisés et quelques explications.
 
 1. Installer le thème ffeeeedd et ses thèmes enfants :
- * [ffeeeedd--prototype](https://github.com/ffoodd/ffeeeedd--prototype)
  * [ffeeeedd--developpement](https://github.com/ffoodd/ffeeeedd--developpement)
  * [ffeeeedd--production](https://github.com/ffoodd/ffeeeedd--production)
 2. Si besoin, importer du contenu factice : utiliser celui proposé par WordPress dans les [Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test).
-3. Définir "ffeeeedd--prototype" comme thème actif pour prototyper l'ensemble du site.
- * Travailler dans `prototype.css` pour personnaliser le rythme vertical,
- * Ajouter ou modifier les zones et contenus à afficher : en premier lieu certains blocs seront factices, à savoir en HTML dans les templates de ffeeeedd,
- * Appliquer les classes définies dans `structure.css` pour agencer les blocs (il est possible d'ajouter des classes dans `structure--etendue.css`),
- * Prévoir la version mobile dès cette étape, dans `structure--etendue.css`.
-4. Définir "ffeeeedd--developpement" comme thème actif :
- * Rapatrier les ajouts et modifications effectués en phase de prototypage;
+3. Définir "ffeeeedd--developpement" comme thème actif pour prototyper et développer l'ensemble du site.
  * Activer les constantes `WP_DEBUG` et `SCRIPT_DEBUG` en les passant à `true`;
  * Créer les fonctions spécifiques en respectant les conventions d'écriture et les bonnes pratiques WordPress;
  * Vérifier les points remontés par `debug.css` régulièrement;
- * Personnaliser le `kit.css` : couleurs, typographies, classes spécifiques, etc;
+ * Personnaliser le `modules.css` : couleurs, typographies, classes spécifiques, etc;
  * Ajouter les scripts utiles, ainsi que les plugins - puis les personnaliser en suivant les bonnes pratiques actuelles;
  * Dans le cas de création de template ou de modification de templates, pensez à modifier les traductions s'il y en a (`/lang/fr_FR.mo` pour le français).
- * Concaténer et minifier les fichiers css (vers `style.min.css`, en omettant `debug.css`) et javascript (vers `script.min.js`) puis passer la constante `SCRIPT_DEBUG` à `false` afin de charger les fichiers minifiés.
+ * Concaténer et minifier les fichiers css vers `style.min.css` en respectant l'ordre des appels, et en omettant :
+  *  `debug.css` et `prototype.css` qui ne passeront pas en prod;
+  * `ie.css` qui sera chargé conditionnellement;
+  * et `print.css` qui devrait être appellé via une balise `<link>` dédiée.
+ * Concaténer et minifier les fichiers javascript (vers `script.min.js`).
+ * Passer les constantes `SCRIPT_DEBUG` et `WP_DEBUG` à `false` afin de charger les fichiers minifiés.
  * Effectuer une recette complète du site :
-  * Utiliser le plugin [Theme-Check](http://wordpress.org/plugins/theme-check/),
-  * Auditer à l'aide des [outils d'Opquast](http://opquast.com/fr/#outils),
-  * Tester sur tous les navigateurs cibles,
+  * Utiliser le plugin [Theme-Check](http://wordpress.org/plugins/theme-check/);
+  * Auditer à l'aide des [outils d'Opquast](http://opquast.com/fr/#outils) notamment;
+  * Tester sur tous les navigateurs cibles;
   * Appliquer les conseils de sécurité et de performances préconisés.
- * Concaténer et minifier les fichiers css (vers `style.min.css`, en omettant `debug.css`) et javascript (vers `script.min.js`) dans l'ordre suivant, pour les CSS :
-  * `base.css` (ffeeeedd)
-  * `structure.css` (ffeeeedd)
-  * `formulaires.css` (ffeeeedd)
-  * `navigation.css` (ffeeeedd)
-  * `structure--etendue.css` (ffeeeedd--prototype)
-  * `typographie.css` (ffeeeedd--prototype)
-  * `adaptation.css` (ffeeeedd--prototype)
-  * `modules.css` (ffeeeedd--developpement)
-  * `ie.css` (ffeeeedd--developpement)
-  * `impression.css` (ffeeeedd--developpement)
-  * Commenter les appels dans `style.css` du thème parent.
-6. Copier vers "ffeeeedd--production" :
- * les fichiers php ajoutés ou modifiés;
- * les fichiers de traduction s'ils ont été modifiés;
- * les fichiers `.max.`.
-7. Définir "ffeeeedd--production" comme thème actif :
- * Ajouter `editeur.css` dans le répertoire "css" (en y insérant le contenu de `typographie.css` personnalisé dans "ffeeeedd--production", ainsi que la typographie appellée dans `modules.css`.
+ * Copier vers "ffeeeedd--production" :
+  * les fichiers `.php` ajoutés ou modifiés;
+  * les fichiers de traduction s'ils ont été modifiés (attention aux déclarations de domaines de traduction);
+  * les fichiers `.min.`.
+4. Définir "ffeeeedd--production" comme thème actif :
+ * Ajouter `editeur.css` dans le répertoire "css" (en y insérant le contenu de `typographie.css` personnalisé dans "ffeeeedd--production", ainsi que la typographie appellée dans `modules.css` si possible.
 8. Effectuer une recette générale :
  * Utiliser le plugin Theme-Check,
  * Auditer à l'aide des checklists d'Opquast,
