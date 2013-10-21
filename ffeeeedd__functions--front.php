@@ -160,11 +160,11 @@
       $tag_list = get_the_tag_list( '', ( ', ' ) );
       // On génère le contenu en fonction des informations disponibles ( mots-clés, catégories, auteur ).
       if ( '' != $tag_list ) {
-        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span><br />' . __( 'Tags:', 'ffeeeedd' ) .' <span itemprop="keywords">' . $tag_list . '.</span></p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author" class="vcard author"><span class="fn">' . get_the_author() . '</span></a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span><br />' . __( 'Tags:', 'ffeeeedd' ) .' <span itemprop="keywords">' . $tag_list . '.</span></p>';
       } elseif ( '' != $categories_list ) {
-        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span></p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author" class="vcard author"><span class="fn">' . get_the_author() . '</span></a> ' . __( 'in', 'ffeeeedd' ) . ' <span itemprop="keywords">' . $categories_list . '.</span></p>';
       } else {
-        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author">' . get_the_author() . '</a>.</p>';
+        echo '<p>' . __( 'Entry written by', 'ffeeeedd' ) . ' <a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" itemprop="author" class="vcard author"><span class="fn">' . get_the_author() . '</span></a>.</p>';
       }
       // On génère la date de dernière modification
       echo '<p class="print-hidden">' . __( 'Last modified on', 'ffeeeedd' ) . ' <time class="updated" datetime="' . get_the_modified_date( 'Y-m-d' ) . '" itemprop="dateModified">' . get_the_modified_date() . '</time>.</p>';

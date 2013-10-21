@@ -142,10 +142,7 @@ abbr[title] {
 }
 
 /* Images */
-img {
-  vertical-align: middle;
-  width: auto;
-}
+img { vertical-align: middle; }
 
 a img { border: 0; }
 
