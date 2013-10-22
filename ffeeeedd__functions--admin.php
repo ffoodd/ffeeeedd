@@ -18,6 +18,7 @@
     -- Ajout des champs utiles dans ces blocs
     -- Sauvegarder la valeur de ces champs
   == Profil utilisateur
+  == Désactive le lien par défaut sur les images
 */
 
 
@@ -103,3 +104,18 @@
       return $contact;
     }
   }
+
+  /* == @section Désactive le lien par défaut sur les images ==================== */
+  /**
+   * @note : Par défaut, WordPress ajoute un lien vers le fichier lui-même lors de l'ajout dans le WYSIWYG, ce qui est inutile.
+   * @author : Syed Balkhi
+   * @see : https://plus.google.com/101623299936375408403/
+   * @see : http://www.wpbeginner.com/wp-tutorials/automatically-remove-default-image-links-wordpress/?utm_source=buffer&utm_campaign=Buffer&utm_content=buffer840f2&utm_medium=twitterhttp://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
+   */
+  function ffeeeedd__images() {
+    $image_set = get_option( 'image_default_link_type' );
+    if ($image_set !== 'none') {
+      update_option('image_default_link_type', 'none');
+    }
+  }
+  add_action('admin_init', 'wpb_imagelink_setupffeeeedd__images', 10);
