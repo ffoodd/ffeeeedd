@@ -118,4 +118,4 @@
       update_option('image_default_link_type', 'none');
     }
   }
-  add_action('admin_init', 'wpb_imagelink_setupffeeeedd__images', 10);
+  add_action('admin_init', 'ffeeeedd__images', 10);
