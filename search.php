@@ -44,7 +44,7 @@ get_header(); ?>
           <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => __( 'Permalink to the post', 'ffeeeedd' ) ) ); ?>
         </a>
         <?php } ?>
-        <time datetime="<?php the_time( 'Y-m-j' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
+        <time datetime="<?php the_time( 'Y-m-j' ); ?>" itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <p itemprop="description"><?php echo $excerpt ?></p>
         <footer><?php ffeeeedd__meta(); ?></footer>
       </article>

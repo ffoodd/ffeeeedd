@@ -40,7 +40,7 @@ get_header(); ?>
           <?php the_post_thumbnail( 'thumbnail', array( 'itemprop' => 'image', 'alt' => __( 'Permalink to the post', 'ffeeeedd' ) ) ); ?>
         </a>
         <?php } ?>
-        <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
+        <time datetime="<?php the_time( 'Y-m-d' ); ?>" itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
         <footer><?php ffeeeedd__meta(); ?></footer>

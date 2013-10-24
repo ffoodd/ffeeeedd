@@ -20,7 +20,7 @@ get_header(); ?>
   <article role="article" itemscope itemtype="http://schema.org/Article" <?php post_class(); ?>>
     <h2 itemprop="name" class="entry-title"><?php the_title(); ?></h2>
 
-    <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
+    <time datetime="<?php the_time( 'Y-m-d' ); ?>" itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
     <div itemprop="articleBody"><?php the_content(); ?></div>
 
     <footer>

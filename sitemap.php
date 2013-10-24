@@ -42,7 +42,7 @@ get_header(); ?>
         <?php while ( $ffeeeedd__article->have_posts() ) { $ffeeeedd__article->the_post(); ?>
           <li>
             <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a>
-            <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
+            <time datetime="<?php the_time( 'Y-m-d' ); ?>" itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
           </li>
         <?php } ?>
       </ul>
