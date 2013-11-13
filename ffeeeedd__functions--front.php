@@ -850,7 +850,7 @@
    * @note : Le contenu est filtré pour remplacer le html généré pour les caption par du html5 sémantique. Astuce trouvée sur Reverie.
    * @author : Zhen Huang
    * @see : http://themefortress.com/reverie/
-   * @see : https://github.com/milohuang/reverie/blob/master/lib/clean.php
+   * @see : https://github.com/milohuang/reverie/blob/master/lib/clean.php#LC151
    * @note : On y ajoute les microdonnées qui vont bien.
    * @author : Joost Kiens ( @joostkiens )
    * @see : https://gist.github.com/JoostKiens/4477366
