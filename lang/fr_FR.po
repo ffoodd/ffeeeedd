@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
 "POT-Creation-Date: 2013-08-20 13:49+0100\n"
-"PO-Revision-Date: 2013-08-22 10:16+0100\n"
+"PO-Revision-Date: 2013-11-21 17:02+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -26,15 +26,16 @@ msgstr "Accès réservé au personnel autorisé."
 
 #: D:\clients\GitHub\ffeeeedd/403.php:20 D:\clients\GitHub\ffeeeedd/404.php:20
 msgid "Don't panic, we can help you. See:"
-msgstr "Ne paniquez pas, nous allons vous aider :"
+msgstr "Ne paniquez pas, nous allons vous aider&thinsp;:&nbsp;"
 
 #: D:\clients\GitHub\ffeeeedd/403.php:21 D:\clients\GitHub\ffeeeedd/404.php:21
 msgid "Here you are:"
-msgstr "Vous êtes ici :"
+msgstr "Vous êtes ici&thinsp;:&nbsp;"
 
 #: D:\clients\GitHub\ffeeeedd/403.php:22 D:\clients\GitHub\ffeeeedd/404.php:22
 msgid "If you're still lost, these suggestions may help:"
-msgstr "Si vous êtes perdus, ces liens pourront peut-être vous aider :"
+msgstr ""
+"Si vous êtes perdus, ces liens pourront peut-être vous aider&thinsp;:&nbsp;"
 
 #: D:\clients\GitHub\ffeeeedd/403.php:26 D:\clients\GitHub\ffeeeedd/404.php:26
 msgid "Email this website's author"
@@ -95,11 +96,11 @@ msgstr "n'a rédigé aucun article pour le moment."
 
 #: D:\clients\GitHub\ffeeeedd/category.php:17
 msgid "Category:"
-msgstr "Catégorie :"
+msgstr "Catégorie&thinsp;:&nbsp;"
 
 #: D:\clients\GitHub\ffeeeedd/category.php:44
 msgid "Nothing found in "
-msgstr "Aucun article trouvé dans"
+msgstr "Aucun article trouvé dans "
 
 #: D:\clients\GitHub\ffeeeedd/comments.php:23
 #, php-format
@@ -158,7 +159,7 @@ msgstr "dans"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:176
 msgid "Tags:"
-msgstr "Mots-clés :"
+msgstr "Mots-clés&thinsp;:&nbsp;"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:183
 msgid "Last modified on"
@@ -166,7 +167,7 @@ msgstr "Modifié le"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:276
 msgid "All entries in "
-msgstr "Tous les articles dans"
+msgstr "Tous les articles dans "
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:309
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:311
@@ -175,7 +176,7 @@ msgstr "Articles"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:374
 msgid "Comments page "
-msgstr "Commentaires page"
+msgstr "Commentaires page "
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:435
 msgid "Entries written by "
@@ -184,7 +185,7 @@ msgstr "Articles rédigés par "
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:440
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:447
 msgid "Entries about "
-msgstr "Articles sur le thème de"
+msgstr "Articles sur le thème de "
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:455
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:704
@@ -300,7 +301,7 @@ msgstr "Imprimez cet article"
 msgid ""
 "In order to print this post, please use the following keyboard shortcut: "
 "<kbd>Ctrl + P</kbd>"
-msgstr "Pour imprimer cet article, utilisez le raccourci"
+msgstr "Pour imprimer cet article, utilisez le raccourci <kbd>Ctrl + P</kbd>"
 
 #: D:\clients\GitHub\ffeeeedd/sitemap.php:22
 msgid "Pages"
