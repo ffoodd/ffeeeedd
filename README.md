@@ -73,5 +73,6 @@ De plus un important travail de normalisation a été effectué : [une conventio
  - [Theme Check](http://wordpress.org/plugins/theme-check/)
  - [Google Sitemap Generator](http://wordpress.org/plugins/google-sitemap-generator/)
  - [ACF](http://www.advancedcustomfields.com/ 'Advanced Custom Fields')
+ - [WP Rocket](http://wp-rocket.me/)
 - [ ] Créer une checklist qualité / méthodologie pour faciliter le suivi de chantier,
-- [ ] Audit A11y.
+- [x] Audit A11y.
