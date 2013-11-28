@@ -60,18 +60,18 @@
     register_sidebar( array(
       'name' => 'Accueil',
       'id' => 'accueil',
-      'before_widget' => '<div>',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
-      'before_title' => '<h3>',
+      'before_title' => '<h3 class="widget--title">',
       'after_title' => '</h3>',
     ) );
     // La colonne latérale pour les pages
     register_sidebar( array(
       'name' => 'Pages',
       'id' => 'pages',
-      'before_widget' => '<div>',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
-      'before_title' => '<h3>',
+      'before_title' => '<h3 class="widget--title">',
       'after_title' => '</h3>',
     ) );
   }
