@@ -65,7 +65,7 @@
         <img src="<?php esc_url( header_image() ); ?>" class="left" id="logo" alt="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="image"/>
       </a>
       <?php } ?>
-      <h1 itemprop="name" role="heading" aria-level="1"><?php bloginfo( 'name' ); ?></h1>
+      <h1 itemprop="name"><?php bloginfo( 'name' ); ?></h1>
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>
     </header><!-- / banner -->
 
