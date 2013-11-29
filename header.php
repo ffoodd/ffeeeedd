@@ -52,12 +52,11 @@
     </ul>
 
     <header class="w--site center" role="banner">
-      <?php if ( get_header_image() ) { ?>
-      <a href="<?php echo esc_url( home_url() ); ?>" title="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="url">
-        <img src="<?php esc_url( header_image() ); ?>" class="left" id="logo" alt="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="image"/>
-      </a>
-      <?php } ?>
-      <h1 itemprop="name"><?php bloginfo( 'name' ); ?></h1>
+      <h1 itemprop="name">
+        <a href="<?php echo esc_url( home_url() ); ?>" title="<?php esc_attr( bloginfo( 'name' ) ); ?>" itemprop="url">
+          <?php bloginfo( 'name' ); ?>
+        </a>
+      </h1>
       <h2 itemprop="description"><?php bloginfo( 'description' ); ?></h2>
     </header><!-- / banner -->
 
@@ -65,7 +64,7 @@
       <?php if ( has_nav_menu( 'primary' ) ) {
         wp_nav_menu( array(
           'theme_location' => 'primary',
-          'items_wrap' => '<ul class="%2$s aside p-reset m-reset ul-reset" role="menubar">%3$s</ul>',
+          'items_wrap' => '<ul class="%2$s p-reset m-reset ul-reset">%3$s</ul>',
           'container' => false)
         );
       } else {

@@ -650,9 +650,6 @@
           echo '<meta name="twitter:description" content="';
           echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
           echo '" />';
-          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="';
-          echo esc_attr( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__description', true ) );
-          echo '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
         }
         // Sinon, dans le cas d'un article on affiche l'extrait
@@ -661,7 +658,6 @@
           echo '<meta name="description" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<meta property="og:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<meta name="twitter:description" content="' . strip_tags( get_the_excerpt() ) . '" />';
-          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . strip_tags( get_the_excerpt() ) . '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
         }
         // Sinon, on affiche la description générale du site
@@ -670,7 +666,6 @@
           echo '<meta name="description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
           echo '<meta property="og:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
           echo '<meta name="twitter:description" content="' . esc_attr( get_bloginfo( 'description' ) ) . '" />';
-          echo '<meta name="dcterms.description" lang="' . esc_attr( get_bloginfo( 'language' ) ) . '" content="' . get_bloginfo( 'description' ) . '" />';
           echo '<!-- Fin des métas Description dynamiques -->';
         }
       }
