@@ -74,8 +74,7 @@
         wp_nav_menu( array(
           'theme_location' => 'primary',
           'items_wrap' => '<ul class="%2$s aside p-reset m-reset ul-reset" role="menubar">%3$s</ul>',
-          'container' => false,
-          'walker' => new ffeeeedd__walker())
+          'container' => false
         );
       } else {
         wp_dropdown_pages( array( 'depth' => 1 ) );
