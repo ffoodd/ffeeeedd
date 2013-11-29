@@ -34,14 +34,6 @@
       <meta name="twitter:creator" content="<?php esc_attr( the_author_meta( 'twitter', 1 ) ); ?>" />
       <?php } ?>
     <!-- /Fin des métas Twitter simples -->
-    <!-- Métas DublinCore simples -->
-      <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-      <meta name="dcterms.title" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="<?php esc_attr( wp_title( '-', true, 'right' ) ); ?>" />
-      <meta name="dcterms.identifier" content="<?php echo esc_url( get_permalink() ); ?>" />
-      <meta name="dcterms.type" content="text" />
-      <meta name="dcterms.subject" lang="<?php esc_attr( bloginfo( 'language' ) ); ?>" content="HTML, document, Dublin Core" />
-      <meta name="dcterms.language" content="<?php esc_attr( bloginfo( 'language' ) ); ?>" />
-    <!-- /Fin des métas DublinCore simples -->
     <?php if ( get_the_author_meta( 'google', 1 ) ) { ?>
     <!-- Authentification de l'auteur sur Google+ -->
     <link rel="author" href="<?php esc_url( the_author_meta('google', 1 ) ); ?>">
