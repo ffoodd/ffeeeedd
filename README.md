@@ -23,39 +23,21 @@ Mode d'emploi
 
 Afin de faciliter la personnalisation de ce thème et son adaptation à chaque projet, un micro-framework css est utilisé - basé sur [Knacss](http://knacss.com/ "Knaccs.com") par l'excellent [Raphaël Goetter](http://goetter.fr/ "Goetter.fr"). La version utilisée sur ffeeeedd est cependant légèrement retouchée, et sera enrichie de quelques astuces personnelles.
 
-De plus un important travail de normalisation a été effectué : [une convention complète a été rédigée](https://github.com/ffoodd/Convention "La convention sur GitHub"), qui comprend les règles de nommage, les chartes d'écriture pour les langages utilisés et quelques explications.
+Le travail sur les styles se fait désormais grâce à Sass et Compass. Un fichier de configuration du projet est fourni mais vous pouvez évidemment l’adapter à vos propres façons de travailler.
 
-1. Installer le thème ffeeeedd et ses thèmes enfants :
- * [ffeeeedd--developpement](https://github.com/ffoodd/ffeeeedd--developpement)
- * [ffeeeedd--production](https://github.com/ffoodd/ffeeeedd--production)
+De plus un important travail de normalisation a été effectué : [une convention complète a été rédigée](https://github.com/ffoodd/Convention "La convention sur GitHub"), qui comprend les règles de nommage, les chartes d'écriture pour les langages utilisés et quelques explications. Ce sont également des choses à adapter à vos propres pratiques.
+
+1. Installer le thème ffeeeedd et son thème enfant [ffeeeedd--sass](https://github.com/ffoodd/ffeeeedd--sass)
 2. Si besoin, importer du contenu factice : utiliser celui proposé par WordPress dans les [Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test).
-3. Définir "ffeeeedd--developpement" comme thème actif pour prototyper et développer l'ensemble du site.
- * Activer les constantes `WP_DEBUG` et `SCRIPT_DEBUG` en les passant à `true`;
+3. Définir "ffeeeedd--sass" comme thème actif.
  * Créer les fonctions spécifiques en respectant les conventions d'écriture et les bonnes pratiques WordPress;
- * Vérifier les points remontés par `debug.css` régulièrement;
- * Personnaliser le `modules.css` : couleurs, typographies, classes spécifiques, etc;
+ * Vérifier les points remontés par `a11y.css` régulièrement;
+ * Personnaliser les fichiers partiels dans `sass/partials/` : couleurs, typographies, classes spécifiques, etc;
  * Ajouter les scripts utiles, ainsi que les plugins - puis les personnaliser en suivant les bonnes pratiques actuelles;
  * Dans le cas de création de template ou de modification de templates, pensez à modifier les traductions s'il y en a (`/lang/fr_FR.mo` pour le français).
- * Concaténer et minifier les fichiers css vers `style.min.css` en respectant l'ordre des appels, et en omettant :
-  *  `debug.css` et `prototype.css` qui ne passeront pas en prod;
-  * `ie.css` qui sera chargé conditionnellement;
-  * et `print.css` qui devrait être appellé via une balise `<link>` dédiée.
- * Concaténer et minifier les fichiers javascript (vers `script.min.js`).
- * Passer les constantes `SCRIPT_DEBUG` et `WP_DEBUG` à `false` afin de charger les fichiers minifiés.
- * Effectuer une recette complète du site :
-  * Utiliser le plugin [Theme-Check](http://wordpress.org/plugins/theme-check/);
-  * Auditer à l'aide des [outils d'Opquast](http://opquast.com/fr/#outils) notamment;
-  * Tester sur tous les navigateurs cibles;
-  * Appliquer les conseils de sécurité et de performances préconisés.
- * Copier vers "ffeeeedd--production" :
-  * les fichiers `.php` ajoutés ou modifiés;
-  * les fichiers de traduction s'ils ont été modifiés (attention aux déclarations de domaines de traduction);
-  * les fichiers `.min.`.
-4. Définir "ffeeeedd--production" comme thème actif :
- * Ajouter `editeur.css` dans le répertoire "css" (en y insérant le contenu de `typographie.css` personnalisé dans "ffeeeedd--production", ainsi que la typographie appellée dans `modules.css` si possible.
 8. Effectuer une recette générale :
- * Utiliser le plugin Theme-Check,
- * Auditer à l'aide des checklists d'Opquast,
+ * Utiliser le plugin [Theme-Check](http://wordpress.org/plugins/theme-check/),
+ * Auditer à l'aide des [outils d'Opquast](http://opquast.com/fr/#outils),
  * Tester sur tous les navigateurs cibles,
  * Appliquer les conseils de sécurité et de performances préconisés (notamment concernant le fichier `.htaccess`).
 
