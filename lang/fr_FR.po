@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2013-12-09 17:00+0100\n"
-"PO-Revision-Date: 2013-12-09 17:01+0100\n"
+"POT-Creation-Date: 2013-12-09 17:04+0100\n"
+"PO-Revision-Date: 2013-12-09 17:04+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -208,8 +208,8 @@ msgid "Next page &rarr;"
 msgstr "Page suivante &rarr;"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:499
-msgid "Previous page &larr;"
-msgstr "Page précédente &larr;"
+msgid "&larr; Previous page"
+msgstr "&larr; Page précédente"
 
 #: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:529
 msgid "Pingback :"
