@@ -495,8 +495,8 @@
         'end_size'  => 1,
         'mid_size'  => 2,
         'type'      => 'list',
-        'next_text' => '&rarr;',
-        'prev_text' => '&larr;'
+        'next_text' => __( 'Next page &rarr;', 'ffeeeedd' ),
+        'prev_text' => __( 'Previous page &larr;', 'ffeeeedd' )
       );
       if( $wp_rewrite->using_permalinks() ) {
         $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );

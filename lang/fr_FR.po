@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2013-08-20 13:49+0100\n"
-"PO-Revision-Date: 2013-11-21 17:02+0100\n"
+"POT-Creation-Date: 2013-12-09 17:00+0100\n"
+"PO-Revision-Date: 2013-12-09 17:01+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -86,7 +86,7 @@ msgid "Author"
 msgstr "Auteur"
 
 #: D:\clients\GitHub\ffeeeedd/author.php:25
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:597
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:586
 msgid "Website"
 msgstr "Site"
 
@@ -146,106 +146,114 @@ msgstr "URL canonique"
 msgid "Continue reading"
 msgstr "Lire la suite de"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:176
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:178
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:180
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:163
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:165
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:167
 msgid "Entry written by"
 msgstr "Article rédigé par"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:176
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:178
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:163
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:165
 msgid "in"
 msgstr "dans"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:176
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:163
 msgid "Tags:"
 msgstr "Mots-clés&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:183
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:170
 msgid "Last modified on"
 msgstr "Modifié le"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:276
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:265
 msgid "All entries in "
 msgstr "Tous les articles dans "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:309
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:311
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:298
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:300
 msgid "Entries"
 msgstr "Articles"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:374
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:363
 msgid "Comments page "
 msgstr "Commentaires page "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:435
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:424
 msgid "Entries written by "
 msgstr "Articles rédigés par "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:440
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:447
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:429
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:436
 msgid "Entries about "
 msgstr "Articles sur le thème de "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:455
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:704
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:444
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:688
 #: D:\clients\GitHub\ffeeeedd/search.php:22
 #, php-format
 msgid "%1$s search results for %2$s"
 msgstr "%1$s résultats pour la recherche %2$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:457
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:446
 #, php-format
 msgid "A single search result for \"%1$s\""
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:463
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:452
 msgid "404 - Page not found "
 msgstr "404 - Page non trouvée"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:540
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:498
+msgid "Next page &rarr;"
+msgstr "Page suivante &rarr;"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:499
+msgid "Previous page &larr;"
+msgstr "Page précédente &larr;"
+
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:529
 msgid "Pingback :"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:540
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:529
 msgid "(Edit)"
 msgstr "(Modifier)"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:551
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:540
 msgid "Post author"
 msgstr "Rédacteur"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:561
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:550
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:566
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:555
 msgid "Edit"
 msgstr "Modifier"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:570
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:559
 msgid "Reply"
 msgstr "Répondre"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:585
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:574
 msgid "Name"
 msgstr "Nom"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:591
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:580
 msgid "Email"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:608
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:597
 msgid "Comment"
 msgstr "Commentaire"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:706
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:690
 #: D:\clients\GitHub\ffeeeedd/search.php:26
 #, php-format
 msgid "A single search result for %1$s"
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:726
+#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:710
 #, php-format
 msgid "Page %s"
 msgstr ""
@@ -254,15 +262,15 @@ msgstr ""
 msgid "By default, this content is licensed under"
 msgstr "Sauf mention contraire, l'ensemble du contenu est sous"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:69
+#: D:\clients\GitHub\ffeeeedd/header.php:42
 msgid "RSS feed"
 msgstr "Flux RSS"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:76
+#: D:\clients\GitHub\ffeeeedd/header.php:49
 msgid "Skip to navigation"
 msgstr "Aller au menu"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:78
+#: D:\clients\GitHub\ffeeeedd/header.php:51
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
