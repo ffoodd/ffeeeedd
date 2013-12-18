@@ -22,23 +22,3 @@
 }
 
 .menu li a { display: block; }
-
-.sub-menu {
-  position: absolute;
-  left: -7000px;
-  z-index: 4;
-}
-
-.menu li:hover > .sub-menu,
-.menu a:focus + .sub-menu { left: -2px; }
-
-.sub-menu a:focus {
-  left: 7000px;
-  position: absolute;
-  top: 0;
-}
-
-.sub-menu a:hover,
-.sub-menu a:active { position: static; }
-
-.menu-toggle { display: none; }

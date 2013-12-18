@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -8,12 +7,10 @@
   * @see HTML5boilerplate
   * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
 */
-
 /* ----------------------------- */
 /* ==Structure */
 /* @note : Aucun de ces éléments ne doit être modifié.
 /* ----------------------------- */
-
 /* ----------------------------- */
 /* Sommaire */
 /* ----------------------------- */
@@ -25,8 +22,6 @@
     -- Alignement horizontal
     -- Alignement vertical
   == Grilles
-    -- Grilles égales, marge 2%
-    -- Grilles inégales (1-2, 2-1, 1-3 et 3-1)
   == Inline-block
   == Largeurs
     -- Largeurs en %
@@ -37,88 +32,72 @@
     -- Remplacement d'image
   == Orientation
 */
-
-
 /* == @section Modèle de boîte ==================== */
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing:    border-box;
-  box-sizing:         border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /* == @section Structure flottante ==================== */
 /* Bloc capable de contenir plusieurs .mod, peut contenir des flottants */
-.line {
-}
-
-/* Module autonome - flottant, doit avoir une largeur */
-.mod {
+.line, [class*="grid"] {
   overflow: hidden;
-  padding: 1em;
 }
-
-/* Généralement dans un .mod, peut contenir des .item */
-.items { }
-
-/* Fluide, contient des flottants, peut être placé à côté d'un flottant */
-.item { overflow: hidden; }
-
 
 /* == @section Structure en tableau ==================== */
 .row {
   display: table;
   table-layout: fixed;
-  width: 100%;
 }
 
 .row > *,
 .col {
   display: table-cell;
   padding: 1em;
-  vertical-align: top;
 }
 
-/* Blocs qui peuvent suivre des flottants ( i.e. pour déclarer une nouvelle ligne ) */
-.clear,
-.line,
-.row,
-.clearfix:after,
-.line:after,
-.mod:after { clear: both; }
+/* Blocs qui peuvent suivre des flottants */
+.clear, .line, [class*="grid"], .row, .aligncenter {
+  clear: both;
+}
 
 /* Blocs qui peuvent contenir des flottants */
-.clearfix:before,
 .clearfix:after,
-.line:before,
 .line:after,
-.mod:before,
+[class*="grid"]:after,
 .mod:after {
+  clear: both;
   content: "";
   display: table;
 }
 
-
 /* == @section Alignements ( blocs et en ligne ) ==================== */
-
 /* -- @subsection Alignement horizontal -------------------- */
 /* À gauche */
 .left,
-.alignleft { float: left; }
+.alignleft {
+  float: left;
+}
 
 img.left,
-img.alignleft { margin-right: 2em; }
+img.alignleft {
+  margin-right: 2em;
+}
 
 /* À droite */
 .right,
-.alignright { float: right; }
+.alignright {
+  float: right;
+}
 
 img.right,
-img.alignright { margin-left: 2em; }
+img.alignright {
+  margin-left: 2em;
+}
 
 /* Centré */
 .aligncenter {
-  clear: both;
   display: block;
 }
 
@@ -130,195 +109,307 @@ img.alignright { margin-left: 2em; }
 }
 
 /* Alignement du texte */
-.txtleft { text-align: left; }
+.txtleft {
+  text-align: left;
+}
 
-.txtright { text-align: right; }
+.txtright {
+  text-align: right;
+}
 
-.txtcenter { text-align: center; }
+.txtcenter {
+  text-align: center;
+}
 
-/* Une gouttière d'1em si le parent est un .gut */
-.row.gut > * + * { border-left: 1em solid transparent; }
-
-.line.gut > .left { margin-right: 1em; }
-
-.line.gut > .right { margin-left: 1em; }
-
-/* "Multi-colonnes" avec des gouttières en % */
-.line.gut2 > * { width: 49%; }
-
-.line.gut2 > * + * { margin-left: 2%; }
-
-.line.gut3 > * { width: 32.333%; }
-
-.line.gut3 > * + * { margin-left: 1.5%; }
-
-.line.gut4 > * { width: 24%; }
-
-.line.gut4 > * + * { margin-left: 1.333%; }
-
+.txtjustify {
+  text-align: justify;
+}
 
 /* -- @subsection Alignement vertical -------------------- */
-.aligntop { vertical-align: top; }
+.aligntop, .row > *,
+.col, textarea {
+  vertical-align: top;
+}
 
-.alignbottom { vertical-align: bottom; }
+.alignmiddle, img, input,
+button,
+select,
+label, #site-title {
+  vertical-align: middle;
+}
 
+.alignbottom, .sprite-tel {
+  vertical-align: bottom;
+}
 
 /* == @section Grilles ==================== */
+[class*="grid"] > * {
+  float: left;
+}
+[class*="grid"] > * + * {
+  margin-left: 3%;
+}
 
-/* -- @subsection Grilles égales, marge 2% -------------------- */
-/* Les enfants directs sont flottants */
-[class*=grid] > * { float: left; }
+.grid-2 > *:nth-child(2n + 3),
+[class*="grid-1-1"] > *:nth-child(2n + 2),
+.grid-1-1 > *:nth-child(2n + 2), .grid-3 > *:nth-child(3n + 4),
+[class*="grid-1-2"] > *:nth-child(2n + 3),
+.grid-2-1 > *:nth-child(2n + 3) {
+  clear: left;
+  margin-left: 0;
+}
 
-/* Et voilà la gouttière */
-[class*=grid] > * + * { margin-left: 2%; }
+.grid-2 > *,
+.grid-1-1 > *:first-child,
+.grid-1-1 > * + * {
+  width: 48.5%;
+}
 
-.grid2 > * { width: 49%; }
+.grid-1-1 > *:first-child,
+.grid-1-1 > * + * {
+  width: 51.5%;
+}
 
-.grid3 > * { width: 32%; }
+.grid-3 > *,
+.grid-1-2 > *:first-child,
+.grid-2-1 > * + * {
+  width: 31.33333%;
+}
 
-.grid4 > * { width: 23.5%; }
-
-.grid5 > * { width: 18.4%; }
-
-.grid6 > * { width: 15%; }
-
-/* -- @subsection Grilles inégales (1-2, 2-1, 1-3 et 3-1) -------------------- */
-.grid2-1 > *:first-child,
-.grid1-2 > * + * { width: 66%; }
-
-.grid1-2 > *:first-child,
-.grid2-1 > * + * { width: 32%; }
-
-.grid1-3 > *:first-child,
-.grid3-1 > * + * { width: 23.5%; }
-
-.grid3-1 > *:first-child,
-.grid1-3 > * + * { width: 74.5%; }
-
+.grid-2-1 > *:first-child,
+.grid-1-2 > * + * {
+  width: 65.66667%;
+}
 
 /* == @section Inline-block ==================== */
-.inbl,
+.inbl, .menu li,
 .btn {
   display: inline-block;
   vertical-align: top;
 }
 
-
 /* == @section Largeurs ==================== */
-
 /* -- @subsection Largeurs en % -------------------- */
-.w10 { width: 10%; }
+.w-10 {
+  width: 10%;
+}
 
-.w20 { width: 20%; }
+.w-20 {
+  width: 20%;
+}
 
-.w25 { width: 25%; }
+.w-25 {
+  width: 25%;
+}
 
-.w30 { width: 30%; }
+.w-30 {
+  width: 30%;
+}
 
-.w33 { width: 33.333%; }
+.w-33 {
+  width: 33%;
+}
 
-.w40 { width: 40%; }
+.w-40 {
+  width: 40%;
+}
 
-.w50 { width: 50%; }
+.w-50 {
+  width: 50%;
+}
 
-.w60 { width: 60%; }
+.w-60 {
+  width: 60%;
+}
 
-.w66 { width: 66.666%; }
+.w-66 {
+  width: 66%;
+}
 
-.w70 { width: 70%; }
+.w-70 {
+  width: 70%;
+}
 
-.w75 { width: 75%; }
+.w-75 {
+  width: 75%;
+}
 
-.w80 { width: 80%; }
+.w-80 {
+  width: 80%;
+}
 
-.w90 { width: 90%; }
+.w-90 {
+  width: 90%;
+}
 
-.w100 { width: 100%; }
-
+.w-100, .row {
+  width: 100%;
+}
 
 /* == @section Espacements ====================
  * @note : p, m = padding, margin
  * @note : a, t, r, b, l = all, top, right, bottom, left
+ * @note : Nous avons besoin des valeurs de 0 à 2 au minimum.
 */
+.ma0 {
+  margin: 0em;
+}
 
-/* -- @subsection Marges externes -------------------- */
-.ma1 { margin: 1em; }
+.mt0 {
+  margin-top: 0em;
+}
 
-.ma2 { margin: 2em; }
+.mr0 {
+  margin-right: 0em;
+}
 
-.ma3 { margin: 3em; }
+.mb0 {
+  margin-bottom: 0em;
+}
 
-.mt0 { margin-top: 0; }
+.ml0 {
+  margin-left: 0em;
+}
 
-.mt1 { margin-top: 1em; }
+.pa0 {
+  padding: 0em;
+}
 
-.mt2 { margin-top: 2em; }
+.pt0 {
+  padding-top: 0em;
+}
 
-.mt3 { margin-top: 3em; }
+.pr0 {
+  padding-right: 0em;
+}
 
-.mr0 { margin-right: 0; }
+.pb0 {
+  padding-bottom: 0em;
+}
 
-.mr1 { margin-right: 1em; }
+.pl0 {
+  padding-left: 0em;
+}
 
-.mr2 { margin-right: 2em; }
+.ma1 {
+  margin: 1em;
+}
 
-.mr3 { margin-right: 3em; }
+.mt1 {
+  margin-top: 1em;
+}
 
-.mb0 { margin-bottom: 0; }
+.mr1 {
+  margin-right: 1em;
+}
 
-.mb1 { margin-bottom: 1em; }
+.mb1 {
+  margin-bottom: 1em;
+}
 
-.mb2 { margin-bottom: 2em; }
+.ml1 {
+  margin-left: 1em;
+}
 
-.mb3 { margin-bottom: 3em; }
+.pa1 {
+  padding: 1em;
+}
 
-.ml0 { margin-left: 0; }
+.pt1 {
+  padding-top: 1em;
+}
 
-.ml1 { margin-left: 1em; }
+.pr1 {
+  padding-right: 1em;
+}
 
-.ml2 { margin-left: 2em; }
+.pb1 {
+  padding-bottom: 1em;
+}
 
-.ml3 { margin-left: 3em; }
+.pl1 {
+  padding-left: 1em;
+}
 
-/* -- @subsection Marges internes -------------------- */
-.pa1 { padding: 1em; }
+.ma2 {
+  margin: 2em;
+}
 
-.pa2 { padding: 2em; }
+.mt2 {
+  margin-top: 2em;
+}
 
-.pa3 { padding: 3em; }
+.mr2 {
+  margin-right: 2em;
+}
 
-.pt0 { padding-top: 0; }
+.mb2 {
+  margin-bottom: 2em;
+}
 
-.pt1 { padding-top: 1em; }
+.ml2 {
+  margin-left: 2em;
+}
 
-.pt2 { padding-top: 2em; }
+.pa2 {
+  padding: 2em;
+}
 
-.pt3 { padding-top: 3em; }
+.pt2 {
+  padding-top: 2em;
+}
 
-.pr0 { padding-right: 0; }
+.pr2 {
+  padding-right: 2em;
+}
 
-.pr1 { padding-right: 1em; }
+.pb2 {
+  padding-bottom: 2em;
+}
 
-.pr2 { padding-right: 2em; }
+.pl2 {
+  padding-left: 2em;
+}
 
-.pr3 { padding-right: 3em; }
+.ma3 {
+  margin: 3em;
+}
 
-.pb0 { padding-bottom: 0; }
+.mt3 {
+  margin-top: 3em;
+}
 
-.pb1 { padding-bottom: 1em; }
+.mr3 {
+  margin-right: 3em;
+}
 
-.pb2 { padding-bottom: 2em; }
+.mb3 {
+  margin-bottom: 3em;
+}
 
-.pb3 { padding-bottom: 3em; }
+.ml3 {
+  margin-left: 3em;
+}
 
-.pl0 { padding-left: 0; }
+.pa3 {
+  padding: 3em;
+}
 
-.pl1 { padding-left: 1em; }
+.pt3 {
+  padding-top: 3em;
+}
 
-.pl2 { padding-left: 2em; }
+.pr3 {
+  padding-right: 3em;
+}
 
-.pl3 { padding-left: 3em; }
+.pb3 {
+  padding-bottom: 3em;
+}
 
+.pl3 {
+  padding-left: 3em;
+}
 
 /* == @section Éléments masqués ==================== */
 .visually-hidden {
@@ -328,30 +419,33 @@ img.alignright { margin-left: 2em; }
 }
 
 .js .js-hidden,
-.no-js .js-visible { display: none; }
-
-.js .js-visible,
-.no-js .js-hidden { display: block; }
-
-/* -- @subsection Remplacement d'image -------------------- */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
+.no-js .js-visible {
+  display: none;
 }
 
-.ir:before {
+.js .js-visible,
+.no-js .js-hidden {
+  display: block;
+}
+
+/* -- @subsection Remplacement d'image -------------------- */
+.ir, [class^="sprite-"],
+[class*=" sprite-"] {
+  background-color: transparent;
+  overflow: hidden;
+}
+.ir:before, [class^="sprite-"]:before,
+[class*=" sprite-"]:before {
   content: "";
   display: block;
   height: 100%;
   width: 0;
 }
 
-
 /* == @section Orientation ====================
  * @note : Corrige un bug sur les font-size lors du changement d'orientation sur iOS
 */
-@media ( orientation: landscape ) and ( max-device-width: 768px ) {
+@media (orientation: landscape) and (max-device-width: 768px) {
   html,
   body {
     -webkit-text-size-adjust: 100%;

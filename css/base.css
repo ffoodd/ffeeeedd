@@ -1,4 +1,8 @@
-@charset "UTF-8";
+/**
+ * @author Gaël Poupard
+ * @site Thème ffeeeedd--sass
+ * @lastmodified 2013-11-13
+ */
 /**
 * @author Gaël Poupard
 * @site Thème ffeeeedd
@@ -7,12 +11,10 @@
   * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
   * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
 */
-
 /* ----------------------------- */
 /* ==Base */
 /* @note : Aucun de ces éléments ne doit être modifié.
 /* ----------------------------- */
-
 /* Soft reset */
 html,
 body,
@@ -27,42 +29,39 @@ blockquote {
   padding-left: 2em;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:focus,
-a:hover,
-a:active {
-  text-decoration: underline;
-}
-
 code,
 pre,
 samp {
   white-space: pre-wrap;
 }
 
-code { line-height: 1em; }
+mark {
+  font-weight: bold;
+}
 
-table { margin-bottom: 21px; }
+code {
+  line-height: 1em;
+}
 
-.m-reset { margin: 0 !important; }
+table {
+  margin-bottom: 1em;
+}
 
-.p-reset { padding: 0 !important; }
+.m-reset {
+  margin: 0 !important;
+}
 
-.b-reset { border: 0 !important; }
+.p-reset {
+  padding: 0 !important;
+}
 
-.ul-reset { list-style: none !important; }
+.b-reset, .ir, [class^="sprite-"],
+[class*=" sprite-"] {
+  border: 0 !important;
+}
 
-/* Élude la fusion des marges pour les titrailles */
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-h6:first-child {
-  margin-top: 0;
+.ul-reset {
+  list-style: none !important;
 }
 
 /* Élude la fusion des marges pour les éléments imbriqués */
@@ -81,9 +80,12 @@ figcaption,
 figure,
 footer,
 header,
+time,
 nav,
 section,
-main { display: block; }
+main {
+  display: block;
+}
 
 /* Valeurs maximum */
 img,
@@ -99,10 +101,6 @@ video {
   max-width: 100%;
 }
 
-/* Corrige un bug de max-width sur les images de Gmap3 */
-#map_canvas img,
-.gmnoprint img { max-width: none ; }
-
 /* Vous ne passerez pas ! */
 textarea,
 table,
@@ -112,12 +110,11 @@ code,
 pre,
 samp,
 div {
-  -ms-word-break:  break-all;
-  word-break:      break-all;
-  word-break:      break-word;
   -webkit-hyphens: auto;
-  -moz-hyphens:    auto;
-  hyphens:         auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 /* Éviter l'interlignage disgracieux */
@@ -137,13 +134,25 @@ sub {
 
 /* Parce que "les abbr c'est bon pour la planète" (dixit Nicolas Hoffmann dans RÖCSSTI), ceux ayant un title sont signalés */
 abbr[title] {
-  border-bottom: dotted 1px; /* La couleur est héritée du texte */
+  border-bottom: dotted 1px;
+  /* La couleur est héritée du texte */
   cursor: help;
 }
 
 /* Images */
-img { vertical-align: middle; }
+img {
+  border: 1px solid #04192f;
+}
 
-a img { border: 0; }
+.ie8 img {
+  width: auto;
+  /* @bugfix @affected IE8 */
+}
 
-a:focus img { outline: 4px solid; }
+a img {
+  border: 1px solid #04192f;
+}
+
+a:focus img {
+  outline: 4px solid;
+}
