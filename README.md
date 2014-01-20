@@ -56,5 +56,8 @@ De plus un important travail de normalisation a été effectué : [une conventio
  - [Google Sitemap Generator](http://wordpress.org/plugins/google-sitemap-generator/)
  - [ACF](http://www.advancedcustomfields.com/ 'Advanced Custom Fields')
  - [WP Rocket](http://wp-rocket.me/)
+ - [Plugin Security Checker]('http://blog.secupress.fr/plugin-security-checker-nutilisez-pas-plugins-vulnerables-118.html')
+ - [BBQ]('http://blog.secupress.fr/block-bad-queries-ou-bbq-pour-les-intimes-79.html')
+ - [BAW Anti CSRF]('http://blog.secupress.fr/anti-csrf-ou-comment-se-premunir-de-la-faille-csrf-sous-wordpress-85.html')
 - [ ] Créer une checklist qualité / méthodologie pour faciliter le suivi de chantier,
 - [x] Audit A11y.
