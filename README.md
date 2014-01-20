@@ -59,5 +59,7 @@ De plus un important travail de normalisation a été effectué : [une conventio
  - [Plugin Security Checker]('http://blog.secupress.fr/plugin-security-checker-nutilisez-pas-plugins-vulnerables-118.html')
  - [BBQ]('http://blog.secupress.fr/block-bad-queries-ou-bbq-pour-les-intimes-79.html')
  - [BAW Anti CSRF]('http://blog.secupress.fr/anti-csrf-ou-comment-se-premunir-de-la-faille-csrf-sous-wordpress-85.html')
+ - [BAW More Secure Login]('http://blog.secupress.fr/more-secure-login-ajoutez-une-authentification-forte-a-votre-site-104.html')
+ - [Move Login]('http://blog.secupress.fr/move-login-changer-url-page-login-32.html')
 - [ ] Créer une checklist qualité / méthodologie pour faciliter le suivi de chantier,
 - [x] Audit A11y.
