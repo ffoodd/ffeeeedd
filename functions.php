@@ -30,7 +30,7 @@
 
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'automatic-feed-links' );
-  register_nav_menus( array( 'primary' => 'Menu principal', '404' => 'Menu 404' ) );
+  register_nav_menus( array( 'primary' => 'Menu principal', 'lost' => 'Menu 404' ) );
   if ( ! isset( $content_width ) ) { $content_width = 900; }
 
 

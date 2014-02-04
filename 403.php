@@ -21,7 +21,15 @@ get_header(); ?>
     <p class="h4-like"><?php _e( 'Here you are:', 'ffeeeedd' ); ?> <span>&#10799;</span></p>
     <p><?php _e( 'If you\'re still lost, these suggestions may help:', 'ffeeeedd' ); ?></p>
     <ul>
-      <?php wp_nav_menu( array( 'theme_location' => '404', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
+      <?php if ( has_nav_menu( 'lost' ) ) {
+        wp_nav_menu(
+          array(
+            'theme_location' => 'lost',
+            'items_wrap' => '%3$s',
+            'container' => false
+          )
+        );
+      } ?>
       <li>
         <a href="mailto:<?php echo antispambot( bloginfo( 'admin_email' ) ); ?>"><?php _e( 'Email this website\'s author', 'ffeeeedd' ); ?></a>
       </li>
