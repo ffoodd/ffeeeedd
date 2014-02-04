@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-02-03 09:30+0100\n"
-"PO-Revision-Date: 2014-02-03 09:31+0100\n"
+"POT-Creation-Date: 2014-02-04 11:18+0100\n"
+"PO-Revision-Date: 2014-02-04 11:19+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -37,7 +37,7 @@ msgid "If you're still lost, these suggestions may help:"
 msgstr ""
 "Si vous êtes perdus, ces liens pourront peut-être vous aider&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:26 D:\clients\GitHub\ffeeeedd/404.php:26
+#: D:\clients\GitHub\ffeeeedd/403.php:34 D:\clients\GitHub\ffeeeedd/404.php:34
 msgid "Email this website's author"
 msgstr "Contactez l'administrateur du site"
 
@@ -263,6 +263,24 @@ msgstr ""
 msgid "By default, this content is licensed under"
 msgstr "Sauf mention contraire, l'ensemble du contenu est sous"
 
+#: D:\clients\GitHub\ffeeeedd/functions.php:33
+#: D:\clients\GitHub\ffeeeedd/header.php:64
+msgid "Main navigation"
+msgstr "Navigation principale"
+
+#: D:\clients\GitHub\ffeeeedd/functions.php:33
+msgid "Lost menu"
+msgstr "Menu perdu"
+
+#: D:\clients\GitHub\ffeeeedd/functions.php:61
+msgid "Home"
+msgstr "Accueil"
+
+#: D:\clients\GitHub\ffeeeedd/functions.php:70
+#: D:\clients\GitHub\ffeeeedd/sitemap.php:22
+msgid "Pages"
+msgstr ""
+
 #: D:\clients\GitHub\ffeeeedd/header.php:42
 msgid "RSS feed"
 msgstr "Flux RSS"
@@ -274,11 +292,6 @@ msgstr "Aller au menu"
 #: D:\clients\GitHub\ffeeeedd/header.php:51
 msgid "Skip to content"
 msgstr "Aller au contenu"
-
-#: D:\clients\GitHub\ffeeeedd/header.php:64
-#, fuzzy
-msgid "Main navigation"
-msgstr "Aller au menu"
 
 #: D:\clients\GitHub\ffeeeedd/home.php:17
 #: D:\clients\GitHub\ffeeeedd/index.php:17
@@ -316,10 +329,6 @@ msgid ""
 "In order to print this post, please use the following keyboard shortcut: "
 "<kbd>Ctrl + P</kbd>"
 msgstr "Pour imprimer cet article, utilisez le raccourci <kbd>Ctrl + P</kbd>"
-
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:22
-msgid "Pages"
-msgstr ""
 
 #: D:\clients\GitHub\ffeeeedd/sitemap.php:25
 msgid "Feeds"

@@ -30,7 +30,7 @@
 
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'automatic-feed-links' );
-  register_nav_menus( array( 'primary' => 'Menu principal', 'lost' => 'Menu 404' ) );
+  register_nav_menus( array( 'primary' => __( 'Main navigation', 'ffeeeedd' ), 'lost' => __( 'Lost menu', 'ffeeeedd' ) ) );
   if ( ! isset( $content_width ) ) { $content_width = 900; }
 
 
@@ -58,7 +58,7 @@
   function ffeeeedd_widgets_init() {
     // Une colonne latérale spécifique pour la page d'accueil
     register_sidebar( array(
-      'name' => 'Accueil',
+      'name' => __( 'Home', 'ffeeeedd' ),
       'id' => 'accueil',
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
@@ -67,7 +67,7 @@
     ) );
     // La colonne latérale pour les pages
     register_sidebar( array(
-      'name' => 'Pages',
+      'name' => __( 'Pages', 'ffeeeedd' ),
       'id' => 'pages',
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
