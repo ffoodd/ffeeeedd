@@ -1,7 +1,7 @@
 ffeeeedd
 ========
 
-Ce projet est sous licence [MIT](http://opensource.org/licenses/MIT "The MIT licence") et [CC BY 3.0 FR] (http://creativecommons.org/licenses/by/3.0/fr/ "Explications de la licence").
+Ce projet est sous licence [MIT](http://opensource.org/licenses/MIT "The MIT licence") et [CC BY 3.0 FR](http://creativecommons.org/licenses/by/3.0/fr/ "Explications de la licence").
 *Copyright (c) 2013 Gaël Poupard*
 
 Qu'est-ce que c'est ?
@@ -46,8 +46,8 @@ De plus un important travail de normalisation a été effectué : [une conventio
 Évolutions
 ----------
 
-- [ ] Déplacer certaines fonctions (partage social, SEO) vers des plugins afin de ne pas créer de dépendance à ffeeeedd,
-- [ ] Créer une flotte de plugin "ffeeeedd",
+- [x] Déplacer certaines fonctions (partage social, SEO) vers des plugins afin de ne pas créer de dépendance à ffeeeedd,
+- [x] Créer une flotte de plugin "ffeeeedd",
 - [ ] Utiliser des transients pour certaines données,
 - [x] Améliorer le worklow afin de ne pas avoir à modifier le thème parent,
 - [ ] Proposer à des personnes compétentes d'auditer le thème et le projet,
