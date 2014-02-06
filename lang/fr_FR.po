@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-02-06 14:04+0100\n"
-"PO-Revision-Date: 2014-02-06 14:05+0100\n"
+"POT-Creation-Date: 2014-02-06 17:18+0100\n"
+"PO-Revision-Date: 2014-02-06 17:18+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -314,26 +314,6 @@ msgstr "Voulez réessayer avec de nouveaux mots-clés ?"
 msgid "Search"
 msgstr "Recherche"
 
-#: D:\clients\GitHub\ffeeeedd/single.php:29
-#: D:\clients\GitHub\ffeeeedd/single.php:30
-#: D:\clients\GitHub\ffeeeedd/single.php:31
-msgid "Share on"
-msgstr "Partager sur"
-
-#: D:\clients\GitHub\ffeeeedd/single.php:32
-msgid "Email to a friend"
-msgstr "Envoyer par email"
-
-#: D:\clients\GitHub\ffeeeedd/single.php:34
-msgid "Print this post"
-msgstr "Imprimez cet article"
-
-#: D:\clients\GitHub\ffeeeedd/single.php:35
-msgid ""
-"In order to print this post, please use the following keyboard shortcut: "
-"<kbd>Ctrl + P</kbd>"
-msgstr "Pour imprimer cet article, utilisez le raccourci <kbd>Ctrl + P</kbd>"
-
 #: D:\clients\GitHub\ffeeeedd/sitemap.php:25
 msgid "Feeds"
 msgstr "Flux"
@@ -361,6 +341,21 @@ msgstr "Mots-clés"
 #: D:\clients\GitHub\ffeeeedd/tag.php:44
 msgid "No post found tagged"
 msgstr "Aucun article trouvé portant l'étiquette"
+
+#~ msgid "Share on"
+#~ msgstr "Partager sur"
+
+#~ msgid "Email to a friend"
+#~ msgstr "Envoyer par email"
+
+#~ msgid "Print this post"
+#~ msgstr "Imprimez cet article"
+
+#~ msgid ""
+#~ "In order to print this post, please use the following keyboard shortcut: "
+#~ "<kbd>Ctrl + P</kbd>"
+#~ msgstr ""
+#~ "Pour imprimer cet article, utilisez le raccourci <kbd>Ctrl + P</kbd>"
 
 #~ msgid "%1$s search results for \"%2$s\""
 #~ msgstr "%1$s résultats pour la recherche \"%2$s\""
