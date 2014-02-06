@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-02-04 11:18+0100\n"
-"PO-Revision-Date: 2014-02-04 11:19+0100\n"
+"POT-Creation-Date: 2014-02-06 14:04+0100\n"
+"PO-Revision-Date: 2014-02-06 14:05+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -264,7 +264,7 @@ msgid "By default, this content is licensed under"
 msgstr "Sauf mention contraire, l'ensemble du contenu est sous"
 
 #: D:\clients\GitHub\ffeeeedd/functions.php:33
-#: D:\clients\GitHub\ffeeeedd/header.php:64
+#: D:\clients\GitHub\ffeeeedd/header.php:71
 msgid "Main navigation"
 msgstr "Navigation principale"
 
@@ -289,9 +289,13 @@ msgstr "Flux RSS"
 msgid "Skip to navigation"
 msgstr "Aller au menu"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:51
+#: D:\clients\GitHub\ffeeeedd/header.php:52
 msgid "Skip to content"
 msgstr "Aller au contenu"
+
+#: D:\clients\GitHub\ffeeeedd/header.php:56
+msgid "Skip to table of content"
+msgstr "Aller au sommaire"
 
 #: D:\clients\GitHub\ffeeeedd/home.php:17
 #: D:\clients\GitHub\ffeeeedd/index.php:17

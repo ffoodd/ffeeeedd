@@ -46,9 +46,16 @@
 
     <ul class="mw--site center mb0 mt0 p-reset small print-hidden" id="top">
       <li class="inbl m-reset">
-        <a class="skip" href="<?php echo get_permalink(); ?>#nav"><?php _e( 'Skip to navigation', 'ffeeeedd' ); ?></a></li>
+        <a class="skip" href="<?php echo get_permalink(); ?>#nav"><?php _e( 'Skip to navigation', 'ffeeeedd' ); ?></a>
+      </li>
       <li class="inbl m-reset">
-        <a class="skip" href="<?php echo get_permalink(); ?>#content"><?php _e( 'Skip to content', 'ffeeeedd' ); ?></a></li>
+        <a class="skip" href="<?php echo get_permalink(); ?>#content"><?php _e( 'Skip to content', 'ffeeeedd' ); ?></a>
+      </li>
+      <?php if( is_singular( 'post' ) && function_exists( 'ffeeeedd__sommaire' ) ) { ?>
+      <li class="inbl m-reset">
+        <a class="skip" href="<?php echo get_permalink(); ?>#toc"><?php _e( 'Skip to table of content', 'ffeeeedd' ); ?></a>
+      </li>
+      <?php } ?>
     </ul>
 
     <header class="w--site center" role="banner">
