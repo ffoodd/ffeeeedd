@@ -68,7 +68,7 @@
     </header><!-- / banner -->
 
     <nav class="mw--site center clear print-hidden" id="nav" role="navigation" aria-labelledby="nav-title">
-      <h2 class="visually-hidden" id="nav-title"><?php _e( 'Main navigation', 'ffeeeedd' ); ?></h2>
+      <h3 class="visually-hidden" id="nav-title"><?php _e( 'Main navigation', 'ffeeeedd' ); ?></h3>
       <?php if ( has_nav_menu( 'primary' ) ) {
         wp_nav_menu( array(
           'theme_location' => 'primary',
