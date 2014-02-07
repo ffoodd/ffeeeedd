@@ -581,10 +581,10 @@
               <p><?php _e( 'Your comment is awaiting moderation.', 'ffeeeedd' ); ?>.</p>
             <?php } ?>
 
-            <section itemprop="commentText">
+            <div itemprop="commentText">
               <?php comment_text(); ?>
               <?php edit_comment_link( __( 'Edit', 'ffeeeedd' ), '<p>', '</p>' ); ?>
-            </section>
+            </div>
 
             <div class="reply" itemprop="replyToUrl">
               <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'ffeeeedd' ), 'after' => ' <span>&darr;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>

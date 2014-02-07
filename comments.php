@@ -16,7 +16,7 @@ if ( post_password_required() ) {
   return;
 } ?>
 
-<div class="comments-area" id="comments">
+<div class="comments-area print-hidden" id="comments">
   <?php if ( have_comments() ) { ?>
     <h2 class="comments-title" itemprop="interactionCount" content="UserComments:<?php echo esc_attr( get_comments_number() ); ?>">
     <?php
