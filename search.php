@@ -4,12 +4,12 @@
  * @author        Gaël Poupard
  * @link          www.ffoodd.fr
  *
- * @note : Améliorations trouvées sur GeekPress et Alsacréations
- * @see : http://www.geekpress.fr/wordpress/astuce/mettre-en-evidence-les-termes-dans-les-resultats-de-recherche-725/
- * @author : Jonathan Buttigieg
- * @see : http://www.alsacreations.com/tuto/lire/1181-wordpress-ameliorer-affichage-resultats-de-recherche.html
- * @author : Geoffrey Crofte
- * @see : https://twitter.com/geoffrey_crofte
+ * @note Améliorations trouvées sur GeekPress et Alsacréations
+ * @see http://www.geekpress.fr/wordpress/astuce/mettre-en-evidence-les-termes-dans-les-resultats-de-recherche-725/
+ * @author Jonathan Buttigieg
+ * @see http://www.alsacreations.com/tuto/lire/1181-wordpress-ameliorer-affichage-resultats-de-recherche.html
+ * @author Geoffrey Crofte
+ * @see https://twitter.com/geoffrey_crofte
  */
 get_header(); ?>
 

@@ -11,7 +11,7 @@
  * @since         ffeeeedd 1.0
  */
 
-// On vérifie d'abord si la page est protégée : si c'est le cas, on n'affiche rien.
+// On vérifie d’abord si la page est protégée : si c’est le cas, on n’affiche rien.
 if ( post_password_required() ) {
   return;
 } ?>

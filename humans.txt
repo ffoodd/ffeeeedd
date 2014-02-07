@@ -3,29 +3,30 @@
 
 # TEAM
 
-    Gaël Poupard -- Initiateur du projet : développement, intégration, conception -- @ffoodd_fr
-    Luc Poupard -- Conseiller technique en accessibilité et premier utilisateur -- @klohFR
-    David Bénard -- Conseiller en rédaction PHP -- @magicbart
+  Gaël Poupard  -- Initiateur du projet : développement, intégration, conception -- @ffoodd_fr
+  Luc Poupard   -- Conseiller technique en accessibilité et premier utilisateur -- @klohFR
+  David Bénard  -- Conseiller en rédaction PHP -- @magicbart
+  Gaëtan Bonnot -- Testeur et utilisateur des premiers jours -- @GaetanBT
 
 # THANKS
 
-    @eQRoeil -- le calculateur de rythme vertical
-	@goetter -- le micro-framework knacss et service rendu à la nation :D
-	@Nico3333fr -- Quelques astuces trouvées dans Röcssti
-	@ElieSl -- son mémento sur les bonnes pratiques web, et toutes les ressources et projets ( OpQuats notamment !)
-	@schillinger -- les bonnes pratiques de l'intégration web
-	@luke_redroot -- Holmes.css
-	@ScreenFeedFr,
-	@GeekPressFR,
-	@TweetPressFr,
-	@_mlb,
-	@rochdaniel,
-	@noviseo,
-	@geekeriesfr,
-	@eliorivero -- Toutes les ressources utilisées ( PHP, JS, WP...).
+  @eQRoeil -- le calculateur de rythme vertical
+  @goetter -- le micro-framework Knacss et service rendu à la nation :D
+  @Nico3333fr -- Quelques astuces trouvées dans Röcssti
+  @ElieSl -- son mémento sur les bonnes pratiques web, et toutes les ressources et projets ( OpQuats notamment !)
+  @schillinger -- les bonnes pratiques de l'intégration web
+  @luke_redroot -- Holmes.css
+  @ScreenFeedFr,
+  @GeekPressFR,
+  @TweetPressFr,
+  @_mlb,
+  @rochdaniel,
+  @noviseo,
+  @geekeriesfr,
+  @eliorivero -- Toutes les ressources utilisées ( PHP, JS, WP...).
 
 # TECHNOLOGY COLOPHON
 
-    WordPress
-    PHP, HTML5, CSS3, JS
-    knacss.css, holmes.css
+  WordPress
+  PHP, HTML5, CSS3, JS, jQuery
+  knacss.css, holmes.css

@@ -49,7 +49,7 @@ textarea {
   @affected Supprime la scrollbar par défaut sur IE6/7/8/9 */
   resize: vertical;
   vertical-align: top;
-  /* Évite l'aplication d'une fonte monospace */
+  /* Évite l’aplication d’une fonte monospace */
   font-family: inherit;
 }
 
@@ -59,7 +59,7 @@ input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: button; /* @ bugfix
-  @affected Types d'input cliquables sur iOS */
+  @affected Types d’input cliquables sur iOS */
 }
 
 input[type="checkbox"],
@@ -74,7 +74,7 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none; /* @bugfix
-  @affected 'x' apparait à droite d'un champ de recherche lorsqu'un texte est entré. Ceci le retire */
+  @affected 'x' apparait à droite d’un champ de recherche lorsqu’un texte est entré. Ceci le retire */
 }
 
 ::-webkit-input-placeholder { color: #777; }

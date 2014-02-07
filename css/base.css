@@ -117,7 +117,7 @@ div {
   word-wrap: break-word;
 }
 
-/* Éviter l'interlignage disgracieux */
+/* Éviter l’interlignage disgracieux */
 sup,
 sub {
   vertical-align: 0;
@@ -132,7 +132,7 @@ sub {
   top: .5ex;
 }
 
-/* Parce que "les abbr c'est bon pour la planète" (dixit Nicolas Hoffmann dans RÖCSSTI), ceux ayant un title sont signalés */
+/* Parce que «les abbr c'est bon pour la planète» (dixit Nicolas Hoffmann dans RÖCSSTI), ceux ayant un title sont signalés */
 abbr[title] {
   border-bottom: dotted 1px;
   /* La couleur est héritée du texte */

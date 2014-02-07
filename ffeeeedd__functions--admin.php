@@ -14,7 +14,7 @@
 /* ----------------------------- */
 /*
   == Référencement Social / SEO
-    -- Création des blocs dans l'administration
+    -- Création des blocs dans l’administration
     -- Ajout des champs utiles dans ces blocs
     -- Sauvegarder la valeur de ces champs
   == Profil utilisateur
@@ -24,24 +24,24 @@
 
   /* == @section Référencement Social / SEO ==================== */
   /**
-   * @note : Inspiré par le thème Noviseo2012, permet d'ajouter un champ "Titre" et "Description" à la zone d'édition
-   * @author : Sylvain Fouillaud
-   * @see : https://twitter.com/noviseo
-   * @see : http://noviseo.fr/2012/11/theme-wordpress-referencement/
-   * @note : Modifications :
-   * @author : Gaël Poupard
-   * @see : https://twitter.com/ffoodd_fr
-   * @note : Homogénéisation du code, meilleure intégration dans l'administration, ajout des métas DublinCore et réorganisation des métas par contenu.
+   * @note Inspiré par le thème Noviseo2012, permet d’ajouter un champ «Titre» et «Description» à la zone d’édition
+   * @author Sylvain Fouillaud
+   * @see https://twitter.com/noviseo
+   * @see http://noviseo.fr/2012/11/theme-wordpress-referencement/
+   * @note Modifications :
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
+   * @note Homogénéisation du code, meilleure intégration dans l’administration, ajout des métas DublinCore et réorganisation des métas par contenu.
    */
 
-  /* @note : on teste d'abord si la fonction est surchargée ou si un plugin dédié existe : */
+  // On teste d’abord si la fonction est surchargée ou si un plugin dédié existe
   if (
     ! function_exists( 'ffeeeedd__metabox' ) &&
     ! class_exists( 'WPSEO_Frontend' ) &&
     ! class_exists( 'All_in_One_SEO_Pack' )
   ) {
 
-    /* -- @subsection Création des blocs dans l'administration -------------------- */
+    /* -- @subsection Création des blocs dans l’administration -------------------- */
     function ffeeeedd__metabox() {
       add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'post', 'side', 'high' );
       add_meta_box( 'ffeeeedd__metabox__seo', __( 'SEO', 'ffeeeedd' ), 'ffeeeedd__metabox__contenu', 'page', 'side', 'high' );
@@ -89,16 +89,15 @@
 
   /* == @section Profil utilisateur ==================== */
   /**
-   * @note : Ajoute un champ 'Twitter' dans les profils utilisateur
-   * @note : Supprime les champs inutiles
-   * @author : Valentin Brandt
-   * @see : https://twitter.com/geekeriesfr
-   * @see : http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
+   * @note Ajoute un champ «Twitter» et «Google+» dans les profils utilisateur
+   * @note Supprime les champs inutiles
+   * @author Valentin Brandt
+   * @see https://twitter.com/geekeriesfr
+   * @see http://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
    */
   add_filter( 'user_contactmethods', 'ffeeeedd__user', 75, 1 );
   if ( ! function_exists( 'ffeeeedd__user' ) ) {
     function ffeeeedd__user() {
-      /* Ajouter un champ Twitter */
       $contact['twitter'] = 'Twitter';
       $contact['google'] = 'Google+';
       return $contact;
@@ -107,10 +106,10 @@
 
   /* == @section Désactive le lien par défaut sur les images ==================== */
   /**
-   * @note : Par défaut, WordPress ajoute un lien vers le fichier lui-même lors de l'ajout dans le WYSIWYG, ce qui est inutile.
-   * @author : Syed Balkhi
-   * @see : https://plus.google.com/101623299936375408403/
-   * @see : http://www.wpbeginner.com/wp-tutorials/automatically-remove-default-image-links-wordpress/?utm_source=buffer&utm_campaign=Buffer&utm_content=buffer840f2&utm_medium=twitterhttp://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
+   * @note Par défaut, WordPress ajoute un lien vers le fichier lui-même lors de l’ajout dans le WYSIWYG, ce qui est inutile.
+   * @author Syed Balkhi
+   * @see https://plus.google.com/101623299936375408403/
+   * @see http://www.wpbeginner.com/wp-tutorials/automatically-remove-default-image-links-wordpress/?utm_source=buffer&utm_campaign=Buffer&utm_content=buffer840f2&utm_medium=twitterhttp://www.geekeries.fr/snippet/gerer-champs-contact-profil-utilisateur-wordpress/
    */
   function ffeeeedd__images() {
     $image_set = get_option( 'image_default_link_type' );

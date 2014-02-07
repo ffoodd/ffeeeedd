@@ -29,7 +29,7 @@
     -- Marges externes
     -- Marges internes
   == Éléments masqués
-    -- Remplacement d'image
+    -- Remplacement d’image
   == Orientation
 */
 /* == @section Modèle de boîte ==================== */
@@ -428,7 +428,7 @@ label, #site-title {
   display: block;
 }
 
-/* -- @subsection Remplacement d'image -------------------- */
+/* -- @subsection Remplacement d’image -------------------- */
 .ir, [class^="sprite-"],
 [class*=" sprite-"] {
   background-color: transparent;
@@ -443,7 +443,7 @@ label, #site-title {
 }
 
 /* == @section Orientation ====================
- * @note : Corrige un bug sur les font-size lors du changement d'orientation sur iOS
+ * @note : Corrige un bug sur les font-size lors du changement d’orientation sur iOS
 */
 @media (orientation: landscape) and (max-device-width: 768px) {
   html,

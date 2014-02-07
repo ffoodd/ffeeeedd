@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-02-06 17:18+0100\n"
-"PO-Revision-Date: 2014-02-06 17:18+0100\n"
+"POT-Creation-Date: 2014-02-07 14:59+0100\n"
+"PO-Revision-Date: 2014-02-07 15:00+0100\n"
 "Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
 "Language-Team: Luc Poupard, Gaël Poupard\n"
 "Language: english\n"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: D:\clients\GitHub\ffeeeedd/403.php:34 D:\clients\GitHub\ffeeeedd/404.php:34
 msgid "Email this website's author"
-msgstr "Contactez l'administrateur du site"
+msgstr "Contactez l’administrateur du site"
 
 #: D:\clients\GitHub\ffeeeedd/404.php:17
 msgid "404"
@@ -62,7 +62,7 @@ msgstr "Navigation principale"
 #: D:\clients\GitHub\ffeeeedd/search.php:44
 #: D:\clients\GitHub\ffeeeedd/tag.php:29
 msgid "Permalink to the post"
-msgstr "Lien vers l'article"
+msgstr "Lien vers l’article"
 
 #: D:\clients\GitHub\ffeeeedd/archive.php:32
 #: D:\clients\GitHub\ffeeeedd/author.php:43
@@ -70,7 +70,7 @@ msgstr "Lien vers l'article"
 #: D:\clients\GitHub\ffeeeedd/home.php:32
 #: D:\clients\GitHub\ffeeeedd/index.php:32
 #: D:\clients\GitHub\ffeeeedd/search.php:47
-#: D:\clients\GitHub\ffeeeedd/single.php:23
+#: D:\clients\GitHub\ffeeeedd/single.php:24
 #: D:\clients\GitHub\ffeeeedd/sitemap.php:45
 #: D:\clients\GitHub\ffeeeedd/tag.php:32
 msgid "j F Y"
@@ -93,7 +93,7 @@ msgstr "Site"
 
 #: D:\clients\GitHub\ffeeeedd/author.php:55
 msgid "didn't write anything for now."
-msgstr "n'a rédigé aucun article pour le moment."
+msgstr "n’a rédigé aucun article pour le moment."
 
 #: D:\clients\GitHub\ffeeeedd/category.php:17
 msgid "Category:"
@@ -106,7 +106,7 @@ msgstr "Aucun article trouvé dans "
 #: D:\clients\GitHub\ffeeeedd/comments.php:23
 #, php-format
 msgid "First thought on &ldquo;%2$s&rdquo;"
-msgstr "Un commentaire sur &ldquo;%2$s&rdquo;"
+msgstr "Un commentaire sur «%2$s»"
 
 #: D:\clients\GitHub\ffeeeedd/comments.php:23
 #, php-format
@@ -261,7 +261,7 @@ msgstr ""
 
 #: D:\clients\GitHub\ffeeeedd/footer.php:4
 msgid "By default, this content is licensed under"
-msgstr "Sauf mention contraire, l'ensemble du contenu est sous"
+msgstr "Sauf mention contraire, l’ensemble du contenu est sous"
 
 #: D:\clients\GitHub\ffeeeedd/functions.php:33
 #: D:\clients\GitHub\ffeeeedd/header.php:71
@@ -340,7 +340,7 @@ msgstr "Mots-clés"
 
 #: D:\clients\GitHub\ffeeeedd/tag.php:44
 msgid "No post found tagged"
-msgstr "Aucun article trouvé portant l'étiquette"
+msgstr "Aucun article trouvé portant l’étiquette"
 
 #~ msgid "Share on"
 #~ msgstr "Partager sur"

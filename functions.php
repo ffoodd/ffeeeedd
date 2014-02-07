@@ -1,6 +1,6 @@
 <?php
 /**
- * ffeeeedd : fonctions du thème - communes à l'administration et au front-end.
+ * ffeeeedd : fonctions du thème - communes à l’administration et au front-end.
  * @author      Gaël Poupard
  * @link        www.ffoodd.fr
  *
@@ -18,16 +18,15 @@
   == Colonnes latérales
   == Personnaliser le logo
   == Fonctions conditionnelles
-    -- Fonctions de l'administration
+    -- Fonctions de l’administration
     -- Fonctions du front-end
 */
 
   /* == @section Options du thème ==================== */
   /**
-   * @see : Twentytwelve - Thème WordPress par défaut.
-   * @see : http://wordpress.org/extend/themes/twentytwelve
+   * @see Twentytwelve - Thème WordPress par défaut.
+   * @see http://wordpress.org/extend/themes/twentytwelve
   */
-
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'automatic-feed-links' );
   register_nav_menus( array( 'primary' => __( 'Main navigation', 'ffeeeedd' ), 'lost' => __( 'Lost menu', 'ffeeeedd' ) ) );
@@ -36,13 +35,12 @@
 
   /* == @section Traduction ==================== */
   /**
-   * @author : Luc Poupard
-   * @see : https://twitter.com/klohFR
-   * @note : I18n : déclare le domaine et l'emplacement des fichiers de traduction
-   * @see : Twentytwelve - Thème WordPress par défaut.
-   * @link : http://wordpress.org/extend/themes/twentytwelve
+   * @author Luc Poupard
+   * @see https://twitter.com/klohFR
+   * @note I18n : déclare le domaine et l’emplacement des fichiers de traduction
+   * @see Twentytwelve - Thème WordPress par défaut.
+   * @link http://wordpress.org/extend/themes/twentytwelve
   */
-
   add_action( 'after_setup_theme', 'ffeeeedd__setup' );
   function ffeeeedd__setup() {
     load_theme_textdomain( 'ffeeeedd', get_template_directory() . '/lang' );
@@ -51,12 +49,11 @@
 
   /* == @section Colonnes latérales ==================== */
   /**
-    @author : Gaël Poupard
-    @see : https://twitter.com/ffoodd_fr
+    @author Gaël Poupard
+    @see https://twitter.com/ffoodd_fr
   */
-
   function ffeeeedd_widgets_init() {
-    // Une colonne latérale spécifique pour la page d'accueil
+    // Une colonne latérale spécifique pour la page d’accueil
     register_sidebar( array(
       'name' => __( 'Home', 'ffeeeedd' ),
       'id' => 'accueil',
@@ -80,10 +77,10 @@
 
   /* == @section Personnaliser le logo ==================== */
   /**
-   * @note : Ajoute le support de la personnalisation de l'entête,
-   * @note : On le détourne pour personnaliser le logo.
-   * @author : Gaël Poupard
-   * @see : https://twitter.com/ffoodd_fr
+   * @note Ajoute le support de la personnalisation de l’entête,
+   * @note On le détourne pour personnaliser le logo.
+   * @author Gaël Poupard
+   * @see https://twitter.com/ffoodd_fr
    */
 
   if( ! function_exists( 'ffeeeedd__logo' ) ) {
@@ -107,20 +104,20 @@
 
   /* == @section Fonctions conditionnelles ==================== */
   /**
-    @author : Grégory Viguier
-    @see : https://twitter.com/ScreenFeedFr
-    @see : http://www.screenfeed.fr/blog/accelerer-wordpress-en-divisant-le-fichier-functions-php-0548/
-    @note : Version simple librement adaptée pour ffeeeedd
-    @author : Gaël Poupard
-    @see : https://twitter.com/ffoodd_fr
+    @author Grégory Viguier
+    @see https://twitter.com/ScreenFeedFr
+    @see http://www.screenfeed.fr/blog/accelerer-wordpress-en-divisant-le-fichier-functions-php-0548/
+    @note Version simple librement adaptée pour ffeeeedd
+    @author Gaël Poupard
+    @see https://twitter.com/ffoodd_fr
   */
 
-  /* -- @subsection Fonctions de l'administration  -------------------- */
+  /* -- @subsection Fonctions de l’administration -------------------- */
   if ( is_admin() ) {
     get_template_part ( 'ffeeeedd__functions', '-admin' );
   }
 
-  /* -- @subsection Fonctions du front-end  -------------------- */
+  /* -- @subsection Fonctions du front-end -------------------- */
   if ( !is_admin() ) {
     get_template_part ( 'ffeeeedd__functions', '-front' );
   }

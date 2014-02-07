@@ -1,6 +1,6 @@
 <?php
 /**
- * Page d'archives
+ * Page d’archives
  * @author        Gaël Poupard
  * @link          www.ffoodd.fr
  *

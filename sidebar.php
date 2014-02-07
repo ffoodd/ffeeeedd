@@ -11,7 +11,7 @@
  * @since         ffeeeedd 1.0
  */
 
-// On vérifie si la colonne latérale est active; si elle ne l'est pas, on ne l'affiche pas.
+// On vérifie si la colonne latérale est active; si elle ne l’est pas, on ne l’affiche pas.
 if ( ! is_active_sidebar( 'pages' ) && ! function_exists( 'ffeeeedd__sommaire' ) ) {
   return;
 } ?>

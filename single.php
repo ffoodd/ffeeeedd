@@ -9,8 +9,6 @@
  * @package       WordPress
  * @subpackage    ffeeeedd
  * @since         ffeeeedd 1.0
- * @see           http://www.crea-fr.com/blog/15-liens-de-partage-pour-les-reseaux-sociaux/
- * @note          Pour permettre le partage sur d'autres réseaux
  * @see           http://schema.org/Article
  * @see           http://php.net/manual/fr/function.date.php
  */
