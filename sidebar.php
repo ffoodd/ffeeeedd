@@ -12,10 +12,13 @@
  */
 
 // On vérifie si la colonne latérale est active; si elle ne l'est pas, on ne l'affiche pas.
-if ( ! is_active_sidebar( 'pages' ) ) {
+if ( ! is_active_sidebar( 'pages' ) && ! function_exists( 'ffeeeedd__sommaire' ) ) {
   return;
 } ?>
 
 <aside class="col w-25 print-hidden" role="complementary">
+  <?php if( function_exists( 'ffeeeedd__sommaire' ) ) {
+    echo do_shortcode( '[sommaire]' );
+  } ?>
   <?php if ( is_active_sidebar( 'pages' ) ) { dynamic_sidebar( 'pages' ); } ?>
 </aside>
