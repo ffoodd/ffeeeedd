@@ -43,6 +43,10 @@ De plus un important travail de normalisation a été effectué : [une conventio
 
 ==
 
+Un dossier contenant des icônes de favori d’exemple est présent dans le dossier `img`. Ces images doivent être déplacées à la racine du site. Si vous souhaitez les personnaliser — ce que je recommande — je vous conseille le site [Real Favicon Generator](http://realfavicongenerator.net/) qui, comme son nom ne l’indique pas, est français.
+
+==
+
 Évolutions
 ----------
 
