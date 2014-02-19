@@ -12,12 +12,12 @@
  */
 get_header(); ?>
 
-  <article role="article" itemscope itemtype="http://schema.org/Article">
+  <article>
     <header>
-      <h2 itemprop="name"><?php _e( '404', 'ffeeeedd' ); ?></h2>
-      <h3 itemprop="description"><?php _e( 'Page not found', 'ffeeeedd' ); ?></h3>
+      <h2><?php _e( '404', 'ffeeeedd' ); ?></h2>
+      <h3><?php _e( 'Page not found', 'ffeeeedd' ); ?></h3>
     </header>
-    <p itemprop="articleBody"><?php _e( 'Don\'t panic, we can help you. See:', 'ffeeeedd' ); ?></p>
+    <p><?php _e( 'Don\'t panic, we can help you. See:', 'ffeeeedd' ); ?></p>
     <p class="h4-like"><?php _e( 'Here you are:', 'ffeeeedd' ); ?> <span>&#10799;</span></p>
     <p><?php _e( 'If you\'re still lost, these suggestions may help:', 'ffeeeedd' ); ?></p>
     <ul>
