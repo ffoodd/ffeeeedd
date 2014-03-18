@@ -17,7 +17,7 @@ if ( ! is_active_sidebar( 'pages' ) && ! function_exists( 'ffeeeedd__sommaire' )
 } ?>
 
 <aside class="col w-25 print-hidden" role="complementary">
-  <?php if( function_exists( 'ffeeeedd__sommaire' ) ) {
+  <?php if( function_exists( 'ffeeeedd__sommaire' ) && is_single() ) {
     echo do_shortcode( '[sommaire]' );
   } ?>
   <?php if ( is_active_sidebar( 'pages' ) ) { dynamic_sidebar( 'pages' ); } ?>
