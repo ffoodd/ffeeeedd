@@ -492,8 +492,17 @@
     }
 
     // Archives - autres
+    elseif ( is_day() ) {
+      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date() ). '</span></li>';
+    }
+    elseif ( is_month() ) {
+      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
+    }
+    elseif ( is_year() ) {
+      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
+    }
     elseif ( is_archive() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . _e( 'Archive', 'ffeeeedd' ) . '</span></li>';
+      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Archive', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Pagination
