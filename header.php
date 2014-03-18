@@ -10,7 +10,7 @@
  * @subpackage    ffeeeedd
  * @since         ffeeeedd 1.0
  *
- */ ?><!DOCTYPE HTML>
+ */ ?><!DOCTYPE html>
 <!--[if IE 8 ]><html <?php language_attributes(); ?> class="ie8 no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html <?php language_attributes(); ?> class="no-js" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
   <head>
@@ -29,11 +29,12 @@
       <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
       <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
       <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+      <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
       <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
       <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-      <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
       <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-      <meta name="msapplication-TileColor" content="#f2f2e2">
+      <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+      <meta name="msapplication-TileColor" content="#da532c">
       <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <!-- / Fin des favicônes -->
     <!-- Métas Facebook simples -->

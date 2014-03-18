@@ -27,7 +27,6 @@
   == Injection des scripts et styles
     -- Ajouter les scripts et styles via wp_head()
     -- Créer les éléments html5 pour IE8 et -
-    -- Tester l’activation du javascript
     -- Réponse aux commentaires
   == Fil d’Ariane
     -- Récupère les catégories parentes et y ajoute les microdonnées
@@ -211,23 +210,10 @@
   }
   add_action( 'wp_head', 'ffeeeedd__ie_html5' );
 
-  /* -- @subsection Tester l’activation du js -------------------- */
-  /**
-   * @author Gaël Poupard
-   * @see https://twitter.com/ffoodd_fr
-   * @note Inspiré par Modernizr
-   * @author http://modernizr.com/
-   * @see http://modernizr.github.io/Modernizr/annotatedsource.html#section-103
-  */
-  function ffeeeedd__test_js () {
-    echo "<!-- Test de l'activation du javascript -->";
-    echo "<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,'')+' js';</script>";
-    echo "<!-- Fin du test de l'activation du javascript -->";
-  }
-  add_action( 'wp_head', 'ffeeeedd__test_js' );
-
   /* -- @subsection Réponse aux commentaires -------------------- */
-  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); }
+  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'comment-reply' );
+  }
 
 
   /* == @section Fil d’Ariane ==================== */
