@@ -97,5 +97,5 @@
       } ?>
     </nav><!-- / #nav -->
 
-    <main class="mw--site center" id="content" role="main" itemprop="mainContentOfPage">
+    <main class="mw--site center clear" id="content" role="main" itemprop="mainContentOfPage">
       <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) { ffeeeedd__ariane(); } ?>
