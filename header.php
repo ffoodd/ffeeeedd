@@ -75,7 +75,7 @@
       <?php } ?>
     </ul>
 
-    <header class="w--site center print-hidden" role="banner">
+    <header class="mw--site center print-hidden" role="banner">
       <h1 itemprop="name">
         <a href="<?php echo esc_url( home_url() ); ?>" itemprop="url">
           <?php bloginfo( 'name' ); ?>
