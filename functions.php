@@ -57,7 +57,7 @@
     register_sidebar( array(
       'name' => __( 'Home', 'ffeeeedd' ),
       'id' => 'accueil',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget--title">',
       'after_title' => '</h3>',
@@ -66,7 +66,7 @@
     register_sidebar( array(
       'name' => __( 'Pages', 'ffeeeedd' ),
       'id' => 'pages',
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget--title">',
       'after_title' => '</h3>',
