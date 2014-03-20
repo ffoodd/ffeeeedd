@@ -68,7 +68,7 @@
       <li class="inbl m-reset">
         <a class="skip" href="<?php echo get_permalink(); ?>#content"><?php _e( 'Skip to content', 'ffeeeedd' ); ?></a>
       </li>
-      <?php if( is_singular( 'post' ) && function_exists( 'ffeeeedd__sommaire' ) ) { ?>
+      <?php if ( is_singular( 'post' ) && function_exists( 'ffeeeedd__sommaire' ) ) { ?>
       <li class="inbl m-reset">
         <a class="skip" href="<?php echo get_permalink(); ?>#toc"><?php _e( 'Skip to table of content', 'ffeeeedd' ); ?></a>
       </li>
@@ -98,4 +98,6 @@
     </nav><!-- / #nav -->
 
     <main class="mw--site center clear" id="content" role="main" itemprop="mainContentOfPage">
-      <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) { ffeeeedd__ariane(); } ?>
+      <?php if ( function_exists('ffeeeedd__ariane') && !is_front_page() ) {
+        ffeeeedd__ariane();
+      } ?>

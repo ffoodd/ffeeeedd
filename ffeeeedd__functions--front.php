@@ -57,7 +57,7 @@
   add_filter( 'nav_menu_css_class', 'ffeeeedd__css__attributs', 100, 1 );
   add_filter( 'nav_menu_item_id', 'ffeeeedd__css__attributs', 100, 1 );
   add_filter( 'page_css_class', 'ffeeeedd__css__attributs', 100, 1 );
-  if( ! function_exists( 'ffeeeedd__css__attributs' ) ) {
+  if ( ! function_exists( 'ffeeeedd__css__attributs' ) ) {
     function ffeeeedd__css__attributs( $var ) {
       return is_array( $var ) ? array_intersect( $var, array( 'current_page_item', 'current-page-ancestor', 'current_page_parent', 'current-menu-parent', 'current-menu-item', 'inbl' ) ) : '';
     }
@@ -119,14 +119,14 @@
    */
 
   /* -- @subsection Ajoute un lien «Lire la suite» après l’extrait -------------------- */
-  if( ! function_exists( 'ffeeeedd__extrait__lien' ) ) {
+  if ( ! function_exists( 'ffeeeedd__extrait__lien' ) ) {
     function ffeeeedd__extrait__lien() {
       return ' <a href="' . esc_url( get_permalink() ) . '" aria-hidden="true">' . __( 'Continue reading', 'ffeeeedd' ) . ' «&nbsp;' . esc_attr( get_the_title() ) . '&nbsp;» <span class="meta-nav">&rarr;</span></a>';
     }
   }
 
   /* -- @subsection Remplace le «[...]» ajouté automatiquement aux extraits par une ellipse et le lien «Lire la suite» -------------------- */
-  if( ! function_exists( 'ffeeeedd__extrait__auto' ) ) {
+  if ( ! function_exists( 'ffeeeedd__extrait__auto' ) ) {
     function ffeeeedd__extrait_auto( $more ) {
       return ' [&hellip;]' . ffeeeedd__extrait__lien();
     }
@@ -201,7 +201,7 @@
   function ffeeeedd__ie_html5 () {
     // On commence par tester s’il s'agit bien d’IE à l’aide d’une variable globale proposée par WordPress
     global $is_IE;
-    if( $is_IE ) {
+    if ( $is_IE ) {
       // Puis on ajoute, dans un commentaire conditionnel, le script magique
       echo '<!--[if lt IE 9]>';
       echo '<script>a="header0footer0section0aside0nav0article0figure0figcaption0main0time0mark".split(0);for(i=a.length;i--;)document.createElement(a[i]);</script>';
@@ -234,19 +234,19 @@
   function ffeeeedd__categories( $id, $link = false, $separator = '<span aria-hidden="true"> &rarr;&nbsp;</span>', $nicename = false, $visited = array() ) {
     $final = '';
     $parent = get_category( $id );
-    if( is_wp_error( $parent ) ) {
+    if ( is_wp_error( $parent ) ) {
       return $parent;
     }
-    if( $nicename ) {
+    if ( $nicename ) {
       $name = $parent->name;
     } else {
       $name = $parent->cat_name;
     }
-    if( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
+    if ( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
       $visited[] = $parent->parent;
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
-    if( $link ) {
+    if ( $link ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'All entries in ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     } else {
       $final .= $name . $separator;
@@ -266,19 +266,19 @@
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d’Ariane
-    if( is_front_page() && is_home() ) {
+    if ( is_front_page() && is_home() ) {
       // Accueil par défaut
-      if( $paged >= 1 ) {
+      if ( $paged >= 1 ) {
         $final .= $startdefault;
       } else {
         $final .= $starthome;
       }
-    } elseif( is_front_page() ) {
+    } elseif ( is_front_page() ) {
       // Accueil statique ( page statique définie )
       $final .= $starthome;
-    } elseif( is_home() ) {
+    } elseif ( is_home() ) {
       // Page de blog ( liste des articles )
-      if( $paged >= 1 ) {
+      if ( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
         $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Entries', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Entries', 'ffeeeedd' ) . '</span></a></li>';
       } else {
@@ -290,13 +290,13 @@
     }
 
     // Empêche d'autre(s) code(s) d’interférer avec l’accueil statique ou blog
-    if( is_front_page() && is_home() ) {
-    } elseif( is_front_page() ) {
-    } elseif( is_home() ) {
+    if ( is_front_page() && is_home() ) {
+    } elseif ( is_front_page() ) {
+    } elseif ( is_home() ) {
     }
 
     //  Fichiers attachés
-    elseif( is_attachment() ) {
+    elseif ( is_attachment() ) {
       global $post;
       $parent = get_post( $post->post_parent );
       $id = $parent->ID;
@@ -308,7 +308,7 @@
     }
 
     // Type(s) d’articles
-    elseif( is_single() && !is_singular( 'post' ) ) {
+    elseif ( is_single() && !is_singular( 'post' ) ) {
       global $post;
       $nom = get_post_type( $post );
       $archive = get_post_type_archive_link( $nom );
@@ -328,13 +328,13 @@
     }
 
     // Articles sans format
-    elseif( is_single() && !has_term('', 'post_format') ) {
+    elseif ( is_single() && !has_term('', 'post_format') ) {
       // Catégories d’articles
       $category = get_the_category();
       $category_id = get_cat_ID( $category[0]->cat_name );
-      if( $category_id != 0 ) {
+      if ( $category_id != 0 ) {
         $final .= ffeeeedd__categories( $category_id, true, $sep );
-      } elseif($category_id == 0) {
+      } elseif ($category_id == 0) {
         $post_type = get_post_type();
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
@@ -343,7 +343,7 @@
       }
       // Avec des pages de commentaires
       $cpage = get_query_var( 'cpage' );
-      if( is_single() && $cpage > 0 ) {
+      if ( is_single() && $cpage > 0 ) {
         global $post;
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
@@ -356,16 +356,16 @@
     }
 
     // Catégories
-    elseif( is_category() ) {
+    elseif ( is_category() ) {
       // Variables
       $categoryid = $GLOBALS['cat'];
       $category = get_category( $categoryid );
       $categoryparent = get_category( $category->parent );
       // Résultat
-      if( $category->parent != 0 ) {
+      if ( $category->parent != 0 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . ffeeeedd__categories( $categoryparent, true, $sep, true ) . '</span></li>';
       }
-      if( $paged <= 1 ) {
+      if ( $paged <= 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       } else {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'All entries in ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
@@ -373,19 +373,19 @@
     }
 
     // Pages
-    elseif( is_page() && !is_home() ) {
+    elseif ( is_page() && !is_home() ) {
       $post = $wp_query->get_queried_object();
       // Page simple
-      if( $post->post_parent == 0 ) {
+      if ( $post->post_parent == 0 ) {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
       }
       // Page avec ancêtre(s)
-      elseif( $post->post_parent != 0 ) {
+      elseif ( $post->post_parent != 0 ) {
         $title = the_title( '', '', false );
         $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
         array_push( $ancestors, $post->ID );
         foreach ( $ancestors as $ancestor ) {
-          if( $ancestor != end( $ancestors ) ) {
+          if ( $ancestor != end( $ancestors ) ) {
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
             $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $name ) . '" href="' . esc_url( get_permalink( $ancestor ) ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $sep . '</li>';
           }
@@ -397,8 +397,8 @@
     }
 
     // Auteurs
-    elseif( is_author() ) {
-      if( get_query_var( 'author_name' ) ) {
+    elseif ( is_author() ) {
+      if ( get_query_var( 'author_name' ) ) {
         $curauth = get_user_by( 'slug', get_query_var( 'author_name' ) );
       } else {
         $curauth = get_userdata( get_query_var( 'author' ) );
@@ -407,19 +407,19 @@
     }
 
     // Tags
-    elseif( is_tag() ) {
+    elseif ( is_tag() ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . single_tag_title( '', false ) . '</span></li>';
     }
 
     // Formats
-    elseif( is_tax( 'post_format' ) ) {
+    elseif ( is_tax( 'post_format' ) ) {
       $format = get_post_format( $post->ID );
       $pretty_format = get_post_format_string( $format );
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
     }
 
     // Taxonomies
-    elseif( is_tax( ) ) {
+    elseif ( is_tax( ) ) {
       $taxonomie = get_taxonomy( get_query_var( 'taxonomy' ) );
       $term = get_queried_object();
       $types = $taxonomie->object_type;
@@ -427,15 +427,15 @@
       $parents = get_ancestors( $term->term_id, $taxonomie->name );
 
       // S’il y a une taxonomie parente, on la récupère aussi
-      if( is_taxonomy_hierarchical( $taxonomie->name ) && $term->parent != 0 ) {
+      if ( is_taxonomy_hierarchical( $taxonomie->name ) && $term->parent != 0 ) {
         // On affiche le type d’articles
         $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $post_type->labels->name ) . '" href="' . esc_url( get_post_type_archive_link( $post_type->name ) ) . '" itemprop="url"><span itemprop="title">' . $post_type->labels->name  . '</span></a>' . $sep . '</li>';
         // Puis la taxonomie de premier niveau
         $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $taxonomie->labels->name ) . '" href="' . esc_url( get_term_link( $term->parent, $term->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $taxonomie->labels->name  . '</span></a>' . $sep . '</li>';
         // Ensuite les taxonomies parentes intermédiaires
-        foreach( $parents as $parent_id ) {
+        foreach ( $parents as $parent_id ) {
           $parent = get_term_by( 'id', $parent_id, $taxonomie->name);
-          if( $parent->parent != 0 ) {
+          if ( $parent->parent != 0 ) {
             $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $parent->name ) . '" href="' . esc_url( get_term_link( $parent->term_id, $parent->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $parent->name  . '</span></a>' . $sep . '</li>';
           }
         }
@@ -449,7 +449,7 @@
     }
 
     // Recherche
-    elseif( is_search() ) {
+    elseif ( is_search() ) {
       global $wp_query;
       $count = $wp_query->found_posts;
       if ( $count > 1 ) {
@@ -460,36 +460,36 @@
     }
 
     // Page 404
-    elseif( is_404() ) {
+    elseif ( is_404() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page not found ', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Types d’articles
-    elseif( is_post_type_archive() ) {
+    elseif ( is_post_type_archive() ) {
       $posttype = get_query_var('post_type');
       $posttypeobject = get_post_type_object( $posttype );
       $titrearchive = $posttypeobject->labels->menu_name;
-      if( isset( $titrearchive ) ) {
+      if ( isset( $titrearchive ) ) {
         $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $titrearchive . '</span></li>';
       }
     }
 
     // Archives - autres
-    elseif( is_day() ) {
+    elseif ( is_day() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date() ). '</span></li>';
     }
-    elseif( is_month() ) {
+    elseif ( is_month() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
-    elseif( is_year() ) {
+    elseif ( is_year() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
-    elseif( is_archive() ) {
+    elseif ( is_archive() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Archive', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Pagination
-    if( $paged >= 1 ) {
+    if ( $paged >= 1 ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Page ' . $paged . '</span></li>';
     }
     // The End
@@ -505,7 +505,7 @@
    * @see http://www.geekpress.fr/wordpress/astuce/pagination-wordpress-sans-plugin-52/
   */
 
-  if( ! function_exists( 'ffeeeedd__pagination' ) ) {
+  if ( ! function_exists( 'ffeeeedd__pagination' ) ) {
     function ffeeeedd__pagination() {
       global $wp_query, $wp_rewrite;
       $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
@@ -521,10 +521,10 @@
         'next_text' => __( 'Next page &rarr;', 'ffeeeedd' ),
         'prev_text' => __( '&larr; Previous page', 'ffeeeedd' )
       );
-      if( $wp_rewrite->using_permalinks() ) {
+      if ( $wp_rewrite->using_permalinks() ) {
         $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
       }
-      if( !empty( $wp_query->query_vars['s'] ) ) {
+      if ( !empty( $wp_query->query_vars['s'] ) ) {
         $pagination['add_args'] = array( 's' => str_replace( ' ' , '+', get_query_var( 's' ) ) );
       }
       echo str_replace( 'page/1/', '', paginate_links( $pagination ) );
@@ -741,7 +741,7 @@
     if ( ! function_exists( 'ffeeeedd__injection__canonical' ) ) {
       function ffeeeedd__injection__canonical() {
         global $wp_query;
-        if( isset( $wp_query->post->ID ) && get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
+        if ( isset( $wp_query->post->ID ) && get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__canonical', true ) ) {
             echo '<link rel="canonical" href="' . esc_url( get_post_meta( $wp_query->post->ID, '_ffeeeedd__metabox__titre', true ) ) . '" />';
         }
       }

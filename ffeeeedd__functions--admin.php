@@ -73,13 +73,13 @@
 
     /* -- @subsection Sauvegarder la valeur de ces champs -------------------- */
     function ffeeeedd__metabox__save( $post_ID ) {
-      if( isset( $_POST['ffeeeedd__metabox__titre'] ) ) {
+      if ( isset( $_POST['ffeeeedd__metabox__titre'] ) ) {
         update_post_meta( $post_ID, '_ffeeeedd__metabox__titre', sanitize_text_field( $_POST['ffeeeedd__metabox__titre'] ) );
       }
-      if( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
+      if ( isset( $_POST['ffeeeedd__metabox__description'] ) ) {
         update_post_meta( $post_ID, '_ffeeeedd__metabox__description', sanitize_text_field( $_POST['ffeeeedd__metabox__description'] ) );
       }
-      if( isset( $_POST['ffeeeedd__metabox__canonical'] ) ) {
+      if ( isset( $_POST['ffeeeedd__metabox__canonical'] ) ) {
         update_post_meta( $post_ID, '_ffeeeedd__metabox__canonical', esc_url( $_POST['ffeeeedd__metabox__canonical'] ) );
       }
     }

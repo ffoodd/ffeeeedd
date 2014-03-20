@@ -23,13 +23,13 @@ get_header(); ?>
     <div itemprop="articleBody"><?php the_content(); ?></div>
 
     <footer>
-      <?php if( function_exists( 'ffeeeedd__notes' ) ) {
+      <?php if ( function_exists( 'ffeeeedd__notes' ) ) {
         ffeeeedd__notes();
       } ?>
 
       <?php ffeeeedd__meta(); ?>
 
-      <?php if( function_exists( 'ffeeeedd__partage' ) ) {
+      <?php if ( function_exists( 'ffeeeedd__partage' ) ) {
         ffeeeedd__partage();
       } ?>
     </footer>

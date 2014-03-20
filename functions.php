@@ -83,7 +83,7 @@
    * @see https://twitter.com/ffoodd_fr
    */
 
-  if( ! function_exists( 'ffeeeedd__logo' ) ) {
+  if ( ! function_exists( 'ffeeeedd__logo' ) ) {
     function ffeeeedd__logo() {
       $header_args = array(
         'default-image'       => get_template_directory_uri() . '/img/logo.png',
