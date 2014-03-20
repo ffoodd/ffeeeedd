@@ -231,22 +231,22 @@
   */
 
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
-  function ffeeeedd__categories( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
+  function ffeeeedd__categories( $id, $link = false, $separator = '<span aria-hidden="true"> &rarr;&nbsp;</span>', $nicename = false, $visited = array() ) {
     $final = '';
     $parent = get_category( $id );
-    if (is_wp_error( $parent ) ) {
+    if( is_wp_error( $parent ) ) {
       return $parent;
     }
-    if ( $nicename ) {
+    if( $nicename ) {
       $name = $parent->name;
     } else {
       $name = $parent->cat_name;
     }
-    if ( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
+    if( $parent->parent && ( $parent->parent != $parent->term_id ) && !in_array( $parent->parent, $visited ) ) {
       $visited[] = $parent->parent;
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
-    if ( $link ) {
+    if( $link ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'All entries in ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     } else {
       $final .= $name . $separator;
@@ -266,19 +266,19 @@
     $starthome = get_bloginfo( 'name' );
 
     // Début du fil d’Ariane
-    if ( is_front_page() && is_home() ) {
+    if( is_front_page() && is_home() ) {
       // Accueil par défaut
-      if ( $paged >= 1 ) {
+      if( $paged >= 1 ) {
         $final .= $startdefault;
       } else {
         $final .= $starthome;
       }
-    } elseif ( is_front_page() ) {
+    } elseif( is_front_page() ) {
       // Accueil statique ( page statique définie )
       $final .= $starthome;
-    } elseif ( is_home() ) {
+    } elseif( is_home() ) {
       // Page de blog ( liste des articles )
-      if ( $paged >= 1 ) {
+      if( $paged >= 1 ) {
         $url = get_page_link( get_option( 'page_for_posts' ) );
         $final .= $startdefault . '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $url  ) . '" itemprop="url" title="' . esc_attr_e( 'Entries', 'ffeeeedd' ) . '"><span itemprop="title">' . __( 'Entries', 'ffeeeedd' ) . '</span></a></li>';
       } else {
@@ -290,10 +290,13 @@
     }
 
     // Empêche d'autre(s) code(s) d’interférer avec l’accueil statique ou blog
-    if ( is_front_page() && is_home() ) { } elseif ( is_front_page() ) { } elseif ( is_home() ) { }
+    if( is_front_page() && is_home() ) {
+    } elseif( is_front_page() ) {
+    } elseif( is_home() ) {
+    }
 
     //  Fichiers attachés
-    elseif ( is_attachment() ) {
+    elseif( is_attachment() ) {
       global $post;
       $parent = get_post( $post->post_parent );
       $id = $parent->ID;
@@ -305,7 +308,7 @@
     }
 
     // Type(s) d’articles
-    elseif ( is_single() && !is_singular( 'post' ) ) {
+    elseif( is_single() && !is_singular( 'post' ) ) {
       global $post;
       $nom = get_post_type( $post );
       $archive = get_post_type_archive_link( $nom );
@@ -325,13 +328,13 @@
     }
 
     // Articles sans format
-    elseif ( is_single() && !has_term('', 'post_format') ) {
+    elseif( is_single() && !has_term('', 'post_format') ) {
       // Catégories d’articles
       $category = get_the_category();
       $category_id = get_cat_ID( $category[0]->cat_name );
-      if ( $category_id != 0 ) {
+      if( $category_id != 0 ) {
         $final .= ffeeeedd__categories( $category_id, true, $sep );
-      } elseif ($category_id == 0) {
+      } elseif($category_id == 0) {
         $post_type = get_post_type();
         $tata = get_post_type_object( $post_type );
         $titrearchive = $tata->labels->menu_name;
@@ -340,12 +343,11 @@
       }
       // Avec des pages de commentaires
       $cpage = get_query_var( 'cpage' );
-      if ( is_single() && $cpage > 0 ) {
+      if( is_single() && $cpage > 0 ) {
         global $post;
         $permalink = get_permalink( $post->ID );
         $title = $post->post_title;
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $permalink ) . '" itemprop="url" title="' . esc_attr( $title ) . '"><span itemprop="title">' . $title . '</span></a>';
-        $final .= $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Comments page ', 'ffeeeedd' ) . $cpage . '</span></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( $permalink ) . '" itemprop="url" title="' . esc_attr( $title ) . '"><span itemprop="title">' . $title . '</span></a>' . $sep . '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Comments page ', 'ffeeeedd' ) . $cpage . '</span></li>';
       }
       // Sans pages de commentaires
       else {
@@ -354,16 +356,16 @@
     }
 
     // Catégories
-    elseif ( is_category() ) {
+    elseif( is_category() ) {
       // Variables
       $categoryid = $GLOBALS['cat'];
       $category = get_category( $categoryid );
       $categoryparent = get_category( $category->parent );
       // Résultat
-      if ( $category->parent != 0 ) {
+      if( $category->parent != 0 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . ffeeeedd__categories( $categoryparent, true, $sep, true ) . '</span></li>';
       }
-      if ( $paged <= 1 ) {
+      if( $paged <= 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       } else {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'All entries in ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
@@ -371,36 +373,31 @@
     }
 
     // Pages
-    elseif ( is_page() && !is_home() ) {
+    elseif( is_page() && !is_home() ) {
       $post = $wp_query->get_queried_object();
       // Page simple
-      if ( $post->post_parent == 0 ) {
+      if( $post->post_parent == 0 ) {
         $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . the_title( '', '', false ) . '</span></li>';
       }
       // Page avec ancêtre(s)
-      elseif ( $post->post_parent != 0 ) {
+      elseif( $post->post_parent != 0 ) {
         $title = the_title( '', '', false );
         $ancestors = array_reverse( get_post_ancestors( $post->ID ) );
         array_push( $ancestors, $post->ID );
-        $count = count ( $ancestors ); $i=0;
         foreach ( $ancestors as $ancestor ) {
           if( $ancestor != end( $ancestors ) ) {
             $name = strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) );
-            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $name ) . '" href="' . esc_url( get_permalink( $ancestor ) ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>';
-            $i++;
-            if ( $i < $ancestors ) {
-              $final .= $sep . '</li>';
-            }
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $name ) . '" href="' . esc_url( get_permalink( $ancestor ) ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $sep . '</li>';
           }
           else {
-            $final .= '</li><li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></li>';
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . strip_tags( apply_filters( 'single_post_title', get_the_title( $ancestor ) ) ) . '</span></li>';
           }
         }
       }
     }
 
     // Auteurs
-    elseif ( is_author() ) {
+    elseif( is_author() ) {
       if( get_query_var( 'author_name' ) ) {
         $curauth = get_user_by( 'slug', get_query_var( 'author_name' ) );
       } else {
@@ -410,19 +407,19 @@
     }
 
     // Tags
-    elseif ( is_tag() ) {
+    elseif( is_tag() ) {
       $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . single_tag_title( '', false ) . '</span></li>';
     }
 
     // Formats
-    elseif ( is_tax( 'post_format' ) ) {
+    elseif( is_tax( 'post_format' ) ) {
       $format = get_post_format( $post->ID );
       $pretty_format = get_post_format_string( $format );
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
     }
 
     // Taxonomies
-    elseif ( is_tax( ) ) {
+    elseif( is_tax( ) ) {
       $taxonomie = get_taxonomy( get_query_var( 'taxonomy' ) );
       $term = get_queried_object();
       $types = $taxonomie->object_type;
@@ -452,7 +449,7 @@
     }
 
     // Recherche
-    elseif ( is_search() ) {
+    elseif( is_search() ) {
       global $wp_query;
       $count = $wp_query->found_posts;
       if ( $count > 1 ) {
@@ -463,12 +460,12 @@
     }
 
     // Page 404
-    elseif ( is_404() ) {
+    elseif( is_404() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page not found ', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Types d’articles
-    elseif ( is_post_type_archive() ) {
+    elseif( is_post_type_archive() ) {
       $posttype = get_query_var('post_type');
       $posttypeobject = get_post_type_object( $posttype );
       $titrearchive = $posttypeobject->labels->menu_name;
@@ -478,21 +475,21 @@
     }
 
     // Archives - autres
-    elseif ( is_day() ) {
+    elseif( is_day() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date() ). '</span></li>';
     }
-    elseif ( is_month() ) {
+    elseif( is_month() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
-    elseif ( is_year() ) {
+    elseif( is_year() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
-    elseif ( is_archive() ) {
+    elseif( is_archive() ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Archive', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Pagination
-    if ( $paged >= 1 ) {
+    if( $paged >= 1 ) {
       $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Page ' . $paged . '</span></li>';
     }
     // The End
