@@ -52,25 +52,27 @@
     @author Gaël Poupard
     @see https://twitter.com/ffoodd_fr
   */
-  function ffeeeedd_widgets_init() {
-    // Une colonne latérale spécifique pour la page d’accueil
-    register_sidebar( array(
-      'name' => __( 'Home', 'ffeeeedd' ),
-      'id' => 'accueil',
-      'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget--title">',
-      'after_title' => '</h3>',
-    ) );
-    // La colonne latérale pour les pages
-    register_sidebar( array(
-      'name' => __( 'Pages', 'ffeeeedd' ),
-      'id' => 'pages',
-      'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
-      'after_widget' => '</div>',
-      'before_title' => '<h3 class="widget--title">',
-      'after_title' => '</h3>',
-    ) );
+  if ( ! function_exists( 'ffeeeedd_widgets_init' ) ) {
+    function ffeeeedd_widgets_init() {
+      // Une colonne latérale spécifique pour la page d’accueil
+      register_sidebar( array(
+        'name' => __( 'Home', 'ffeeeedd' ),
+        'id' => 'accueil',
+        'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget--title">',
+        'after_title' => '</h3>',
+      ) );
+      // La colonne latérale pour les pages
+      register_sidebar( array(
+        'name' => __( 'Pages', 'ffeeeedd' ),
+        'id' => 'pages',
+        'before_widget' => '<div id="%1$s" class="widget mb3 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget--title">',
+        'after_title' => '</h3>',
+      ) );
+    }
   }
   add_action( 'widgets_init', 'ffeeeedd_widgets_init' );
 
