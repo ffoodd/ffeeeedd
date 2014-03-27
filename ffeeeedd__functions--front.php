@@ -181,8 +181,26 @@
   add_action( 'wp_enqueue_scripts', 'ffeeeedd__script' );
   if ( ! function_exists( 'ffeeeedd__script' ) ) {
     function ffeeeedd__script() {
-      wp_register_style( 'all', get_stylesheet_directory_uri().'/style.css', '', null, 'all' );
+      wp_register_style(
+        'all',
+        get_stylesheet_directory_uri().'/style.css',
+        false,
+        null,
+        'all'
+      );
+
+
+      wp_register_script(
+        'test-js',
+        get_stylesheet_directory_uri() . '/script.js',
+        false,
+        null,
+        true
+      );
+
+      // On ajoute les fichiers à la queue
       wp_enqueue_style( 'all' );
+      wp_enqueue_script( 'test-js' );
     }
   }
 
