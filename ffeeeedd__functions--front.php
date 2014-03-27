@@ -189,7 +189,6 @@
         'all'
       );
 
-
       wp_register_script(
         'test-js',
         get_stylesheet_directory_uri() . '/script.js',
