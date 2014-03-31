@@ -823,4 +823,4 @@
     }
   }
   // Ce filtre va intercepter la boucle et ré-ordonner les résultats avant qu’ils ne soient renvoyés et affichés
-  add_filter('pre_get_posts','ffeeeedd__recherche');
+  add_filter( 'pre_get_posts','ffeeeedd__recherche' );
