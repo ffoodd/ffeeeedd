@@ -264,7 +264,7 @@
       $final .= ffeeeedd__categories( $parent->parent, $link, $separator, $nicename, $visited );
     }
     if ( $link ) {
-      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . __( 'All entries in ', 'ffeeeedd' ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $parent->term_id ) ) . '" title="' . esc_attr( __( 'All entries in ', 'ffeeeedd' ) ) . esc_attr( $parent->cat_name ) . '" itemprop="url"><span itemprop="title">' . $name . '</span></a>' . $separator . '</li>';
     } else {
       $final .= $name . $separator;
     }
@@ -278,7 +278,7 @@
     global $wp_query;
     $paged = get_query_var( 'paged' );
     $sep = '<span aria-hidden="true"> &rarr;&nbsp;</span>';
-    $final = '<ol class="print-hidden">';
+    $final = '<ol class="print-hidden small">';
     $startdefault = '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( home_url() ) . '" itemprop="url"><span itemprop="title">' . get_bloginfo( 'name' ) . '</span></a>' . $sep . '</li>';
     $starthome = get_bloginfo( 'name' );
 
@@ -385,7 +385,7 @@
       if ( $paged <= 1 ) {
         $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . single_cat_title( '', false ) . '</span></li>';
       } else {
-        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr_e( 'All entries in ', 'ffeeeedd' ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . esc_url( get_category_link( $category ) ) . '" title="' . esc_attr( __( 'All entries in ', 'ffeeeedd' ) ) . esc_attr( single_cat_title( '', false ) ) . '" itemprop="url"><span itemprop="title">' . single_cat_title( '', false ) . '</span></a></li>';
       }
     }
 
@@ -432,7 +432,7 @@
     elseif ( is_tax( 'post_format' ) ) {
       $format = get_post_format( $post->ID );
       $pretty_format = get_post_format_string( $format );
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Entries about ', 'ffeeeedd' ) . $pretty_format . '</span></li>';
     }
 
     // Taxonomies
@@ -446,22 +446,22 @@
       // S’il y a une taxonomie parente, on la récupère aussi
       if ( is_taxonomy_hierarchical( $taxonomie->name ) && $term->parent != 0 ) {
         // On affiche le type d’articles
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $post_type->labels->name ) . '" href="' . esc_url( get_post_type_archive_link( $post_type->name ) ) . '" itemprop="url"><span itemprop="title">' . $post_type->labels->name  . '</span></a>' . $sep . '</li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $post_type->labels->name ) . '" href="' . esc_url( get_post_type_archive_link( $post_type->name ) ) . '" itemprop="url"><span itemprop="title">' . $post_type->labels->name  . '</span></a>' . $sep . '</li>';
         // Puis la taxonomie de premier niveau
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $taxonomie->labels->name ) . '" href="' . esc_url( get_term_link( $term->parent, $term->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $taxonomie->labels->name  . '</span></a>' . $sep . '</li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $taxonomie->labels->name ) . '" href="' . esc_url( get_term_link( $term->parent, $term->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $taxonomie->labels->name  . '</span></a>' . $sep . '</li>';
         // Ensuite les taxonomies parentes intermédiaires
         foreach ( $parents as $parent_id ) {
           $parent = get_term_by( 'id', $parent_id, $taxonomie->name);
           if ( $parent->parent != 0 ) {
-            $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $parent->name ) . '" href="' . esc_url( get_term_link( $parent->term_id, $parent->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $parent->name  . '</span></a>' . $sep . '</li>';
+            $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $parent->name ) . '" href="' . esc_url( get_term_link( $parent->term_id, $parent->taxonomy ) ) . '" itemprop="url"><span itemprop="title">' . $parent->name  . '</span></a>' . $sep . '</li>';
           }
         }
         // Et finalement le nom du terme affiché
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $term->name  . '</span></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $term->name  . '</span></li>';
       } // Sinon, on affiche suelement le type et la taxonomie courante
       else {
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $post_type->labels->name ) . '" href="' . esc_url( get_post_type_archive_link( $post_type->name ) ) . '" itemprop="url"><span itemprop="title">' . $post_type->labels->name  . '</span></a>' . $sep . '</li>';
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $term->name  . '</span></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a title="' . esc_attr( $post_type->labels->name ) . '" href="' . esc_url( get_post_type_archive_link( $post_type->name ) ) . '" itemprop="url"><span itemprop="title">' . $post_type->labels->name  . '</span></a>' . $sep . '</li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $term->name  . '</span></li>';
       }
     }
 
@@ -470,15 +470,15 @@
       global $wp_query;
       $count = $wp_query->found_posts;
       if ( $count > 1 ) {
-        $final .=  '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('%1$s search results for %2$s', 'ffeeeedd' ), $count, get_search_query() ) . '</span></li>';
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('%1$s search results for %2$s', 'ffeeeedd' ), $count, get_search_query() ) . '</span></li>';
       } elseif ( $count == 1 ) {
-        $final .=  '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . '</span></li>';
+        $final .=  '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __('A single search result for "%1$s"', 'ffeeeedd' ), get_search_query() ) . '</span></li>';
       }
     }
 
     // Page 404
     elseif ( is_404() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page not found ', 'ffeeeedd' ) . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( '404 - Page not found ', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Types d’articles
@@ -487,27 +487,27 @@
       $posttypeobject = get_post_type_object( $posttype );
       $titrearchive = $posttypeobject->labels->menu_name;
       if ( isset( $titrearchive ) ) {
-        $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $titrearchive . '</span></li>';
+        $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $titrearchive . '</span></li>';
       }
     }
 
     // Archives - autres
     elseif ( is_day() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date() ). '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date() ). '</span></li>';
     }
     elseif ( is_month() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
     elseif ( is_year() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . sprintf( __( 'Archive : %s', 'ffeeeedd' ), get_the_date( _x( 'Y', 'yearly archives date format', 'ffeeeedd' ) ) ). '</span></li>';
     }
     elseif ( is_archive() ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Archive', 'ffeeeedd' ) . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">' . __( 'Archive', 'ffeeeedd' ) . '</span></li>';
     }
 
     // Pagination
     if ( $paged >= 1 ) {
-      $final .= '<li class="inbl small" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">Page ' . $paged . '</span></li>';
+      $final .= '<li class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">&nbsp;/&nbsp;<span itemprop="title">Page ' . $paged . '</span></li>';
     }
     // The End
     $final .= '</ol>';
