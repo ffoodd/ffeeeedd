@@ -85,7 +85,7 @@
   /**
    * @author Gaël Poupard
    * @see https://twitter.com/ffoodd_fr
-   * @note La deuxième sous-section provient d’un bout de code trouvé dans un dossier «wordcamp-code» dont je ne suis pas parvenu à retrouver l’origine.
+   * @note La deuxième sous-section provient d’un bout de code trouvé dans un dossier « wordcamp-code » dont je ne suis pas parvenu à retrouver l’origine.
   */
 
   /* -- @subsection Désactive les liens et scripts inutiles générés par WordPress */
@@ -94,6 +94,7 @@
   remove_action( 'wp_head', 'wp_dlmp_l10n_style' );
   remove_action( 'wp_head', 'rsd_link' );
   remove_action( 'wp_head', 'wlwmanifest_link' );
+  remove_action('wp_head', 'feed_links', 2);
   remove_action( 'wp_head', 'feed_links_extra', 3 );
 
   /*-- @subsection Retire les attributs title inutiles sur les liens générés par WordPress */
