@@ -54,7 +54,7 @@ get_header(); ?>
             <?php $tags = get_the_tag_list( '', ( ', ' ) );
             // Si l’article est associé à des mots-clés, on affiche le lien vers chaque mot-clé.
             if ( $tags ) { ?>
-            <br /><?php _e( 'Tags:', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo get_the_tag_list( '', ( ', ' ) ); ?></span>.
+              <br /><?php _e( 'Tags:', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo get_the_tag_list( '', ( ', ' ) ); ?></span>.
             <?php } ?>
           </p>
         </footer>

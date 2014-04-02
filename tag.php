@@ -68,12 +68,12 @@ get_header(); ?>
             <strong itemprop="author" class="vcard author">
               <a class="fn" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ) ?>"><?php the_author_meta( 'display_name' ); ?></a>
             </strong>.
+            <?php _e( 'Last modified on', 'ffeeeedd' ); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.
             <?php $cats = get_the_category_list( ( ', ' ) );
             // Si l’article est catégorisé, on affiche le lien vers chaque catégorie.
             if ( $cats ) { ?>
-              <?php _e( 'in', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo $cats; ?></span>
+              <br /><?php _e( 'Categories:', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo $cats; ?></span>
             <?php } ?>.
-            <?php _e( 'Last modified on', 'ffeeeedd' ); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.
           </p>
         </footer>
       </article>
