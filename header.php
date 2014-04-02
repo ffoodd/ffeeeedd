@@ -86,23 +86,17 @@
 
     <nav class="mw--site center clear print-hidden" id="nav" role="navigation" aria-labelledby="nav-title">
       <h3 class="visually-hidden" id="nav-title"><?php _e( 'Main navigation', 'ffeeeedd' ); ?></h3>
-      <?php $ffeeeedd__entete = get_transient( 'ffeeeedd__entete' );
-        if( $ffeeeedd__entete === false ) {
-          if ( has_nav_menu( 'primary' ) ) {
-            $ffeeeedd__entete = wp_nav_menu(
-              array(
-                'theme_location' => 'primary',
-                'items_wrap'     => '<ul class="%2$s aside p-reset m-reset ul-reset">%3$s</ul>',
-                'container'      => false,
-                'echo'           => 0
-              )
-            );
-          } else {
-            $ffeeeedd__entete = wp_dropdown_pages( array( 'depth' => 1 ) );
-          }
-          set_transient( 'ffeeeedd__entete', $ffeeeedd__entete, 60*60*24 );
-        }
-        echo $ffeeeedd__entete; ?>
+      <?php if ( has_nav_menu( 'primary' ) ) {
+        wp_nav_menu(
+          array(
+            'theme_location' => 'primary',
+            'items_wrap'     => '<ul class="%2$s aside p-reset m-reset ul-reset">%3$s</ul>',
+            'container'      => false
+          )
+        );
+      } else {
+        wp_dropdown_pages( array( 'depth' => 1 ) );
+      } ?>
     </nav><!-- / #nav -->
 
     <main class="mw--site center clear" id="content" role="main" itemprop="mainContentOfPage">

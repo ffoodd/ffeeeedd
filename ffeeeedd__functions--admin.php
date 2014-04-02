@@ -19,7 +19,6 @@
     -- Sauvegarder la valeur de ces champs
   == Profil utilisateur
   == Désactive le lien par défaut sur les images
-  == Transient pour la navigation
 */
 
 
@@ -119,17 +118,3 @@
     }
   }
   add_action( 'admin_init', 'ffeeeedd__images', 10 );
-
-
-  /* == @section Transient pour la navigation ==================== */
-  /**
-   * @note Un transient est défini pour stocker la navigation principale :
-    * Il est testé dans header.php : s’il existe on l’affiche directement, sinon on le génère;
-    * Ici on s’assure de le supprimer lorsqu’il est modifié dans l’administration.
-   * @author Dave Clements
-   * @see http://www.doitwithwp.com/use-transients-speed-wordpress-menus/
-   */
-  function ffeeeedd__entete__transients() {
-    delete_transient( 'ffeeeedd__entete' );
-  }
-  add_action( 'wp_update_nav_menu', 'ffeeeedd__entete__transients' );
