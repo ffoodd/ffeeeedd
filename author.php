@@ -14,18 +14,18 @@ get_header(); ?>
 
 <?php if ( have_posts() ) { the_post(); ?>
 
-  <h2><?php _e( 'Author', 'ffeeeedd' ); ?> : <?php echo get_the_author() ; ?></h2>
+  <h2><?php _e( 'Author', 'ffeeeedd' ); ?> : <?php echo get_the_author_meta( 'display_name' ); ?></h2>
 
-  <?php if ( get_the_author_meta( 'description' ) ) { ?>
   <article itemscope itemtype="http://schema.org/Person">
     <?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
-    <h3 itemprop="name"><?php echo get_the_author() ; ?></h3>
-    <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
+    <h3 itemprop="name"><?php echo get_the_author_meta( 'display_name' ); ?></h3>
+    <?php if ( get_the_author_meta( 'description' ) ) { ?>
+      <p itemprop="description"><?php the_author_meta( 'description' ); ?></p>
+    <?php } ?>
     <?php if ( get_the_author_meta( 'user_url' ) ) { ?>
-    <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php _e( 'Website', 'ffeeeedd' ); ?></a>
+      <a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ); ?>" itemprop="url"><?php _e( 'Website', 'ffeeeedd' ); ?></a>
     <?php } ?>
   </article>
-  <?php } ?>
 
   <ol>
     <?php while ( have_posts() ) { the_post(); ?>
@@ -43,7 +43,21 @@ get_header(); ?>
         <time datetime="<?php the_time( 'Y-m-d' ); ?>" itemprop="datePublished"><?php the_time( __( 'j F Y', 'ffeeeedd' ) ); ?></time>
         <?php $excerpt = get_the_excerpt() ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
-        <footer><?php ffeeeedd__meta(); ?></footer>
+        <footer>
+          <p>
+            <?php _e( 'Last modified on', 'ffeeeedd' ); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.
+            <?php $cats = get_the_category_list( ( ', ' ) );
+            // Si l’article est catégorisé, on affiche le lien vers chaque catégorie.
+            if ( $cats ) { ?>
+              <br /><?php _e( 'Categories:', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo $cats; ?></span>
+            <?php } ?>.
+            <?php $tags = get_the_tag_list( '', ( ', ' ) );
+            // Si l’article est associé à des mots-clés, on affiche le lien vers chaque mot-clé.
+            if ( $tags ) { ?>
+            <br /><?php _e( 'Tags:', 'ffeeeedd' ); ?> <span itemprop="keywords"><?php echo get_the_tag_list( '', ( ', ' ) ); ?></span>.
+            <?php } ?>
+          </p>
+        </footer>
       </article>
     </li>
     <?php } ?>
@@ -52,7 +66,7 @@ get_header(); ?>
   <?php ffeeeedd__pagination(); ?>
 
   <?php } else { ?>
-    <h2><?php echo get_the_author() ; ?> <?php _e( 'didn\'t write anything for now.', 'ffeeeedd' ); ?>.</h2>
+    <h2><?php echo get_the_author_meta( 'display_name' ); ?> <?php _e( 'didn\'t write anything for now.', 'ffeeeedd' ); ?>.</h2>
   <?php } ?>
 
 <?php get_footer(); ?>

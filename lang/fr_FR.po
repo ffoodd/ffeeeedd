@@ -1,353 +1,391 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-03-24 16:49+0100\n"
-"PO-Revision-Date: 2014-03-24 16:49+0100\n"
-"Last-Translator: Gaël Poupard <gael@1-ter-net.com>\n"
-"Language-Team: Luc Poupard, Gaël Poupard\n"
-"Language: en\n"
+"POT-Creation-Date: 2014-04-02 13:54+0100\n"
+"PO-Revision-Date: 2014-04-02 13:54+0100\n"
+"Last-Translator: Gaël Poupard <gael@ffoodd.fr>\n"
+"Language-Team: Luc Poupard, Gaël Poupard <gael@ffoodd.fr>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
-"X-Poedit-KeywordsList: gettext;gettext_noop;_;__;_e\n"
-"X-Poedit-Basepath: D:\\clients\\GitHub\\ffeeeedd\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: _;__;_e;_x;esc_attr_e\n"
+"X-Poedit-Basepath: C:\\Users\\Gaël\\Desktop\\GitHub\\ffeeeedd\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: D:\\clients\\GitHub\\ffeeeedd\n"
+"X-Poedit-SearchPath-0: C:\\Users\\Gaël\\Desktop\\GitHub\\ffeeeedd\n"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:17
 msgid "403"
 msgstr "Erreur 403"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:18
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:18
 msgid "Authorized personnel only."
 msgstr "Accès réservé au personnel autorisé."
 
-#: D:\clients\GitHub\ffeeeedd/403.php:20 D:\clients\GitHub\ffeeeedd/404.php:20
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:20
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:20
 msgid "Don't panic, we can help you. See:"
 msgstr "Ne paniquez pas, nous allons vous aider&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:21 D:\clients\GitHub\ffeeeedd/404.php:21
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:21
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:21
 msgid "Here you are:"
 msgstr "Vous êtes ici&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:22 D:\clients\GitHub\ffeeeedd/404.php:22
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:22
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:22
 msgid "If you're still lost, these suggestions may help:"
 msgstr ""
 "Si vous êtes perdus, ces liens pourront peut-être vous aider&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/403.php:34 D:\clients\GitHub\ffeeeedd/404.php:34
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/403.php:34
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:34
 msgid "Email this website's author"
 msgstr "Contactez l’administrateur du site"
 
-#: D:\clients\GitHub\ffeeeedd/404.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:17
 msgid "404"
 msgstr "Erreur 404"
 
-#: D:\clients\GitHub\ffeeeedd/404.php:18
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/404.php:18
 msgid "Page not found"
 msgstr "Page non trouvée"
 
-#: D:\clients\GitHub\ffeeeedd/archive.php:17
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:488
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/archive.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:506
 msgid "Archive"
 msgstr "Archive"
 
-#: D:\clients\GitHub\ffeeeedd/archive.php:29
-#: D:\clients\GitHub\ffeeeedd/author.php:40
-#: D:\clients\GitHub\ffeeeedd/category.php:29
-#: D:\clients\GitHub\ffeeeedd/home.php:29
-#: D:\clients\GitHub\ffeeeedd/index.php:29
-#: D:\clients\GitHub\ffeeeedd/search.php:44
-#: D:\clients\GitHub\ffeeeedd/tag.php:29
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/archive.php:29
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:40
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:63
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/home.php:29
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/index.php:29
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:60
 msgid "Permalink to the post"
 msgstr "Lien vers l’article"
 
-#: D:\clients\GitHub\ffeeeedd/archive.php:32
-#: D:\clients\GitHub\ffeeeedd/author.php:43
-#: D:\clients\GitHub\ffeeeedd/category.php:32
-#: D:\clients\GitHub\ffeeeedd/home.php:32
-#: D:\clients\GitHub\ffeeeedd/index.php:32
-#: D:\clients\GitHub\ffeeeedd/search.php:47
-#: D:\clients\GitHub\ffeeeedd/single.php:22
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:45
-#: D:\clients\GitHub\ffeeeedd/tag.php:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/archive.php:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:43
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:66
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/home.php:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/index.php:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:47
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/single.php:22
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:45
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:63
 msgid "j F Y"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/archive.php:44
-#: D:\clients\GitHub\ffeeeedd/home.php:44
-#: D:\clients\GitHub\ffeeeedd/index.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/archive.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/home.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/index.php:44
 msgid "Nothing found."
 msgstr "Aucun article à afficher."
 
-#: D:\clients\GitHub\ffeeeedd/author.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:17
 msgid "Author"
 msgstr "Auteur"
 
-#: D:\clients\GitHub\ffeeeedd/author.php:25
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:609
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:26
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:627
 msgid "Website"
 msgstr "Site"
 
-#: D:\clients\GitHub\ffeeeedd/author.php:55
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:48
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:74
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:169
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:76
+msgid "Last modified on"
+msgstr "Modifié le"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:52
+msgid "Categories:"
+msgstr "Catégories&thinsp;:&nbsp;"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:57
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:78
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
+msgid "Tags:"
+msgstr "Mots-clés&thinsp;:&nbsp;"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:69
 msgid "didn't write anything for now."
 msgstr "n’a rédigé aucun article pour le moment."
 
-#: D:\clients\GitHub\ffeeeedd/category.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:26
+msgid "Subcategories may interest you:"
+msgstr "Les sous-catégories peuvent vous intéresser&thinsp;:&nbsp;"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:35
 msgid "Category:"
 msgstr "Catégorie&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/category.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:70
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:164
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:166
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:67
+msgid "Entry written by"
+msgstr "Article rédigé par"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:90
 msgid "Nothing found in "
 msgstr "Aucun article trouvé dans "
 
-#: D:\clients\GitHub\ffeeeedd/comments.php:23
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/comments.php:23
 #, php-format
 msgid "First thought on &ldquo;%2$s&rdquo;"
 msgstr "Un commentaire sur «%2$s»"
 
-#: D:\clients\GitHub\ffeeeedd/comments.php:23
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/comments.php:23
 #, php-format
 msgid "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr "%1$s commentaires sur &ldquo;%2$s&rdquo;"
 
-#: D:\clients\GitHub\ffeeeedd/comments.php:34
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/comments.php:34
 msgid "Comments are closed."
 msgstr "Les commentaires sont clos."
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:46
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:47
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:47
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:48
 msgid "SEO"
 msgstr "Référencement naturel"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:56
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:57
 msgid "Those datas are used in <meta> tags for SEO and SMO."
 msgstr ""
 "Ces informations seront utilisées dans les balises <meta> pour optimiser le "
 "référencement naturel et le partage sur les réseaux sociaux."
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:57
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:59
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:58
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:60
 msgid "Title"
 msgstr "Titre"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:62
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:64
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:63
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:65
 msgid "Description"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:67
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--admin.php:69
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:68
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:70
 msgid "Canonical URL"
 msgstr "URL canonique"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:124
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:125
 msgid "Continue reading"
 msgstr "Lire la suite de"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:161
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:163
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:165
-msgid "Entry written by"
-msgstr "Article rédigé par"
-
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:161
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:163
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:164
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:74
 msgid "in"
 msgstr "dans"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:161
-msgid "Tags:"
-msgstr "Mots-clés&thinsp;:&nbsp;"
-
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:168
-msgid "Last modified on"
-msgstr "Modifié le"
-
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:250
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:268
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:389
 msgid "All entries in "
 msgstr "Tous les articles dans "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:283
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:285
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:301
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:303
 msgid "Entries"
 msgstr "Articles"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:350
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:368
 msgid "Comments page "
 msgstr "Commentaires page "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:406
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:424
 msgid "Entries written by "
 msgstr "Articles rédigés par "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:411
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:418
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:429
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:436
 msgid "Entries about "
 msgstr "Articles sur le thème de "
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:456
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:711
-#: D:\clients\GitHub\ffeeeedd/search.php:22
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:474
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:729
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:22
 #, php-format
 msgid "%1$s search results for %2$s"
 msgstr "%1$s résultats pour la recherche %2$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:458
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:476
 #, php-format
 msgid "A single search result for \"%1$s\""
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:464
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:482
 msgid "404 - Page not found "
 msgstr "404 - Page non trouvée"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:479
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:482
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:485
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:497
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:500
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:503
 #, fuzzy, php-format
 msgid "Archive : %s"
 msgstr "Archive"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:521
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:500
+msgid "F Y"
+msgstr ""
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:503
+msgid "Y"
+msgstr ""
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:539
 msgid "Next page &rarr;"
 msgstr "Page suivante &rarr;"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:522
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:540
 msgid "&larr; Previous page"
 msgstr "&larr; Page précédente"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:552
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:570
 msgid "Pingback :"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:552
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:570
 msgid "(Edit)"
 msgstr "(Modifier)"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:563
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:581
 msgid "Post author"
 msgstr "Rédacteur"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:573
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:591
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:578
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:596
 msgid "Edit"
 msgstr "Modifier"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:582
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:600
 msgid "Reply"
 msgstr "Répondre"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:597
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:615
 msgid "Name"
 msgstr "Nom"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:603
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:621
 msgid "Email"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:620
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:638
 msgid "Comment"
 msgstr "Commentaire"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:713
-#: D:\clients\GitHub\ffeeeedd/search.php:26
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:731
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:26
 #, php-format
 msgid "A single search result for %1$s"
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: D:\clients\GitHub\ffeeeedd/ffeeeedd__functions--front.php:733
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:751
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/footer.php:4
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/footer.php:4
 msgid "By default, this content is licensed under"
 msgstr "Sauf mention contraire, l’ensemble du contenu est sous"
 
-#: D:\clients\GitHub\ffeeeedd/functions.php:32
-#: D:\clients\GitHub\ffeeeedd/header.php:88
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FUNCTI~1.PHP:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/header.php:88
 msgid "Main navigation"
 msgstr "Navigation principale"
 
-#: D:\clients\GitHub\ffeeeedd/functions.php:32
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FUNCTI~1.PHP:32
 msgid "Lost menu"
 msgstr "Menu perdu"
 
-#: D:\clients\GitHub\ffeeeedd/functions.php:59
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FUNCTI~1.PHP:59
 msgid "Home"
 msgstr "Accueil"
 
-#: D:\clients\GitHub\ffeeeedd/functions.php:68
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:22
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FUNCTI~1.PHP:68
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:22
 msgid "Pages"
 msgstr ""
 
-#: D:\clients\GitHub\ffeeeedd/header.php:59
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/header.php:59
 msgid "RSS feed"
 msgstr "Flux RSS"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:66
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/header.php:66
 msgid "Skip to navigation"
 msgstr "Aller au menu"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:69
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/header.php:69
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
-#: D:\clients\GitHub\ffeeeedd/header.php:73
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/header.php:73
 msgid "Skip to table of content"
 msgstr "Aller au sommaire"
 
-#: D:\clients\GitHub\ffeeeedd/home.php:17
-#: D:\clients\GitHub\ffeeeedd/index.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/home.php:17
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/index.php:17
 msgid "Recent posts"
 msgstr "Articles récents"
 
-#: D:\clients\GitHub\ffeeeedd/search.php:58
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:58
 msgid "Sorry, but nothing matched your search criteria."
 msgstr "Désolé, aucun contenu ne correspond à votre recherche."
 
-#: D:\clients\GitHub\ffeeeedd/search.php:59
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:59
 msgid "Do you want to try again with some different keywords ?"
-msgstr "Voulez réessayer avec de nouveaux mots-clés ?"
+msgstr "Voulez réessayer avec de nouveaux mots-clés&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/searchform.php:14
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/SEARCH~1.PHP:14
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/SEARCH~1.PHP:15
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/SEARCH~1.PHP:16
 msgid "Search"
 msgstr "Recherche"
 
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:25
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:25
 msgid "Feeds"
 msgstr "Flux"
 
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:28
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:28
 msgid "Posts RSS feed"
 msgstr "Flux RSS des articles"
 
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:31
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:31
 msgid "Comments RSS feed"
 msgstr "Flux RSS des commentaires"
 
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:35
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:35
 msgid "Categories"
 msgstr "Catégories"
 
-#: D:\clients\GitHub\ffeeeedd/sitemap.php:38
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/sitemap.php:38
 msgid "Posts"
 msgstr "Articles"
 
-#: D:\clients\GitHub\ffeeeedd/tag.php:17
-msgid "Tags"
-msgstr "Mots-clés"
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:31
+msgid "Tag :"
+msgstr "Mot-clé&thinsp;:&nbsp;"
 
-#: D:\clients\GitHub\ffeeeedd/tag.php:44
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:90
+msgid "Related tags:"
+msgstr "Mots-clés associés&thinsp;:&nbsp;"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:104
 msgid "No post found tagged"
 msgstr "Aucun article trouvé portant l’étiquette"
+
+#~ msgid "Tags"
+#~ msgstr "Mots-clés"
 
 #~ msgid "Share on"
 #~ msgstr "Partager sur"
