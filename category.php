@@ -68,7 +68,7 @@ get_header(); ?>
         <p itemprop="description"><?php echo $excerpt ?></p>
         <footer>
           <p><?php _e( 'Entry written by', 'ffeeeedd' ); ?>
-            <<strong itemprop="author" class="vcard author">
+            <strong itemprop="author" class="vcard author">
               <a class="fn" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ) ?>"><?php the_author_meta( 'display_name' ); ?></a>
             </strong>.
             <?php _e( 'Last modified on', 'ffeeeedd' ); ?> <time class="updated" datetime="<?php the_modified_date( 'Y-m-d' ); ?>" itemprop="dateModified"><?php the_modified_date(); ?></time>.
