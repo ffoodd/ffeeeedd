@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ffeeeedd\n"
-"POT-Creation-Date: 2014-04-02 13:54+0100\n"
-"PO-Revision-Date: 2014-04-02 13:54+0100\n"
+"POT-Creation-Date: 2014-11-30 11:59+0100\n"
+"PO-Revision-Date: 2014-11-30 12:00+0100\n"
 "Last-Translator: Gaël Poupard <gael@ffoodd.fr>\n"
 "Language-Team: Luc Poupard, Gaël Poupard <gael@ffoodd.fr>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-KeywordsList: _;__;_e;_x;esc_attr_e\n"
 "X-Poedit-Basepath: C:\\Users\\Gaël\\Desktop\\GitHub\\ffeeeedd\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -54,7 +54,7 @@ msgid "Page not found"
 msgstr "Page non trouvée"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/archive.php:17
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:506
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:512
 msgid "Archive"
 msgstr "Archive"
 
@@ -91,24 +91,25 @@ msgid "Author"
 msgstr "Auteur"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:26
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:627
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:633
 msgid "Website"
 msgstr "Site"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:48
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:74
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:169
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:76
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:173
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:71
 msgid "Last modified on"
 msgstr "Modifié le"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:52
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:75
 msgid "Categories:"
 msgstr "Catégories&thinsp;:&nbsp;"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/author.php:57
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:78
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:166
 msgid "Tags:"
 msgstr "Mots-clés&thinsp;:&nbsp;"
 
@@ -125,9 +126,9 @@ msgid "Category:"
 msgstr "Catégorie&thinsp;:&nbsp;"
 
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/category.php:70
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:164
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:166
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:168
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:170
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:67
 msgid "Entry written by"
 msgstr "Article rédigé par"
@@ -150,147 +151,150 @@ msgstr "%1$s commentaires sur &ldquo;%2$s&rdquo;"
 msgid "Comments are closed."
 msgstr "Les commentaires sont clos."
 
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:46
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:47
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:48
 msgid "SEO"
 msgstr "Référencement naturel"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:57
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:56
 msgid "Those datas are used in <meta> tags for SEO and SMO."
 msgstr ""
 "Ces informations seront utilisées dans les balises <meta> pour optimiser le "
 "référencement naturel et le partage sur les réseaux sociaux."
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:58
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:60
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:57
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:59
 msgid "Title"
 msgstr "Titre"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:63
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:65
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:62
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:64
 msgid "Description"
 msgstr ""
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:68
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:70
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:67
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~1.PHP:69
 msgid "Canonical URL"
 msgstr "URL canonique"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:125
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:129
 msgid "Continue reading"
 msgstr "Lire la suite de"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:162
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:164
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/tag.php:74
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:166
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:168
 msgid "in"
 msgstr "dans"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:268
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:389
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:274
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:395
 msgid "All entries in "
 msgstr "Tous les articles dans "
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:301
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:303
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:288
+msgid "You are here: "
+msgstr "Vous êtes ici&nbsp;:"
+
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:307
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:309
 msgid "Entries"
 msgstr "Articles"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:368
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:374
 msgid "Comments page "
 msgstr "Commentaires page "
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:424
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:430
 msgid "Entries written by "
 msgstr "Articles rédigés par "
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:429
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:436
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:435
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:442
 msgid "Entries about "
 msgstr "Articles sur le thème de "
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:474
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:729
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:480
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:735
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:22
 #, php-format
 msgid "%1$s search results for %2$s"
 msgstr "%1$s résultats pour la recherche %2$s"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:476
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:482
 #, php-format
 msgid "A single search result for \"%1$s\""
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:482
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:488
 msgid "404 - Page not found "
 msgstr "404 - Page non trouvée"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:497
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:500
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:503
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:506
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:509
 #, fuzzy, php-format
 msgid "Archive : %s"
 msgstr "Archive"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:500
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:506
 msgid "F Y"
 msgstr ""
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:503
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:509
 msgid "Y"
 msgstr ""
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:539
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:545
 msgid "Next page &rarr;"
 msgstr "Page suivante &rarr;"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:540
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:546
 msgid "&larr; Previous page"
 msgstr "&larr; Page précédente"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:570
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:576
 msgid "Pingback :"
 msgstr ""
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:570
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:576
 msgid "(Edit)"
 msgstr "(Modifier)"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:581
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:587
 msgid "Post author"
 msgstr "Rédacteur"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:591
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:597
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:596
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:602
 msgid "Edit"
 msgstr "Modifier"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:600
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:606
 msgid "Reply"
 msgstr "Répondre"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:615
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:621
 msgid "Name"
 msgstr "Nom"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:621
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:627
 msgid "Email"
 msgstr ""
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:638
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:644
 msgid "Comment"
 msgstr "Commentaire"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:731
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:737
 #: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/search.php:26
 #, php-format
 msgid "A single search result for %1$s"
 msgstr "Un seul résultat pour la recherche %1$s"
 
-#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:751
+#: C:/Users/GAL~1/Desktop/GitHub/ffeeeedd/FFEEEE~2.PHP:757
 #, php-format
 msgid "Page %s"
 msgstr ""
