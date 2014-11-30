@@ -252,6 +252,8 @@
    * @see https://gist.github.com/jonathantneal/4037764
    * @note Bonus 2 : on se réfère au modèle proposé par la WAI :
    * @see http://www.w3.org/WAI/tutorials/menus/multiple-ways/#breadcrumbs
+   * @note Nous sommes obligés de conserver des <div> et <span> pour supporter les microdonnées :
+   * @note Si vous n’avez pa besoin des micros-données, supprimez-les :)
   */
 
   /* -- @subsection Récupère les catégories parentes et y ajoute les microdonnées -------------------- */
