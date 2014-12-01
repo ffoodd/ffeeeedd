@@ -516,7 +516,7 @@
 
     // Pagination
     if ( $paged >= 1 ) {
-      $final .= '<divclass="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">&nbsp;/&nbsp;<span itemprop="title">Page ' . $paged . '</span></div>';
+      $final .= '<div class="inbl" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">&nbsp;/&nbsp;<span itemprop="title">Page ' . $paged . '</span></div>';
     }
     // The End
     $final .= '</nav>';
